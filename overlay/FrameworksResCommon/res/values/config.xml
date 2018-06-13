@@ -29,7 +29,6 @@
     <!-- This setting is deprecated, please use
          com.android.networkstack.tethering.R.array.config_tether_bluetooth_regexs instead. -->
     <string-array name="config_tether_bluetooth_regexs" translatable="false">
-        <item>bnep\\d</item>
         <item>bt-pan</item>
     </string-array>
 
