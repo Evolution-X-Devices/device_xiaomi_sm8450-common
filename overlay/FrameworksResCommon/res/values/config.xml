@@ -32,6 +32,11 @@
         <item>bt-pan</item>
     </string-array>
 
+    <!-- When true, the tethering upstream network follows the current default
+         Internet network (except when the current default network is mobile,
+         in which case a DUN network will be used if required). -->
+    <bool translatable="false" name="config_tether_upstream_automatic">true</bool>
+
     <!-- This setting is deprecated, please use
          com.android.networkstack.tethering.R.array.config_dhcp_range instead. -->
     <string-array name="config_tether_dhcp_range" translatable="false">
