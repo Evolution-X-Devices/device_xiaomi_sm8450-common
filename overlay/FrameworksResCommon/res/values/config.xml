@@ -57,15 +57,6 @@
         <item>192.168.51.254</item>
     </string-array>
 
-    <!-- This setting is deprecated, please use
-         com.android.networkstack.tethering.R.array.config_tether_upstream_types. -->
-    <integer-array name="config_tether_upstream_types" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>5</item>
-        <item>7</item>
-    </integer-array>
-
     <!-- Flag indicating whether we should enable the automatic brightness.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
