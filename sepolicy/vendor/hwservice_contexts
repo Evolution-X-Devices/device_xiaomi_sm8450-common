@@ -14,3 +14,6 @@ com.fingerprints.extension::IFingerprintOptical u:object_r:vendor_hal_fingerprin
 
 # Mlipay
 vendor.xiaomi.hardware.mlipay::IMlipayService u:object_r:hal_mlipay_hwservice:s0
+
+# Secure Element
+vendor.qti.esepowermanager::IEsePowerManager u:object_r:vendor_hal_esepowermanager_hwservice:s0
