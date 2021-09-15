@@ -85,6 +85,9 @@ persist.vendor.vcb.enable=false
 ro.camera.enableCamera1MaxZsl=1
 ro.hardware.camera=xiaomi
 
+# Chipset
+ro.soc.manufacturer=QTI
+
 # Dex2oat
 dalvik.vm.dex2oat64.enabled=true
 
