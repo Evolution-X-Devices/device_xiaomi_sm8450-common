@@ -4,6 +4,9 @@ log.tag.CHIUSECASE=ERROR
 # CNE
 persist.vendor.cne.feature=1
 
+# Display
+debug.sf.frame_rate_multiple_threshold=120
+
 # Media
 media.stagefright.thumbnail.prefer_hw_codecs=true
 
