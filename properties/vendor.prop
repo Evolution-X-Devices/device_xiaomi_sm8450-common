@@ -216,6 +216,7 @@ persist.vendor.ssr.restart_level=ALL_ENABLE
 ro.usb.uvc.enabled=true
 ro.usb.uvc.disable_video_encode_flag=true
 sys.usb.mtp.batchcancel=1
+vendor.usb.controller=a600000.dwc3
 vendor.usb.diag.func.name=ffs
 vendor.usb.dpl.inst.name=dpl
 vendor.usb.qdss.inst.name=qdss_sw

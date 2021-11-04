@@ -103,10 +103,6 @@ on early-boot
     wait /dev/fastrpc-cdsp 2
     wait /dev/fastrpc-sdsp 2
 
-    # USB controller configuration. Set it before init.rc runs class_start hal
-    # on boot: the QTI gadget HAL exits when it is not defined yet.
-    setprop vendor.usb.controller a600000.dwc3
-
 on boot
     write /dev/cpuset/audio-app/cpus 1-2
 
@@ -177,8 +173,6 @@ on property:vendor.display.lcd_density=640
 on charger
     restart vendor.charger
     start vendor.power_off_alarm
-    setprop sys.usb.controller a600000.dwc3
-    wait /sys/class/udc/${sys.usb.controller}
     write /sys/kernel/cnss/charger_mode 1
 
 #service vendor.lowi /vendor/bin/sscrpcd
