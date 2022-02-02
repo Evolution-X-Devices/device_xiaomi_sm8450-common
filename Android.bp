@@ -12,6 +12,13 @@ soong_namespace {
 }
 
 install_symlink {
+    name: "firmware_aw_cali.bin_symlink",
+    vendor: true,
+    installed_location: "firmware/aw_cali.bin",
+    symlink_target: "/mnt/vendor/persist/audio/aw_calr.bin",
+}
+
+install_symlink {
     name: "firmware_WCNSS_qcom_cfg.ini_symlink",
     vendor: true,
     installed_location: "firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini",
