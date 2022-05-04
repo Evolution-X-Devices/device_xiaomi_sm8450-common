@@ -65,6 +65,11 @@ TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED := true
 DEX2OAT_TARGET_CPU_VARIANT := cortex-a76
 DEX2OAT_TARGET_CPU_VARIANT_RUNTIME := cortex-a76
 
+# Dolby Vision
+SOONG_CONFIG_NAMESPACES += dolby_vision
+SOONG_CONFIG_dolby_vision += enabled
+SOONG_CONFIG_dolby_vision_enabled := true
+
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
 
