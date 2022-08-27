@@ -126,6 +126,10 @@ on property:sys.boot_completed=1
     # Dynamically set IRQ affinity for KGSL and DRM
     exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.xiaomi_sm8450.sh
 
+on property:vendor.post_boot.parsed=1
+    # Set restricted cpuset to the same CPUs as system-background
+    copy /dev/cpuset/system-background/cpus /dev/cpuset/restricted/cpus
+
 on property:persist.sys.xtra-daemon.enabled=*
     restart loc_launcher
 
