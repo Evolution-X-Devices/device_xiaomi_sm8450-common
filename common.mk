@@ -112,6 +112,17 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml
 
+# Bluetooth Library Deps
+ PRODUCT_PACKAGES += \
+     libbluetooth_audio_session \
+     libbthost_if.vendor \
+     libldacBT_bco \
+     libldacBT_bco.vendor \
+     liblhdc \
+     liblhdcBT_enc \
+     liblhdcdec \
+     liblhdcBT_dec
+
 # Boot control
 PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \

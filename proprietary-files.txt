@@ -50,6 +50,16 @@ vendor/lib64/libsoc_helper.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
 
+# Bluetooth (LDAC & LHDC)
+system/lib/libldacBT_abr.so|df5fd8ec11088b856b9ab7ec4578fae020187053
+system/lib/libldacBT_enc.so|640a7adeb984f28a8498a87b30a0f28141bb07aa
+system_ext/lib/liblhdcBT_enc.so|7c5b5fd0a4f815c6a19435515bb4aa98cb0fa809
+system_ext/lib/liblhdc.so|3aa0e656ba9991b392a0fd1451916799d3a48444
+system/lib64/libldacBT_abr.so|a047c11e7c506f48de5580e6a819e659fa208f1b
+system/lib64/libldacBT_enc.so|d859ffa7da473040417234de67fe6342abec6968 
+system_ext/lib64/liblhdcBT_enc.so|6575185953e386e9a56ed4f40c16da59a575de56
+system_ext/lib64/liblhdc.so|b8e88fc77386ca814dc56aea5c0ad2a0cc19119b
+
 # CDSP
 vendor/bin/cdsprpcd
 vendor/etc/init/vendor.qti.cdsprpc-service.rc
