@@ -21,6 +21,10 @@ on boot
     chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
     chown system system /sys/module/perf_helper/mimd/mimdtrigger
 
+    # Workarround for cache
+     rm /data/resource-cache
+     rm /data/system/package_cache
+
     # Create persist for camera calibration data
     mkdir /mnt/vendor/persist/camera 0755 system cameraserver
 
