@@ -157,7 +157,9 @@ void GnssAPIClient::onCapabilitiesCb(LocationCapabilitiesMask capabilitiesMask) 
         capabilities |= IGnssCallback::CAPABILITY_SATELLITE_BLOCKLIST;
     }
     // CORRELATION_VECTOR not supported.
-    capabilities |= IGnssCallback::CAPABILITY_SATELLITE_PVT;
+    if (capabilitiesMask & LOCATION_CAPABILITIES_QWES_SV_POLYNOMIAL_BIT) {
+        capabilities |= IGnssCallback::CAPABILITY_SATELLITE_PVT;
+    }
     if (capabilitiesMask & LOCATION_CAPABILITIES_MEASUREMENTS_CORRECTION_BIT) {
         capabilities |= IGnssCallback::CAPABILITY_MEASUREMENT_CORRECTIONS_FOR_DRIVING;
     }
