@@ -111,6 +111,9 @@ on property:vendor.post_boot.parsed=1
     # Set background cpuset
     write /dev/cpuset/background/cpus 0-1
 
+    # Setup foreground cpuset for display composer.
+    write /dev/cpuset/foreground/cpus 0-6
+
 on property:persist.sys.xtra-daemon.enabled=*
     restart loc_launcher
 
