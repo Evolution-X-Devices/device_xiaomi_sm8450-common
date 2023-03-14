@@ -6279,27 +6279,28 @@ GnssAdapter::nfwControlCommand(std::vector<std::string>& enabledNfws) {
                 return;
             }
 
-            GnssConfigGpsLock gpsLock;
+            if (mAdapter.mSupportNfwControl) {
+                GnssConfigGpsLock gpsLock;
 
-            uint32_t nfwControlBits;
-            nfwControlBits = mAdapter.getNfwControlBits(mEnabledNfws);
-            gpsLock = ContextBase::mGps_conf.GPS_LOCK;
-            gpsLock &= GNSS_CONFIG_GPS_LOCK_MO;
-            gpsLock |= nfwControlBits;
-            ContextBase::mGps_conf.GPS_LOCK = gpsLock;
+                uint32_t nfwControlBits;
+                nfwControlBits = mAdapter.getNfwControlBits(mEnabledNfws);
+                gpsLock = ContextBase::mGps_conf.GPS_LOCK;
+                gpsLock &= GNSS_CONFIG_GPS_LOCK_MO;
+                gpsLock |= nfwControlBits;
+                ContextBase::mGps_conf.GPS_LOCK = gpsLock;
 
-            LOC_LOGv("gpsLock = 0x%X nfwControlBits = 0x%X", gpsLock, nfwControlBits);
-            mApi.sendMsg(new LocApiMsg([&mApi = mApi, gpsLock]() {
-                         mApi.setGpsLockSync((GnssConfigGpsLock)gpsLock);
-            }));
+                LOC_LOGv("gpsLock = 0x%X nfwControlBits = 0x%X", gpsLock, nfwControlBits);
+                mApi.sendMsg(new LocApiMsg([&mApi = mApi, gpsLock]() {
+                             mApi.setGpsLockSync((GnssConfigGpsLock)gpsLock);
+                }));
+            } else {
+                LOC_LOGw("NFW control is not supported, do not use this for NFW status");
+            }
         }
     };
 
-    if (mSupportNfwControl) {
-        sendMsg(new MsgControlNfwLocationAccess(*this, *mLocApi, enabledNfws));
-    } else {
-        LOC_LOGw("NFW control is not supported, do not use this for NFW");
-    }
+    sendMsg(new MsgControlNfwLocationAccess(*this, *mLocApi, enabledNfws));
+
 }
 
 // Set tunc constrained mode, use 0 session id to indicate
