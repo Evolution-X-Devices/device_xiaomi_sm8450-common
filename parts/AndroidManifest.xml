@@ -106,5 +106,16 @@
             android:permission="RefreshService">
         </service>
 
+        <service
+            android:name=".thermal.ThermalTileService"
+            android:icon="@drawable/ic_thermal"
+            android:label="@string/thermal_title"
+            android:exported="true"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
     </application>
 </manifest>
