@@ -80,6 +80,7 @@ vendor.hw.fm.init=0
 
 # Camera
 camera.disable_zsl_mode=true
+persist.vendor.camera.logInfoMask=false
 persist.vendor.vcb.enable=false
 ro.camera.enableCamera1MaxZsl=1
 ro.hardware.camera=xiaomi
