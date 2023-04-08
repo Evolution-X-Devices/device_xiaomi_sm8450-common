@@ -1,3 +1,6 @@
+# Camera
+log.tag.CHIUSECASE=ERROR
+
 # CNE
 persist.vendor.cne.feature=1
 
