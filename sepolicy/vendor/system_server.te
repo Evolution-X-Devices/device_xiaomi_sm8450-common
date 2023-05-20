@@ -4,3 +4,6 @@ allow system_server vendor_sysfs_battery_supply:file rw_file_perms;
 allow system_server vendor_sysfs_battery_supply:file { getattr open read };
 
 allow system_server vendor_sysfs_graphics:file rw_file_perms;
+
+# Allow system_server to read vendor_sysfs_battery_supply file
+r_dir_file(system_server, vendor_sysfs_battery_supply)
