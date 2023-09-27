@@ -4,8 +4,6 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <device name="Android">
-    <item name="none">0</item>
-
     <!-- Additional power used when screen is turned on at minimum brightness -->
     <item name="screen.on">100</item>
 
