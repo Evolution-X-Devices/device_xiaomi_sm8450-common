@@ -125,7 +125,6 @@ debug.sf.early.sf.duration=15666666
 debug.sf.earlyGl.app.duration=13666666
 debug.sf.earlyGl.sf.duration=15666666
 debug.sf.enable_gl_backpressure=1
-debug.sf.enable_hwc_vds=0
 debug.sf.frame_rate_multiple_threshold=120
 debug.sf.hw=0
 debug.sf.latch_unsignaled=1
