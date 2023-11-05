@@ -22,7 +22,7 @@
 #key 105   DPAD_CENTER VIRTUAL
 
 # Double Tap
-key 106   BUTTON_C VIRTUAL
+#key 106   BUTTON_C VIRTUAL
 
 # Keymap between kernel and framework.
 # Refer to input-event-codes.h(kernel) and KeyEvent.java(framework) for more details.

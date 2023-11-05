@@ -141,6 +141,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
+    KeyHandler \
     XiaomiParts
 
 # Display
@@ -173,9 +174,15 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.biometrics.face.xml
 
 # Fingerprint
+ifneq ($(TARGET_USES_MFP_DAEMON),true)
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint-service.xiaomi \
     libudfpshandler:64
+endif
+
+PRODUCT_PACKAGES += \
+    vendor.xiaomi.hardware.fingerprintextension@1.0.vendor \
+    android.hardware.biometrics.fingerprint@2.1.vendor
 
 ifeq ($(TARGET_HAS_UDFPS),true)
 PRODUCT_PACKAGES += \
@@ -319,6 +326,7 @@ PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
     DeviceAsWebcamResCommon \
     FrameworksResCommon \
+    LineageSdkKeyhandler \
     SettingsResCommon \
     SystemUIResCommon \
     TelephonyResCommon \

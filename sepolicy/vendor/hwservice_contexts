@@ -4,6 +4,7 @@ vendor.xiaomi.hardware.campostproc::IMiPostProcService u:object_r:vendor_hal_cam
 vendor.xiaomi.hardware.quickcamera::IQuickCameraService u:object_r:hal_quickcamera_hwservice:s0
 
 # Fingerprint
+vendor.xiaomi.hardware.fingerprintextension::IXiaomiFingerprint u:object_r:hal_xiaomi_fingerprint_hwservice:s0
 vendor.xiaomi.hardware.fx.tunnel::IMiFxTunnel u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
 com.fingerprints.extension::IFingerprintEngineering u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
 com.fingerprints.extension::IFingerprintAuthenticator u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
