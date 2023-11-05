@@ -17,6 +17,7 @@ allow hal_fingerprint_default vendor_fingerprint_data_file:dir create_dir_perms;
 allow hal_fingerprint_default vendor_fingerprint_data_file:file create_file_perms;
 allow hal_fingerprint_default vendor_fingerprint_device:chr_file rwx_file_perms;
 allow hal_fingerprint_default vendor_hal_fingerprint_hwservice_xiaomi:hwservice_manager { add find };
+allow hal_fingerprint_default hal_xiaomi_fingerprint_hwservice:hwservice_manager { add find };
 allow hal_fingerprint_default vendor_hal_perf_default:binder call;
 allow hal_fingerprint_default vendor_hal_perf_hwservice:hwservice_manager find;
 allow hal_fingerprint_default vendor_sysfs_displayfeature:dir search;
