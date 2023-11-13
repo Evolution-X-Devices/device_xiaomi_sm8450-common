@@ -41,8 +41,8 @@ subsystem mem_buf_vm
     dirname /dev/mem_buf_vm
 
 # the DIAG device node is not world writable/readable.
-/dev/diag                 0660   system     oem_2901
-/dev/mhi_*_pipe_4         0660   system     system
+/dev/diag                 0666   system     oem_2901
+/dev/mhi_*_pipe_4         0666   system     system
 
 /dev/genlock              0666   system     system
 /dev/wlan                 0660   wifi       wifi
