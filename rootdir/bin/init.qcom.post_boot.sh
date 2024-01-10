@@ -864,8 +864,6 @@ case "$target" in
                         chip_family_id=-1
                 fi
 
-                echo "adsprpc : chip_family_id : $chip_faily_id" > /dev/kmsg
-
                 case "$chip_family_id" in
                     "0x84")
                     if [ -f /sys/devices/platform/soc/soc:qcom,msm_fastrpc/fastrpc_cdsp_status ]; then
@@ -874,11 +872,8 @@ case "$target" in
                         fastrpc_cdsp_status=-1
                     fi
 
-                    echo "adsprpc : fastrpc_cdsp_status : $fastrpc_cdsp_status" > /dev/kmsg
-
                     if [ $fastrpc_cdsp_status -eq 0 ]; then
                             setprop vendor.fastrpc.disable.cdsprpcd.daemon 1
-                            echo "adsprpc : Disabled cdsp daemon" > /dev/kmsg
                     fi
                 esac
                  ;;
