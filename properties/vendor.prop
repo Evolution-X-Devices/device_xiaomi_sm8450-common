@@ -68,6 +68,8 @@ bluetooth.profile.pan.panu.enabled=true
 bluetooth.profile.pbap.server.enabled=true
 bluetooth.profile.sap.server.enabled=false
 persist.bluetooth.a2dp_offload.disabled=false
+persist.bluetooth.leaudio.allow.multiple.context=false
+persist.bluetooth.leaudio_offload.disabled=false
 persist.vendor.qcom.bluetooth.a2dp_mcast_test.enabled=false
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aac-aptx-aptxhd-ldac
 persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
@@ -76,6 +78,7 @@ persist.vendor.qcom.bluetooth.aptxadaptiver2_2_support=false
 persist.vendor.qcom.bluetooth.scram.enabled=false
 persist.vendor.qcom.bluetooth.twsp_state.enabled=false
 ro.bluetooth.a2dp_offload.supported=true
+ro.bluetooth.leaudio_offload.supported=true
 vendor.hw.fm.init=0
 
 # Camera
