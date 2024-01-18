@@ -28,6 +28,11 @@ vendor/lib64/libpal_net_if.so
 vendor/lib64/libqtigefar.so;DISABLE_CHECKELF
 vendor/lib64/soundfx/libasphere.so
 
+# Audio FX modules - from qssi-user-14-UKQ1.230924.001-1702916091049-release-keys
+vendor/lib64/soundfx/libqcbassboost.so|e655270002aef6e9eb79774b16d2cda408fc3be8
+vendor/lib64/soundfx/libqcreverb.so|6365400f47e7a1f56f902884993963acd567bbdf
+vendor/lib64/soundfx/libqcvirt.so|e2cd59853b16a7d11739472085b07e90771a6dbe
+
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
