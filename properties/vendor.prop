@@ -53,6 +53,7 @@ bluetooth.hardware.power.idle_cur_ma=6
 bluetooth.hardware.power.operating_voltage_mv=3700
 bluetooth.hardware.power.rx_cur_ma=28
 bluetooth.hardware.power.tx_cur_ma=36
+bluetooth.hfp.codec_aptx_voice.enabled=true
 bluetooth.profile.a2dp.source.enabled=true
 bluetooth.profile.asha.central.enabled=true
 bluetooth.profile.avrcp.controller.enabled=false
