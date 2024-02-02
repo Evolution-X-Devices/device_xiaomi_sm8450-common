@@ -18,9 +18,8 @@ import android.os.UserHandle;
 import android.util.Log;
 
 public class NfcCameraService extends Service {
-    private static final String TAG = "NfcCameraService";
-    private static final boolean DEBUG = true;
 
+    private static final String TAG = "NfcCameraService";
     private static final int MAX_POLLING_PAUSE_TIMEOUT = 40000;
     private static final String FRONT_CAMERA_ID = "1";
 
@@ -130,6 +129,8 @@ public class NfcCameraService extends Service {
     }
 
     private static void dlog(String msg) {
-        if (DEBUG) Log.d(TAG, msg);
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, msg);
+        }
     }
 }
