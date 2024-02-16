@@ -108,6 +108,9 @@ on property:vendor.post_boot.parsed=1
     # Set restricted cpuset to the same CPUs as system-background
     copy /dev/cpuset/system-background/cpus /dev/cpuset/restricted/cpus
 
+    # Set background cpuset
+    write /dev/cpuset/background/cpus 0-1
+
 on property:persist.sys.xtra-daemon.enabled=*
     restart loc_launcher
 
