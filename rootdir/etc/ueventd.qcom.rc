@@ -508,6 +508,9 @@ subsystem mem_buf_vm
 # devcoredump data attributes
 /sys/class/devcoredump/devcd*                           data                            0600    system  system
 
+#power_state device node
+/dev/power_state           0660   system      system
+
 # Battery
 /sys/class/qcom-battery                                 input_suspend                   0660    system  system
 /sys/class/qcom-battery                                 reverse_chg_mode                0644    system  system
