@@ -495,6 +495,7 @@ PRODUCT_COPY_FILES += \
 
 # WiFi Display
 PRODUCT_PACKAGES += \
+    android.media.audio.common.types-V2-cpp:64 \
     libwfdaac_vendor:64
 
 PRODUCT_BOOT_JARS += \
