@@ -100,9 +100,9 @@ on fs
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
 
-on post-fs
+#on post-fs
     # set RLIMIT_MEMLOCK to 64MB
-    setrlimit 8 67108864 67108864
+    #setrlimit 8 67108864 67108864
 
 on late-fs
     mount_all /vendor/etc/fstab.qcom --late
