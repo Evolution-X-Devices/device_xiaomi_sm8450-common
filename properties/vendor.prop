@@ -71,6 +71,7 @@ bluetooth.profile.pbap.sim.enabled=true
 bluetooth.profile.sap.server.enabled=false
 persist.bluetooth.a2dp_offload.disabled=false
 persist.bluetooth.leaudio.allow.multiple.context=false
+persist.bluetooth.leaudio.bypass_allow_list=true
 persist.bluetooth.leaudio_offload.disabled=false
 persist.vendor.qcom.bluetooth.a2dp_mcast_test.enabled=false
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aac-aptx-aptxhd-ldac
