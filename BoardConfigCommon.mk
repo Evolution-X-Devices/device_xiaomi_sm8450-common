@@ -217,6 +217,7 @@ VENDOR_SECURITY_PATCH := 2024-08-01
 
 # Sepolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
+include device/xiaomi/sepolicy/SEPolicy.mk
 
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
