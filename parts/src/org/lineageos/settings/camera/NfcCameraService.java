@@ -14,6 +14,7 @@ import android.hardware.camera2.CameraManager;
 import android.nfc.NfcAdapter;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.util.Log;
 
@@ -22,6 +23,8 @@ import java.util.Set;
 public class NfcCameraService extends Service {
 
     private static final String TAG = "NfcCameraService";
+    private static final String SYSPROP = "persist.nfc.camera.pause_polling";
+
     private static final int MAX_POLLING_PAUSE_TIMEOUT = 40000;
     private static final String FRONT_CAMERA_ID = "1";
 
@@ -85,10 +88,12 @@ public class NfcCameraService extends Service {
 
     public static void startService(Context context) {
         if (!context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_NFC)) {
-            Log.i(TAG, "No nfc on this device, won't start service!");
-            return;
+            Log.i(TAG, "No nfc on this device");
+        } else if (SystemProperties.getBoolean(SYSPROP, false)) {
+            Log.i(TAG, "Disabled via system prop");
+        } else {
+            context.startServiceAsUser(new Intent(context, NfcCameraService.class), UserHandle.CURRENT);
         }
-        context.startServiceAsUser(new Intent(context, NfcCameraService.class), UserHandle.CURRENT);
     }
 
     private NfcAdapter getNfcAdapter() {
