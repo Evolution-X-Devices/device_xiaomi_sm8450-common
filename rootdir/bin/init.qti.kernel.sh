@@ -31,21 +31,6 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #=============================================================================
 
-verify_pasr_support()
-{
-	ddr_type=`od -An -tx /proc/device-tree/memory/ddr_device_type`
-	ddr_type5="08"
-
-         if [ -d /sys/kernel/mem-offline ]; then
-		#only LPDDR5 supports PAAR
-		if [ ${ddr_type:4:2} != $ddr_type5 ]; then
-			setprop vendor.pasr.activemode.enabled false
-		fi
-
-                setprop vendor.pasr.enabled true
-         fi
-}
-
 start_msm_irqbalance()
 {
          if [ -f /vendor/bin/msm_irqbalance ]; then
@@ -53,4 +38,3 @@ start_msm_irqbalance()
          fi
 }
 start_msm_irqbalance
-verify_pasr_support

@@ -112,9 +112,6 @@ on boot
     write /sys/class/block/mmcblk0/queue/iosched/slice_idle 0
     write /sys/class/block/mmcblk1/queue/iosched/slice_idle 0
 
-    # Allow access to memory hotplug device attributes
-    chown system system /sys/kernel/mem-offline/anon_migrate
-
 on post-fs-data
     # Create directory used for dump collection
     mkdir /data/vendor/ssrdump 0770 root system
