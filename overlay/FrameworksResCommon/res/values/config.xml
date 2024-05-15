@@ -324,4 +324,7 @@
 
     <!-- Whether to select voice/data/sms preference without user confirmation -->
     <bool name="config_voice_data_sms_auto_fallback">true</bool>
+
+    <!-- The name of the package that will hold the dialer role by default. -->
+    <string name="config_defaultDialer" translatable="false">com.google.android.dialer</string>
 </resources>
