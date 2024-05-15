@@ -37,4 +37,10 @@
     <!-- Whether the device supports dialing emergency RTT calls when there's no SIM card installed
     -->
     <bool name="config_support_simless_emergency_rtt">true</bool>
+
+    <!-- Package name for the default in-call UI and dialer [DO NOT TRANSLATE] -->
+    <string name="ui_default_package" translatable="false">com.google.android.dialer</string>
+
+    <!-- Class name for the default main Dialer activity -->
+    <string name="dialer_default_class" translatable="false">com.google.android.dialer.DialtactsActivity</string>
 </resources>
