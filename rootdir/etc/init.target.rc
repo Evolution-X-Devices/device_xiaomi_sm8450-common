@@ -121,6 +121,22 @@ on boot
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/doze_mode
     chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/doze_mode
 
+    # Xiaomi Thermal Profiles permissions
+    chmod 0664 /sys/class/thermal/thermal_message/sconfig
+    chown system system /sys/class/thermal/thermal_message/sconfig
+    chmod 0666 /sys/class/thermal/thermal_message/temp_state
+    chown system system /sys/class/thermal/thermal_message/temp_state
+    chmod 0664 /sys/class/thermal/thermal_message/charger_temp
+    chown system system /sys/class/thermal/thermal_message/charger_temp
+    chmod 0664 /sys/class/thermal/thermal_message/board_sensor_temp_comp
+    chown system system /sys/class/thermal/thermal_message/board_sensor_temp_comp
+    chmod 0664 /sys/class/thermal/thermal_message/cpu_nolimit_temp 
+    chown system system /sys/class/thermal/thermal_message/cpu_nolimit_temp
+    chmod 0664 /sys/class/thermal/thermal_message/balance_mode
+    chown system system /sys/class/thermal/thermal_message/balance_mode
+    chmod 0664 /sys/class/thermal/thermal_message/flash_state
+    chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
+
 on property:vendor.display.lcd_density=560
    setprop dalvik.vm.heapgrowthlimit 256m
 
