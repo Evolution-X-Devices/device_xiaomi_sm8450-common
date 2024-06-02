@@ -75,6 +75,20 @@ on init
     chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     start logd
 
+    # Xiaomi Thermal Profiles permissions
+    chmod 0664 /sys/devices/virtual/thermal/thermal_message/sconfig
+    chown system system /sys/devices/virtual/thermal/thermal_message/sconfig
+    chmod 0664 /sys/class/thermal/thermal_message/charger_temp
+    chown system system /sys/class/thermal/thermal_message/charger_temp
+    chmod 0664 /sys/class/thermal/thermal_message/board_sensor_temp_comp
+    chown system system /sys/class/thermal/thermal_message/board_sensor_temp_comp
+    chmod 0664 /sys/class/thermal/thermal_message/cpu_nolimit_temp 
+    chown system system /sys/class/thermal/thermal_message/cpu_nolimit_temp
+    chmod 0664 /sys/class/thermal/thermal_message/balance_mode
+    chown system system /sys/class/thermal/thermal_message/balance_mode
+    chmod 0664 /sys/class/thermal/thermal_message/flash_state
+    chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
+
 on early-fs
     start vold
 
