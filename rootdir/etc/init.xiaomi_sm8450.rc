@@ -18,11 +18,6 @@ on boot
     chown radio radio /dev/smd8
     mkdir /data/vendor/modem 0777 radio radio
 
-    chown system system /sys/class/thermal/thermal_message/sconfig
-    chown system system /sys/class/thermal/thermal_message/charger_temp
-    chown system system /sys/class/thermal/thermal_message/board_sensor_temp_comp
-    chown system system /sys/class/thermal/thermal_message/cpu_nolimit_temp
-    chown system system /sys/class/thermal/thermal_message/balance_mode
     chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
     chown system system /sys/module/perf_helper/mimd/mimdtrigger
 
