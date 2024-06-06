@@ -198,6 +198,8 @@ public class RefreshSettingsFragment extends PreferenceFragment
                 return R.drawable.ic_refresh_60;
             case RefreshUtils.STATE_EXTREME:
                 return R.drawable.ic_refresh_120;
+            case RefreshUtils.STATE_LAND:
+                return R.drawable.ic_refresh_60;
             case RefreshUtils.STATE_DEFAULT:
             default:
                 return R.drawable.ic_refresh_default;
@@ -229,7 +231,8 @@ public class RefreshSettingsFragment extends PreferenceFragment
         private final int[] items = {
                 R.string.refresh_default,
                 R.string.refresh_standard,
-                R.string.refresh_extreme
+                R.string.refresh_extreme,
+                R.string.refresh_land
         };
 
         private ModeAdapter(Context context) {
@@ -368,7 +371,7 @@ public class RefreshSettingsFragment extends PreferenceFragment
              * To get from that number to the expected value of 1 we need to negate
              * and subtract 2.
              */
-            return index >= 0 ? index : -index - 2;
+            return index >= 0 ? index : -index - 3;
         }
 
         @Override
