@@ -80,7 +80,7 @@ public class RefreshService extends Service {
         this.registerReceiver(mIntentReceiver, filter);
     }
 
-     private final TaskStackListener mTaskListener = new TaskStackListener() {
+    private final TaskStackListener mTaskListener = new TaskStackListener() {
         @Override
         public void onTaskStackChanged() {
             try {
@@ -89,14 +89,22 @@ public class RefreshService extends Service {
                     return;
                 }
                 String foregroundApp = info.topActivity.getPackageName();
+                int state = mRefreshUtils.getStateForPackage(foregroundApp);
+                
                 if (!mRefreshUtils.isAppInList) {
-                 mRefreshUtils.getOldRate();
-                  } 
+                    mRefreshUtils.getOldRate();
+                }
+
                 if (!foregroundApp.equals(mPreviousApp)) {
                     mRefreshUtils.setRefreshRate(foregroundApp);
                     mPreviousApp = foregroundApp;
-                  }
- 		 } catch (Exception e) {}
+                }
+                if (state == RefreshUtils.STATE_LAND && mRefreshUtils.isAppInList) {
+                    mRefreshUtils.checkOrientationAndSetRate(foregroundApp);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        };
-    }
+        }
+    };
+}
