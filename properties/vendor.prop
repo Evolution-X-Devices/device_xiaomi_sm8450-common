@@ -132,6 +132,7 @@ debug.sf.hw=0
 debug.sf.latch_unsignaled=0
 debug.sf.late.app.duration=13666666
 debug.sf.late.sf.duration=15666666
+debug.sf.layer_caching_active_layer_timeout_ms=1000
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.set_idle_timer_ms=1000
 debug.sf.treat_170m_as_sRGB=1
