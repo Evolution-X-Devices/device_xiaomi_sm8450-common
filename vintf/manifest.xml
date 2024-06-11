@@ -401,16 +401,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
-    <!-- Secure image data processor HAL Service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.secureprocessor.device</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ISecureProcessor</name>
-            <instance>qti-tee</instance>
-        </interface>
-    </hal>
     <!-- bluetooth -->
     <hal format="hidl">
         <name>android.hardware.bluetooth</name>
