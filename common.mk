@@ -126,10 +126,13 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.7.vendor:64 \
     camera.device@1.0-impl:64 \
+    libcamera_metadata.vendor:64 \
     libcamera2ndk_vendor:64 \
     libexif.vendor:64 \
     libjpeg.vendor:64 \
     liblz4.vendor:64 \
+    libutilscallstack.vendor:64 \
+    libyuv.vendor:64 \
     vendor.qti.hardware.camera.aon@1.0.vendor:64 \
     vendor.qti.hardware.camera.postproc@1.0.vendor:64
 
@@ -300,7 +303,8 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_PACKAGES += \
-    libcodec2_hidl@1.0.vendor
+    libcodec2_hidl@1.0.vendor \
+    libstagefright_softomx_plugin.vendor:64
 
 PRODUCT_PACKAGES += \
     init.qti.media.rc \
@@ -603,6 +607,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.media.audio.common.types-V2-cpp:64 \
     libnl:64 \
+    libpng.vendor:64 \
     libwfdaac_vendor:64
 
 # WiFi firmware symlinks
