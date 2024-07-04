@@ -50,6 +50,7 @@ vendor.qc2audio.suspend.enabled=true
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
+bluetooth.device_id.vendor_id=0x001D
 bluetooth.hardware.power.idle_cur_ma=6
 bluetooth.hardware.power.operating_voltage_mv=3700
 bluetooth.hardware.power.rx_cur_ma=28
