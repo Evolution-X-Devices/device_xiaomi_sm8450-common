@@ -241,7 +241,8 @@ $(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 # Media
 PRODUCT_PACKAGES += \
     init.qti.media.rc \
-    init.qti.media.sh
+    init.qti.media.sh \
+    libstagefright_softomx_plugin.vendor
 
 # Network
 PRODUCT_COPY_FILES += \
