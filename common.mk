@@ -238,7 +238,8 @@ PRODUCT_PACKAGES += \
 # Media
 PRODUCT_PACKAGES += \
     init.qti.media.rc \
-    init.qti.media.sh
+    init.qti.media.sh \
+    libstagefright_softomx_plugin.vendor
 
 # Network
 PRODUCT_COPY_FILES += \
