@@ -608,7 +608,8 @@ PRODUCT_PACKAGES += \
     android.media.audio.common.types-V2-cpp:64 \
     libnl:64 \
     libpng.vendor:64 \
-    libwfdaac_vendor:64
+    libwfdaac_vendor:64 \
+    vendor.qti.hardware.display.config-V5-ndk:64
 
 # WiFi firmware symlinks
 PRODUCT_PACKAGES += \
