@@ -117,6 +117,10 @@ on boot
     #USB controller configuration
     setprop vendor.usb.controller a600000.dwc3
 
+    # Set doze mode permissions
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/doze_mode
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/doze_mode
+
 on property:vendor.display.lcd_density=560
    setprop dalvik.vm.heapgrowthlimit 256m
 
