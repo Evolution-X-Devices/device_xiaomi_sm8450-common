@@ -2,6 +2,9 @@
 genfscon sysfs /devices/platform/soc/soc:xm_battmngr/power_supply/battery u:object_r:vendor_sysfs_battery_supply:s0
 genfscon sysfs /devices/platform/soc/soc:xm_battmngr/power_supply/usb u:object_r:vendor_sysfs_usb_supply:s0
 
+# Doze
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/doze_mode                                                                                         u:object_r:vendor_sysfs_graphics:s0
+
 # Fingerprint
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc u:object_r:vendor_sysfs_fingerprint:s0
 
