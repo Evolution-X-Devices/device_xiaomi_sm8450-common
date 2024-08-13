@@ -18,6 +18,7 @@ genfscon sysfs /devices/virtual/touch/touch_dev/gesture_single_tap_enabled u:obj
 genfscon sysfs /devices/virtual/touch/touch_dev/gesture_single_tap_state u:object_r:vendor_sysfs_sensors:s0
 
 # Suspend
+genfscon sysfs /devices/platform/goodix_ts.0/wakeup/wakeup33  u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/3000000.remoteproc-adsp/remoteproc/remoteproc2/3000000.remoteproc-adsp:glink-edge/3000000.remoteproc-adsp:glink-edge.adsp_apps.-1.-1/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/884000.i2c/i2c-3/3-005a/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/88c000.i2c/i2c-6/6-005a/wakeup u:object_r:sysfs_wakeup:s0
