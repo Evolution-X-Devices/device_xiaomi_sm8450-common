@@ -239,8 +239,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.qti.media.rc \
     init.qti.media.sh \
-    libOmxCore \
-    libstagefrighthw \
     libstagefright_softomx_plugin.vendor
 
 PRODUCT_COPY_FILES += \
