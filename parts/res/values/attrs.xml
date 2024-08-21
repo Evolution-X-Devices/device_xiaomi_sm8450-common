@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2018-2022 crDroid Android Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+
+    <!-- Base attributes available to CustomSeekBarPreference. -->
+    <declare-styleable name="CustomSeekBarPreference">
+        <attr name="defaultValueText" format="string" />
+        <attr name="interval" format="integer" />
+        <attr name="showSign" format="boolean" />
+        <attr name="units" format="string|reference" />
+        <attr name="continuousUpdates" format="boolean" />
+    </declare-styleable>
+
+</resources>
