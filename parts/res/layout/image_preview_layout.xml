@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2018 The Android Open Source Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <FrameLayout
+            android:id="@+id/arrow_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:paddingLeft="24dp"
+            android:layout_gravity="center_vertical|left"
+            android:contentDescription="@string/image_preview_previous_page_content_description">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_image_preview_arrow_left"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/viewGroup"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:gravity="center"/>
+
+        <FrameLayout
+            android:id="@+id/arrow_next"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:paddingRight="24dp"
+            android:layout_gravity="center_vertical|right"
+            android:contentDescription="@string/image_preview_next_page_content_description">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_image_preview_arrow_right"/>
+        </FrameLayout>
+    </FrameLayout>
+
+</LinearLayout>
