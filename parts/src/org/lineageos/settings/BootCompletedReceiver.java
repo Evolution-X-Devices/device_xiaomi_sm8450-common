@@ -18,12 +18,21 @@
 package org.lineageos.settings;
 
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.ContentObserver;
+import android.hardware.display.DisplayManager;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.Log;
 
 import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
+import org.lineageos.settings.thermal.ThermalTileService;
 import org.lineageos.settings.refreshrate.RefreshUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
