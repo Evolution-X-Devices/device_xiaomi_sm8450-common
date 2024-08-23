@@ -70,12 +70,6 @@ function blob_fixup() {
         vendor/etc/init/init.embmssl_server.rc)
             sed -i -n '/interface/!p' "${2}"
             ;;
-        vendor/etc/media_codecs_c2_audio.xml)
-            sed -i '/media_codecs_dolby_audio/d' "${2}"
-            ;;
-        vendor/etc/media_codecs_cape.xml|vendor/etc/media_codecs_diwali_v0.xml|vendor/etc/media_codecs_diwali_v1.xml|vendor/etc/media_codecs_diwali_v2.xml|vendor/etc/media_codecs_taro.xml|vendor/etc/media_codecs_ukee.xml)
-            sed -i -E '/media_codecs_(google_audio|google_c2|google_telephony|vendor_audio)/d' "${2}"
-            ;;
         vendor/etc/qcril_database/upgrade/config/6.0_config.sql)
             sed -i '/persist.vendor.radio.redir_party_num/ s/true/false/g' "${2}"
             ;;

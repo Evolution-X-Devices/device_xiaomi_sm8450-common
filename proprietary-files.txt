@@ -10,6 +10,7 @@ vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 
 # Audio soundfx
 vendor/lib64/soundfx/libasphere.so
+vendor/lib64/soundfx/libmisoundfx.so
 vendor/lib64/soundfx/libshoebox.so
 
 # Bluetooth
@@ -425,7 +426,6 @@ vendor/bin/hw/vendor.qti.media.c2audio@1.0-service
 vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
 vendor/etc/init/vendor.qti.media.c2audio@1.0-service.rc
 vendor/etc/media_cape/video_system_specs.json
-vendor/etc/media_codecs_c2_audio.xml
 vendor/etc/media_codecs_cape.xml
 vendor/etc/media_codecs_diwali_v0.xml
 vendor/etc/media_codecs_diwali_v1.xml
