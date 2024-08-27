@@ -162,7 +162,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     vendor.display.config@1.11.vendor:64 \
-    vendor.qti.hardware.display.config-V2-ndk.vendor:64 \
+    vendor.qti.hardware.display.config-V2-ndk_platform.vendor:64 \
     vendor.qti.hardware.display.mapper@2.0.vendor:64
 
 PRODUCT_COPY_FILES += \
