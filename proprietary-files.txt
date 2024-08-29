@@ -302,9 +302,6 @@ vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
-# GMS
-#product/etc/permissions/com.google.android.feature.PREMIER_TIER.xml
-
 # GNSS - from ingot-user 14 UKQ1.231121.127 127 release-keys
 -vendor/app/CACertService/CACertService.apk|ea18679b8a6cdf4f9f00b7fb5d7a86e12be38f23
 vendor/bin/edgnss-daemon|11e295ebe350de7312a2ab97f25ccbbae48ed8a4
