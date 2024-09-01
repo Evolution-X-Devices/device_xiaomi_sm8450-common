@@ -7,14 +7,7 @@ vendor.fps_hal. u:object_r:vendor_fp_prop:s0
 vendor.panel.display. u:object_r:vendor_fp_prop:s0
 ro.hardware.fp.udfps u:object_r:vendor_fp_prop:s0
 
-# GNSS
-ro.vendor.gnss.edgnss.downloadQxwzAk u:object_r:vendor_edgnss_qxwz_downloadak_prop:s0
-
 # Mlipay
 persist.vendor.sys.provision.status u:object_r:vendor_payment_security_prop:s0
 vendor.sys.feature_state u:object_r:vendor_payment_security_prop:s0
 vendor.sys.rpmb_state u:object_r:vendor_payment_security_prop:s0
-
-# Sensors
-persist.vendor.sensors.ins. u:object_r:vendor_mi_ins_prop:s0
-persist.vendor.sensors.ins_debug u:object_r:vendor_mi_ins_prop:s0

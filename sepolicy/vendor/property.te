@@ -7,9 +7,5 @@ vendor_public_prop(vendor_cpuid_prop)
 vendor_restricted_prop(vendor_fp_info_prop)
 vendor_public_prop(vendor_fp_prop)
 
-# GNSS
-vendor_public_prop(vendor_edgnss_qxwz_downloadak_prop)
-vendor_public_prop(vendor_mi_ins_prop)
-
 # NFC
 vendor_public_prop(vendor_nfc_prop)
