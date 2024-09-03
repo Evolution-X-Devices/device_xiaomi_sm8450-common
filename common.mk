@@ -139,6 +139,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
+# Device-specific settings
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint-service.xiaomi \
