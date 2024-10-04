@@ -21,4 +21,7 @@
 
     <!-- The CPU temperature divider, if needed -->
     <integer name="config_cpuTempDivider" translatable="false">1000</integer>
+
+    <!-- Whether to play turbulence noise after clicking the play button -->
+    <bool name="config_turbulenceNoise">false</bool>
 </resources>
