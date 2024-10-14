@@ -1,2 +1,4 @@
+allow cameraserver vendor_camera_prop:file { read getattr map open };
+
 allow cameraserver sysfs_leds:dir r_dir_perms;
 allow cameraserver sysfs_torch:file rw_file_perms;
