@@ -503,16 +503,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
 
-    <!-- WifiStats HAL service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.wifi.wifilearner</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IWifiStats</name>
-            <instance>wifiStats</instance>
-        </interface>
-    </hal>
     <!-- QSPM-HAL service-->
     <hal format="hidl">
         <name>vendor.qti.qspmhal</name>
