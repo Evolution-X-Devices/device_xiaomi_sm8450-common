@@ -33,7 +33,7 @@ vendor.audio.feature.a2dp_offload.enable=true
 vendor.audio.feature.afe_proxy.enable=true
 vendor.audio.feature.battery_listener.enable=true
 vendor.audio.feature.dmabuf.cma.memory.enable=true
-vendor.audio.feature.hfp.enable=false
+vendor.audio.feature.hfp.enable=true
 vendor.audio.feature.kpi_optimize.enable=true
 vendor.audio.flac.sw.decoder.24bit=true
 vendor.audio.hal.boot.timeout.ms=20000
@@ -174,7 +174,8 @@ ro.hardware.keystore_desede=true
 # Media
 debug.c2.use_dmabufheaps=1
 debug.stagefright.c2inputsurface=-1
-vendor.media.omx=0
+debug.stagefright.ccodec=4
+debug.stagefright.omx_default_rank=0
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
