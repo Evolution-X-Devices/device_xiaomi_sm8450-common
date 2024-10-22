@@ -271,7 +271,7 @@ vendor/lib64/libQSEEComAPI.so
 vendor/lib64/libcpion.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
-vendor/lib64/libops.so
+vendor/lib64/libops.so|9b33ca1cf66aaf879dc6e9386fcc35f08324b234
 vendor/lib64/libqisl.so
 vendor/lib64/librpmb.so
 vendor/lib64/libspl.so
