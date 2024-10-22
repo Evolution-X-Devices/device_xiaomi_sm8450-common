@@ -5,6 +5,12 @@
 /dev/xlog u:object_r:sound_device:s0
 /sys/devices/platform/soc/[a-z0-9]+.i2c/i2c-+[0-9]/[0-9]+-00+[a-z0-9]+[a-z0-9]/f0_value u:object_r:sysfs_f0_value:s0
 
+# Data files
+/data/vendor/dolby(/.*)? u:object_r:vendor_data_file:s0
+
+# Dolby
+/(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service u:object_r:hal_dms_default_exec:s0
+
 # Battery
 /(vendor|system/vendor)/bin/batterysecret u:object_r:batterysecret_exec:s0
 
