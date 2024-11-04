@@ -48,3 +48,6 @@
 
 # Thermal
 /sys/class/thermal/thermal_zone87/temp u:object_r:sysfs_thermal:s0
+
+# Touchscreen
+/(vendor|system/vendor)/bin/touch_report u:object_r:touchreport_exec:s0

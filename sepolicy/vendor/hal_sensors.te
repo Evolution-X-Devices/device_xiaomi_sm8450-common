@@ -1,0 +1,2 @@
+allow hal_sensors_default sysfs_tp_fodstatus:file r_file_perms;
+allow hal_sensors_default sysfs_tp_virtual_prox:file rw_file_perms;

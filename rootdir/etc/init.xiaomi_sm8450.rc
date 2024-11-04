@@ -43,22 +43,6 @@ on boot
     chown system system /dev/xiaomi-touch
     chmod 0660 /dev/xiaomi-touch
 
-    # Touchscreen sensors
-    chown system system /sys/class/touch/touch_dev/fod_longpress_gesture_enabled
-    chown system system /sys/class/touch/touch_dev/fod_press_status
-    chmod 0660 /sys/class/touch/touch_dev/fod_longpress_gesture_enabled
-    chmod 0660 /sys/class/touch/touch_dev/fod_press_status
-
-    chown system system /sys/class/touch/touch_dev/gesture_single_tap_enabled
-    chown system system /sys/class/touch/touch_dev/gesture_single_tap_state
-    chmod 0660 /sys/class/touch/touch_dev/gesture_single_tap_enabled
-    chmod 0660 /sys/class/touch/touch_dev/gesture_single_tap_state
-
-    chown system system /sys/class/touch/touch_dev/gesture_double_tap_enabled
-    chown system system /sys/class/touch/touch_dev/gesture_double_tap_state
-    chmod 0660 /sys/class/touch/touch_dev/gesture_double_tap_enabled
-    chmod 0660 /sys/class/touch/touch_dev/gesture_double_tap_state
-
 on post-fs-data
     # Create folder of camera
     mkdir /data/vendor/camera/offlinelog 0777 cameraserver audio
