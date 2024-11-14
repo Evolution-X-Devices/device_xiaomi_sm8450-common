@@ -869,3 +869,7 @@ on property:vendor.opengles.version=*
 #Set gpu available frequencies property
 on property:vendor.gpu.available_frequencies=*
     setprop ro.vendor.gpu.available_frequencies ${vendor.gpu.available_frequencies}
+
+# Stop trying to kill my device after 3 days ugh
+on property:init.svc.statsd=running
+    stop statsd
