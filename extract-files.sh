@@ -109,6 +109,9 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libhidlbase_shim.so" "${2}"
             ;;
+        vendor/etc/msm_irqbalance.conf)
+            sed -i "s/IGNORED_IRQ=27,23,38$/&,115,332/" "${2}"
+            ;;
         *)
             return 1
             ;;
