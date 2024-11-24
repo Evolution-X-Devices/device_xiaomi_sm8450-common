@@ -93,14 +93,6 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libgrpc++_unsecure.so" "libgrpc++_unsecure_prebuilt.so" "${2}"
             ;;
-        vendor/etc/media_codecs_c2_audio.xml)
-            [ "$2" = "" ] && return 0
-            sed -i '/media_codecs_dolby_audio/d' "${2}"
-            ;;
-        vendor/etc/media_codecs_cape.xml|vendor/etc/media_codecs_diwali_v0.xml|vendor/etc/media_codecs_diwali_v1.xml|vendor/etc/media_codecs_diwali_v2.xml|vendor/etc/media_codecs_taro.xml|vendor/etc/media_codecs_ukee.xml)
-            [ "$2" = "" ] && return 0
-            sed -i -E '/media_codecs_(google_audio|google_c2|google_telephony|vendor_audio)/d' "${2}"
-            ;;
         vendor/etc/seccomp_policy/atfwd@2.0.policy | vendor/etc/seccomp_policy/wfdhdcphalservice.policy)
             [ "$2" = "" ] && return 0
             grep -q "gettid: 1" "${2}" || echo "gettid: 1" >> "${2}"
