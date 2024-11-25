@@ -181,7 +181,7 @@ system_ext/lib64/vendor.qti.diaghal@1.0.so
 vendor/bin/diag-router
 vendor/etc/init/vendor.qti.diag.rc
 vendor/etc/vintf/manifest/vendor.qti.diag.hal.service.xml
-vendor/lib64/vendor.qti.diaghal@1.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.diaghal@1.0.so;MODULE_SUFFIX=-vendor
 
 # Display HDR - from ingot-user 14 UKQ1.240227.165 release-keys
 vendor/lib64/libgame_enhance.so|4432e47d990e98edb141becc345a92d03df26bf4
@@ -268,15 +268,15 @@ vendor/bin/vendor.dpmd
 vendor/etc/dpm_vndr/vendor.dpm.conf
 vendor/etc/init/dpmQmiMgr.rc
 vendor/etc/init/vendor.dpmd.rc
-vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE_SUFFIX=-vendor
 vendor/lib64/libdpmqmihal.so
 vendor/lib64/vendor.libdpmctmgr.so
 vendor/lib64/vendor.libdpmfdmgr.so
 vendor/lib64/vendor.libdpmframework.so
 vendor/lib64/vendor.libdpmtcm.so
 vendor/lib64/vendor.libmwqemiptablemgr.so
-vendor/lib64/vendor.qti.hardware.dpmservice@1.0.so;MODULE_SUFFIX=_vendor
-vendor/lib64/vendor.qti.hardware.dpmservice@1.1.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.hardware.dpmservice@1.0.so;MODULE_SUFFIX=-vendor
+vendor/lib64/vendor.qti.hardware.dpmservice@1.1.so;MODULE_SUFFIX=-vendor
 
 # DRM
 vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service
@@ -571,15 +571,15 @@ system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so|9663f4512a1e33956a
 system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2.so|db1ea124c0f42fcc1a814d69308d4f9522012e1b
 system_ext/lib64/vendor.qti.hardware.qccvndhal@1.0.so|15a47e8d6f3746e3cb3baa91577f206a1089edd5
 system_ext/lib64/vendor.qti.qccvndhal_aidl-V1-ndk.so|ffccfde321f48e390c5af8d546e1c7cdf23f9152
-vendor/bin/qcc-trd|146a8d4ba56aebee8056f988159358943dc148c9|698da506a789666d3e0fde9bbd7f8af90c246844
+vendor/bin/qcc-trd|146a8d4ba56aebee8056f988159358943dc148c9|a92ef8c6452a8a7c6909b8f185ed959282349bb0
 vendor/etc/init/init.qdmastats.rc|d7ddb87faaedd900f1756064fe756d50efed7ca9
 vendor/lib64/hw/vendor.qti.hardware.qccvndhal@1.0-impl.so|459d506b20124520f5d650a7b30c9a490514a878
-vendor/lib64/libgrpc++_unsecure.so:vendor/lib64/libgrpc++_unsecure_prebuilt.so;FIX_SONAME|e0363df07498ac7f3beb9e6f017d79e2bbc53c9c|deef616f1a0fb091dbd553d807c097a7989f49fd
+vendor/lib64/libgrpc++_unsecure.so:vendor/lib64/libgrpc++_unsecure_prebuilt.so;FIX_SONAME|e0363df07498ac7f3beb9e6f017d79e2bbc53c9c|e6363ed5a2a8d2648ab7f9d999491d2ca54d9a18
 vendor/lib64/libqcc_file_agent.so|2062da8684a791c3c8afe57f8be3d2b010337a8a
-vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so;MODULE_SUFFIX=_vendor|ef866bab2186db1b2c09477e36fef20945fa671e
-vendor/lib64/vendor.qti.hardware.qccsyshal@1.1.so;MODULE_SUFFIX=_vendor|0677ebfe099cdaa6c3776d0bd5318044a4220918
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so;MODULE_SUFFIX=-vendor|ef866bab2186db1b2c09477e36fef20945fa671e
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.1.so;MODULE_SUFFIX=-vendor|0677ebfe099cdaa6c3776d0bd5318044a4220918
 vendor/lib64/vendor.qti.hardware.qccvndhal@1.0-halimpl.so|304ce0a1571f218ba16d0812221e4b2fae52a6d9
-vendor/lib64/vendor.qti.hardware.qccvndhal@1.0.so;MODULE_SUFFIX=_vendor|bfddf0a295b391bc1ed7961d547e9b56e3aa1b9c
+vendor/lib64/vendor.qti.hardware.qccvndhal@1.0.so;MODULE_SUFFIX=-vendor|bfddf0a295b391bc1ed7961d547e9b56e3aa1b9c
 
 # QCOM system daemon
 vendor/bin/qcom-system-daemon
@@ -848,7 +848,7 @@ vendor/lib64/vendor.qti.ims.rcsuce@1.0.so
 vendor/lib64/vendor.qti.ims.rcsuce@1.1.so
 vendor/lib64/vendor.qti.ims.rcsuce@1.2.so
 vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so
-vendor/lib64/vendor.qti.imsrtpservice@3.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.imsrtpservice@3.0.so;MODULE_SUFFIX=-vendor
 
 # Secure element
 vendor/bin/hw/vendor.qti.secure_element@1.2-service
@@ -1035,7 +1035,7 @@ vendor/lib64/libwfduibcsinkinterface_vendor.so
 vendor/lib64/libwfduibcsrc_vendor.so
 vendor/lib64/libwfduibcsrcinterface_vendor.so
 vendor/lib64/libwfdutils_proprietary.so
-vendor/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so;MODULE_SUFFIX=-vendor
 vendor/lib64/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
 
 # Xiaomi MAC address
