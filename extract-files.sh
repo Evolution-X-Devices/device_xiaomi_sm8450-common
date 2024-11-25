@@ -16,7 +16,7 @@ ANDROID_ROOT="${MY_DIR}/../../.."
 # Define the default patchelf version used to patch blobs
 # This will also be used for utility functions like FIX_SONAME
 # Older versions break some camera blobs for us
-export PATCHELF_VERSION=0_17_2
+export PATCHELF_VERSION=0_18
 
 HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
@@ -94,7 +94,7 @@ function blob_fixup() {
             "${PATCHELF}" --replace-needed "libgrpc++_unsecure.so" "libgrpc++_unsecure_prebuilt.so" "${2}"
             ;;
         vendor/etc/seccomp_policy/atfwd@2.0.policy | vendor/etc/seccomp_policy/wfdhdcphalservice.policy)
-            [ "$2" = "" ] && return 0
+            [ -n "$(tail -c 1 "${2}")" ] && echo >> "${2}"
             grep -q "gettid: 1" "${2}" || echo "gettid: 1" >> "${2}"
             ;;
         vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy)
@@ -110,6 +110,7 @@ function blob_fixup() {
             "${PATCHELF}" --add-needed "libhidlbase_shim.so" "${2}"
             ;;
         vendor/etc/msm_irqbalance.conf)
+            [ "$2" = "" ] && return 0
             sed -i "s/IGNORED_IRQ=27,23,38$/&,115,332/" "${2}"
             ;;
         *)
