@@ -11,7 +11,6 @@ ro.vendor.oem.psno u:object_r:vendor_sno_prop:s0
 ro.vendor.oem.sno u:object_r:vendor_sno_prop:s0
 
 # Fingerprint
-persist.vendor.fingerprint. u:object_r:vendor_fp_prop:s0
 persist.vendor.fpc. u:object_r:vendor_fp_prop:s0
 persist.vendor.sys.fp. u:object_r:vendor_fp_prop:s0
 persist.vendor.sys.fp.info u:object_r:vendor_fp_info_prop:s0
