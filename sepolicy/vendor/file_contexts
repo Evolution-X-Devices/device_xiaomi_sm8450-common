@@ -54,6 +54,9 @@
 /dev/lirc[0-9]+ u:object_r:lirc_device:s0
 /vendor/bin/hw/android\.hardware\.ir-service\.xiaomi u:object_r:hal_ir_default_exec:s0
 
+# Init
+/(vendor|system/vendor)/bin/init\.xiaomi_sm8450\.sh u:object_r:vendor_qti_init_shell_exec:s0
+
 # Mac Address
 /data/vendor/mac_addr(/.*)? u:object_r:vendor_mac_vendor_data_file:s0
 /vendor/bin/nv_mac u:object_r:vendor_wcnss_service_exec:s0
