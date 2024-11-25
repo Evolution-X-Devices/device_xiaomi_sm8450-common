@@ -25,3 +25,12 @@ type vendor_mac_vendor_data_file, data_file_type, file_type, mlstrustedobject;
 type sys_thermal_wifi_limit, fs_type, sysfs_type;
 type sys_thermal_flash_state, fs_type, sysfs_type;
 type thermal_data_file, data_file_type, file_type;
+
+# Touchscreen
+type proc_tp_file, fs_type, proc_type;
+type proc_tp_lockdown, fs_type, proc_type;
+type sysfs_touch_hostprocess, fs_type, sysfs_type;
+type sysfs_touch_suspend, fs_type, sysfs_type;
+type sysfs_tp_fodstatus, fs_type, sysfs_type;
+type sysfs_tp_virtual_prox, fs_type, sysfs_type;
+type vendor_data_touchreport_file, data_file_type, file_type;
