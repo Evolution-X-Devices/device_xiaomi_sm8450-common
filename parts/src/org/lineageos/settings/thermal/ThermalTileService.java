@@ -21,7 +21,6 @@ import android.service.quicksettings.Tile;
 import android.util.Log;
 
 import org.lineageos.settings.utils.FileUtils;
-import org.lineageos.settings.utils.TileUtils;
 import org.lineageos.settings.R;
 
 public class ThermalTileService extends TileService {
@@ -30,7 +29,7 @@ public class ThermalTileService extends TileService {
     private static final String THERMAL_SCONFIG = "/sys/class/thermal/thermal_message/sconfig";
 
     private String[] modes;
-    private int currentMode = 0; // Default to the first mode
+    private int currentMode = 0; // Default mode index
 
     @Override
     public void onStartListening() {
@@ -38,18 +37,18 @@ public class ThermalTileService extends TileService {
         modes = new String[]{
             getString(R.string.thermal_mode_default),
             getString(R.string.thermal_mode_performance),
+            getString(R.string.thermal_mode_gaming),
             getString(R.string.thermal_mode_battery_saver),
-            getString(R.string.thermal_mode_gaming)
+            getString(R.string.thermal_mode_unknown)
         };
         currentMode = getCurrentThermalMode();
-        
-        // If sconfig value is -1 or invalid, set it to default mode
-        if (currentMode == -1) {
-            currentMode = 0; // Default mode
-            setThermalMode(0); // Write default mode value to sconfig
-        }
 
-        updateTile(); // Ensure the tile displays the correct mode when added to quick settings
+        // Reset to Default if mode is Unknown
+        if (currentMode == 4) {
+            currentMode = 0;
+            setThermalMode(currentMode);
+        }
+        updateTile();
     }
 
     @Override
@@ -58,7 +57,13 @@ public class ThermalTileService extends TileService {
     }
 
     private void toggleThermalMode() {
-        currentMode = (currentMode + 1) % modes.length; // Cycle through modes
+        if (currentMode == 4) {
+            // If in Unknown mode, reset to Default
+            currentMode = 0;
+        } else {
+            // Cycle through the order: Default → Performance → Gaming → Battery Saver → Default
+            currentMode = (currentMode + 1) % 4;
+        }
         setThermalMode(currentMode);
         updateTile();
     }
@@ -69,30 +74,28 @@ public class ThermalTileService extends TileService {
             try {
                 int value = Integer.parseInt(line.trim());
                 switch (value) {
-                    case 20: return 0; // Default
+                    case 0: return 0; // Default
                     case 10: return 1; // Performance
-                    case 3: return 2;  // Battery Saver
-                    case 9: return 3;  // Gaming
-                    default: return 0; // Default if unknown value
+                    case 9: return 2; // Gaming
+                    case 3: return 3; // Battery Saver
+                    default: return 4; // Unknown mode
                 }
             } catch (NumberFormatException e) {
                 Log.e(TAG, "Error parsing thermal mode value: ", e);
             }
         }
-        return -1; // Indicate invalid or unknown mode
+        return 4; // Treat invalid or missing values as Unknown
     }
 
     private void setThermalMode(int mode) {
         int thermalValue;
         switch (mode) {
-            case 0: thermalValue = 20; break; // Default
-            case 1: thermalValue = 10; break; // Performance
-            case 2: thermalValue = 3; break;  // Battery Saver
-            case 3: thermalValue = 9; break;  // Gaming
-            default: thermalValue = 20; break; // Default
+            case 0: thermalValue = 0; break;  // Default
+            case 1: thermalValue = 10; break;  // Performance
+            case 2: thermalValue = 9; break; // Gaming
+            case 3: thermalValue = 3; break;  // Battery Saver
+            default: thermalValue = 0; break; // Reset to Default for Unknown
         }
-
-        // Write the new thermal value to the sconfig file
         boolean success = FileUtils.writeLine(THERMAL_SCONFIG, String.valueOf(thermalValue));
         Log.d(TAG, "Thermal mode changed to " + modes[mode] + ": " + success);
     }
@@ -100,9 +103,21 @@ public class ThermalTileService extends TileService {
     private void updateTile() {
         Tile tile = getQsTile();
         if (tile != null) {
-            tile.setLabel("Thermal Profile"); // Set the main label
-            tile.setSubtitle(modes[currentMode]); // Set the current mode as the subtitle
+            // Set tile state based on current mode
+            if (currentMode == 1 || currentMode == 2) { // Performance or Gaming
+                tile.setState(Tile.STATE_ACTIVE);
+            } else {
+                tile.setState(Tile.STATE_INACTIVE);
+            }
+
+            // Update label and subtitle based on current mode
+            tile.setLabel(getString(R.string.thermal_tile_label));
+            tile.setSubtitle(modes[currentMode]);
             tile.updateTile();
+        } else {
+            Log.e(TAG, "QS Tile is unavailable, attempting recovery...");
+            // Fallback: Reset tile state in case of inconsistency
+            onStartListening();
         }
     }
 }
