@@ -5,8 +5,8 @@ GNSS_CFLAGS = [
     "-Wunused-label",
     "-Wunused-variable",
     "-Wunused-function",
+    "-Wunused-parameter",
     "-Wimplicit-fallthrough",
-    "-Wno-unused-parameter",
     "-Wno-undefined-bool-conversion",
 ]
 
