@@ -588,7 +588,7 @@ NOTES:
 int loc_read_process_conf(const char* conf_file_name, uint32_t * process_count_ptr,
                           loc_process_info_s_type** process_info_table_ptr) {
     loc_process_info_s_type *child_proc = nullptr;
-    volatile int i=0;
+    int i=0;
     unsigned int j=0;
     char *split_strings[MAX_NUM_STRINGS];
     int name_length=0, group_list_length=0, platform_length=0, baseband_length=0, ngroups=0, ret=0;
