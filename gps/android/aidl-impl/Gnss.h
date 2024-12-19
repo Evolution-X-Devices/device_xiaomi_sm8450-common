@@ -53,7 +53,7 @@ struct Gnss : public BnGnss {
     ndk::ScopedAStatus setCallback(const shared_ptr<IGnssCallback>& callback) override;
     ndk::ScopedAStatus close() override;
     ::ndk::ScopedAStatus getExtensionPsds(
-            shared_ptr<::aidl::android::hardware::gnss::IGnssPsds>* _aidl_return) override {
+            shared_ptr<::aidl::android::hardware::gnss::IGnssPsds>* _aidl_return __unused) override {
         return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
     }
     ::ndk::ScopedAStatus getExtensionGnssConfiguration(
