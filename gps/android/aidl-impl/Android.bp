@@ -32,7 +32,7 @@ cc_library_shared {
         "liblocation_api",
     ],
 
-    cflags: ["-Wno-format"] + GNSS_CFLAGS,
+    cflags: ["-Wformat"] + GNSS_CFLAGS,
 }
 
 cc_binary {
