@@ -489,7 +489,7 @@ bool LocAdapterBase::
     reportQwesCapabilities(const std::unordered_map<LocationQwesFeatureType, bool> &/*featureMap*/)
 DEFAULT_IMPL(false)
 
-void LocAdapterBase::reportEngDebugDataInfoEvent(GnssEngineDebugDataInfo& gnssEngineDebugDataInfo)
+void LocAdapterBase::reportEngDebugDataInfoEvent(GnssEngineDebugDataInfo& /*gnssEngineDebugDataInfo*/)
 DEFAULT_IMPL()
 
 } // namespace loc_core
