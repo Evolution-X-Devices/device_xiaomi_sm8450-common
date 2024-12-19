@@ -653,7 +653,7 @@ void LocApiBase::
 DEFAULT_IMPL()
 
 void LocApiBase::
-    injectPositionAndCivicAddress(const Location& location, const GnssCivicAddress& addr)
+    injectPositionAndCivicAddress(const Location& /*location*/, const GnssCivicAddress& /*addr*/)
 DEFAULT_IMPL()
 
 void LocApiBase::
