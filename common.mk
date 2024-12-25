@@ -298,6 +298,9 @@ PRODUCT_PACKAGES += \
     WifiResTarget_cape \
     WifiResTarget_spf
 
+PRODUCT_PACKAGES += \
+    NcmTetheringOverlay
+
 # Partitions
 PRODUCT_PACKAGES += \
     vendor_bt_firmware_mountpoint \
