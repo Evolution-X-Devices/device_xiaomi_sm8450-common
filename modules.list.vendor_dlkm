@@ -21,8 +21,6 @@ lpass_cdc_dlkm.ko
 wsa883x_dlkm.ko
 wcd938x_dlkm.ko
 wcd938x_slave_dlkm.ko
-cs35l41_dlkm.ko
-cs35l43_dlkm.ko
 aw882xx_dlkm.ko
 wcd937x_dlkm.ko
 wcd937x_slave_dlkm.ko

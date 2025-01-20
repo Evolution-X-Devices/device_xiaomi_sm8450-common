@@ -79,7 +79,6 @@ panel_event_notifier.ko
 qcom_sync_file.ko
 hung_task_enh.ko
 qfprom-sys.ko
-qcom_pm8008-regulator.ko
 qpnp-amoled-regulator.ko
 hvc_gunyah.ko
 msm_rng.ko
@@ -90,8 +89,6 @@ msm_kgsl.ko
 zram.ko
 hdcp.ko
 qseecom-mod.ko
-wl2866d.ko
-wl2866d_ldo.ko
 qcom-i2c-pmic.ko
 sg.ko
 spi-msm-geni.ko
@@ -126,17 +123,10 @@ nb7vpq904m.ko
 atmel_mxt_ts.ko
 focaltech_fts.ko
 synaptics_dsx.ko
-fts_touch_spi.ko
 xiaomi_touch.ko
 nt36xxx-i2c.ko
 nt36xxx-spi.ko
-goodix_core.ko
 pm8941-pwrkey.ko
-qcom-hv-haptics.ko
-aw862xx_haptic.ko
-aw8697-haptic.ko
-fpc1540.ko
-goodix_tee.ko
 i2c-msm-geni.ko
 i3c-master-msm-geni.ko
 ir-spi.ko
@@ -236,5 +226,3 @@ snd_event_dlkm.ko
 q6_notifier_dlkm.ko
 q6_pdr_dlkm.ko
 adsp_loader_dlkm.ko
-fan53555.ko
-stmvl53l5.ko
