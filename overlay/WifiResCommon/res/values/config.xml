@@ -30,16 +30,6 @@
          range string like '1-6,11'. -->
     <string name="config_wifiSoftap2gChannelList" translatable="false" />
 
-    <!-- List of allowed channels in 5GHz band for softap. If the device doesn't want to restrict
-         channels this should be empty. Values is a comma separated channel string and/or channel
-         range string like '36-48,149'. -->
-    <string name="config_wifiSoftap5gChannelList" translatable="false" />
-
-    <!-- List of allowed channels in 6GHz band for softap. If the device doesn't want to restrict
-         channels this should be empty. Values is a comma separated channel string and/or channel
-         range string like '36-48,149'. -->
-    <string name="config_wifiSoftap6gChannelList" translatable="false" />
-
     <!-- Boolean indicating performing a partial initial scan is enabled -->
     <bool name="config_wifiEnablePartialInitialScan" translatable="false">true</bool>
 
@@ -133,9 +123,6 @@
 
     <!-- Indicates whether the network-centric QoS policy feature is enabled. -->
     <bool name="config_wifiNetworkCentricQosPolicyFeatureEnabled" translatable="false">true</bool>
-
-    <!-- Indicates whether the application-centric QoS policy feature is enabled. -->
-    <bool name="config_wifiApplicationCentricQosPolicyFeatureEnabled" translatable="false">true</bool>
 
     <!-- Lists each alternate character set per locale language for SSID translation to UTF-8. This
          will translate all SSIDs encoded with the specified character set from the native layer
