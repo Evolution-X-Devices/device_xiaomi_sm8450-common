@@ -4,10 +4,6 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Determine whether we should show the "listen for instructions" screen after
-         successfully placing the OTA call -->
-    <integer name="OtaShowListeningScreen">1</integer>
-
     <!-- DEPRECATED: Use CarrierConfigManager#KEY_WORLD_PHONE_BOOL -->
     <bool name="world_phone">true</bool>
 
