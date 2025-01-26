@@ -10,11 +10,6 @@
     <!-- DEPRECATED: Use CarrierConfigManager#KEY_DTMF_TYPE_ENABLED_BOOL -->
     <bool name="dtmf_type_enabled">true</bool>
 
-    <!-- Determine whether calls to mute the microphone in PhoneUtils
-         are routed through the android.media.AudioManager class (true) or through
-         the com.android.internal.telephony.Phone interface (false). -->
-    <bool name="send_mic_mute_to_AudioManager">true</bool>
-
     <!-- DEPRECATED: Use CarrierConfigManager#KEY_CSP_ENABLED_BOOL -->
     <bool name="csp_enabled">true</bool>
 
