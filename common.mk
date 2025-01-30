@@ -137,6 +137,7 @@ PRODUCT_COPY_FILES += \
 
 # Dolby
 PRODUCT_PACKAGES += \
+    DSPVolumeSynchronizer \
     XiaomiDolby
 
 # DRM
