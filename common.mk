@@ -141,6 +141,7 @@ PRODUCT_PACKAGES += \
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
+    DSPVolumeSynchronizer \
     XiaomiParts
 
 # Fingerprint
