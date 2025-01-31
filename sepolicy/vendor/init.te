@@ -7,3 +7,7 @@ set_prop(vendor_init, vendor_qcc_prop)
 recovery_only(`
 allow init proc:file write;
 ')
+
+# FPS info
+allow init vendor_sysfs_graphics:dir search;
+allow init vendor_sysfs_graphics:file rw_file_perms;

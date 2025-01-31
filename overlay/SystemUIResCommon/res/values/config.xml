@@ -36,4 +36,7 @@
         <item>0</item>
         <item>0</item>
     </integer-array>
+
+    <!-- FPSInfoService FPS node file path -->
+    <string name="config_fpsInfoSysNode" translatable="false">/sys/class/drm/sde-crtc-0/measured_fps</string>
 </resources>
