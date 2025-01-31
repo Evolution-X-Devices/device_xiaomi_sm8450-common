@@ -762,7 +762,7 @@ vendor/lib64/libpdmapper.so
 vendor/lib64/libpdnotifier.so
 vendor/lib64/libqcci_legacy.so
 vendor/lib64/libqcrilDataModule.so
-vendor/lib64/libqcrilNr.so
+vendor/lib64/libqcrilNr.so|2e586c7bf5f40a8381a2a5cdc5ed3b2032d53093
 vendor/lib64/libqcrilNrCellInfoModule.so
 vendor/lib64/libqcrilNrFramework.so
 vendor/lib64/libqcrilNrImsModule.so
@@ -781,7 +781,7 @@ vendor/lib64/libqrtr.so
 vendor/lib64/libqrtrclient.so
 vendor/lib64/libqsocket.so
 vendor/lib64/librcc.so
-vendor/lib64/libril-db.so
+vendor/lib64/libril-db.so|08bfc9d9ca3719edbf19caf825a5fcd4742bb2eb
 vendor/lib64/libril-legacy.so
 vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib64/libril-qc-radioconfig.so
