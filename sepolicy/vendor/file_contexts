@@ -56,6 +56,9 @@
 /mnt/vendor/persist/goodix(/.*)? u:object_r:vendor_fingerprint_data_file:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.xiaomi u:object_r:hal_fingerprint_default_exec:s0
 
+# FPS info
+/sys/class/drm/card0/sde-crtc-0/measured_fps                         u:object_r:vendor_sysfs_graphics:s0
+
 # IR
 /dev/lirc[0-9]+ u:object_r:lirc_device:s0
 /vendor/bin/hw/android\.hardware\.ir-service\.xiaomi u:object_r:hal_ir_default_exec:s0
