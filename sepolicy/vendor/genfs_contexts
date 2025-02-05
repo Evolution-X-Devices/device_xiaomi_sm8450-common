@@ -67,3 +67,8 @@ genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_upthd u:object_r:sysfs
 genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_x_resolution u:object_r:sysfs_touch_hostprocess:s0
 genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_y_resolution u:object_r:sysfs_touch_hostprocess:s0
 genfscon sysfs /devices/virtual/touch/touch_dev/update_rawdata u:object_r:sysfs_touch_hostprocess:s0
+
+# Torch control
+genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-02/c42d000.qcom,spmi:qcom,pm8350c@2:qcom,flash_led@ee00/led:torch_0/brightness u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-02/c42d000.qcom,spmi:qcom,pm8350c@2:qcom,flash_led@ee00/led:torch_0/max_brightness u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-02/c42d000.qcom,spmi:qcom,pm8350c@2:qcom,flash_led@ee00/led:switch_2/brightness u:object_r:sysfs_leds:s0
