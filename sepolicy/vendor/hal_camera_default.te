@@ -14,6 +14,7 @@ add_hwservice(hal_camera_server, vendor_hal_camerapostproc_xiaomi_hwservice)
 allow hal_camera_default camera_persist_file:dir search;
 allow hal_camera_default vendor_persist_sensors_file:dir search;
 allow hal_camera_default stmvl53l5_device:chr_file { ioctl open read write };
+allow hal_camera_default sys_thermal_flash_state:file { read open write getattr };
 
 r_dir_file(hal_camera_default, mnt_vendor_file)
 r_dir_file(hal_camera_default, camera_persist_file)
