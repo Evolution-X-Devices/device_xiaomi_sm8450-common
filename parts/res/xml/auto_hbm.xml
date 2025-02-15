@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+     Copyright (C) 2021 The Android Open Source Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto">
+
+    <com.android.settingslib.widget.TopIntroPreference
+        android:key="auto_hbm_intro"
+        android:title="@string/auto_hbm_summary" />
+
+    <com.android.settingslib.widget.MainSwitchPreference
+        android:key="auto_hbm"
+        android:title="@string/auto_hbm_main_switch_title"
+        android:defaultValue="false" />
+
+    <com.android.settingslib.widget.UsageProgressBarPreference
+        android:key="current_lux_level" 
+        android:selectable="false" />
+
+    <org.lineageos.settings.CustomSeekBarPreference
+        android:key="auto_hbm_threshold"
+        android:title="@string/auto_hbm_threshold_title"
+        android:summary="@string/auto_hbm_threshold_summary"
+        android:max="60000"
+        android:min="2000"
+        settings:units=""
+        android:defaultValue="20000" />
+
+    <org.lineageos.settings.CustomSeekBarPreference
+        android:key="auto_hbm_enable_time"
+        android:title="@string/auto_hbm_enable_time_title"
+        android:summary="@string/auto_hbm_enable_time_summary"
+        android:max="10"
+        android:min="0"
+        settings:units=""
+        android:defaultValue="0" />
+
+    <org.lineageos.settings.CustomSeekBarPreference
+        android:key="auto_hbm_disable_time"
+        android:title="@string/auto_hbm_disable_time_title"
+        android:summary="@string/auto_hbm_disable_time_summary"
+        android:max="10"
+        android:min="0"
+        settings:units=""
+        android:defaultValue="1" />
+</PreferenceScreen>

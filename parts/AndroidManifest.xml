@@ -173,5 +173,67 @@
             </intent-filter>
         </service>
 
+	<!-- TileHandler activity -->
+        <activity
+            android:name=".TileHandlerActivity"
+            android:exported="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
+            </intent-filter>
+        </activity>
+
+        <!-- Auto HBM activity -->
+        <activity
+            android:name=".autohbm.AutoHbmActivity"
+            android:label="@string/auto_hbm_title"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.display" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/auto_hbm_summary" />
+        </activity>
+
+        <!-- Auto HBM service -->
+        <service
+            android:name=".autohbm.AutoHbmService"
+            android:exported="false" />
+
+        <!-- Auto HBM tile service -->
+        <service
+            android:name=".autohbm.AutoHbmTileService"
+            android:label="@string/auto_hbm_title"
+            android:icon="@drawable/ic_auto_hbm_tile"
+            android:exported="true"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
+                android:value="true" />
+        </service>
+
+        <!--HBM tile service -->
+        <service
+            android:name=".autohbm.HbmTileService"
+            android:label="@string/tile_hbm"
+            android:icon="@drawable/ic_hbm_tile"
+            android:exported="true"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
+                android:value="true" />
+        </service>
+
     </application>
 </manifest>
