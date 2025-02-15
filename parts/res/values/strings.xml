@@ -77,4 +77,23 @@
     <string name="custom_seekbar_default_value">by default</string>
     <string name="custom_seekbar_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
     <string name="custom_seekbar_default_value_is_set">Default value is set</string>
+    
+    <!-- Auto HBM -->
+    <string name="auto_hbm_title">Automatic High Brightness Mode (HBM)</string>
+    <string name="auto_hbm_main_switch_title">Use automatic HBM</string>
+    <string name="tile_auto_hbm">Auto HBM</string>
+    <string name="tile_hbm_on">Enabled</string>
+    <string name="tile_hbm_off">Disabled</string>
+    <string name="tile_hbm">HBM</string>
+    <string name="tile_hbm_unavailable">HBM Unavailable</string>
+    <string name="tile_auto_hbm_or_brightness_enabled">Auto HBM or Auto Brightness is enabled</string>
+    <string name="hbm_mode_title">High Brightness Mode</string>
+    <string name="hbm_mode_notification">High Brightness Mode is now activated. Long time usage may damage your display.</string>
+    <string name="auto_hbm_summary">Automatically enable high brightness mode based on sunlight intensity (lux)</string>
+    <string name="auto_hbm_threshold_title">Light threshold</string>
+    <string name="auto_hbm_threshold_summary">Define the light intensity threshold in lux units at which HBM is activated</string>
+    <string name="auto_hbm_enable_time_title">Enable time</string>
+    <string name="auto_hbm_enable_time_summary">Duration in seconds that the light threshold must be continuously met to activate HBM</string>
+    <string name="auto_hbm_disable_time_title">Disable time</string>
+    <string name="auto_hbm_disable_time_summary">Duration in seconds for which HBM is deactivated if the light threshold falls below the set level</string>    
 </resources>
