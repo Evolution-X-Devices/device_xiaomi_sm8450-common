@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2016 The CyanogenMod Project
+ *               2025 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -74,6 +75,7 @@ public final class FileUtils {
         try {
             writer = new BufferedWriter(new FileWriter(fileName));
             writer.write(value);
+            writer.flush();
         } catch (FileNotFoundException e) {
             Log.w(TAG, "No such file " + fileName + " for writing", e);
             return false;
@@ -157,4 +159,64 @@ public final class FileUtils {
         }
         return ok;
     }
+
+    /**
+     * Writes the given value into the given file.
+     * @return true on success, false on failure
+     */
+    public static boolean writeValue(String fileName, String value) {
+        BufferedWriter writer = null;
+
+        try {
+            writer = new BufferedWriter(new FileWriter(fileName));
+            writer.write(value);
+            writer.flush();
+        } catch (FileNotFoundException e) {
+            Log.w(TAG, "No such file " + fileName + " for writing", e);
+            return false;
+        } catch (IOException e) {
+            Log.e(TAG, "Could not write to file " + fileName, e);
+            return false;
+        } finally {
+            try {
+                if (writer != null) {
+                    writer.close();
+                }
+            } catch (IOException e) {
+                // Ignored, not much we can do anyway
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Reads the value from the given file.
+     * @return the value read from the file, or the default value if an error occurs
+     */
+    public static String getFileValue(String fileName, String defaultValue) {
+        String value = defaultValue;
+        BufferedReader reader = null;
+
+        try {
+            reader = new BufferedReader(new FileReader(fileName), 512);
+            value = reader.readLine();
+        } catch (FileNotFoundException e) {
+            Log.w(TAG, "No such file " + fileName + " for reading", e);
+        } catch (IOException e) {
+            Log.e(TAG, "Could not read from file " + fileName, e);
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                // Ignored, not much we can do anyway
+            }
+        }
+
+        return value;
+    }
 }
+
+

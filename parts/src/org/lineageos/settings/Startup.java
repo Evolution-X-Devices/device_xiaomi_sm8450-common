@@ -29,6 +29,9 @@ import android.util.Log;
 import androidx.preference.PreferenceManager;
 
 import org.lineageos.settings.Constants;
+import org.lineageos.settings.autohbm.AutoHbmActivity;
+import org.lineageos.settings.autohbm.AutoHbmFragment;
+import org.lineageos.settings.autohbm.AutoHbmTileService;
 import org.lineageos.settings.saturation.SaturationFragment;
 import org.lineageos.settings.utils.ComponentUtils;
 import org.lineageos.settings.utils.FileUtils;
@@ -45,10 +48,11 @@ public class Startup extends BroadcastReceiver {
         if (Intent.ACTION_BOOT_COMPLETED.equals(action) || 
             Intent.ACTION_REBOOT.equals(action)) {
 
-            // Adding a delay before applying the saturation
+            // Adding a delay before applying the settings
             new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                Log.d(TAG, "Applying saved saturation setting...");
+                Log.d(TAG, "Applying saved settings...");
                 applySavedSaturation(context);
+                applyAutoHbmSettings(context);
             }, 5000); // Delay of 5 seconds
         }
     }
@@ -87,5 +91,23 @@ public class Startup extends BroadcastReceiver {
         } else {
             Log.e(TAG, "SurfaceFlinger service not found");
         }
+    }
+
+    private void applyAutoHbmSettings(Context context) {
+        Log.d(TAG, "Applying Auto HBM settings...");
+        AutoHbmFragment.toggleAutoHbmService(context);
+
+        ComponentUtils.toggleComponent(
+                context,
+                AutoHbmActivity.class,
+                true
+        );
+
+        ComponentUtils.toggleComponent(
+                context,
+                AutoHbmTileService.class,
+                true
+        );
+        Log.d(TAG, "Auto HBM settings applied");
     }
 }
