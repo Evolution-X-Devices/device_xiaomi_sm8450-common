@@ -20,9 +20,11 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ComponentCallbacks2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.drawable.Icon;
 import android.os.Handler;
@@ -38,18 +40,31 @@ import androidx.preference.PreferenceManager;
 import org.lineageos.settings.R;
 import org.lineageos.settings.utils.FileUtils;
 
+import android.app.ActivityManager;
+import android.os.Process;
+import java.util.Arrays;
+import java.util.List;
+
 public class ThermalTileService extends TileService {
     private static final String TAG = "ThermalTileService";
     private static final String THERMAL_SCONFIG = "/sys/class/thermal/thermal_message/sconfig";
     private static final String THERMAL_ENABLED_KEY = "thermal_enabled";
     private static final String SYS_PROP = "sys.perf_mode_active";
     private static final int NOTIFICATION_ID_PERFORMANCE = 1001;
+    private static final int NOTIFICATION_ID_GAMING = 1002;
 
     // Constants for thermal modes
     private static final int MODE_DEFAULT = 0;
-    private static final int MODE_PERFORMANCE = 1;
-    private static final int MODE_BATTERY_SAVER = 2;
-    private static final int MODE_UNKNOWN = 3;
+    private static final int MODE_GAMING = 1;
+    private static final int MODE_PERFORMANCE = 2;
+    private static final int MODE_BATTERY_SAVER = 3;
+    private static final int MODE_UNKNOWN = 4;
+
+    // Thermal mode values for sconfig
+    private static final int THERMAL_DEFAULT = 0;
+    private static final int THERMAL_GAMING = 10; // Gaming mode
+    private static final int THERMAL_PERFORMANCE = 23; // Performance mode
+    private static final int THERMAL_BATTERY_SAVER = 3; // Battery saver mode
 
     private String[] modes;
     private int currentMode = MODE_DEFAULT; // Default mode index
@@ -58,11 +73,18 @@ public class ThermalTileService extends TileService {
     private Notification mNotification;
     private ContentObserver batterySaverObserver;
 
+    // Game optimization related
+    private List<String> gamePackages;
+
     @Override
     public void onCreate() {
         super.onCreate();
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // Load game packages from resources
+        Resources res = getResources();
+        gamePackages = Arrays.asList(res.getStringArray(R.array.game_packages));
 
         // Ensure a default value for the master switch
         if (!mSharedPrefs.contains(THERMAL_ENABLED_KEY)) {
@@ -78,6 +100,7 @@ public class ThermalTileService extends TileService {
         super.onStartListening();
         modes = new String[]{
                 getString(R.string.thermal_mode_default),
+                getString(R.string.thermal_mode_gaming),
                 getString(R.string.thermal_mode_performance),
                 getString(R.string.thermal_mode_battery_saver),
                 getString(R.string.thermal_mode_unknown)
@@ -109,7 +132,7 @@ public class ThermalTileService extends TileService {
         if (currentMode == MODE_UNKNOWN) {
             currentMode = MODE_DEFAULT;
         } else {
-            currentMode = (currentMode + 1) % 3; // Cycle through 0, 1, 2
+            currentMode = (currentMode + 1) % 4; // Cycle through 0, 1, 2, 3
         }
         setThermalMode(currentMode);
         updateTile();
@@ -124,9 +147,10 @@ public class ThermalTileService extends TileService {
         try {
             int value = Integer.parseInt(line.trim());
             switch (value) {
-                case 0: return MODE_DEFAULT;
-                case 10: return MODE_PERFORMANCE;
-                case 3: return MODE_BATTERY_SAVER;
+                case THERMAL_DEFAULT: return MODE_DEFAULT;
+                case THERMAL_GAMING: return MODE_GAMING;
+                case THERMAL_PERFORMANCE: return MODE_PERFORMANCE;
+                case THERMAL_BATTERY_SAVER: return MODE_BATTERY_SAVER;
                 default: return MODE_UNKNOWN;
             }
         } catch (NumberFormatException e) {
@@ -139,19 +163,24 @@ public class ThermalTileService extends TileService {
         int thermalValue;
         switch (mode) {
             case MODE_DEFAULT:
-                thermalValue = 0;
+                thermalValue = THERMAL_DEFAULT;
                 setPerformanceModeActive(1); // Default mode
                 break;
+            case MODE_GAMING:
+                thermalValue = THERMAL_GAMING;
+                setPerformanceModeActive(2); // Gaming mode
+                optimizeGameLaunch(); // Apply optimizations
+                break;
             case MODE_PERFORMANCE:
-                thermalValue = 10;
+                thermalValue = THERMAL_PERFORMANCE;
                 setPerformanceModeActive(2); // Performance mode
                 break;
             case MODE_BATTERY_SAVER:
-                thermalValue = 3;
+                thermalValue = THERMAL_BATTERY_SAVER;
                 setPerformanceModeActive(0); // Battery saver mode
                 break;
             default:
-                thermalValue = 0;
+                thermalValue = THERMAL_DEFAULT;
                 setPerformanceModeActive(1); // Default mode
                 break;
         }
@@ -162,13 +191,72 @@ public class ThermalTileService extends TileService {
         if (mode == MODE_BATTERY_SAVER) {
             enableBatterySaver(true);
             cancelPerformanceNotification();
+            cancelGamingNotification();
         } else {
             enableBatterySaver(false);
             if (mode == MODE_PERFORMANCE) {
                 showPerformanceNotification();
+                cancelGamingNotification();
+            } else if (mode == MODE_GAMING) {
+                showGamingNotification();
+                cancelPerformanceNotification();
             } else {
                 cancelPerformanceNotification();
+                cancelGamingNotification();
             }
+        }
+    }
+
+    private void optimizeGameLaunch() {
+        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        if (activityManager == null) return;
+
+        // Get the list of running processes
+        List<ActivityManager.RunningAppProcessInfo> runningApps = activityManager.getRunningAppProcesses();
+        if (runningApps == null) return;
+
+        for (ActivityManager.RunningAppProcessInfo processInfo : runningApps) {
+            // Check if the process belongs to one of the game packages
+            if (gamePackages.contains(processInfo.processName)) {
+                // 1. Set process priority to foreground for the game process
+                Process.setThreadPriority(Process.THREAD_PRIORITY_FOREGROUND);
+
+                // 2. Set load priority to performance for the game process
+                Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY);
+
+                // 3. Trim memory for the game process
+                trimMemory(activityManager, ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW);
+
+                Log.d(TAG, "Optimizations applied to game package: " + processInfo.processName);
+            }
+        }
+
+        // 4. Clear background processes (skips game packages)
+        clearBackgroundProcesses(activityManager);
+    }
+
+    private void clearBackgroundProcesses(ActivityManager activityManager) {
+        List<ActivityManager.RunningAppProcessInfo> runningApps = activityManager.getRunningAppProcesses();
+        if (runningApps == null) return;
+
+        for (ActivityManager.RunningAppProcessInfo processInfo : runningApps) {
+            // Skip game packages
+            if (gamePackages.contains(processInfo.processName)) {
+                continue;
+            }
+
+            // Kill non-game background processes
+            if (processInfo.importance > ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
+                activityManager.killBackgroundProcesses(processInfo.processName);
+            }
+        }
+    }
+
+    private void trimMemory(ActivityManager activityManager, int level) {
+        try {
+            activityManager.getClass().getMethod("trimMemory", int.class).invoke(activityManager, level);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to trim memory", e);
         }
     }
 
@@ -189,7 +277,10 @@ public class ThermalTileService extends TileService {
     private void updateTile() {
         Tile tile = getQsTile();
         if (tile != null) {
-            if (currentMode == MODE_PERFORMANCE) {
+            if (currentMode == MODE_GAMING) {
+                tile.setState(Tile.STATE_ACTIVE);
+                tile.setIcon(Icon.createWithResource(this, R.drawable.ic_thermal_gaming));
+            } else if (currentMode == MODE_PERFORMANCE) {
                 tile.setState(Tile.STATE_ACTIVE);
                 tile.setIcon(Icon.createWithResource(this, R.drawable.ic_thermal_performance));
             } else if (currentMode == MODE_BATTERY_SAVER) {
@@ -240,8 +331,26 @@ public class ThermalTileService extends TileService {
         mNotificationManager.notify(NOTIFICATION_ID_PERFORMANCE, mNotification);
     }
 
+    private void showGamingNotification() {
+        Intent intent = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+        mNotification = new Notification.Builder(this, TAG)
+                .setContentTitle(getString(R.string.gaming_mode_title))
+                .setContentText(getString(R.string.gaming_mode_notification))
+                .setSmallIcon(R.drawable.ic_thermal_gaming)
+                .setContentIntent(pendingIntent)
+                .setOngoing(true)
+                .setFlag(Notification.FLAG_NO_CLEAR, true)
+                .build();
+        mNotificationManager.notify(NOTIFICATION_ID_GAMING, mNotification);
+    }
+
     private void cancelPerformanceNotification() {
         mNotificationManager.cancel(NOTIFICATION_ID_PERFORMANCE);
+    }
+
+    private void cancelGamingNotification() {
+        mNotificationManager.cancel(NOTIFICATION_ID_GAMING);
     }
 
     private void setPerformanceModeActive(int mode) {
@@ -257,7 +366,7 @@ public class ThermalTileService extends TileService {
                         getContentResolver(),
                         Settings.Global.LOW_POWER_MODE, 0) == 1;
 
-                if (isBatterySaverOn && (currentMode == MODE_DEFAULT || currentMode == MODE_PERFORMANCE)) {
+                if (isBatterySaverOn && (currentMode == MODE_DEFAULT || currentMode == MODE_PERFORMANCE || currentMode == MODE_GAMING)) {
                     Log.d(TAG, "Battery saver enabled, switching to battery saver thermal mode.");
                     currentMode = MODE_BATTERY_SAVER;
                     setThermalMode(currentMode);
