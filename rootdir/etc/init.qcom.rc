@@ -492,11 +492,6 @@ on property:vendor.media.target_variant=*
     setprop ro.media.xml_variant.codecs ${vendor.media.target_variant}
     setprop ro.media.xml_variant.codecs_performance ${vendor.media.target_variant}
 
-service qcom-c_core-sh  /vendor/bin/init.qcom.class_core.sh
-    class core
-    user root
-    oneshot
-
 service qcom-c_main-sh /vendor/bin/init.class_main.sh
     class main
     user root
