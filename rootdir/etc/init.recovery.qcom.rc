@@ -48,3 +48,6 @@ on fs
 
 on property:dev.mnt.blk.firmware=*
     write /sys/kernel/boot_adsp/boot 1
+
+on property:init.svc.fastbootd=running
+    umount /firmware
