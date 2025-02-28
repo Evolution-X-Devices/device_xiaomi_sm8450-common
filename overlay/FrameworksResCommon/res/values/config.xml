@@ -130,9 +130,6 @@
     -->
     <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
 
-    <!-- Whether camera shutter sound is forced or not  (country specific). -->
-    <bool name="config_camera_sound_forced">false</bool>
-
     <!-- set to false if we need to show user confirmation
          when alpha identifier is not provided by the UICC -->
     <bool name="config_stkNoAlphaUsrCnf">false</bool>
