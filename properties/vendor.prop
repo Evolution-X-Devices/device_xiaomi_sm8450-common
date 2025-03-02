@@ -111,8 +111,10 @@ vendor.display.use_smooth_motion=1
 vendor.display.vds_allow_hwc=0
 
 # Dolby Atmos
-vendor.audio.dolby.ds2.enabled=false
+vendor.audio.dolby.ds2.enabled=true
 vendor.audio.dolby.ds2.hardbypass=false
+ro.vendor.audio.dolby.dax.support=true
+ro.vendor.audio.dolby.surround.enable=true
 
 # DPM
 persist.vendor.dpm.vndr.feature=1
@@ -184,6 +186,7 @@ debug.c2.use_dmabufheaps=1
 debug.stagefright.c2inputsurface=-1
 debug.stagefright.ccodec=4
 debug.stagefright.omx_default_rank=0
+vendor.media.omx=0
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
