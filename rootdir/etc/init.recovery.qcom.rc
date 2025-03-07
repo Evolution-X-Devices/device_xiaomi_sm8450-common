@@ -47,6 +47,7 @@ on fs
     mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro context=u:object_r:firmware_file:s0
 
 on property:dev.mnt.blk.firmware=*
+    wait /sys/kernel/boot_adsp/boot
     write /sys/kernel/boot_adsp/boot 1
 
 on property:init.svc.fastbootd=running
