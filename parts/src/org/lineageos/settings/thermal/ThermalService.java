@@ -61,9 +61,20 @@ public class ThermalService extends Service {
         } catch (RemoteException e) {
             // Do nothing
         }
-        mThermalUtils = new ThermalUtils(this);
+        mThermalUtils = ThermalUtils.getInstance(this);
         registerReceiver();
         super.onCreate();
+    }
+
+    @Override
+    public void onDestroy() {
+        dlog("Destroying service");
+        unregisterReceiver(mIntentReceiver);
+        try {
+            ActivityTaskManager.getService().unregisterTaskStackListener(mTaskListener);
+        } catch (RemoteException e) {
+            // Do nothing
+        }
     }
 
     @Override

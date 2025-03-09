@@ -41,6 +41,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.android.settingslib.applications.ApplicationsState;
+import com.android.settingslib.widget.MainSwitchPreference;
 
 import org.lineageos.settings.R;
 
@@ -53,6 +54,8 @@ import java.util.Map;
 public class ThermalSettingsFragment extends PreferenceFragment
         implements ApplicationsState.Callbacks {
 
+    private static final String THERMAL_ENABLE_KEY = "thermal_enable";
+
     private AllPackagesAdapter mAllPackagesAdapter;
     private ApplicationsState mApplicationsState;
     private ApplicationsState.Session mSession;
@@ -62,9 +65,19 @@ public class ThermalSettingsFragment extends PreferenceFragment
 
     private ThermalUtils mThermalUtils;
     private RecyclerView mAppsRecyclerView;
+    private MainSwitchPreference mMainSwitch;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        addPreferencesFromResource(R.xml.thermal_settings);
+
+        mThermalUtils = ThermalUtils.getInstance(getActivity());
+        mMainSwitch = (MainSwitchPreference) findPreference(THERMAL_ENABLE_KEY);
+        mMainSwitch.addOnSwitchChangeListener((switchView, isChecked) -> {
+            mThermalUtils.setEnabled(isChecked);
+            mAppsRecyclerView.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+        });
+        mMainSwitch.setChecked(mThermalUtils.isEnabled());
     }
 
     @Override
@@ -75,16 +88,7 @@ public class ThermalSettingsFragment extends PreferenceFragment
         mSession = mApplicationsState.newSession(this);
         mSession.onResume();
         mActivityFilter = new ActivityFilter(getActivity().getPackageManager());
-
         mAllPackagesAdapter = new AllPackagesAdapter(getActivity());
-
-        mThermalUtils = new ThermalUtils(getActivity());
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.thermal_layout, container, false);
     }
 
     @Override
@@ -94,8 +98,8 @@ public class ThermalSettingsFragment extends PreferenceFragment
         mAppsRecyclerView = view.findViewById(R.id.thermal_rv_view);
         mAppsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mAppsRecyclerView.setAdapter(mAllPackagesAdapter);
+        mAppsRecyclerView.setVisibility(mThermalUtils.isEnabled() ? View.VISIBLE : View.GONE);
     }
-
 
     @Override
     public void onResume() {
