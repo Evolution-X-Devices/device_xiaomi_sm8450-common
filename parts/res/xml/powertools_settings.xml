@@ -1,0 +1,153 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Power Profile Section -->
+    <PreferenceCategory
+        android:key="power_profile_category"
+        android:title="@string/powerprofile_tile_label">
+
+        <ListPreference
+            android:key="power_profile_mode"
+            android:title="Select Power Profile Mode"
+            android:entries="@array/power_profile_modes"
+            android:entryValues="@array/power_profile_mode_values"
+            android:defaultValue="0"
+            android:summary="%s" />
+
+        <Preference
+            android:key="power_profile_footer"
+            android:summary="@string/power_profile_footer_summary"
+            android:selectable="false" />
+
+    </PreferenceCategory>
+
+    <!-- GPU Optimizer Section -->
+    <SwitchPreferenceCompat
+        android:key="gpu_enable"
+        android:title="Enable GPU Optimizer"
+        android:summary="Toggle GPU optimizations"
+        android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:key="gpu_freq_category"
+        android:title="Configure GPU Frequency">
+
+        <ListPreference
+            android:key="gpu_min_frequency"
+            android:title="@string/gpu_min_frequency"
+            android:entries="@array/gpu_frequency_entries"
+            android:entryValues="@array/gpu_frequency_values"
+            android:defaultValue="220000000"
+            android:summary="%s" />
+
+        <ListPreference
+            android:key="gpu_max_frequency"
+            android:title="@string/gpu_max_frequency"
+            android:entries="@array/gpu_frequency_entries"
+            android:entryValues="@array/gpu_frequency_values"
+            android:defaultValue="580000000"
+            android:summary="%s" />
+
+    </PreferenceCategory>
+
+    <!-- CPU Optimizer Section -->
+    <SwitchPreferenceCompat
+        android:key="cpu_enable"
+        android:title="Enable CPU Optimizer"
+        android:summary="Toggle CPU optimizations"
+        android:defaultValue="false" />
+
+    <!-- CPU Little Cluster -->
+    <PreferenceCategory
+        android:key="cpu_little_category"
+        android:title="Configure CPU Little Cluster">
+
+        <ListPreference
+            android:key="cpu_little_min_frequency"
+            android:title="Min Frequency"
+            android:entries="@array/cpu_little_freq_entries"
+            android:entryValues="@array/cpu_little_freq_values"
+            android:defaultValue="300000"
+            android:summary="%s" />
+
+        <ListPreference
+            android:key="cpu_little_max_frequency"
+            android:title="Max Frequency"
+            android:entries="@array/cpu_little_freq_entries"
+            android:entryValues="@array/cpu_little_freq_values"
+            android:defaultValue="1804800"
+            android:summary="%s" />
+
+        <ListPreference
+            android:key="cpu_little_governor"
+            android:title="Governor"
+            android:entries="@array/cpu_governor_entries"
+            android:entryValues="@array/cpu_governor_values"
+            android:defaultValue="walt"
+            android:summary="%s" />
+
+    </PreferenceCategory>
+
+    <!-- CPU Big Cluster -->
+    <PreferenceCategory
+        android:key="cpu_big_category"
+        android:title="Configure CPU Big Cluster">
+
+        <ListPreference
+            android:key="cpu_big_min_frequency"
+            android:title="Min Frequency"
+            android:entries="@array/cpu_big_freq_entries"
+            android:entryValues="@array/cpu_big_freq_values"
+            android:defaultValue="633600"
+            android:summary="%s" />
+
+        <ListPreference
+            android:key="cpu_big_max_frequency"
+            android:title="Max Frequency"
+            android:entries="@array/cpu_big_freq_entries"
+            android:entryValues="@array/cpu_big_freq_values"
+            android:defaultValue="2496000"
+            android:summary="%s" />
+
+        <ListPreference
+            android:key="cpu_big_governor"
+            android:title="Governor"
+            android:entries="@array/cpu_governor_entries"
+            android:entryValues="@array/cpu_governor_values"
+            android:defaultValue="walt"
+            android:summary="%s" />
+
+    </PreferenceCategory>
+
+    <!-- CPU Prime Cluster -->
+    <PreferenceCategory
+        android:key="cpu_prime_category"
+        android:title="Configure CPU Prime Cluster">
+
+        <ListPreference
+            android:key="cpu_prime_min_frequency"
+            android:title="Min Frequency"
+            android:entries="@array/cpu_prime_freq_entries"
+            android:entryValues="@array/cpu_prime_freq_values"
+            android:defaultValue="787200"
+            android:summary="%s" />
+
+        <ListPreference
+            android:key="cpu_prime_max_frequency"
+            android:title="Max Frequency"
+            android:entries="@array/cpu_prime_freq_entries"
+            android:entryValues="@array/cpu_prime_freq_values"
+            android:defaultValue="2918400"
+            android:summary="%s" />
+
+        <ListPreference
+            android:key="cpu_prime_governor"
+            android:title="Governor"
+            android:entries="@array/cpu_governor_entries"
+            android:entryValues="@array/cpu_governor_values"
+            android:defaultValue="walt"
+            android:summary="%s" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
+

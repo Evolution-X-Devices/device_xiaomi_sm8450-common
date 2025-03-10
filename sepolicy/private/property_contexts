@@ -5,5 +5,20 @@ ro.camera.res.fmq.                  u:object_r:exported_default_prop:s0
 # SettingsLib
 settingsdebug.instant.packages u:object_r:settingslib_prop:s0
 
-# Perf
-sys.perf_mode_active           u:object_r:exported3_system_prop:s0
+# XiaomiParts
+ sys.perf_mode_active           u:object_r:exported3_system_prop:s0
+ 
+ persist.sys.parts.gpu.min_frequency           u:object_r:exported_system_prop:s0
+ persist.sys.parts.gpu.max_frequency           u:object_r:exported_system_prop:s0
+ 
+ persist.sys.parts.cpu.little.min_frequency   u:object_r:exported_system_prop:s0
+ persist.sys.parts.cpu.little.max_frequency   u:object_r:exported_system_prop:s0
+ persist.sys.parts.cpu.little.governor        u:object_r:exported_system_prop:s0
+ 
+ persist.sys.parts.cpu.big.min_frequency      u:object_r:exported_system_prop:s0
+ persist.sys.parts.cpu.big.max_frequency      u:object_r:exported_system_prop:s0
+ persist.sys.parts.cpu.big.governor           u:object_r:exported_system_prop:s0
+ 
+ persist.sys.parts.cpu.prime.min_frequency    u:object_r:exported_system_prop:s0
+ persist.sys.parts.cpu.prime.max_frequency    u:object_r:exported_system_prop:s0
+ persist.sys.parts.cpu.prime.governor         u:object_r:exported_system_prop:s0
