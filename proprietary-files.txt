@@ -543,6 +543,7 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 system_ext/app/QCC/QCC.apk|d3cbc08cb41bb36ff705109c4c49eba6083a5807
 system_ext/bin/qccsyshal@1.2-service|1d3fa5feff11e463204d31927cfb659f707989e1
 system_ext/etc/init/vendor.qti.hardware.qccsyshal@1.2-service.rc|7279d09cf4d6f594dbab5c288ec16101bd668a95
+system_ext/etc/permissions/com.qti.qcc.vendor_qcc.xml|84fdcd93d53a1b399b9aa765095d47cdb0d872df
 system_ext/lib64/libqcc.so|a9dbbaebc96295adb9f996268d540170e0ab9f25
 system_ext/lib64/libqcc_file_agent_sys.so|594caf0a2fba843dd34c87a7e4775cc1c25bc93a
 system_ext/lib64/libqccdme.so|c05eb3ae79142a0d7bef3664028560a257872c8d
