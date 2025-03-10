@@ -299,5 +299,49 @@
                 <category android:name="android.intent.category.DEFAULT" />
              </intent-filter>
         </receiver>
+
+        <!-- Powertools Activity -->
+        <activity
+            android:name=".powertools.PowertoolsActivity"
+            android:label="@string/Powertools_title"
+            android:theme="@style/Theme.SubSettingsBase"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.battery" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/Powertools_summary" />
+        </activity>
+
+        <!-- Powertools Quick Settings Tile Service -->
+        <service
+            android:name=".powertools.PowerProfileTileService"
+            android:label="@string/powerprofile_tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:icon="@drawable/ic_thermal_balance"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
+                android:value="true" />
+        </service>
+
+        <!-- Powertool BootReceiver -->
+        <receiver android:name=".powertools.PowertoolBootReceiver"
+            android:exported="true"
+            android:enabled="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>

@@ -15,3 +15,6 @@ allow devicesettings_app vendor_sysfs_kgsl_gpuclk:file { read open getattr };
 allow devicesettings_app property_socket:sock_file { read write execute getattr };
 allow devicesettings_app init:unix_stream_socket connectto;
 allow devicesettings_app exported3_system_prop:property_service set;
+allow devicesettings_app default_prop:file { read open getattr map };
+allow devicesettings_app exported_system_prop:property_service set;
+allow devicesettings_app system_prop:property_service set;
