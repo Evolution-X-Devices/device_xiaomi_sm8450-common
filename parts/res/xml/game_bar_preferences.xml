@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto">
+
+    <com.android.settingslib.widget.MainSwitchPreference
+        android:key="game_bar_enable"
+        android:title="Enable GameBar Overlay"
+        android:summary="@string/game_bar_summary"
+        android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:title="Overlay Features"
+        android:dependency="game_bar_enable">
+
+        <SwitchPreferenceCompat
+            android:key="game_bar_fps_enable"
+            android:title="FPS Overlay"
+            android:summary="Show current FPS on screen"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="game_bar_temp_enable"
+            android:title="Device Temperature"
+            android:summary="Show device (battery) temperature"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="game_bar_cpu_usage_enable"
+            android:title="CPU Usage"
+            android:summary="Show current CPU usage percentage"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="game_bar_cpu_clock_enable"
+            android:title="CPU Clock Speeds"
+            android:summary="Show current CPU clock speeds for each core"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="game_bar_cpu_temp_enable"
+            android:title="CPU Temperature"
+            android:summary="Show CPU temperature (thermal_zone0)"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="game_bar_ram_enable"
+            android:title="RAM Usage"
+            android:summary="Show current RAM usage in MB"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="game_bar_gpu_usage_enable"
+            android:title="GPU Usage"
+            android:summary="Show GPU usage percentage"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="game_bar_gpu_clock_enable"
+            android:title="GPU Clock Speed"
+            android:summary="Show current GPU clock frequency"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="game_bar_gpu_temp_enable"
+            android:title="GPU Temperature"
+            android:summary="Show current GPU temperature"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="FPS Measurement Method"
+        android:dependency="game_bar_fps_enable">
+        <ListPreference
+            android:key="game_bar_fps_method"
+            android:title="Select FPS Method"
+            android:summary="Choose between the New API method (default) and Legacy Sysfs"
+            android:defaultValue="new"
+            android:entries="@array/game_bar_fps_method_entries"
+            android:entryValues="@array/game_bar_fps_method_values" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Customization"
+        android:dependency="game_bar_enable">
+
+        <SeekBarPreference
+            android:key="game_bar_text_size"
+            android:title="Text Size"
+            android:summary="Adjust the size of overlay text"
+            android:defaultValue="14"
+            android:max="32"
+            android:min="12" />
+
+        <SeekBarPreference
+            android:key="game_bar_background_alpha"
+            android:title="Background Transparency"
+            android:summary="Adjust the transparency of the background"
+            android:defaultValue="128"
+            android:max="255"
+            android:min="0" />
+
+        <SeekBarPreference
+            android:key="game_bar_corner_radius"
+            android:title="Overlay Corner Radius"
+            android:summary="Adjust how rounded the overlay corners should be"
+            android:defaultValue="90"
+            android:max="100"
+            android:min="0" />
+
+        <SeekBarPreference
+            android:key="game_bar_padding"
+            android:title="Overlay Padding"
+            android:summary="Adjust the space around the stats"
+            android:defaultValue="8"
+            android:max="64"
+            android:min="0" />
+
+        <SeekBarPreference
+            android:key="game_bar_item_spacing"
+            android:title="Item Spacing"
+            android:summary="Adjust spacing between overlay lines"
+            android:defaultValue="8"
+            android:max="50"
+            android:min="0" />
+
+        <ListPreference
+            android:key="game_bar_update_interval"
+            android:title="Update Interval"
+            android:summary="Set how often the overlay values update"
+            android:defaultValue="1000"
+            android:entries="@array/fps_overlay_update_interval_entries"
+            android:entryValues="@array/fps_overlay_update_interval_values" />
+
+        <ListPreference
+            android:key="game_bar_title_color"
+            android:title="Stat Title Color"
+            android:summary="Color for 'FPS', 'Temp', 'CPU', etc. text"
+            android:defaultValue="#FFFFFF"
+            android:entries="@array/fps_overlay_color_entries"
+            android:entryValues="@array/fps_overlay_color_values" />
+
+        <ListPreference
+            android:key="game_bar_value_color"
+            android:title="Stat Value Color"
+            android:summary="Color for numeric stats (e.g., '29', '32.0°C')"
+            android:defaultValue="#4CAF50"
+            android:entries="@array/fps_overlay_color_entries"
+            android:entryValues="@array/fps_overlay_color_values" />
+
+        <ListPreference
+            android:key="game_bar_position"
+            android:title="Overlay Position"
+            android:summary="Select the position of the overlay on screen"
+            android:defaultValue="top_center"
+            android:entries="@array/fps_overlay_position_entries"
+            android:entryValues="@array/fps_overlay_position_values" />
+
+        <ListPreference
+            android:key="game_bar_format"
+            android:title="Overlay Format"
+            android:summary="Choose between Full or Minimal display"
+            android:defaultValue="full"
+            android:entries="@array/game_bar_format_entries"
+            android:entryValues="@array/game_bar_format_values" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Split Config"
+        android:dependency="game_bar_enable">
+
+        <ListPreference
+            android:key="game_bar_split_mode"
+            android:title="Split Mode"
+            android:summary="Choose Side-by-Side or Stacked arrangement"
+            android:defaultValue="side_by_side"
+            android:entries="@array/game_bar_split_mode_entries"
+            android:entryValues="@array/game_bar_split_mode_values" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Overlay Gesture Controls"
+        android:dependency="game_bar_enable">
+
+        <SwitchPreferenceCompat
+            android:key="game_bar_single_tap_toggle"
+            android:title="Enable Single Tap to Toggle"
+            android:summary="Tap once to switch between full and minimal overlay formats"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="game_bar_doubletap_capture"
+            android:title="Enable Double Tap to Capture"
+            android:summary="Double-tap overlay to start/stop capture logs"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="game_bar_longpress_enable"
+            android:title="Enable Long Press"
+            android:summary="Long-press overlay to access GameBar settings"
+            android:defaultValue="true" />
+
+        <ListPreference
+            android:key="game_bar_longpress_timeout"
+            android:title="Long Press Duration"
+            android:summary="Set the duration required to long-press the overlay"
+            android:defaultValue="500"
+            android:entries="@array/game_bar_longpress_entries"
+            android:entryValues="@array/game_bar_longpress_values"
+            android:dependency="game_bar_longpress_enable" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Capture Logs"
+        android:dependency="game_bar_enable">
+
+        <Preference
+            android:key="game_bar_capture_start"
+            android:title="Start Logging"
+            android:summary="Begin capturing FPS and performance data in real-time" />
+
+        <Preference
+            android:key="game_bar_capture_stop"
+            android:title="Stop Logging"
+            android:summary="Stop capturing FPS and performance data in real-time" />
+
+        <Preference
+            android:key="game_bar_capture_export"
+            android:title="Export GameBar Log Data"
+            android:summary="Save the captured FPS and performance data as a CSV file" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Auto Enable GameBar">
+        <SwitchPreferenceCompat
+            android:key="game_bar_auto_enable"
+            android:title="Auto-Enable GameBar for Selected Apps"
+            android:summary="If turned on, selected apps will auto-enable GameBar even if the main switch is off"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="game_bar_app_selector"
+            android:title="Select Apps"
+            android:summary="Add apps that should auto-enable GameBar" />
+
+        <Preference
+            android:key="game_bar_app_remover"
+            android:title="Remove Selected Apps"
+            android:summary="Remove apps from the auto-enable list" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
