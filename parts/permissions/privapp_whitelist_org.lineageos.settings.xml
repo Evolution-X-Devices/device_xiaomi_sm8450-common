@@ -16,6 +16,16 @@
 -->
 <permissions>
     <privapp-permissions package="org.lineageos.settings">
+        <permission name="android.permission.GET_TASKS" />
+        <permission name="android.permission.INTERACT_ACROSS_USERS" />
+        <permission name="android.permission.MANAGE_GAME_MODE" />
+        <permission name="android.permission.QUERY_ALL_PACKAGES" />
+        <permission name="android.permission.READ_DEVICE_CONFIG" />
+        <permission name="android.permission.RECEIVE_BOOT_COMPLETED" />
+        <permission name="android.permission.SYSTEM_ALERT_WINDOW" />
+        <permission name="android.permission.WRITE_DEVICE_CONFIG" />
+        <permission name="android.permission.WAKE_LOCK" />
+        <permission name="android.permission.ACCESS_FPS_COUNTER" />
         <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
     </privapp-permissions>
 </permissions>
