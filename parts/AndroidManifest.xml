@@ -257,10 +257,13 @@
             </intent-filter>
             <meta-data
                 android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.apps" />
+                android:value="com.android.settings.category.ia.system" />
             <meta-data
                 android:name="com.android.settings.summary"
                 android:resource="@string/game_bar_summary" />
+	    <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_gamebar" />
         </activity>
 
         <!-- GameBar AppSelector -->
