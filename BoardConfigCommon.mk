@@ -53,6 +53,9 @@ TARGET_USES_QCOM_MM_AUDIO := true
 TARGET_BOOTLOADER_BOARD_NAME := taro
 TARGET_NO_BOOTLOADER := true
 
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth/include
+
 # Dolby Vision
 SOONG_CONFIG_NAMESPACES += dolby_vision
 SOONG_CONFIG_dolby_vision += enabled
