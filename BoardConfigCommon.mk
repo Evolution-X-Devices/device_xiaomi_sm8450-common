@@ -58,6 +58,9 @@ $(call soong_config_set, ufsbsg, ufsframework, bsg)
 TARGET_BOOTLOADER_BOARD_NAME := taro
 TARGET_NO_BOOTLOADER := true
 
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth/include
+
 # Camera
 TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED := true
 TARGET_CAMERA_PACKAGE_NAME := com.android.camera
