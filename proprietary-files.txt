@@ -352,6 +352,8 @@ vendor/lib/egl/libVkLayer_ADRENO_qprofiler.so
 vendor/lib/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib/libq3dtools_adreno.so
 vendor/lib/egl/libq3dtools_esx.so
 vendor/lib/libCB.so
+vendor/lib/libC2D2.so
+vendor/lib/libc2d30_bltlib.so
 vendor/lib/libOpenCL.so
 vendor/lib/libadreno_app_profiles.so
 vendor/lib/libadreno_utils.so
@@ -370,6 +372,8 @@ vendor/lib64/egl/libVkLayer_ADRENO_qprofiler.so
 vendor/lib64/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib64/libq3dtools_adreno.so
 vendor/lib64/egl/libq3dtools_esx.so
 vendor/lib64/libCB.so
+vendor/lib64/libC2D2.so
+vendor/lib64/libc2d30_bltlib.so
 vendor/lib64/libOpenCL.so
 vendor/lib64/libadreno_app_profiles.so
 vendor/lib64/libadreno_utils.so
@@ -569,6 +573,7 @@ vendor/lib64/libsubsystem_control.so
 # QCV
 vendor/bin/init.qti.qcv.sh
 vendor/etc/init/init.qti.qcv.rc
+vendor/lib64/libsoc_helper_jni.so
 
 # QMI
 system/etc/sysconfig/qti_whitelist.xml
@@ -929,6 +934,9 @@ vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
 # Trusted User Interface
 vendor/lib64/libminksocket_vendor.so
+
+# Trustzone
+vendor/app/TrustZoneAccessService/TrustZoneAccessService.apk
 
 # VM mem
 vendor/lib/libvmmem.so
