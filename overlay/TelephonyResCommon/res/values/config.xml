@@ -34,6 +34,9 @@
     <!-- The package name for the platform number verification supplier app. -->
     <string name="platform_number_verification_package" translatable="false">com.google.android.gms</string>
 
+    <!-- String indicating the package name of the device GbaService implementation. -->
+    <string name="config_gba_package" translatable="false">com.qualcomm.qti.uimGbaApp</string>
+
     <!-- Whether the device supports dialing emergency RTT calls when there's no SIM card installed
     -->
     <bool name="config_support_simless_emergency_rtt">true</bool>
