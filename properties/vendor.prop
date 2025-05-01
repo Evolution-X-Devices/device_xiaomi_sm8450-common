@@ -163,6 +163,9 @@ vendor.gralloc.disable_ubwc=0
 debug.hwui.use_hint_manager=true
 debug.hwui.target_cpu_time_percent=30
 
+# Graphics
+ro.surface_flinger.support_kernel_idle_timer=true
+
 # Incremental
 ro.incremental.enable=yes
 
