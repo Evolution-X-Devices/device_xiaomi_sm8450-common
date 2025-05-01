@@ -189,6 +189,7 @@ debug.stagefright.c2inputsurface=-1
 ro.vendor.extension_library=libqti-perfd-client.so
 vendor.pasr.activemode.enabled=false
 vendor.pasr.enabled=false
+vendor.perf.framepacing.enable=1
 
 # Radio
 persist.dbg.volte_avail_ovr=1
