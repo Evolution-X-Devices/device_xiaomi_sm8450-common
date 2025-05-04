@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The LineageOS Project
+ * Copyright (C) 2024 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,11 @@ package org.lineageos.settings.thermal;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.os.RemoteException;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -89,6 +94,9 @@ public final class ThermalUtils {
     protected ThermalUtils(Context context) {
         mContext = context;
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        WindowManager mWindowManager = context.getSystemService(WindowManager.class);
+        mDisplay = mWindowManager.getDefaultDisplay();
     }
 
     public static void startService(Context context) {
@@ -158,6 +166,7 @@ public final class ThermalUtils {
         String value = getValue();
         String[] modes = value.split(":");
         int state = STATE_DEFAULT;
+
         if (modes[0].contains(packageName + ",")) {
             state = STATE_BENCHMARK;
         } else if (modes[1].contains(packageName + ",")) {
