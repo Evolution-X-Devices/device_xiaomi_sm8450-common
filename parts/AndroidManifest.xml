@@ -84,9 +84,11 @@
                  android:permission="XiaomiDozeService">
         </service>
 
-       <!--  <activity
-            android:name=".thermal.ThermalActivity"
-            android:label="@string/thermal_title">
+        <!--   <activity
+            android:name=".thermal.ThermalSettingsActivity"
+            android:label="@string/thermal_title"
+            android:theme="@style/Theme.SubSettingsBase_v31.Thermal"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -102,7 +104,6 @@
             android:name=".thermal.ThermalService"
             android:permission="ThermalService">
         </service>-->
-
         <!-- Thermal Profiles tile service -->
         
         <service
