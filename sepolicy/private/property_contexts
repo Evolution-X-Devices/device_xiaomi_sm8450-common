@@ -4,3 +4,6 @@ ro.camera.res.fmq.                  u:object_r:exported_default_prop:s0
 
 # SettingsLib
 settingsdebug.instant.packages u:object_r:settingslib_prop:s0
+
+# XiaomiParts
+sys.perf_mode_active                         u:object_r:exported_system_prop:s0
