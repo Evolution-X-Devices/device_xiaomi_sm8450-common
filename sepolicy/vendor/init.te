@@ -1,5 +1,4 @@
 allow vendor_init cgroup:file r_file_perms;
-allow vendor_init exported3_system_prop:property_service set;
 
 set_prop(vendor_init, vendor_fp_prop)
 set_prop(vendor_init, vendor_fp_info_prop)
