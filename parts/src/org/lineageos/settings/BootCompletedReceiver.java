@@ -31,6 +31,7 @@ import android.provider.Settings;
 import android.util.Log;
 
 import org.lineageos.settings.doze.DozeUtils;
+import org.lineageos.settings.powertools.PowerProfileTileService;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.thermal.ThermalTileService;
 import org.lineageos.settings.refreshrate.RefreshUtils;
@@ -55,5 +56,8 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Start Refresh Rate Service
         RefreshUtils.startService(context);
+
+        // Start Power Profile Tile Service
+        context.startServiceAsUser(new Intent(context, PowerProfileTileService.class), UserHandle.CURRENT);
     }
 }

@@ -174,4 +174,175 @@
         <item>5000</item>
     </string-array>
 
+    <!-- GPU Frequency Options -->
+    <string-array name="gpu_frequency_entries" translatable="false">
+        <item>220MHz</item>
+        <item>285MHz</item>
+        <item>324MHz</item>
+        <item>364MHz</item>
+        <item>439MHz</item>
+        <item>515MHz</item>
+        <item>580MHz</item>
+    </string-array>
+
+    <string-array name="gpu_frequency_values" translatable="false">
+        <item>220000000</item>
+        <item>285000000</item>
+        <item>324000000</item>
+        <item>364000000</item>
+        <item>439000000</item>
+        <item>515000000</item>
+        <item>580000000</item>
+        </string-array>
+
+<!-- CPU Little Cluster Frequencies -->
+    <string-array name="cpu_little_freq_entries" translatable="false">
+        <item>300MHz</item>
+        <item>441MHz</item>
+        <item>556MHz</item>
+        <item>691MHz</item>
+        <item>806MHz</item>
+        <item>940MHz</item>
+        <item>1056MHz</item>
+        <item>1132MHz</item>
+        <item>1228MHz</item>
+        <item>1324MHz</item>
+        <item>1440MHz</item>
+        <item>1555MHz</item>
+        <item>1670MHz</item>
+        <item>1804MHz</item>
+    </string-array>
+    <string-array name="cpu_little_freq_values" translatable="false">
+        <item>300000</item>
+        <item>441600</item>
+        <item>556800</item>
+        <item>691200</item>
+        <item>806400</item>
+        <item>940800</item>
+        <item>1056000</item>
+        <item>1132800</item>
+        <item>1228800</item>
+        <item>1324800</item>
+        <item>1440000</item>
+        <item>1555200</item>
+        <item>1670400</item>
+        <item>1804800</item>
+    </string-array>
+
+<!-- CPU Big Cluster Frequencies -->
+    <string-array name="cpu_big_freq_entries" translatable="false">
+        <item>633MHz</item>
+        <item>768MHz</item>
+        <item>883MHz</item>
+        <item>998MHz</item>
+        <item>1113MHz</item>
+        <item>1209MHz</item>
+        <item>1324MHz</item>
+        <item>1440MHz</item>
+        <item>1555MHz</item>
+        <item>1651MHz</item>
+        <item>1766MHz</item>
+        <item>1881MHz</item>
+        <item>1996MHz</item>
+        <item>2112MHz</item>
+        <item>2227MHz</item>
+        <item>2342MHz</item>
+        <item>2496MHz</item>
+    </string-array>
+    <string-array name="cpu_big_freq_values" translatable="false">
+        <item>633600</item>
+        <item>768000</item>
+        <item>883200</item>
+        <item>998400</item>
+        <item>1113600</item>
+        <item>1209600</item>
+        <item>1324800</item>
+        <item>1440000</item>
+        <item>1555200</item>
+        <item>1651200</item>
+        <item>1766400</item>
+        <item>1881600</item>
+        <item>1996800</item>
+        <item>2112000</item>
+        <item>2227200</item>
+        <item>2342400</item>
+        <item>2496000</item>
+    </string-array>
+ 
+    <!-- CPU Prime Cluster Frequencies -->
+    <string-array name="cpu_prime_freq_entries" translatable="false">
+        <item>787MHz</item>
+        <item>921MHz</item>
+        <item>1036MHz</item>
+        <item>1171MHz</item>
+        <item>1286MHz</item>
+        <item>1401MHz</item>
+        <item>1536MHz</item>
+        <item>1651MHz</item>
+        <item>1766MHz</item>
+        <item>1881MHz</item>
+        <item>1996MHz</item>
+        <item>2131MHz</item>
+        <item>2246MHz</item>
+        <item>2361MHz</item>
+        <item>2476MHz</item>
+        <item>2592MHz</item>
+        <item>2707MHz</item>
+        <item>2822MHz</item>
+        <item>2918MHz</item>
+    </string-array>
+    <string-array name="cpu_prime_freq_values" translatable="false">
+        <item>787200</item>
+        <item>921600</item>
+        <item>1036800</item>
+        <item>1171200</item>
+        <item>1286400</item>
+        <item>1401600</item>
+        <item>1536000</item>
+        <item>1651200</item>
+        <item>1766400</item>
+        <item>1881600</item>
+        <item>1996800</item>
+        <item>2131200</item>
+        <item>2246400</item>
+        <item>2361600</item>
+        <item>2476800</item>
+        <item>2592000</item>
+        <item>2707200</item>
+        <item>2822400</item>
+        <item>2918400</item>
+    </string-array>
+ 
+    <!-- CPU Governor Options (for all clusters) -->
+    <string-array name="cpu_governor_entries" translatable="false">
+         <item>walt</item>
+         <item>conservative</item>
+         <item>powersave</item>
+         <item>performance</item>
+         <item>schedutil</item>
+    </string-array>
+    <string-array name="cpu_governor_values" translatable="false">
+         <item>walt</item>
+         <item>conservative</item>
+         <item>powersave</item>
+         <item>performance</item>
+         <item>schedutil</item>
+    </string-array>
+
+    <!-- Power Profile Modes -->
+    <string-array name="power_profile_modes" translatable="false">
+         <item>Balanced</item>
+         <item>Gaming</item>
+         <item>Performance</item>
+         <item>Battery Saver</item>
+         <item>Unknown</item>
+    </string-array>
+    <string-array name="power_profile_mode_values" translatable="false">
+         <item>0</item>
+         <item>1</item>
+         <item>2</item>
+         <item>3</item>
+         <item>4</item>
+    </string-array>
+
 </resources>
