@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The LineageOS Project
+ * Copyright (C) 2024 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,18 +16,15 @@
 
 package org.lineageos.settings.thermal;
 
-import android.app.ActivityManager;
 import android.app.ActivityTaskManager;
-import android.app.ActivityTaskManager.RootTaskInfo;
-import android.app.IActivityTaskManager;
 import android.app.TaskStackListener;
 import android.app.Service;
-import android.app.TaskStackListener;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Configuration;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
@@ -35,13 +32,10 @@ import android.util.Log;
 public class ThermalService extends Service {
 
     private static final String TAG = "ThermalService";
-    private static final boolean DEBUG = false;
 
     private boolean mScreenOn = true;
     private String mCurrentApp = "";
     private ThermalUtils mThermalUtils;
-
-    private IActivityTaskManager mActivityTaskManager;
 
     private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         @Override
@@ -61,10 +55,9 @@ public class ThermalService extends Service {
 
     @Override
     public void onCreate() {
-        if (DEBUG) Log.d(TAG, "Creating service");
+        dlog("Creating service");
         try {
-            mActivityTaskManager = ActivityTaskManager.getService();
-            mActivityTaskManager.registerTaskStackListener(mTaskListener);
+            ActivityTaskManager.getService().registerTaskStackListener(mTaskListener);
         } catch (RemoteException e) {
             // Do nothing
         }
@@ -75,7 +68,7 @@ public class ThermalService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (DEBUG) Log.d(TAG, "Starting service");
+        dlog("Starting service");
         return START_STICKY;
     }
 
@@ -116,4 +109,10 @@ public class ThermalService extends Service {
             } catch (Exception e) {}
         }
     };
+
+    private static void dlog(String msg) {
+        if (Log.isLoggable(TAG, Log.DEBUG)) {
+            Log.d(TAG, msg);
+        }
+    }
 }
