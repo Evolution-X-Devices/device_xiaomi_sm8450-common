@@ -100,7 +100,8 @@ blob_fixups: blob_fixups_user_type = {
        'vendor/etc/media_codecs_taro.xml',
        'vendor/etc/media_codecs_ukee.xml',
     ): blob_fixup()
-        .regex_replace('.+media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).+\n', ''),
+        .regex_replace('.+media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).+\n', '')
+        .regex_replace(r'(?s)(<MediaCodecs.*?>)',r'\1\n    <Include href="media_codecs_dolby_audio.xml" />'),
     'vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy': blob_fixup()
         .add_line_if_missing('setsockopt: 1'),
     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
