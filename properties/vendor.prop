@@ -209,6 +209,9 @@ vendor.pasr.activemode.enabled=false
 vendor.pasr.enabled=false
 vendor.perf.framepacing.enable=1
 
+# Phantom process monitoring
+sys.fflag.override.settings_enable_monitor_phantom_procs=false
+
 # Radio
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
