@@ -174,3 +174,43 @@ service vendor.sensors-hal-multihal /vendor/bin/hw/android.hardware.sensors-serv
 
 on property:ro.boot.hwversion=*
     setprop ro.boot.hardware.revision ${ro.boot.hwc}_${ro.boot.hwlevel}_${ro.boot.hwversion}
+
+on property:vendor.post_boot.parsed=1
+    # Set default thermal profile
+    write /sys/class/thermal/thermal_message/sconfig 0
+
+on property:sys.perf_mode_active=2
+    write /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled 1
+    
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor performance
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor performance
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor performance
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor performance
+    write /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor performance
+    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor performance
+    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor performance
+
+on property:sys.perf_mode_active=1
+    write /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled 0
+    
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor walt
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor walt
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor walt
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor walt
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor walt
+    write /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor walt
+    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor walt
+    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor walt
+
+on property:sys.perf_mode_active=0
+    write /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled 0
+    
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor powersave
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor powersave
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor powersave
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor powersave
+    write /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor powersave
+    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor powersave
+    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor powersave  

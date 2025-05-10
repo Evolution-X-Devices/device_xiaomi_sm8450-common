@@ -45,6 +45,9 @@
     <string name="thermal_mode_battery_saver">Battery Saver Mode</string>
     <string name="thermal_mode_gaming">Gaming Mode</string>
     <string name="thermal_mode_unknown">Unknown Mode</string>
+    <string name="thermal_tile_disabled_subtitle">Disabled (Per-app thermal profiles enabled)</string>
+    <string name="perf_mode_title">High Performance Mode</string>
+    <string name="perf_mode_notification">High Performance Mode is now activated for enhanced performance.</string>
 
     <!-- Per-app refresh rate -->
     <string name="refresh_title">Per-app refresh rate</string>
