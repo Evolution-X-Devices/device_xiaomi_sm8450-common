@@ -90,7 +90,6 @@ public class PowerProfileUtil {
         }
 
         setupNotificationChannel();
-        registerBatterySaverObserver();
     }
 
     public int getCurrentMode() {
@@ -316,28 +315,6 @@ public class PowerProfileUtil {
     private void setPerformanceModeActive(int mode) {
         SystemProperties.set(SYS_PROP, String.valueOf(mode));
         Log.d(TAG, "Performance mode active set to: " + mode);
-    }
-
-    private void registerBatterySaverObserver() {
-        mBatterySaverObserver = new ContentObserver(new Handler()) {
-            @Override
-            public void onChange(boolean selfChange) {
-                boolean isBatterySaverOn = Settings.Global.getInt(
-                        mContext.getContentResolver(),
-                        Settings.Global.LOW_POWER_MODE, 0) == 1;
-                if (isBatterySaverOn && (mCurrentMode == MODE_BALANCE || mCurrentMode == MODE_PERFORMANCE || mCurrentMode == MODE_GAMING)) {
-                    Log.d(TAG, "Battery saver enabled, switching to battery saver thermal mode.");
-                    mCurrentMode = MODE_BATTERY_SAVER;
-                    setMode(mCurrentMode);
-                }
-            }
-        };
-
-        mContext.getContentResolver().registerContentObserver(
-                Settings.Global.getUriFor(Settings.Global.LOW_POWER_MODE),
-                false,
-                mBatterySaverObserver
-        );
     }
 
     public void cleanup() {
