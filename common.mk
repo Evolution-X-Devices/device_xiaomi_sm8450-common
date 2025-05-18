@@ -259,6 +259,10 @@ PRODUCT_PACKAGES += \
     init.qti.media.sh \
     libstagefright_softomx_plugin.vendor
 
+# Media - Dolby vision
+PRODUCT_PACKAGES += \
+    libcodec2_hidl_shim.vendor
+
 # Network
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnel_migration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnel_migration.xml \
