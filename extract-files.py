@@ -104,10 +104,14 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace(r'(?s)(<MediaCodecs.*?>)',r'\1\n    <Include href="media_codecs_dolby_audio.xml" />'),
     'vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy': blob_fixup()
         .add_line_if_missing('setsockopt: 1'),
-    'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
-        .regex_replace('.+dolby.+\n', ''),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
+        ('vendor/lib/c2.dolby.avc.dec.so', 'vendor/lib/c2.dolby.avc.sec.dec.so', 'vendor/lib/c2.dolby.hevc.dec.so', 'vendor/lib/c2.dolby.hevc.sec.dec.so'): blob_fixup()
+        .add_needed('libstagefright_foundation-v33.so'),
+        ('vendor/bin/hw/dolbycodec2'): blob_fixup()
+        .add_needed('libstagefright_foundation-v33.so'),
+        ('vendor/lib/c2.dolby.client.so'): blob_fixup()
+        .add_needed('libcodec2_hidl_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
