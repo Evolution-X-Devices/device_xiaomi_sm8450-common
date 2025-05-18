@@ -462,7 +462,6 @@ vendor/etc/media_taro/video_system_specs.json
 vendor/etc/media_ukee/video_system_specs.json
 vendor/etc/seccomp_policy/codec2.vendor.base-arm64.policy
 vendor/etc/seccomp_policy/codec2.vendor.ext-arm64.policy
-vendor/etc/vintf/manifest/c2_manifest_vendor.xml
 vendor/etc/vintf/manifest/c2_manifest_vendor_audio.xml
 vendor/lib64/libAlacSwDec.so
 vendor/lib64/libApeSwDec.so
@@ -493,6 +492,36 @@ vendor/lib64/libqcodec2_utils.so
 vendor/lib64/libqcodec2_v4l2codec.so
 vendor/lib64/libvideotxr.so
 vendor/lib64/qti.video.utils.videobufferlayout.so
+
+# Media configs
+vendor/etc/media_codecs_ukee_vendor.xml|433d0a01f3c3911a3bf8ee2fe17a35412dde3d20
+vendor/etc/media_codecs_with_dolby_taro.xml|13696738db61eea9937158d69dae316092efe458
+
+# Media (Dolby Vision)
+vendor/bin/hw/dolbycodec2|bf9f899668ae3dfc9d8f82b089dd936fbe499e9d
+vendor/etc/dolby_vision.cfg|1154eef94f2a9c73120c728d9513f1364d9fe018
+vendor/etc/init/vendor.dolbyvision.media.c2@1.0-service.rc|1ea8b363e94fd4f5410cadceb30de8229fb38045
+vendor/etc/vintf/manifest/c2_manifest_vendor.xml|dfaad7360e85bf2d1a8293bb878a4f0edc70b1db
+vendor/lib/c2.dolby.avc.dec.so|5fee9dce283b417d68ae7103b0721c80df05d6c6
+vendor/lib/c2.dolby.avc.sec.dec.so|658a83dd5a33d4ff506c5f6b2cf7e6c442d11afd
+vendor/lib/c2.dolby.client.so|0f0cc6ef7ae749d461805cbf5afec5f020c3ea07;DISABLE_CHECKELF
+vendor/lib/c2.dolby.egl.so|b6ba40013e45514cdaf94cab9a3a23c9a3b6f98f
+vendor/lib/c2.dolby.hevc.dec.so|f64bc25b028a2a81b084caa76f44d43ad8400a58
+vendor/lib/c2.dolby.hevc.enc.so|7e2d292742a08e9d703d02ea1a6619b3c228eae7
+vendor/lib/c2.dolby.hevc.sec.dec.so|8937fd7a72e84ba81ae9f31439791cd6c73aca73
+vendor/lib/c2.dolby.store.so|a262a67d5264731651f98a2353f95361684d8995
+vendor/lib/libdolbyottcameracontrol.so|b0e2b145c2714c523d5f765f0691b9dffed906f8
+vendor/lib/libdolbyvision.so|052effa6e1c2c34079fc28c463c1639ca63b9e40
+vendor/lib64/c2.dolby.avc.dec.so|439a00c49d07e4fa2451162f75ad1ec6dc5b1ede
+vendor/lib64/c2.dolby.avc.sec.dec.so|9dfdde23db39260bcba3a1d417dd07a5b521f411
+vendor/lib64/c2.dolby.client.so|88bf13140ff1cd767e86a221b579c17c662d9c48;DISABLE_CHECKELF
+vendor/lib64/c2.dolby.egl.so|8acc4f5f81efc2d4d590a6f7b8584cd993ffd74a
+vendor/lib64/c2.dolby.hevc.dec.so|1bbf42f25506585e782bd26590c47d952dafe2a0
+vendor/lib64/c2.dolby.hevc.enc.so|e148e4c26d9185b2ebb00be93ae849ec8116be0a
+vendor/lib64/c2.dolby.hevc.sec.dec.so|eb4b421de11c209f2270d5bea5f80a1d8380907a
+vendor/lib64/c2.dolby.store.so|7a6964871f5c6ac19025f5fc7682219bc37c4357
+vendor/lib64/libdolbyottcameracontrol.so|60cf0e7e42ad4b6b3e5a64f2098b99d5d55d1b51
+vendor/lib64/libdolbyvision.so|22c517e552288fb1482201f731ef183f917c69da
 
 # Mlipay
 vendor/bin/mlipayd@1.1
