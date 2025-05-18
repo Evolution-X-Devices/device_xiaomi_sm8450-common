@@ -1,0 +1,15 @@
+//
+// Copyright (C) 2020 The LineageOS Project
+// Copyright (C) 2024 Flakeforever
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libcodec2_hidl_shim",
+    srcs: ["libcodec2_hidl_shim/libcodec2_hidl_shim.cpp"],
+    shared_libs: [
+        "libcodec2_hidl@1.0",
+    ],
+    vendor_available: true,
+}
