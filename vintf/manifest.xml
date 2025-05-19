@@ -551,8 +551,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <interface>
             <name>IPAL</name>
             <instance>default</instance>
-            </interface>
-        <fqname>@1.0::IPAL/default</fqname>
+        </interface>
     </hal>
     <!-- QCC HAL Service -->
     <hal format="hidl">
