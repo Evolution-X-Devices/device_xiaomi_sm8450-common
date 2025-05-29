@@ -59,11 +59,6 @@ TARGET_NO_BOOTLOADER := true
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth/include
 
-# Dolby Vision
-SOONG_CONFIG_NAMESPACES += dolby_vision
-SOONG_CONFIG_dolby_vision += enabled
-SOONG_CONFIG_dolby_vision_enabled := true
-
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
 
