@@ -39,7 +39,7 @@ public final class ThermalUtils {
     protected static final int STATE_STREAMING = 7;
     protected static final int STATE_VIDEO = 8;
 
-    private static final String THERMAL_STATE_DEFAULT = "0";
+    private static final String THERMAL_STATE_DEFAULT = "20";
     private static final String THERMAL_STATE_BENCHMARK = "10";
     private static final String THERMAL_STATE_BROWSER = "11";
     private static final String THERMAL_STATE_CAMERA = "12";

@@ -24,7 +24,7 @@
     <string name="tile_already_added">Tile already added</string>
     <string name="tile_on">On</string>
     <string name="tile_off">Off</string>
- 
+
     <!-- Thermal profiles -->
     <string name="thermal_title">Thermal profiles</string>
     <string name="thermal_summary">Adjust per-app thermal profiles for optimum performance</string>
@@ -39,36 +39,55 @@
     <string name="thermal_video">Video</string>
 
     <!-- Thermal Tile Strings -->
-    <string name="thermal_tile_label">Thermal Mode</string>
+    <string name="thermal_tile_label">Thermal Profile</string>
     <string name="thermal_mode_default">Default Mode</string>
     <string name="thermal_mode_performance">Performance Mode</string>
     <string name="thermal_mode_battery_saver">Battery Saver Mode</string>
     <string name="thermal_mode_gaming">Gaming Mode</string>
+    <string name="thermal_mode_unknown">Unknown Mode</string>
+    <string name="thermal_tile_disabled_subtitle">Disabled (Per-app thermal profiles enabled)</string>
+    <string name="perf_mode_title">High Performance Mode</string>
+    <string name="perf_mode_notification">High Performance Mode is now activated for enhanced
+          performance.</string>
 
     <!-- Per-app refresh rate -->
     <string name="refresh_title">Per-app refresh rate</string>
     <string name="refresh_summary">Set the maximum refresh rate for a specific application</string>
     <string name="refresh_default">Default</string>
-    <string name="refresh_standard">60Hz</string>
-    <string name="refresh_extreme">120Hz</string>
-    <string name="refresh_land">60Hz on Landscape</string>    
+    <string name="refresh_60">60Hz</string>
+    <string name="refresh_90">90Hz</string>
+    <string name="refresh_120">120Hz</string>
+    <string name="refresh_60_land">60Hz on Landscape</string>
+    <string name="refresh_90_land">90Hz on Landscape</string>
+    <string name="refresh_120_land">120Hz on Landscape</string>
 
-    <!-- Doze Strings -->
+    <!-- Ambient Display -->
+    <string name="ambient_display_title">Ambient Display</string>
+    <string name="ambient_display_enable_title">Enable Ambient Display</string>
+    <string name="ambient_display_always_on_title">Always on</string>
+    <string name="ambient_display_always_on_summary">Show time and notification icons permanently</string>
+
+    <!-- Doze -->
     <string name="doze_brightness_low">Low brightness</string>
     <string name="doze_brightness_high">High brightness</string>
     <string name="doze_brightness_adaptive">Adaptive brightness</string>
     <string name="doze_brightness_title">Doze brightness level</string>
-    <string name="doze_brightness_summary">Brightness level of doze pulse screen (% of max allowed brightness)</string>
+    <string name="doze_brightness_summary">Brightness level of doze pulse screen (% of max allowed
+          brightness)</string>
 
     <!-- Clear Speaker -->
-   <string name="clear_speaker_title">Clear speaker</string>
-   <string name="clear_speaker_summary">Play a 30-second audio to clear the speaker</string>
-   <string name="clear_speaker_description">Run this feature once or twice if you find that your speaker is lightly blocked by dust. Set media volume to maximum.\n\nIf the speaker is blocked heavily, run this feature 2-5 times while shaking your device with the speaker facing downwards.</string>
+    <string name="clear_speaker_title">Clear speaker</string>
+    <string name="clear_speaker_summary">Play a 30-second audio to clear the speaker</string>
+    <string name="clear_speaker_description">Run this feature once or twice if you find that your
+          speaker is lightly blocked by dust. Set media volume to maximum.\n\nIf the speaker is
+          blocked heavily, run this feature 2-5 times while shaking your device with the speaker
+          facing downwards.</string>
 
     <!-- Saturation -->
     <string name="saturation_title">Display Saturation</string>
     <string name="saturation_summary">Control the saturation level of the display</string>
-    <string name="saturation_footer_summary">Changing the color mode in display settings will override the saturation level, requiring it to be reapplied.</string>
+    <string name="saturation_footer_summary">Changing the color mode in display settings will
+          override the saturation level, requiring it to be reapplied.</string>
 
     <!-- Image preview -->
     <string name="image_preview_content_description">Preview</string>
@@ -78,6 +97,7 @@
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Value: <xliff:g id="v">%s</xliff:g></string>
     <string name="custom_seekbar_default_value">by default</string>
-    <string name="custom_seekbar_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
+    <string name="custom_seekbar_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong
+          tap to set</string>
     <string name="custom_seekbar_default_value_is_set">Default value is set</string>
 </resources>
