@@ -29,7 +29,6 @@ import android.util.Log;
 import androidx.preference.PreferenceManager;
 
 import org.lineageos.settings.Constants;
-import org.lineageos.settings.saturation.SaturationFragment;
 import org.lineageos.settings.utils.ComponentUtils;
 import org.lineageos.settings.utils.FileUtils;
 
