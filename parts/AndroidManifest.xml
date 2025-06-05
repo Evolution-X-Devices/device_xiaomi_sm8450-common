@@ -28,14 +28,14 @@
     <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    
+
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
     <uses-sdk
         android:minSdkVersion="24"
-        android:targetSdkVersion="30"/>
+        android:targetSdkVersion="30" />
 
     <application
         android:label="@string/app_title"
@@ -58,7 +58,7 @@
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
-            tools:replace="android:authorities"/>
+            tools:replace="android:authorities" />
 
         <receiver
             android:name=".Startup"
@@ -75,7 +75,7 @@
         </activity>
 
         <service android:name=".doze.DozeService"
-                 android:permission="XiaomiDozeService">
+            android:permission="XiaomiDozeService">
         </service>
 
         <activity
@@ -98,7 +98,7 @@
         </service>
 
         <!-- Thermal Profiles tile service -->
-        
+
         <service
             android:name=".thermal.ThermalTileService"
             android:label="@string/thermal_tile_label"
@@ -111,7 +111,7 @@
         </service>
 
         <activity
-            android:name=".speaker.ClearSpeakerActivity" 
+            android:name=".speaker.ClearSpeakerActivity"
             android:label="@string/clear_speaker_title">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
@@ -162,11 +162,11 @@
         </activity>
 
         <!-- Display Saturation tile service -->
-        <service  
+        <service
             android:name=".saturation.SaturationTileService"
             android:label="@string/saturation_title"
             android:icon="@drawable/ic_saturation_tile"
-            android:exported="true"  
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
