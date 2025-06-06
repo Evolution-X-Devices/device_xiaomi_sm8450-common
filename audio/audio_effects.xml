@@ -50,6 +50,9 @@
         <library name="gamedap" path="libswgamedap.so"/>
         <!--DOLBY VQE-->
         <library name="vqe" path="libswvqe.so"/>
+        <!--Spatial Audio-->
+        <library name="spatializer" path="libswspatializer.so"/>
+    	<!--Spatial Audio-->
     </libraries>
     <effects>
         <effectProxy name="bassboost" library="proxy" uuid="14804144-a5ee-4d24-aa88-0002a5d5c51b">
@@ -108,6 +111,9 @@
         <effect name="gamedap" library="gamedap" uuid="3783c334-d3a0-4d13-874f-0032e5fb80e2"/>
         <!--DOLBY VQE-->
         <effect name="vqe" library="vqe" uuid="64a0f614-7fa4-48b8-b081-d59dc954616f"/>
+        <!--Spatial Audio-->
+        <effect name="spatializer" library="spatializer" uuid="ccd4cf09-a79d-46c2-9aae-06a1698d6c8f"/>
+	<!--Spatial Audio-->
     </effects>
     <postprocess>
         <stream type="voice_call">
