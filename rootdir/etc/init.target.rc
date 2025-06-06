@@ -102,6 +102,10 @@ on early-boot
     start vendor.sensors
     verity_update_state
 
+    # Dolby
+    mkdir /data/vendor/dolby 0770 media media
+    mkdir /data/vendor/multimedia 0775 system system
+
 on boot
     write /dev/cpuset/audio-app/cpus 1-2
     chown system /sys/devices/platform/soc/990000.i2c/i2c-0/0-0038/trusted_touch_enable
