@@ -1,3 +1,4 @@
+
 #
 # Copyright (C) 2020-2025 The LineageOS Project
 #
@@ -75,6 +76,7 @@ PRODUCT_PACKAGES += \
     libagm_pcm_plugin:64 \
     libbatterylistener:64 \
     libfmpal:64 \
+	libhfp_pal:64 \
     libpalclient:64 \
     libqcompostprocbundle:64 \
     libqcomvisualizer:64 \
