@@ -92,6 +92,13 @@ public class ThermalSettingsFragment extends PreferenceFragment
     }
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.thermal_layout, container, false);
+    }
+
+    @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
