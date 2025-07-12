@@ -109,7 +109,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
        <version>1.2</version>
        <interface>
            <name>ISecureElement</name>
-           <instance>eSE1</instance>
            <instance>SIM1</instance>
            <instance>SIM2</instance>
        </interface>
