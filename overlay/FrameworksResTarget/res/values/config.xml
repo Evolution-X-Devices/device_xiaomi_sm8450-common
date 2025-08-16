@@ -33,4 +33,37 @@
 
     <!-- Whether the device enable the non-standalone (NSA) mode of 5G NR.-->
     <bool name="config_telephony5gNonStandalone">true</bool>
+
+    <!-- Auto brightness debouce -->
+    <integer name="config_autoBrightnessBrighteningLightDebounce">4000</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">200</integer>
+
+    <!-- Slow down how fast brightness can increase (white screen at night issue) -->
+    <integer name="config_screenBrightnessRampRateFast">200</integer> <!-- ms per step -->
+    <integer name="config_screenBrightnessRampRateSlow">200</integer>
+
+    <!-- Hysteresis: prevents sudden brightness jumps -->
+    <integer name="config_autoBrightnessBrighteningHysteresis">15</integer> <!-- 15% -->
+    <integer name="config_autoBrightnessDarkeningHysteresis">5</integer>  <!-- 5% -->
+
+    <!-- Auto-brightness curve: clamp brightness at night -->
+    <integer-array name="config_autoBrightnessLevels">
+        <item>1</item>     <!-- very dark -->
+        <item>10</item>    <!-- dim room -->
+        <item>50</item>
+        <item>100</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>5000</item>
+    </integer-array>
+
+    <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>8</item>     <!-- at 0–1 lux = 8/255 (~3%) -->
+        <item>15</item>    <!-- at 10 lux = 15/255 (~6%) -->
+        <item>30</item>    <!-- at 50 lux = 12% -->
+        <item>60</item>    <!-- at 100 lux = 24% -->
+        <item>100</item>   <!-- at 500 lux = 40% -->
+        <item>160</item>   <!-- at 1000 lux = 63% -->
+        <item>255</item>   <!-- at 5000 lux = 100% -->
+    </integer-array>
 </resources>
