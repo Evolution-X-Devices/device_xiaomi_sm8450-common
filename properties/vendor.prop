@@ -71,6 +71,8 @@ persist.vendor.camera.logInfoMask=false
 persist.vendor.vcb.enable=false
 ro.camera.enableCamera1MaxZsl=1
 ro.hardware.camera=xiaomi
+persist.vendor.camera.logLevel=0
+persist.vendor.camera.sensor=0
 
 # Chipset
 ro.soc.manufacturer=QTI
