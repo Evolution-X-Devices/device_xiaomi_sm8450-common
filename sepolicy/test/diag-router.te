@@ -1,0 +1,68 @@
+# Copyright (c) 2020, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+# From android_device_qcom_sepolicy_vndr/genveric/vendor/test/diag-router.te
+# but with userdebug_or_eng() removed, to enable diag-router on user builds.
+# OnePlus9 stock ROM does this.
+# (Also some refactoring to make it more readable)
+
+type vendor_diag-router, domain;
+type vendor_diag-router_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(vendor_diag-router)
+
+hal_server_domain(vendor_diag-router, vendor_hal_diaghal)
+hal_client_domain(vendor_diag-router, hal_allocator)
+binder_call(vendor_hal_diaghal_client, vendor_hal_diaghal_server)
+binder_call(vendor_hal_diaghal_server, vendor_hal_diaghal_client)
+
+# Add hwservice related rules
+hal_attribute_hwservice(vendor_hal_diaghal, vendor_hal_diaghal_hwservice)
+
+# These are enabled by the qcom defaults, but don't seem to be enabled by OnePlus stock.
+#r_dir_file(vendor_diag-router, vendor_sysfs_soc)
+#allow vendor_diag-router  vendor_sysfs_soc:file w_file_perms;
+#r_dir_file(vendor_diag-router, vendor_sysfs_qdss_dev)
+#allow vendor_diag-router  vendor_sysfs_qdss_dev:file w_file_perms;
+
+allow vendor_diag-router functionfs:dir r_dir_perms;
+allow vendor_diag-router functionfs:file rw_file_perms;
+# This is enabled by the qcom defaults, but does't seem to be enabled by OnePlus stock.
+#allowxperm vendor_diag-router functionfs:file ioctl FUNCTIONFS_ENDPOINT_DESC;
+
+allow vendor_diag-router self:qipcrtr_socket create_socket_perms_no_ioctl;
+
+allow vendor_diag-router vendor_mhi_diag_device:chr_file rw_file_perms;
+
+allow vendor_diag-router self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+# These are enabled by the qcom defaults, but don't seem to be enabled by OnePlus stock.
+#allow vendor_diag-router self:capability kill;
+#allow vendor_diag-router su:process signal;
+
+allow { domain -coredomain -hal_configstore -vendor_init} vendor_diag-router:unix_stream_socket connectto;
