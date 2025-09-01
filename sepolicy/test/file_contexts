@@ -1,0 +1,2 @@
+# Diag
+/vendor/bin/diag-router         u:object_r:vendor_diag-router_exec:s0
