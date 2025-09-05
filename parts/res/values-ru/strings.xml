@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Xiaomi Settings -->
+    <string name="app_title">Настройки Xiaomi</string>
+    <string name="tile_add">Добавить плитку</string>
+    <string name="tile_added">Плитка добавлена</string>
+    <string name="tile_not_added">Плитка не добавлена</string>
+    <string name="tile_already_added">Плитка уже добавлена</string>
+    <string name="tile_on">Вкл</string>
+    <string name="tile_off">Выкл</string>
+
+    <!-- Thermal profiles -->
+    <string name="thermal_title">Термопрофили</string>
+    <string name="thermal_summary">Настройте термопрофиль для каждого приложения для оптимальной производительности</string>
+    <string name="thermal_default">Без оптимизации</string>
+    <string name="thermal_benchmark">Производительность</string>
+    <string name="thermal_browser">Браузер</string>
+    <string name="thermal_camera">Камера</string>
+    <string name="thermal_dialer">Телефон</string>
+    <string name="thermal_gaming">Игры</string>
+    <string name="thermal_navigation">Навигация</string>
+    <string name="thermal_streaming">Стриминг</string>
+    <string name="thermal_video">Видео</string>
+
+    <!-- Thermal Tile Strings -->
+    <string name="thermal_tile_label">Терморежим</string>
+    <string name="thermal_mode_default">Режим по умолчанию</string>
+    <string name="thermal_mode_performance">Режим производительности</string>
+    <string name="thermal_mode_battery_saver">Режим экономии батареи</string>
+    <string name="thermal_mode_gaming">Игровой режим</string>
+
+    <!-- Per-app refresh rate -->
+    <string name="refresh_title">Частота обновления для приложений</string>
+    <string name="refresh_summary">Установите максимальную частоту обновления для выбранного приложения</string>
+    <string name="refresh_default">По умолчанию</string>
+    <string name="refresh_standard">60 Гц</string>
+    <string name="refresh_extreme">120 Гц</string>
+    <string name="refresh_land">60 Гц в альбомной ориентации</string>
+
+    <!-- Doze Strings -->
+    <string name="doze_brightness_low">Низкая яркость</string>
+    <string name="doze_brightness_high">Высокая яркость</string>
+    <string name="doze_brightness_adaptive">Адаптивная яркость</string>
+    <string name="doze_brightness_title">Уровень яркости Doze</string>
+    <string name="doze_brightness_summary">Уровень яркости экрана Doze (% от максимально допустимой яркости)</string>
+
+    <!-- Clear Speaker -->
+    <string name="clear_speaker_title">Очистка динамика</string>
+    <string name="clear_speaker_summary">Воспроизвести 30-секундный звук для прочистки динамика</string>
+    <string name="clear_speaker_description">Запустите эту функцию 1–2 раза, если динамик слегка забит пылью. Установите громкость мультимедиа на максимум.\n\nЕсли динамик сильно забит, запустите 2–5 раз, встряхивая устройство динамиком вниз.</string>
+
+    <!-- Saturation -->
+    <string name="saturation_title">Насыщенность дисплея</string>
+    <string name="saturation_summary">Управление уровнем насыщенности цветов экрана</string>
+    <string name="saturation_footer_summary">Изменение цветового режима в настройках дисплея перезапишет уровень насыщенности — потребуется применить его снова.</string>
+
+    <!-- Image preview -->
+    <string name="image_preview_content_description">Предпросмотр</string>
+    <string name="image_preview_next_page_content_description">Далее</string>
+    <string name="image_preview_previous_page_content_description">Назад</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Значение: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">по умолчанию</string>
+    <string name="custom_seekbar_default_value_to_set">Значение по умолчанию: <xliff:g id="v">%s</xliff:g>\nДолгое нажатие — применить</string>
+    <string name="custom_seekbar_default_value_is_set">Значение по умолчанию применено</string>
+
+    <!-- Auto HBM -->
+    <string name="auto_hbm_title">Автоматический режим повышенной яркости (HBM)</string>
+    <string name="auto_hbm_main_switch_title">Использовать авто-HBM</string>
+    <string name="tile_auto_hbm">Авто HBM</string>
+    <string name="tile_hbm_on">Включено</string>
+    <string name="tile_hbm_off">Отключено</string>
+    <string name="tile_hbm">HBM</string>
+    <string name="tile_hbm_unavailable">HBM недоступен</string>
+    <string name="tile_auto_hbm_or_brightness_enabled">Включён авто-HBM или автояркость</string>
+    <string name="hbm_mode_title">Режим повышенной яркости</string>
+    <string name="hbm_mode_notification">Режим повышенной яркости активирован. Длительное использование может повредить дисплей.</string>
+    <string name="auto_hbm_summary">Автоматически включает HBM в зависимости от освещённости (люксы)</string>
+    <string name="auto_hbm_threshold_title">Порог освещения</string>
+    <string name="auto_hbm_threshold_summary">Порог освещённости (в люксах), при котором активируется HBM</string>
+    <string name="auto_hbm_enable_time_title">Время включения</string>
+    <string name="auto_hbm_enable_time_summary">Время (в секундах), в течение которого порог должен выдерживаться для активации HBM</string>
+    <string name="auto_hbm_disable_time_title">Время отключения</string>
+    <string name="auto_hbm_disable_time_summary">Время (в секундах) до отключения HBM, если освещённость упала ниже порога</string>
+
+    <!-- GameBar Overlay -->
+    <string name="game_bar_title">GameBar</string>
+    <string name="game_bar_summary">Включить системный оверлей (FPS, температура и т. д.)</string>
+    <string name="overlay_permission_required">Требуется разрешение на наложение поверх других окон</string>
+    <string name="overlay_permission_granted">Разрешение на наложение предоставлено</string>
+    <string name="overlay_permission_denied">Разрешение на наложение отклонено</string>
+    <string name="game_bar_tile_label">GameBar</string>
+    <string name="game_bar_tile_description">Переключает игровой оверлей</string>
+</resources>
