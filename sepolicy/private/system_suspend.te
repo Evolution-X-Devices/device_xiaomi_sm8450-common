@@ -1,0 +1,23 @@
+binder_call(system_suspend, system_server)
+binder_call(system_suspend, servicemanager)
+binder_call(system_suspend, bluetooth)
+
+r_dir_file(system_suspend, sysfs_suspend_stats)
+r_dir_file(system_suspend, sysfs_wakeup)
+r_dir_file(system_suspend, sysfs_wakeup_reasons)
+r_dir_file(system_suspend, sysfs_wake_lock)
+r_dir_file(system_suspend, sysfs_power)
+
+allow system_suspend system_suspend_exec:file { read getattr map execute open entrypoint };
+allow system_suspend servicemanager:dir { search };
+allow system_suspend servicemanager:file { read open };
+allow system_suspend servicemanager:process { getattr };
+allow system_suspend system_suspend_control_service:service_manager { add find };
+allow system_suspend hal_system_suspend_service:service_manager { add find };
+allow system_suspend sysfs_type:dir { search };
+allow system_suspend suspend_prop:file { read getattr map open };
+allow system_suspend self:capability2 block_suspend;
+allow system_suspend self:cap2_userns block_suspend;
+
+allow init system_suspend:process { transition siginh rlimitinh };
+
