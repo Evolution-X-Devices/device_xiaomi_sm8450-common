@@ -1,0 +1,2 @@
+r_dir_file(system_suspend_server, vendor_sysfs_usb_node)
+r_dir_file(system_suspend_server, sysfs_usb_supply)
