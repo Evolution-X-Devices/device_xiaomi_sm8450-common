@@ -939,11 +939,6 @@ vendor/lib64/libminksocket_vendor.so
 # Trustzone
 vendor/app/TrustZoneAccessService/TrustZoneAccessService.apk
 
-# VM mgr
-vendor/bin/vmmgr
-vendor/etc/init/vmmgr.rc
-vendor/etc/vmmgr.conf
-
 # VPP
 vendor/bin/hw/qconfigservice
 vendor/bin/vppservice
