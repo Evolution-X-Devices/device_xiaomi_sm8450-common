@@ -973,11 +973,6 @@ vendor/app/TrustZoneAccessService/TrustZoneAccessService.apk
 vendor/lib/libvmmem.so
 vendor/lib64/libvmmem.so
 
-# VM mgr
-vendor/bin/vmmgr
-vendor/etc/init/vmmgr.rc
-vendor/etc/vmmgr.conf
-
 # VPP
 vendor/bin/hw/qconfigservice
 vendor/bin/vppservice
