@@ -23,14 +23,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.ContentObserver;
-import android.hardware.display.DisplayManager;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
-import android.view.Display;
-import android.view.Display.HdrCapabilities;
 
 import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
@@ -60,9 +57,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
             // Start necessary services
             startServices(context);
 
-            // Override HDR types
-            overrideHdrTypes(context);
-
         } catch (Exception e) {
             Log.e(TAG, "Error during locked boot completed processing", e);
         }
@@ -85,22 +79,5 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         // Start Refresh Rate Service
         RefreshUtils.startService(context);
 
-    }
-
-    private void overrideHdrTypes(Context context) {
-        try {
-            final DisplayManager dm = context.getSystemService(DisplayManager.class);
-            if (dm != null) {
-                dm.overrideHdrTypes(Display.DEFAULT_DISPLAY, new int[]{
-                        HdrCapabilities.HDR_TYPE_DOLBY_VISION,
-                        HdrCapabilities.HDR_TYPE_HDR10,
-                        HdrCapabilities.HDR_TYPE_HLG,
-                        HdrCapabilities.HDR_TYPE_HDR10_PLUS
-                });
-                if (DEBUG) Log.i(TAG, "HDR types overridden successfully.");
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "Error overriding HDR types", e);
-        }
     }
 }
