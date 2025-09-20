@@ -22,8 +22,8 @@ on boot
     chown system system /sys/module/perf_helper/mimd/mimdtrigger
 
     # Workarround for cache
-     rm /data/resource-cache
-     rm /data/system/package_cache
+    rm /data/resource-cache
+    rm /data/system/package_cache
 
     # Create persist for camera calibration data
     mkdir /mnt/vendor/persist/camera 0755 system cameraserver
@@ -51,23 +51,24 @@ on boot
     chown system system /sys/class/touch/touch_dev/fod_finger_state
     chown system system /sys/class/touch/touch_dev/fod_longpress_gesture_enabled
     chown system system /sys/class/touch/touch_dev/fod_press_status
+
     chmod 0660 /sys/class/touch/touch_dev/fod_finger_state
     chmod 0660 /sys/class/touch/touch_dev/fod_longpress_gesture_enabled
     chmod 0660 /sys/class/touch/touch_dev/fod_press_status
 
     chown system system /sys/class/touch/touch_dev/gesture_single_tap_enabled
     chown system system /sys/class/touch/touch_dev/gesture_single_tap_state
-    chmod 0660 /sys/class/touch/touch_dev/gesture_single_tap_enabled
-    chmod 0660 /sys/class/touch/touch_dev/gesture_single_tap_state
-
     chown system system /sys/class/touch/touch_dev/gesture_double_tap_enabled
     chown system system /sys/class/touch/touch_dev/gesture_double_tap_state
-    chmod 0660 /sys/class/touch/touch_dev/gesture_double_tap_enabled
-    chmod 0660 /sys/class/touch/touch_dev/gesture_double_tap_state
+
+    chmod 0664 /sys/class/touch/touch_dev/gesture_single_tap_enabled
+    chmod 0664 /sys/class/touch/touch_dev/gesture_single_tap_state
+    chmod 0664 /sys/class/touch/touch_dev/gesture_double_tap_enabled
+    chmod 0664 /sys/class/touch/touch_dev/gesture_double_tap_state
 
     # High touch polling rate
     chown system system /sys/devices/virtual/touch/touch_dev/bump_sample_rate
-    chmod 0660 /sys/devices/virtual/touch/touch_dev/bump_sample_rate
+    chmod 0664 /sys/devices/virtual/touch/touch_dev/bump_sample_rate
 
     chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
     chmod 0660 /sys/class/drm/sde-crtc-0/measured_fps
@@ -113,6 +114,9 @@ on post-fs-data
     chown system system /sys/class/mi_display/disp-DSI-1/max_brightness_clone
     chmod 0664 /sys/class/mi_display/disp-DSI-1/max_brightness_clone
 
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
+
     # Create fingerprint related directories
     mkdir /data/vendor/fpc 0770 system system
     mkdir /data/vendor/fpdump 0770 system system
@@ -125,6 +129,9 @@ on post-fs-data
     setprop dalvik.vm.dex2oat-threads 6
 
 on property:sys.boot_completed=1
+    # Dynamically set IRQ affinity for KGSL and DRM
+    exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.xiaomi_sm8450.sh
+
     # Set thermal mode to mgame
     write /sys/devices/virtual/thermal/thermal_message/sconfig 20
 

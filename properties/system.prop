@@ -1,3 +1,6 @@
+# Blur
+ro.sf.blurs_are_expensive=1
+
 # Camera
 log.tag.CHIUSECASE=ERROR
 

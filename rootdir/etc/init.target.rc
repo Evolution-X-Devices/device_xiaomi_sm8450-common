@@ -67,6 +67,7 @@ import /vendor/etc/init/hw/init.qti.kernel.rc
 on early-init
     write /proc/sys/kernel/printk_devkmsg ratelimited
     export MEMTAG_OPTIONS off
+    export ADSP_LIBRARY_PATH /vendor/lib/rfsa/adsp/;/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/odm/lib/rfsa/adsp;/dsp
 
 on init
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
@@ -85,10 +86,11 @@ on fs
     chmod 0771 /mnt/vendor/persist
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
+    chmod 0666 /dev/xlog
 
-#on post-fs
+on post-fs
     # set RLIMIT_MEMLOCK to 64MB
-    #setrlimit 8 67108864 67108864
+    setrlimit 8 67108864 67108864
 
 on late-fs
     mount_all /vendor/etc/fstab.qcom --late
@@ -151,8 +153,14 @@ on init && property:ro.boot.mode=charger
 
 on charger
     start vendor.power_off_alarm
+    write /sys/kernel/cnss/charger_mode 1
     setprop sys.usb.controller a600000.dwc3
-    wait /sys/class/udc/${sys.usb.controller}
+    write /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled n
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+    write /sys/bus/platform/devices/1d84000.ufshc/clkscale_enable 1
+    write /sys/bus/platform/devices/1d84000.ufshc/auto_hibern8 5000
+    write /sys/bus/platform/devices/1d84000.ufshc/clkgate_enable 1
+    setprop persist.sys.offlinelog.poweroff_charger_log true
     write /sys/kernel/cnss/charger_mode 1
 
 #service vendor.lowi /vendor/bin/sscrpcd

@@ -1,2 +1,6 @@
 # DPM
 persist.vendor.dpm.feature=11
+
+# Power-saving props
+ro.vendor.use_data_netmgrd=true
+ro.ril.disable.power.collapse=0
