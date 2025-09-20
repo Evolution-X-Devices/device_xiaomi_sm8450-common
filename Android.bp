@@ -6,6 +6,10 @@
 
 soong_namespace {
     imports: [
+        "hardware/google/interfaces",
+        "hardware/google/pixel",
+        "hardware/lineage/interfaces/power-libperfmgr",
+        "hardware/qcom-caf/common/libqti-perfd-client",
         "hardware/xiaomi",
         "vendor/qcom/opensource/commonsys-intf/display",
     ],
@@ -45,3 +49,4 @@ install_symlink {
     installed_location: "firmware/wlan/qca_cld/qca6750/wlan_mac.bin",
     symlink_target: "/mnt/vendor/persist/qca6750/wlan_mac.bin",
 }
+

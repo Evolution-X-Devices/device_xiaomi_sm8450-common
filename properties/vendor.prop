@@ -146,24 +146,17 @@ vendor.gatekeeper.disable_spu=true
 debug.egl.hw=0
 debug.hwui.skia_atrace_enabled=false
 debug.sf.auto_latch_unsignaled=0
-debug.sf.disable_client_composition_cache=0
+debug.sf.disable_client_composition_cache=1
 debug.sf.enable_transaction_tracing=false
-debug.sf.early.app.duration=13666666
-debug.sf.early.sf.duration=15666666
-debug.sf.earlyGl.app.duration=13666666
-debug.sf.earlyGl.sf.duration=15666666
 debug.sf.enable_gl_backpressure=0
 debug.sf.enable_hwc_vds=0
+debug.sf.frame_rate_multiple_threshold=120
 debug.sf.hw=0
-debug.sf.latch_unsignaled=0
-debug.sf.late.app.duration=13666666
-debug.sf.late.sf.duration=15666666
-debug.sf.layer_caching_active_layer_timeout_ms=1000
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.set_idle_timer_ms=1000
 debug.sf.treat_170m_as_sRGB=1
-debug.sf.use_phase_offsets_as_durations=1
-persist.mm.enable.prefetch=true
+debug.sf.use_phase_offsets_as_durations=0
+debug.sf.defer_refresh_rate_when_off=1
 persist.sys.sf.color_mode=0
 persist.sys.sf.color_saturation=1.0
 persist.sys.sf.native_mode=258
@@ -179,17 +172,14 @@ ro.surface_flinger.has_wide_color_display=true
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 ro.surface_flinger.max_virtual_display_dimension=4096
 ro.surface_flinger.protected_contents=true
-ro.surface_flinger.set_touch_timer_ms=200
+ro.surface_flinger.set_idle_timer_ms?=500
+ro.surface_flinger.set_touch_timer_ms=1000
 ro.surface_flinger.supports_background_blur=1
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.use_content_detection_for_refresh_rate=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 ro.surface_flinger.clear_slots_with_set_layer_buffer=true
 vendor.gralloc.disable_ubwc=0
-
-# HWUI
-debug.hwui.use_hint_manager=true
-debug.hwui.target_cpu_time_percent=30
 
 # Graphics
 ro.surface_flinger.support_kernel_idle_timer=true
@@ -207,6 +197,9 @@ persist.log.tag.QC2V4l2Codec=E
 # Media
 debug.c2.use_dmabufheaps=1
 debug.stagefright.c2inputsurface=-1
+
+# Netflix
+ro.netflix.bsp_rev=Q8450-34634-1
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
@@ -230,7 +223,7 @@ persist.vendor.radio.ecc_cloud=true
 persist.vendor.radio.enableadvancedscan=true
 persist.vendor.radio.procedure_bytes=SKIP
 persist.vendor.radio.sib16_support=1
-ro.telephony.default_network=33,33
+ro.telephony.default_network=26,26
 ro.vendor.radio.build_profile=v-stable
 telephony.active_modems.max_count=2
 telephony.lteOnCdmaDevice=1

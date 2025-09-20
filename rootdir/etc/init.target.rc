@@ -86,9 +86,9 @@ on fs
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
 
-#on post-fs
+on post-fs
     # set RLIMIT_MEMLOCK to 64MB
-    #setrlimit 8 67108864 67108864
+    setrlimit 8 67108864 67108864
 
 on late-fs
     mount_all /vendor/etc/fstab.qcom --late
@@ -153,6 +153,8 @@ on charger
     start vendor.power_off_alarm
     setprop sys.usb.controller a600000.dwc3
     wait /sys/class/udc/${sys.usb.controller}
+    setprop sys.usb.configfs 1
+    write /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled 0
     write /sys/kernel/cnss/charger_mode 1
 
 #service vendor.lowi /vendor/bin/sscrpcd
