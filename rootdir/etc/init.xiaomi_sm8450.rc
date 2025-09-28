@@ -107,6 +107,9 @@ on post-fs-data
     chown system system /sys/class/mi_display/disp-DSI-1/max_brightness_clone
     chmod 0664 /sys/class/mi_display/disp-DSI-1/max_brightness_clone
 
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
+
     # Create fingerprint related directories
     mkdir /data/vendor/fpc 0770 system system
     mkdir /data/vendor/fpdump 0770 system system
