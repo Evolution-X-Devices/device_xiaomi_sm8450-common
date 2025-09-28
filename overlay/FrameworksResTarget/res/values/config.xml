@@ -46,6 +46,9 @@
     <integer name="config_autoBrightnessBrighteningHysteresis">15</integer> <!-- 15% -->
     <integer name="config_autoBrightnessDarkeningHysteresis">5</integer>  <!-- 5% -->
 
+    <!-- Auto brightness lightsensor rate -->
+    <integer name="config_autoBrightnessLightSensorRate">500</integer>
+
     <!-- Auto-brightness curve: clamp brightness at night -->
     <integer-array name="config_autoBrightnessLevels">
         <item>1</item>     <!-- very dark -->
