@@ -1,0 +1,2 @@
+rw_dir_file(hal_power_default, proc)
+rw_dir_file(hal_power_default, sysfs_thermal)
