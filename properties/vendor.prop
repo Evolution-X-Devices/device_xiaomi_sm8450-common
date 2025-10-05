@@ -108,9 +108,6 @@ persist.vendor.dpm.vndr.idletimer.mode=default
 # DRM
 drm.service.enabled=true
 
-# FRP
-ro.frp.pst=/dev/block/bootdevice/by-name/frp
-
 # FUSE passthrough
 persist.sys.fuse.passthrough.enable=true
 
