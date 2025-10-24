@@ -318,6 +318,7 @@ vendor/lib64/libdataitems.so|633c823b52a6d8a9ab55e1c1f15bd306f1f360f1
 vendor/lib64/libgnsspps.so|116b1fc9248224db110fcba98ab354cd2f0d5e04
 vendor/lib64/libizat_client_api.so|fd7e9a0539b361d5eba7aae731cf5d2f96ef5004
 vendor/lib64/libizat_core.so|afb3abf7376dc50bc20b46256fba78790aa30040
+vendor/lib64/libjnihelper.so
 vendor/lib64/liblbs_core.so|9bd5e4f1de01908bf7103ce99f42b2032900bc6e
 vendor/lib64/libloc_api_v02.so|94eb87d0e14cd2fd9b415869947228b5ba690334
 vendor/lib64/libloc_api_wds.so|22b6b2839ea5829b31e5161050c3f1a8f4355ec5
