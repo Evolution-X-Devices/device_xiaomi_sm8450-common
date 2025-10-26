@@ -13,6 +13,7 @@ allow mi_thermald vendor_sysfs_kgsl:lnk_file r_file_perms;
 allow mi_thermald vendor_sysfs_battery_supply:dir r_dir_perms;
 allow mi_thermald vendor_sysfs_battery_supply:file rw_file_perms;
 allow mi_thermald vendor_sysfs_battery_supply:lnk_file r_file_perms;
+allow mi_thermald vendor_sysfs_qcom_battery:file rw_file_perms;
 allow mi_thermald vendor_sysfs_graphics:dir r_dir_perms;
 allow mi_thermald vendor_sysfs_graphics:file rw_file_perms;
 allow mi_thermald vendor_sysfs_graphics:lnk_file r_file_perms;
@@ -27,5 +28,6 @@ allow mi_thermald sys_thermal_wifi_limit:file rw_file_perms;
 
 r_dir_file(mi_thermald, sysfs_thermal)
 r_dir_file(mi_thermald, sysfs_leds)
+r_dir_file(mi_thermald, vendor_sysfs_qcom_battery)
 
 set_prop(mi_thermald, vendor_thermal_normal_prop)
