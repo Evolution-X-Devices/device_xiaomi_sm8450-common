@@ -34,6 +34,7 @@ vendor.audio.feature.battery_listener.enable=true
 vendor.audio.feature.dmabuf.cma.memory.enable=true
 vendor.audio.feature.hfp.enable=false
 vendor.audio.feature.kpi_optimize.enable=true
+vendor.audio.flac.sw.decoder.24bit=true
 vendor.audio.hal.boot.timeout.ms=20000
 vendor.audio.hdr.record.enable=false
 vendor.audio.hw.aac.encoder=false
