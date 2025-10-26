@@ -1,6 +1,9 @@
 # Audio
 type audio_socket, file_type;
 
+# Battery
+type vendor_sysfs_qcom_battery, fs_type, sysfs_type;
+
 # Camera
 type camera_persist_file, file_type, mlstrustedobject, vendor_persist_type;
 
