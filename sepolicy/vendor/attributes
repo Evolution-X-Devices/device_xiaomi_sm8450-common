@@ -1,0 +1,4 @@
+# Camera
+attribute vendor_hal_camerapostproc_xiaomi;
+attribute vendor_hal_camerapostproc_xiaomi_client;
+attribute vendor_hal_camerapostproc_xiaomi_server;
