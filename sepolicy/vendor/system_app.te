@@ -4,6 +4,14 @@ binder_call(system_app, hal_mlipay_default)
 
 allow system_app sysfs_thermal:file write;
 allow system_app sysfs_thermal:file rw_file_perms;
+allow system_app hal_fingerprint_default:binder call;
+allow system_app hal_audio_default:binder call;
+allow system_app hal_bootctl_default:binder call;
+allow system_app vendor_hal_gnss_qti:binder call;
+allow system_app hal_health_default:binder call;
+allow system_app hal_nfc_default:binder call;
+allow system_app hal_power_default:binder call;
+allow system_app vendor_hal_keymint_qti:binder call;
 
 allow system_app hal_mlipay_hwservice:hwservice_manager find;
 binder_call(system_app, hal_mlipay_default)
