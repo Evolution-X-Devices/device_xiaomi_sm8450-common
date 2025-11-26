@@ -15,12 +15,12 @@
  */
 package org.lineageos.settings.thermal;
 
-import android.annotation.Nullable;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -36,6 +36,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.preference.PreferenceFragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -96,6 +97,19 @@ public class ThermalSettingsFragment extends PreferenceFragment
         mAppsRecyclerView.setAdapter(mAllPackagesAdapter);
     }
 
+    @Override
+    public void setDivider(@Nullable final Drawable divider) {
+        RecyclerView list = getListView();
+        if (list == null) {
+            View root = getView();
+            if (root != null) {
+                root.post(() -> setDivider(divider));
+            }
+            return;
+        }
+
+        super.setDivider(divider);
+    }
 
     @Override
     public void onResume() {
