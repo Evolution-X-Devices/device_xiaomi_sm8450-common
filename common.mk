@@ -84,6 +84,7 @@ PRODUCT_PACKAGES += \
     libvisualizeraidl:64 \
     libvolumelistener:64
 
+$(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 $(call soong_config_set, android_hardware_audio, run_64bit, true)
 
 $(foreach sku, taro diwali cape ukee parrot, \
