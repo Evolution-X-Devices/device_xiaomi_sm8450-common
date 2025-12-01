@@ -29,17 +29,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.preference.Preference
-import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.android.settingslib.widget.LayoutPreference
+import com.android.settingslib.widget.SettingsBasePreferenceFragment
 import org.lineageos.settings.Constants
 import org.lineageos.settings.CustomSeekBarPreference
 import org.lineageos.settings.R
 import org.lineageos.settings.utils.TileUtils
 
-class SaturationFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChangeListener {
+class SaturationFragment : SettingsBasePreferenceFragment(), Preference.OnPreferenceChangeListener {
 
     private var mViewArrowPrevious: View? = null
     private var mViewArrowNext: View? = null
