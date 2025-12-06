@@ -24,7 +24,7 @@
         android:key="doze_enable"
         android:title="@string/ambient_display_enable_title" />
 
-    <SwitchPreference
+    <SwitchPreferenceCompat
         android:key="always_on_display"
         android:disableDependentsState="true"
         android:icon="@drawable/ic_doze_aod"
