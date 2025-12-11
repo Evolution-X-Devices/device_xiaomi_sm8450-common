@@ -176,12 +176,12 @@ vendor/bin/qdcmss|727147cbaf4d74f0eb38c534fda9beebdfec31f6
 vendor/etc/init/qdcmss.rc|53d78d686678c4f923a9ec4ace7d4d3575b13788
 vendor/lib64/libbacklight-calib.so|a5990fa87932196f9e2c38b2ec85786daa6b3a9c
 vendor/lib64/libdigital-dimming.so|66506a386dc80da0994c9d4aeac34edfc1830c5c
-vendor/lib64/libdpps.so|d8e9cc561a3ab706697880975413db23bb41640c
+vendor/lib64/libdpps.so|d8e9cc561a3ab706697880975413db23bb41640c|5d3e5f10ce5adff610e67acd837b19a551412876
 vendor/lib64/libmemutils.so|e122c3ff95b10a6263e698261abafe62cee98010
 vendor/lib64/libqdcm-algo.so|e873dc21878d92d20f6937453c9d3265a0d3a93d
 vendor/lib64/libqdcm-json-mode-parser.so|1c8f1a841a877efbed0a0b3db3d551ff1283f14f
 vendor/lib64/libqdcm-mode-parser.so|341178dfb18e03b6fabff27a080fb96f15188942
-vendor/lib64/libsnapdragoncolor-manager.so|72291478bd56bada0fc3df3617e765b28ef54f66
+vendor/lib64/libsnapdragoncolor-manager.so|72291478bd56bada0fc3df3617e765b28ef54f66|ba9a38c02dae4cc2211895714969c589faaff1f4
 vendor/lib64/libsnapdragoncolor-qdcm.so|9f0bc72290618324e95cd9f4eca6987a6733bd06
 
 # Display postprocessing - from ingot-user 14 UKQ1.240227.165 release-keys
