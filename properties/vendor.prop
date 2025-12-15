@@ -172,6 +172,7 @@ persist.log.tag.QC2V4l2Codec=E
 # Media
 debug.c2.use_dmabufheaps=1
 debug.stagefright.c2inputsurface=-1
+debug.sdm.support_writeback=0
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
