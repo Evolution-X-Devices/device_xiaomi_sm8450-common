@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from diting OS2.0.205.0.VLFMIXM
+# All unpinned blobs below are extracted from diting OS2.0.206.0.VLFMIXM
 
 # ADSP
 vendor/bin/adsprpcd
