@@ -170,8 +170,6 @@ do
 	echo 50 > $qosgold/ipm_ceil
 done
 
-=============================================
-
 #set s2idle as default suspend mode
 echo s2idle > /sys/power/mem_sleep
 
