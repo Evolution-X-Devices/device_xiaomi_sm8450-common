@@ -21,6 +21,9 @@ on boot
     chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
     chown system system /sys/module/perf_helper/mimd/mimdtrigger
 
+    # workaround for doze brightness
+    write /sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/doze_brightness -1
+
     # Create persist for camera calibration data
     mkdir /mnt/vendor/persist/camera 0755 system cameraserver
 
