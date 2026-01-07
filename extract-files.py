@@ -53,6 +53,13 @@ blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so': blob_fixup()
         .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.7.so'),
     (
+        'vendor/etc/msm_irqbalance.conf'
+    ): blob_fixup()
+        .regex_replace(
+            r'(IGNORED_IRQ=27,23,38)$',
+            r'\1,115,332'
+        ),
+    (
         'vendor/bin/hw/android.hardware.security.keymint-service-qti',
         'vendor/lib64/libqtikeymint.so',
     ): blob_fixup()
