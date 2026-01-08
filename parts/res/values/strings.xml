@@ -25,11 +25,13 @@
     <string name="tile_on">On</string>
     <string name="tile_off">Off</string>
 
-    <!-- Thermal profiles -->
+    <!-- Thermal Profiles -->
     <string name="thermal_title">Thermal profiles</string>
-    <string name="thermal_summary">Adjust per-app thermal profiles for optimum performance</string>
-    <string name="thermal_default">No optimization</string>
-    <string name="thermal_benchmark">Performance</string>
+    <string name="thermal_enable">Use thermal profiles</string>
+    <string name="thermal_summary">Per-app thermal profile configuration</string>
+    <string name="thermal_loading">Loading...</string>
+    <string name="thermal_default">Default</string>
+    <string name="thermal_benchmark">Benchmark</string>
     <string name="thermal_browser">Browser</string>
     <string name="thermal_camera">Camera</string>
     <string name="thermal_dialer">Dialer</string>
@@ -37,18 +39,8 @@
     <string name="thermal_navigation">Navigation</string>
     <string name="thermal_streaming">Streaming</string>
     <string name="thermal_video">Video</string>
-
-    <!-- Thermal Tile Strings -->
-    <string name="thermal_tile_label">Thermal Profile</string>
-    <string name="thermal_mode_default">Default Mode</string>
-    <string name="thermal_mode_performance">Performance Mode</string>
-    <string name="thermal_mode_battery_saver">Battery Saver Mode</string>
-    <string name="thermal_mode_gaming">Gaming Mode</string>
-    <string name="thermal_mode_unknown">Unknown Mode</string>
-    <string name="thermal_tile_disabled_subtitle">Disabled (Per-app thermal profiles enabled)</string>
-    <string name="perf_mode_title">High Performance Mode</string>
-    <string name="perf_mode_notification">High Performance Mode is now activated for enhanced
-          performance.</string>
+    <string name="thermal_reset">Reset to defaults</string>
+    <string name="thermal_reset_message">Are you sure you want to reset thermal profile for all apps?</string>
 
     <!-- Ambient Display -->
     <string name="ambient_display_title">Ambient Display</string>
