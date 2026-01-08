@@ -78,9 +78,13 @@
             android:permission="XiaomiDozeService">
         </service>
 
+        <!-- Thermal Settings -->
         <activity
             android:name=".thermal.ThermalSettingsActivity"
-            android:label="@string/thermal_title">
+            android:label="@string/thermal_title"
+            android:icon="@drawable/ic_thermal_settings"
+            android:theme="@style/Theme.SubSettingsBase.Thermal"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -90,26 +94,12 @@
             <meta-data
                 android:name="com.android.settings.summary"
                 android:resource="@string/thermal_summary" />
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_thermal_settings" />
         </activity>
 
-        <service
-            android:name=".thermal.ThermalService"
-            android:permission="ThermalService">
-        </service>
-
-        <!-- Thermal Profiles tile service -->
-
-        <service
-            android:name=".thermal.ThermalTileService"
-            android:label="@string/thermal_tile_label"
-            android:icon="@drawable/ic_thermal_tile"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE" />
-            </intent-filter>
-        </service>
-
+        <!-- Clear Speaker -->
         <activity
             android:name=".speaker.ClearSpeakerActivity"
             android:label="@string/clear_speaker_title">
