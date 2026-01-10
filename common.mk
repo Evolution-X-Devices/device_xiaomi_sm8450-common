@@ -81,6 +81,7 @@ PRODUCT_PACKAGES += \
     libvolumelistener
 
 $(call soong_config_set, android_hardware_audio, run_64bit, true)
+$(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
 $(foreach sku, taro diwali cape ukee parrot, \
     $(eval PRODUCT_COPY_FILES += \
