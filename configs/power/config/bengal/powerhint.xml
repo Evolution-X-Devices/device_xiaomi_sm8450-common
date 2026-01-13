@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!--
+/*  Copyright (c) 2016-2021,The Linux Foundation. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above
+ *       copyright notice, this list of conditions and the following
+ *       disclaimer in the documentation and/or other materials provided
+ *       with the distribution.
+ *     * Neither the name of The Linux Foundation nor the names of its
+ *       contributors may be used to endorse or promote products derived
+ *       from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+ * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+-->
+<HintConfigs>
+    <Powerhint>
+
+        <!-- camera 30fps and camera preview -->
+        <!--L CPU CORE 0 SCHED LOAD BOOST -->
+        <!--L CPU CORE 1 SCHED LOAD BOOST -->
+        <!--L CPU CORE 2 SCHED LOAD BOOST -->
+        <!--L CPU CORE 3 SCHED LOAD BOOST -->
+        <!--L CPU CORE 4 SCHED LOAD BOOST -->
+        <!--L CPU CORE 5 SCHED LOAD BOOST -->
+        <!--L CPU CORE 6 SCHED LOAD BOOST -->
+        <!--L CPU CORE 7 SCHED LOAD BOOST -->
+        <!--L CPU Hispeed freq of 1017Mhz -->
+        <!--L CLUSTER_LITTLE - Set hispeed load 95 -->
+        <!--L CLUSTER_BIG - Set hispeed load 95 -->
+        <!--CPUBW HWMON - Set sample_ms 50 -->
+        <!--CPUBW HWMON - Set io_percent 100 -->
+        <!--CPUBW HWMON - Set up_scale 0 -->
+        <!--L CPU - Cluster min freq ~800mhz -->
+        <!-- SCHED_PREFER_SPREAD 2 -->
+        <Config
+            Id="0x00001331" Enable="true" Timeout="0" Target="bengal"
+            Resources="0x40C68100, -20, 0x40C68110, -20, 0x40C68120, -20,
+            0x40C68130, -20, 0x40C68000, -20, 0x40C68010, -20, 0x40C68020, -20, 0x40C68030, -20,
+            0x4143C100, 1017, 0x41440100, 0x5F, 0x41440000, 0x5F, 0x41820000, 0x32, 0x41808000, 0x64, 0x43014000, 0x0, 0x40800100, 0x386"/>
+
+        <Config
+            Id="0x00001331" Enable="true" Timeout="0" Target="scuba"
+            Resources="0x40C68000, -20, 0x40C68010, -20, 0x40C68020, -20,
+            0x40C68030, -20, 0x4143C000, 1017, 0x41440000, 0x5F, 0x41820000, 0x32, 0x41808000, 0x64, 0x43014000, 0x0"/>
+
+        <Config
+            Id="0x00001331" Enable="true" Timeout="0" Target="khaje"
+            Resources="0x40C68100, -20, 0x40C68110, -20, 0x40C68120, -20,
+            0x40C68130, -20, 0x40C68000, -20, 0x40C68010, -20, 0x40C68020, -20, 0x40C68030, -20,
+            0x4143C100, 1190, 0x41440100, 0x5F, 0x41440000, 0x5F, 0x41820000, 0x32, 0x41808000, 0x64, 0x43014000, 0x0, 0x40800100, 0x3AC, 0x40CA8000, 2"/>
+
+        <!-- camera 60 FPS -->
+        <!--L CPU CORE 0 SCHED LOAD BOOST -->
+        <!--L CPU CORE 1 SCHED LOAD BOOST -->
+        <!--L CPU CORE 2 SCHED LOAD BOOST -->
+        <!--L CPU CORE 3 SCHED LOAD BOOST -->
+        <!--L CPU CORE 4 SCHED LOAD BOOST -->
+        <!--L CPU CORE 5 SCHED LOAD BOOST -->
+        <!--L CPU CORE 6 SCHED LOAD BOOST -->
+        <!--L CPU CORE 7 SCHED LOAD BOOST -->
+        <!--L CPU Hispeed freq of 1017Mhz -->
+        <!--L CLUSTER_LITTLE - Set hispeed load 95 -->
+        <!--L CLUSTER_BIG - Set hispeed load 95 -->
+        <!--CPUBW HWMON - Set sample_ms 20 -->
+        <!--L CPU - Cluster min freq ~1Ghz -->
+        <Config
+            Id="0x00001332" Enable="true" Timeout="0" Target="bengal"
+            Resources="0x40C68100, -25, 0x40C68110, -25, 0x40C68120, -25,
+            0x40C68130, -25, 0x40C68000, -25, 0x40C68010, -25, 0x40C68020, -25, 0x40C68030, -25,
+            0x4143C100, 1017, 0x41440100, 0x5F, 0x41440000, 0x5F, 0x41820000, 0x14, 0x40800100, 0x420"/>
+
+        <Config
+            Id="0x00001332" Enable="true" Timeout="0" Target="scuba"
+            Resources="0x40C68000, -25, 0x40C68010, -25, 0x40C68020, -25,
+            0x40C68030, -25, 0x4143C000, 1017, 0x41440000, 0x5F, 0x41820000, 0x14"/>
+
+        <Config
+            Id="0x00001332" Enable="true" Timeout="0" Target="khaje"
+            Resources="0x40C68100, -25, 0x40C68110, -25, 0x40C68120, -25,
+            0x40C68130, -25, 0x40C68000, -25, 0x40C68010, -25, 0x40C68020, -25, 0x40C68030, -25,
+            0x4143C100, 1190, 0x41440100, 0x5F, 0x41440000, 0x5F, 0x41820000, 0x14, 0x40800100, 0x4A6, 0x40CA8000, 2"/>
+
+        <!-- camera HFR -->
+        <!--L CPU CORE 0 SCHED LOAD BOOST -->
+        <!--L CPU CORE 1 SCHED LOAD BOOST -->
+        <!--L CPU CORE 2 SCHED LOAD BOOST -->
+        <!--L CPU CORE 3 SCHED LOAD BOOST -->
+        <!--L CPU CORE 4 SCHED LOAD BOOST -->
+        <!--L CPU CORE 5 SCHED LOAD BOOST -->
+        <!--L CPU CORE 6 SCHED LOAD BOOST -->
+        <!--L CPU CORE 7 SCHED LOAD BOOST -->
+        <!--L CPU Hispeed freq of 1017Mhz -->
+        <!--L CLUSTER_LITTLE - Set hispeed load 95 -->
+        <!--L CLUSTER_BIG - Set hispeed load 95 -->
+        <!--CPUBW HWMON - Set sample_ms 20 -->
+        <!--L CPU - Cluster min freq ~1Ghz -->
+        <Config
+            Id="0x00001333" Enable="true" Timeout="0" Target="bengal"
+            Resources="0x40C68100, -10, 0x40C68110, -10, 0x40C68120, -10,
+            0x40C68130, -10, 0x40C68000, -10, 0x40C68010, 10, 0x40C68020, -10, 0x40C68030, -10,
+            0x4143C100, 1017, 0x41440100, 0x5F, 0x41440000, 0x5F, 0x41820000, 0x14, 0x40800100, 0x420"/>
+
+       <Config
+            Id="0x00001333" Enable="true" Timeout="0" Target="scuba"
+            Resources="0x40C68000, -10, 0x40C68010, -10, 0x40C68020, -10,
+            0x40C68030, -10, 0x4143C000, 1017, 0x41440000, 0x5F, 0x41820000, 0x14"/>
+
+        <Config
+            Id="0x00001333" Enable="true" Timeout="0" Target="khaje"
+            Resources="0x40C68100, -10, 0x40C68110, -10, 0x40C68120, -10,
+            0x40C68130, -10, 0x40C68000, -10, 0x40C68010, 10, 0x40C68020, -10, 0x40C68030, -10,
+            0x4143C100, 1190, 0x41440100, 0x5F, 0x41440000, 0x5F, 0x41820000, 0x14, 0x40800100, 0x4A6"/>
+
+        <!-- HFR 480fps -->
+        <!--L CPU CORE 0 SCHED LOAD BOOST -->
+        <!--L CPU CORE 1 SCHED LOAD BOOST -->
+        <!--L CPU CORE 2 SCHED LOAD BOOST -->
+        <!--L CPU CORE 3 SCHED LOAD BOOST -->
+        <!--L CPU CORE 4 SCHED LOAD BOOST -->
+        <!--L CPU CORE 5 SCHED LOAD BOOST -->
+        <!--L CPU CORE 6 SCHED LOAD BOOST -->
+        <!--L CPU CORE 7 SCHED LOAD BOOST -->
+        <!--L CPU Hispeed freq of 1017Mhz -->
+        <!--L CLUSTER_LITTLE - Set hispeed load 95 -->
+        <!--L CLUSTER_BIG - Set hispeed load 95 -->
+        <!--CPUBW HWMON - Set sample_ms 20 -->
+        <Config
+            Id="0x00001334" Enable="true" Timeout="0" Target="bengal"
+            Resources="0x40C68100, -10, 0x40C68110, -10, 0x40C68120, -10,
+            0x40C68130, -10, 0x40C68000, -10, 0x40C68010, -10, 0x40C68020, -10, 0x40C68030, -10,
+            0x4143C100, 1017, 0x41440100, 0x5F, 0x41440000, 0x5F, 0x41820000, 0x14"/>
+
+        <Config
+            Id="0x00001334" Enable="true" Timeout="0" Target="scuba"
+            Resources="0x40C68000, -10, 0x40C68010, -10, 0x40C68020, -10,
+            0x40C68030, -10, 0x4143C000, 1017, 0x41440000, 0x5F, 0x41820000, 0x14"/>
+
+        <Config
+            Id="0x00001334" Enable="true" Timeout="0" Target="khaje"
+            Resources="0x40C68100, -10, 0x40C68110, -10, 0x40C68120, -10,
+            0x40C68130, -10, 0x40C68000, -10, 0x40C68010, -10, 0x40C68020, -10, 0x40C68030, -10,
+            0x4143C100, 1190, 0x41440100, 0x5F, 0x41440000, 0x5F, 0x41820000, 0x14"/>
+
+        <!-- camera 30fps encode Single rank DDR -->
+        <!--L CPU CORE 0 SCHED LOAD BOOST -->
+        <!--L CPU CORE 1 SCHED LOAD BOOST -->
+        <!--L CPU CORE 2 SCHED LOAD BOOST -->
+        <!--L CPU CORE 3 SCHED LOAD BOOST -->
+        <!--L CPU CORE 4 SCHED LOAD BOOST -->
+        <!--L CPU CORE 5 SCHED LOAD BOOST -->
+        <!--L CPU CORE 6 SCHED LOAD BOOST -->
+        <!--L CPU CORE 7 SCHED LOAD BOOST -->
+        <!--L CPU Hispeed freq of 1017Mhz -->
+        <!--L CLUSTER_LITTLE - Set hispeed load 95 -->
+        <!--L CLUSTER_BIG - Set hispeed load 95 -->
+        <!--CPUBW HWMON - Set sample_ms 50 -->
+        <!--CPUBW HWMON - Set io_percent 100 -->
+        <!--CPUBW HWMON - Set up_scale 0 -->
+        <!--CPUBW MINFREQ - Max value -->
+        <!-- B CPU - Cluster min freq ~.1.536 Ghz -->
+        <!-- L CPU - Cluster min freq ~.1.420 Ghz -->
+        <Config
+            Id="0x00001335" Enable="true" Timeout="0" Target="bengal"
+            Resources="0x40C68100, -20, 0x40C68110, -20, 0x40C68120, -20,
+            0x40C68130, -20, 0x40C68000, -20, 0x40C68010, -20, 0x40C68020, -20, 0x40C68030, -20,
+            0x4143C100, 0x3F9, 0x41440100, 0x5F, 0x41440000, 0x5F, 0x41820000, 0x32, 0x41808000, 0x64, 0x43014000, 0x0,
+            0x41800000, 0xFF, 0x40800000, 0x600, 0x40800100, 0x58C, 0x40CA8000, 0x2"/>
+        <Config
+            Id="0x00001335" Enable="true" Timeout="0" Target="khaje"
+            Resources="0x40C68100, -20, 0x40C68110, -20, 0x40C68120, -20,
+            0x40C68130, -20, 0x40C68000, -20, 0x40C68010, -20, 0x40C68020, -20, 0x40C68030, -20,
+            0x4143C100, 0x3F9, 0x41440100, 0x5F, 0x41440000, 0x5F, 0x41820000, 0x32, 0x41808000, 0x64, 0x43014000, 0x0,
+            0x41800000, 0xFF, 0x40800000, 0x600, 0x40800100, 0x686, 0x40CA8000, 0x793"/>
+
+        <!-- camera 60 FPS Single rank DDR -->
+        <!--L CPU CORE 0 SCHED LOAD BOOST -->
+        <!--L CPU CORE 1 SCHED LOAD BOOST -->
+        <!--L CPU CORE 2 SCHED LOAD BOOST -->
+        <!--L CPU CORE 3 SCHED LOAD BOOST -->
+        <!--L CPU CORE 4 SCHED LOAD BOOST -->
+        <!--L CPU CORE 5 SCHED LOAD BOOST -->
+        <!--L CPU CORE 6 SCHED LOAD BOOST -->
+        <!--L CPU CORE 7 SCHED LOAD BOOST -->
+        <!--L CPU Hispeed freq of 1017Mhz -->
+        <!--L CLUSTER_LITTLE - Set hispeed load 95 -->
+        <!--L CLUSTER_BIG - Set hispeed load 95 -->
+        <!--CPUBW HWMON - Set sample_ms 20 -->
+        <!--CPUBW MINFREQ - Max value -->
+        <Config
+            Id="0x00001336" Enable="true" Timeout="0" Target="bengal"
+            Resources="0x40C68100, -25, 0x40C68110, -25, 0x40C68120, -25,
+            0x40C68130, -25, 0x40C68000, -25, 0x40C68010, -25, 0x40C68020, -25, 0x40C68030, -25,
+            0x4143C100, 0x3F9, 0x41440100, 0x5F, 0x41440000, 0x5F, 0x41820000, 0x14, 0x41800000, 0xFF, 0x40CA8000, 0x2"/>
+        <Config
+            Id="0x00001336" Enable="true" Timeout="0" Target="khaje"
+            Resources="0x40C68100, -25, 0x40C68110, -25, 0x40C68120, -25,
+            0x40C68130, -25, 0x40C68000, -25, 0x40C68010, -25, 0x40C68020, -25, 0x40C68030, -25,
+            0x4143C100, 0x3F9, 0x41440100, 0x5F, 0x41440000, 0x5F, 0x41820000, 0x14, 0x41800000, 0xFF, 0x40CA8000, 0x2"/>
+
+        <!-- same settings for all the qvr power levels intentionally -->
+        <!-- qvr level cpu1 gpu1 -->
+        <!-- B CPU - Cluster min freq ~.806 Ghz -->
+        <!-- B CPU - Cluster max freq ~.2.169 Ghz -->
+        <!-- L CPU - Cluster min freq ~.576 Ghz -->
+        <!-- L CPU - Cluster max freq ~1.248 Ghz -->
+        <!-- GPU - min pwrlevel 7 (freq 180 Mhz) -->
+        <!-- GPU - max pwrlevel 0 (freq 825 Mhz) -->
+        <!-- Min Big CPUs 2 -->
+        <!-- Idefinite Duration -->
+        <Config
+            Id="0x0000130A" Enable="true" Target="bengal" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+        <Config
+            Id="0x0000130A" Enable="true" Target="khaje" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+
+        <!-- qvr level cpu1 gpu2 -->
+        <!-- B CPU - Cluster min freq ~.806 Ghz -->
+        <!-- B CPU - Cluster max freq ~.2.169 Ghz -->
+        <!-- L CPU - Cluster min freq ~.576 Ghz -->
+        <!-- L CPU - Cluster max freq ~1.248 Ghz -->
+        <!-- GPU - min pwrlevel 7 (freq 180 Mhz) -->
+        <!-- GPU - max pwrlevel 0 (freq 825 Mhz) -->
+        <!-- Min Big CPUs 2 -->
+        <!-- Idefinite Duration -->
+        <Config
+            Id="0x0000130B" Enable="true" Target="bengal" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+        <Config
+            Id="0x0000130B" Enable="true" Target="khaje" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+
+        <!-- qvr level cpu1 gpu3 -->
+        <!-- B CPU - Cluster min freq ~.806 Ghz -->
+        <!-- B CPU - Cluster max freq ~.2.169 Ghz -->
+        <!-- L CPU - Cluster min freq ~.576 Ghz -->
+        <!-- L CPU - Cluster max freq ~1.248 Ghz -->
+        <!-- GPU - min pwrlevel 7 (freq 180 Mhz) -->
+        <!-- GPU - max pwrlevel 0 (freq 825 Mhz) -->
+        <!-- Min Big CPUs 2 -->
+        <!-- Idefinite Duration -->
+        <Config
+            Id="0x0000130C" Enable="true" Target="bengal" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+        <Config
+            Id="0x0000130C" Enable="true" Target="khaje" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+
+        <!-- qvr level cpu2 gpu1 -->
+        <!-- B CPU - Cluster min freq ~.806 Ghz -->
+        <!-- B CPU - Cluster max freq ~.2.169 Ghz -->
+        <!-- L CPU - Cluster min freq ~.576 Ghz -->
+        <!-- L CPU - Cluster max freq ~1.248 Ghz -->
+        <!-- GPU - min pwrlevel 7 (freq 180 Mhz) -->
+        <!-- GPU - max pwrlevel 0 (freq 825 Mhz) -->
+        <!-- Min Big CPUs 2 -->
+        <!-- Idefinite Duration -->
+        <Config
+            Id="0x0000130D" Enable="true" Target="bengal" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+        <Config
+            Id="0x0000130D" Enable="true" Target="khaje" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+
+        <!-- qvr level cpu2 gpu2 -->
+        <!-- B CPU - Cluster min freq ~.806 Ghz -->
+        <!-- B CPU - Cluster max freq ~.2.169 Ghz -->
+        <!-- L CPU - Cluster min freq ~.576 Ghz -->
+        <!-- L CPU - Cluster max freq ~1.248 Ghz -->
+        <!-- GPU - min pwrlevel 7 (freq 180 Mhz) -->
+        <!-- GPU - max pwrlevel 0 (freq 825 Mhz) -->
+        <!-- Min Big CPUs 2 -->
+        <!-- Idefinite Duration -->
+        <Config
+            Id="0x0000130E" Enable="true" Target="bengal" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+        <Config
+            Id="0x0000130E" Enable="true" Target="khaje" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+
+        <!-- qvr level cpu2 gpu3 -->
+        <!-- B CPU - Cluster min freq ~.806 Ghz -->
+        <!-- B CPU - Cluster max freq ~.2.169 Ghz -->
+        <!-- L CPU - Cluster min freq ~.576 Ghz -->
+        <!-- L CPU - Cluster max freq ~1.248 Ghz -->
+        <!-- GPU - min pwrlevel 7 (freq 180 Mhz) -->
+        <!-- GPU - max pwrlevel 0 (freq 825 Mhz) -->
+        <!-- Min Big CPUs 2 -->
+        <!-- Idefinite Duration -->
+        <Config
+            Id="0x0000130F" Enable="true" Target="bengal" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+        <Config
+            Id="0x0000130F" Enable="true" Target="khaje" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+
+        <!-- qvr level cpu3 gpu1 -->
+        <!-- B CPU - Cluster min freq ~.806 Ghz -->
+        <!-- B CPU - Cluster max freq ~.2.169 Ghz -->
+        <!-- L CPU - Cluster min freq ~.576 Ghz -->
+        <!-- L CPU - Cluster max freq ~1.248 Ghz -->
+        <!-- GPU - min pwrlevel 7 (freq 180 Mhz) -->
+        <!-- GPU - max pwrlevel 0 (freq 825 Mhz) -->
+        <!-- Min Big CPUs 2 -->
+        <!-- Idefinite Duration -->
+        <Config
+            Id="0x00001310" Enable="true" Target="bengal" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+        <Config
+            Id="0x00001310" Enable="true" Target="khaje" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+
+        <!-- qvr level cpu3 gpu2 -->
+        <!-- B CPU - Cluster min freq ~.806 Ghz -->
+        <!-- B CPU - Cluster max freq ~.2.169 Ghz -->
+        <!-- L CPU - Cluster min freq ~.576 Ghz -->
+        <!-- L CPU - Cluster max freq ~1.248 Ghz -->
+        <!-- GPU - min pwrlevel 7 (freq 180 Mhz) -->
+        <!-- GPU - max pwrlevel 0 (freq 825 Mhz) -->
+        <!-- Min Big CPUs 2 -->
+        <!-- Idefinite Duration -->
+        <Config
+            Id="0x00001311" Enable="true" Target="bengal" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+        <Config
+            Id="0x00001311" Enable="true" Target="khaje" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+        <!-- qvr level cpu3 gpu3 -->
+        <!-- B CPU - Cluster min freq ~.806 Ghz -->
+        <!-- B CPU - Cluster max freq ~2.169 Ghz -->
+        <!-- L CPU - Cluster min freq ~.576 Ghz -->
+        <!-- L CPU - Cluster max freq ~1.248 Ghz -->
+        <!-- GPU - min pwrlevel 7 (freq 180 Mhz) -->
+        <!-- GPU - max pwrlevel 0 (freq 825 Mhz) -->
+        <!-- Min Big CPUs 2 -->
+        <!-- Idefinite Duration -->
+        <Config
+            Id="0x00001312" Enable="true" Target="bengal" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+        <Config
+            Id="0x00001312" Enable="true" Target="khaje" Timeout="0"
+            Resources="0x40800000, 0x326, 0x40804000, 0x879, 0x40800100, 0x240, 0x40804100, 0x4E0,
+            0x42804000, 0x7, 0x42808000, 0x0, 0x41000000, 0x2"/>
+
+         <!-- sustained performance -->
+         <!-- B CPU - Cluster min freq uncapped -->
+         <!-- L CPU - Cluster min freq uncapped -->
+         <!-- B CPU - Cluster max freq ~1.22 GHz -->
+         <!-- L CPU - Cluster max freq ~1.22 Ghz -->
+         <!-- GPU - min freq 275Mhz -->
+         <!-- GPU - max freq 400Mhz -->
+         <!-- GPUBW freq uncapped -->
+         <Config
+             Id="0x00001206" Enable="true" Timeout="0" Target="bengal"
+             Resources="0x40800000, 0x0, 0x40800100, 0x0, 0x40804000, 0x4CC, 0x40804100, 0x4CC,
+             0X4280C000, 0x113, 0X42810000, 0x190, 0x42814000, 0x0"/>
+         <Config
+             Id="0x00001206" Enable="true" Timeout="0" Target="khaje"
+             Resources="0x40800000, 0x0, 0x40800100, 0x0, 0x40804000, 0x4CC, 0x40804100, 0x4CC,
+             0X4280C000, 0x113, 0X42810000, 0x190, 0x42814000, 0x0"/>
+
+         <!-- vr mode -->
+         <!-- B CPU - Cluster min freq ~1.22 Ghz -->
+         <!-- L CPU - Cluster min freq ~0.940 Ghz -->
+         <!-- B CPU - Cluster max freq ~1.90 Ghz -->
+         <!-- L CPU - Cluster max freq ~1.70 Ghz -->
+         <!-- GPU - min freq 275Mhz -->
+         <!-- GPU - max freq 625Mhz -->
+         <!-- GPUBW uncapped -->
+         <Config
+             Id="0x00001207" Enable="true" Timeout="0" Target="bengal"
+             Resources="0x40800000, 0x4CC, 0x40800100, 0x3AC, 0x40804000, 0x76C, 0x40804100, 0x6C0,
+             0X4280C000, 0x113, 0X4280C000, 0x271, 0x42814000, 0x0"/>
+         <Config
+             Id="0x00001207" Enable="true" Timeout="0" Target="khaje"
+             Resources="0x40800000, 0x4CC, 0x40800100, 0x3AC, 0x40804000, 0x76C, 0x40804100, 0x6C0,
+             0X4280C000, 0x113, 0X4280C000, 0x271, 0x42814000, 0x0"/>
+
+         <!-- vr mode sustained performance -->
+         <!-- B CPU - Cluster min freq ~1.22 Ghz -->
+         <!-- L CPU - Cluster min freq ~1.22 Ghz -->
+         <!-- B CPU - Cluster max freq ~1.22 Ghz -->
+         <!-- L CPU - Cluster max freq ~1.22 Ghz -->
+         <!-- GPU - min freq 400Mhz -->
+         <!-- GPU - max freq 400Mhz -->
+         <!-- GPUBW uncapped  -->
+         <Config
+             Id="0x00001301" Enable="true" Timeout="0" Target="bengal"
+             Resources="0x40800000, 0x4CC, 0x40800100, 0x4CC, 0x40804000, 0x4CC, 0x40804100, 0x4CC,
+             0X4280C000, 0x190, 0X42810000, 0x190, 0x42814000, 0x0"/>
+         <Config
+             Id="0x00001301" Enable="true" Timeout="0" Target="khaje"
+             Resources="0x40800000, 0x4CC, 0x40800100, 0x4CC, 0x40804000, 0x4CC, 0x40804100, 0x4CC,
+             0X4280C000, 0x190, 0X42810000, 0x190, 0x42814000, 0x0"/>
+
+    </Powerhint>
+</HintConfigs>
+
+

@@ -1,0 +1,9 @@
+service vendor.power /vendor/bin/hw/android.hardware.power-service-qti_v3
+    class hal
+    user system
+    group system
+
+on post-fs
+    chmod 0664 /sys/devices/virtual/graphics/fb0/idle_time
+    chown system graphics /sys/devices/virtual/graphics/fb0/idle_time
+    write /sys/devices/virtual/graphics/fb0/idle_time 100

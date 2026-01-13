@@ -1,0 +1,5 @@
+cc_library_headers {
+    name: "qti_powerhal_headers_v3",
+    vendor_available: true,
+    export_include_dirs: ["."],
+}
