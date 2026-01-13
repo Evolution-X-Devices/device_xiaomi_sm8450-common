@@ -8,6 +8,9 @@ genfscon sysfs /devices/platform/soc/soc:xm_battmngr/wakeup/wakeup38 u:object_r:
 # Doze
 genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/doze_mode                                                                                         u:object_r:vendor_sysfs_graphics:s0
 
+# Display
+genfscon sysfs /class/mi_display/disp-DSI-0/panel_info     u:object_r:vendor_sysfs_displayfeature:s0
+
 # Fingerprint
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc u:object_r:vendor_sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/wakeup_enable u:object_r:vendor_sysfs_fingerprint:s0
