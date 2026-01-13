@@ -12,7 +12,13 @@ binder_call(system_server, vendor_sensor_notifier)
 
 allow vendor_sensor_notifier fwk_sensor_hwservice:hwservice_manager find;
 allow vendor_sensor_notifier touchfeature_device:chr_file rw_file_perms;
+allow vendor_sensor_notifier vendor_configs_file:dir r_dir_perms;
+allow vendor_sensor_notifier vendor_configs_file:file r_file_perms;
 allow vendor_sensor_notifier vendor_displayfeature_device:chr_file rw_file_perms;
+allow vendor_sensor_notifier vendor_persist_sensors_file:dir r_dir_perms;
+allow vendor_sensor_notifier vendor_persist_sensors_file:file r_file_perms;
+allow vendor_sensor_notifier vendor_sysfs_displayfeature:dir { search read open getattr };
+allow vendor_sensor_notifier vendor_sysfs_displayfeature:file { read open getattr };
 allow vendor_sensor_notifier vendor_sysfs_sensors:file r_file_perms;
 
 # for libssccalapi@2.0
