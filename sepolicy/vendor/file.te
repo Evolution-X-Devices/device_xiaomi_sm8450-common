@@ -1,4 +1,5 @@
 # Audio
+type sysfs_f0_value, fs_type, sysfs_type;
 type audio_socket, file_type;
 
 # Camera
