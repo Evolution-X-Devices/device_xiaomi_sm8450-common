@@ -1,3 +1,6 @@
+# Audio
+type sound_device, dev_type, mlstrustedobject;
+
 # Camera
 type stmvl53l5_device, dev_type;
 

@@ -97,6 +97,17 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
+    (
+        'vendor/lib64/libagm.so',
+        'vendor/lib64/libmcs.so',
+        'vendor/lib64/libkaraokepal.so',
+        'vendor/lib64/libar-pal.so',
+        'vendor/lib64/libaudioroute_ext.so'
+    ): blob_fixup()
+        .replace_needed(
+            'libaudioroute.so',
+            'libaudioroute-v34.so'
+        ),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
