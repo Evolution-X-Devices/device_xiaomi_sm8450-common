@@ -14,3 +14,32 @@ fun dlog(tag: String, msg: String) {
         Log.d("$MAIN_TAG-$tag", msg)
     }
 }
+
+object Logging {
+    fun d(tag: String, msg: String) {
+        Log.d("$MAIN_TAG-$tag", msg)
+    }
+    
+    fun i(tag: String, msg: String) {
+        Log.i("$MAIN_TAG-$tag", msg)
+    }
+    
+    fun w(tag: String, msg: String) {
+        Log.w("$MAIN_TAG-$tag", msg)
+    }
+    
+    fun w(tag: String, msg: String, tr: Throwable) {
+        Log.w("$MAIN_TAG-$tag", msg, tr)
+    }
+    
+    fun e(tag: String, msg: String) {
+        Log.e("$MAIN_TAG-$tag", msg)
+    }
+    
+    fun e(tag: String, msg: String, tr: Throwable) {
+        Log.e("$MAIN_TAG-$tag", msg, tr)
+    }
+    
+    // Legacy alias for backward compatibility
+    fun log(tag: String, msg: String) = d(tag, msg)
+}

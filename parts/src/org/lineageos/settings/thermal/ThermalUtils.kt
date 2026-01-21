@@ -16,7 +16,7 @@ import android.telecom.DefaultDialerManager.getDefaultDialerApplication
 import androidx.annotation.StringRes
 import androidx.preference.PreferenceManager
 import org.lineageos.settings.R
-import org.lineageos.settings.utils.dlog
+import org.lineageos.settings.utils.Logging
 import org.lineageos.settings.utils.FileUtils
 import com.android.settingslib.applications.AppUtils.isBrowserApp
 
@@ -50,54 +50,57 @@ private constructor(
 
     fun startService() {
         if (enabled) {
-            dlog(TAG, "startService")
+            Logging.d(TAG, "startService")
             context.startServiceAsUser(serviceIntent, UserHandle.CURRENT)
         }
     }
 
     fun stopService() {
-        dlog(TAG, "stopService")
+        Logging.d(TAG, "stopService")
         context.stopService(serviceIntent)
     }
 
     private fun writeValue(value: String) {
-        dlog(TAG, "writing pref value: $value")
+        Logging.d(TAG, "writing pref value: $value")
         sharedPrefs.edit().putString(THERMAL_CONTROL, value).apply()
     }
 
     private fun readValue(): String = sharedPrefs.getString(THERMAL_CONTROL, null) ?: DEFAULT_VALUE
 
     fun writePackage(packageName: String, mode: Int) {
-        dlog(TAG, "writePackage: $packageName -> $mode")
+        Logging.d(TAG, "writePackage: $packageName -> $mode")
         var newValue = value.replace("$packageName,", "")
         val modes = newValue.split(":").toMutableList()
-        modes[mode] += "$packageName,"
+        if (mode < modes.size) {
+            modes[mode] += "$packageName,"
+        }
         value = modes.joinToString(":")
     }
 
     fun getStateForPackage(packageName: String): ThermalState {
         val modes = value.split(":")
-        return ThermalState.values().find { state -> modes[state.id].contains("$packageName,") }
-            ?: getDefaultStateForPackage(packageName)
+        return ThermalState.values().find { state -> 
+            state.id < modes.size && modes[state.id].contains("$packageName,") 
+        } ?: getDefaultStateForPackage(packageName)
     }
 
     fun resetProfiles() {
-        dlog(TAG, "resetProfiles")
+        Logging.d(TAG, "resetProfiles")
         value = DEFAULT_VALUE
     }
 
     fun setDefaultThermalProfile() {
-        dlog(TAG, "setDefaultThermalProfile")
-        FileUtils.writeLine(THERMAL_SCONFIG, THERMAL_STATE_OFF)
+        Logging.d(TAG, "setDefaultThermalProfile")
+        FileUtils.writeLine(THERMAL_SCONFIG, THERMAL_STATE_DEFAULT)
     }
 
     fun setThermalProfile(packageName: String) {
         if (packageName.isEmpty()) {
-            dlog(TAG, "setThermalProfile: packageName is empty")
+            Logging.d(TAG, "setThermalProfile: packageName is empty")
             return
         }
         val state = getStateForPackage(packageName)
-        dlog(TAG, "setThermalProfile: $packageName -> $state")
+        Logging.d(TAG, "setThermalProfile: $packageName -> $state")
         FileUtils.writeLine(THERMAL_SCONFIG, state.config)
     }
 
@@ -143,60 +146,15 @@ private constructor(
         val prefix: String,
         @StringRes val label: Int,
     ) {
-        BENCHMARK(
-            0,
-            "10", // thermal-nolimits.conf
-            "thermal.benchmark=",
-            R.string.thermal_benchmark,
-        ),
-        BROWSER(
-            1,
-            "11", // thermal-class0.conf
-            "thermal.browser=",
-            R.string.thermal_browser,
-        ),
-        CAMERA(
-            2,
-            "12", // thermal-camera.conf
-            "thermal.camera=",
-            R.string.thermal_camera,
-        ),
-        DIALER(
-            3,
-            "8", // thermal-phone.conf
-            "thermal.dialer=",
-            R.string.thermal_dialer,
-        ),
-        GAMING(
-            4,
-            "13", // thermal-tgame.conf
-            "thermal.gaming=",
-            R.string.thermal_gaming,
-        ),
-        NAVIGATION(
-            5,
-            "19", // thermal-navigation.conf
-            "thermal.navigation=",
-            R.string.thermal_navigation,
-        ),
-        VIDEOCALL(
-            6,
-            "4", // thermal-videochat.conf
-            "thermal.streaming=",
-            R.string.thermal_streaming,
-        ),
-        VIDEO(
-            7,
-            "21", // thermal-video.conf
-            "thermal.video=",
-            R.string.thermal_video,
-        ),
-        DEFAULT(
-            8,
-            "0", // thermal-normal.conf
-            "thermal.default=",
-            R.string.thermal_default,
-        ),
+        BENCHMARK(0, "20", "thermal.benchmark=", R.string.thermal_benchmark),
+        BROWSER(1, "11", "thermal.browser=", R.string.thermal_browser),
+        CAMERA(2, "12", "thermal.camera=", R.string.thermal_camera),
+        DIALER(3, "8", "thermal.dialer=", R.string.thermal_dialer),
+        GAMING(4, "13", "thermal.gaming=", R.string.thermal_gaming),
+        NAVIGATION(5, "19", "thermal.navigation=", R.string.thermal_navigation),
+        VIDEOCALL(6, "4", "thermal.streaming=", R.string.thermal_streaming),
+        VIDEO(7, "21", "thermal.video=", R.string.thermal_video),
+        DEFAULT(8, "0", "thermal.default=", R.string.thermal_default),
     }
 
     companion object {
@@ -205,42 +163,38 @@ private constructor(
         private const val THERMAL_ENABLED = "thermal_enabled"
 
         private const val THERMAL_SCONFIG = "/sys/class/thermal/thermal_message/sconfig"
-        private const val THERMAL_STATE_OFF = "20" // thermal-mgame.conf
+        private const val THERMAL_STATE_DEFAULT = "20" // thermal-mgame.conf
 
-        // Empty value to store if shared preference is null
-        private val DEFAULT_VALUE = ThermalState.values().map { it.prefix }.joinToString(":")
+        private val DEFAULT_VALUE = ThermalState.values().joinToString(":") { "${it.prefix}," }
 
-        private val NAVIGATION_PACKAGES =
-            arrayOf(
-                "com.google.android.apps.maps",
-                "com.google.android.apps.mapslite",
-                "com.waze",
-            )
-        private val VIDEO_CALL_PACKAGES =
-            arrayOf(
-                "com.google.android.apps.tachyon",
-                "us.zoom.videomeetings",
-                "com.microsoft.teams",
-                "com.skype.raider",
-            )
-        private val BENCHMARKING_APPS =
-            arrayOf(
-                "com.primatelabs.geekbench5",
-                "com.primatelabs.geekbench6",
-                "com.antutu.ABenchMark",
-                "com.futuremark.dmandroid.application",
-                "com.futuremark.pcmark.android.benchmark",
-                "com.glbenchmark.glbenchmark27",
-                "com.texts.throttlebench",
-                "skynet.cputhrottlingtest",
-            )
+        private val NAVIGATION_PACKAGES = arrayOf(
+            "com.google.android.apps.maps",
+            "com.google.android.apps.mapslite",
+            "com.waze",
+        )
+        private val VIDEO_CALL_PACKAGES = arrayOf(
+            "com.google.android.apps.tachyon",
+            "us.zoom.videomeetings",
+            "com.microsoft.teams",
+            "com.skype.raider",
+        )
+        private val BENCHMARKING_APPS = arrayOf(
+            "com.primatelabs.geekbench5",
+            "com.primatelabs.geekbench6",
+            "com.antutu.ABenchMark",
+            "com.futuremark.dmandroid.application",
+            "com.futuremark.pcmark.android.benchmark",
+            "com.glbenchmark.glbenchmark27",
+            "com.texts.throttlebench",
+            "skynet.cputhrottlingtest",
+        )
 
         @Volatile private var instance: ThermalUtils? = null
 
+        @JvmStatic
         fun getInstance(context: Context) =
-            instance
-                ?: synchronized(this) {
-                    instance ?: ThermalUtils(context.applicationContext).also { instance = it }
-                }
+            instance ?: synchronized(this) {
+                instance ?: ThermalUtils(context.applicationContext).also { instance = it }
+            }
     }
 }

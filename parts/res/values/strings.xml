@@ -29,6 +29,7 @@
     <string name="thermal_title">Thermal profiles</string>
     <string name="thermal_enable">Use thermal profiles</string>
     <string name="thermal_summary">Per-app thermal profile configuration</string>
+    <string name="thermal_apps_title">Apps</string>
     <string name="thermal_loading">Loading...</string>
     <string name="thermal_default">Default</string>
     <string name="thermal_benchmark">Benchmark</string>
