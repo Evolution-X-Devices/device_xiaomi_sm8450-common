@@ -14,7 +14,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.IBinder
-import org.lineageos.settings.utils.dlog
+import org.lineageos.settings.utils.Logging
 
 /** Service to monitor current top (foreground) app and set thermal profile accordingly. */
 class ThermalService : Service() {
@@ -25,7 +25,7 @@ class ThermalService : Service() {
         set(value) {
             if (field == value) return
             field = value
-            dlog(TAG, "Top app changed: $value")
+            Logging.d(TAG, "Top app changed: $value")
             setThermalProfile()
         }
 
@@ -33,7 +33,7 @@ class ThermalService : Service() {
         set(value) {
             if (field == value) return
             field = value
-            dlog(TAG, "Screen state changed: $value")
+            Logging.d(TAG, "Screen state changed: $value")
             setThermalProfile()
         }
 
@@ -58,19 +58,19 @@ class ThermalService : Service() {
         }
 
     override fun onCreate() {
-        dlog(TAG, "Creating service")
+        Logging.d(TAG, "Creating service")
         thermalUtils = ThermalUtils.getInstance(this)
         super.onCreate()
     }
 
     override fun onDestroy() {
-        dlog(TAG, "Destroying service")
+        Logging.d(TAG, "Destroying service")
         unregisterReceiver(intentReceiver)
         runCatching { ActivityTaskManager.getService().unregisterTaskStackListener(taskListener) }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        dlog(TAG, "Starting service")
+        Logging.d(TAG, "Starting service")
         runCatching { ActivityTaskManager.getService().registerTaskStackListener(taskListener) }
         registerReceiver(
             intentReceiver,

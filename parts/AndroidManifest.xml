@@ -80,17 +80,17 @@
 
         <!-- Thermal Settings -->
         <activity
-            android:name=".thermal.ThermalSettingsActivity"
+            android:name=".thermal.ThermalComposeActivity"
             android:label="@string/thermal_title"
             android:icon="@drawable/ic_thermal_settings"
-            android:theme="@style/Theme.SubSettingsBase.Thermal"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
             <meta-data
                 android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.battery" />
+                android:value="com.android.settings.category.ia.system" />
             <meta-data
                 android:name="com.android.settings.summary"
                 android:resource="@string/thermal_summary" />
@@ -98,6 +98,10 @@
                 android:name="com.android.settings.icon"
                 android:resource="@drawable/ic_thermal_settings" />
         </activity>
+
+        <service
+            android:name=".thermal.ThermalService"
+            android:permission="ThermalService" />
 
         <!-- Clear Speaker -->
         <activity
