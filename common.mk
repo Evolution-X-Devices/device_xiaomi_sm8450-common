@@ -58,24 +58,8 @@ PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.3-impl
 
 PRODUCT_PACKAGES += \
-    audioadsprpcd \
     audio.r_submix.default \
     audio.usb.default
-
-PRODUCT_PACKAGES += \
-    lib_bt_aptx \
-    lib_bt_ble \
-    lib_bt_bundle \
-    libagm_compress_plugin \
-    libagm_mixer_plugin \
-    libagm_pcm_plugin \
-    libbatterylistener \
-    libfmpal \
-    libqcompostprocbundle \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
-    libsndcardparser \
-    libvolumelistener
 
 $(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 $(call soong_config_set, android_hardware_audio, run_64bit, true)
