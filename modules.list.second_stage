@@ -136,7 +136,7 @@ qcom-hv-haptics.ko
 aw862xx_haptic.ko
 aw8697-haptic.ko
 fpc1540.ko
-goodix_tee.ko
+goodix_3626.ko
 i2c-msm-geni.ko
 i3c-master-msm-geni.ko
 ir-spi.ko
