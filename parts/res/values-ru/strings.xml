@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2020 The LineageOS Project
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Xiaomi Settings -->
+    <string name="app_title">Настройки Xiaomi</string>
+    <string name="tile_add">Добавить плитку</string>
+    <string name="tile_added">Плитка добавлена</string>
+    <string name="tile_not_added">Не удалось добавить плитку</string>
+    <string name="tile_already_added">Плитка уже добавлена</string>
+    <string name="tile_on">Вкл.</string>
+    <string name="tile_off">Выкл.</string>
+
+    <!-- Thermal profiles -->
+    <string name="thermal_title">Тепловые профили</string>
+    <string name="thermal_summary">Настройка Термопрофилей</string>
+    <string name="thermal_default">Без оптимизации</string>
+    <string name="thermal_benchmark">Производительность</string>
+    <string name="thermal_browser">Браузер</string>
+    <string name="thermal_camera">Камера</string>
+    <string name="thermal_dialer">Телефон</string>
+    <string name="thermal_gaming">Игры</string>
+    <string name="thermal_navigation">Навигация</string>
+    <string name="thermal_streaming">Стриминг</string>
+    <string name="thermal_video">Видео</string>
+
+    <!-- Thermal Tile Strings -->
+    <string name="thermal_tile_label">Тепловой режим</string>
+    <string name="thermal_mode_default">Стандартный режим</string>
+    <string name="thermal_mode_performance">Режим производительности</string>
+    <string name="thermal_mode_battery_saver">Режим энергосбережения</string>
+    <string name="thermal_mode_gaming">Игровой режим</string>
+
+    <!-- Always-On Display (AOD) -->
+    <string name="ambient_display_title">Always-On Display</string>
+    <string name="ambient_display_enable_title">Включить AOD</string>
+    <string name="ambient_display_always_on_title">Всегда включён</string>
+    <string name="ambient_display_always_on_summary">
+        Постоянно отображать время и значки уведомлений
+    </string>
+
+    <!-- Doze Strings -->
+    <string name="doze_brightness_low">Низкая яркость</string>
+    <string name="doze_brightness_high">Высокая яркость</string>
+    <string name="doze_brightness_adaptive">Адаптивная яркость</string>
+    <string name="doze_brightness_title">Яркость экрана в режиме Doze</string>
+    <string name="doze_brightness_summary">Уровень яркости экрана при импульсе Doze (% от максимально допустимой)</string>
+
+    <!-- Clear Speaker -->
+    <string name="clear_speaker_title">Очистка динамика</string>
+    <string name="clear_speaker_summary">Воспроизвести 30-секундный звук для очистки динамика</string>
+    <string name="clear_speaker_description">
+        Запустите эту функцию 1–2 раза, если динамик слегка забит пылью. Установите громкость мультимедиа на максимум.\n\n
+        Если динамик сильно загрязнён, запустите функцию 2–5 раз, слегка встряхивая устройство, держа динамик направленным вниз.
+    </string>
+
+    <!-- Saturation -->
+    <string name="saturation_title">Насыщенность дисплея</string>
+    <string name="saturation_summary">Управление уровнем насыщенности экрана</string>
+    <string name="saturation_footer_summary">
+        Изменение цветового режима в настройках дисплея сбрасывает уровень насыщенности, после чего его нужно задать заново.
+    </string>
+
+    <!-- Image preview -->
+    <string name="image_preview_content_description">Предпросмотр</string>
+    <string name="image_preview_next_page_content_description">Следующее</string>
+    <string name="image_preview_previous_page_content_description">Предыдущее</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Значение: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">по умолчанию</string>
+    <string name="custom_seekbar_default_value_to_set">
+        Значение по умолчанию: <xliff:g id="v">%s</xliff:g>\nДолгое нажатие — установить
+    </string>
+    <string name="custom_seekbar_default_value_is_set">Значение по умолчанию установлено</string>
+</resources>
