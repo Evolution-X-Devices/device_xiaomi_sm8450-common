@@ -58,7 +58,6 @@ NonUiNotifier::~NonUiNotifier() {
 }
 
 void NonUiNotifier::notify() {
-    Result res;
 
     if (mQueue == nullptr) {
         LOG(ERROR) << "failed to initialize sensor queue";
@@ -97,13 +96,11 @@ void NonUiNotifier::notify() {
             enabled = enabled || readBool(pollfds[i].fd);
         }
         if (enabled) {
-            res = mQueue->enableSensor(mSensorHandle, 20000 /* sample period */, 0 /* latency */);
-            if (res != Result::OK) {
+            if (!mQueue->enableSensor(mSensorHandle, 20000 /* sample period */, 0 /* latency */).isOk()) {
                 LOG(ERROR) << "failed to enable sensor";
             }
         } else {
-            res = mQueue->disableSensor(mSensorHandle);
-            if (res != Result::OK) {
+            if (!mQueue->disableSensor(mSensorHandle).isOk()) {
                 LOG(DEBUG) << "failed to disable sensor";
             }
         }
