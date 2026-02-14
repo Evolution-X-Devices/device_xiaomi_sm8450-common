@@ -66,7 +66,6 @@ AodNotifier::~AodNotifier() {
 }
 
 void AodNotifier::notify() {
-    Result res;
 
     android::base::unique_fd disp_fd_ =
             android::base::unique_fd(open(kDispFeatureDevice.c_str(), O_RDWR));
@@ -116,9 +115,8 @@ void AodNotifier::notify() {
                 FALLTHROUGH_INTENDED;
             case MI_DISP_POWER_LP2:
                 activeDisplays.insert(response->base.disp_id);
-                res = mQueue->enableSensor(mSensorHandle, 20000 /* sample period */,
-                                           0 /* latency */);
-                if (res != Result::OK) {
+                if (!mQueue->enableSensor(mSensorHandle, 20000 /* sample period */,
+                    0 /* latency */).isOk()) {
                     LOG(ERROR) << "failed to enable sensor";
                 }
                 break;
@@ -128,8 +126,7 @@ void AodNotifier::notify() {
             default:
                 activeDisplays.erase(response->base.disp_id);
                 if (activeDisplays.empty()) {
-                    res = mQueue->disableSensor(mSensorHandle);
-                    if (res != Result::OK) {
+                    if (!mQueue->disableSensor(mSensorHandle).isOk()) {
                         LOG(DEBUG) << "failed to disable sensor";
                     }
                 }
