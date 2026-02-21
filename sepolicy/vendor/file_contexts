@@ -73,6 +73,7 @@
 /data/vendor/thermal(/.*)? u:object_r:thermal_data_file:s0
 /sys/class/thermal/thermal_message/flash_state u:object_r:sys_thermal_flash_state:s0
 /sys/class/thermal/thermal_message/wifi_limit u:object_r:sys_thermal_wifi_limit:s0
+/sys/class/thermal/thermal_zone87/temp u:object_r:sysfs_thermal:s0
 /sys/devices/virtual/thermal/thermal_message/flash_state u:object_r:sys_thermal_flash_state:s0
 /sys/devices/virtual/thermal/thermal_message/wifi_limit u:object_r:sys_thermal_wifi_limit:s0
 
