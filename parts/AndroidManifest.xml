@@ -69,15 +69,6 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name=".doze.DozeSettingsActivity"
-            android:label="@string/ambient_display_title">
-        </activity>
-
-        <service android:name=".doze.DozeService"
-            android:permission="XiaomiDozeService">
-        </service>
-
         <!-- Thermal Settings -->
         <activity
             android:name=".thermal.ThermalComposeActivity"
