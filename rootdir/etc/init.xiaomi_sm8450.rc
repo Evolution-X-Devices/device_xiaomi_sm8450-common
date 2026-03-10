@@ -89,6 +89,9 @@ on post-fs-data
     # Local HBM
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/local_hbm
 
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
+
     # Create fingerprint related directories
     mkdir /data/vendor/fpc 0770 system system
     mkdir /data/vendor/fpdump 0770 system system
