@@ -341,10 +341,6 @@ PRODUCT_COPY_FILES += \
 # Powershare
 $(call soong_config_set,lineage_powershare,powershare_path,/sys/class/qcom-battery/reverse_chg_mode)
 
-# QMI
-PRODUCT_PACKAGES += \
-    libvndfwk_detect_jni.qti_vendor:64 # Needed by CNE app
-
 # Recovery
 PRODUCT_PACKAGES += \
     fastbootd
