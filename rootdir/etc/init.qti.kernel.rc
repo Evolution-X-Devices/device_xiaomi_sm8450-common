@@ -42,8 +42,6 @@ on early-init
     chown root system /dev/kmsg
     chmod 0620 /dev/kmsg
 
-    write /proc/sys/kernel/sched_boost 1
-
     write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
 
 on init
@@ -58,7 +56,6 @@ on init
 
     # update scheduler tunables
     write /dev/cpuctl/foreground/cpu.uclamp.sched_boost_no_override 1
-    write /dev/cpuctl/top-app/cpu.uclamp.sched_boost_no_override 1
     write /dev/cpuctl/background/cpu.uclamp.colocate 0
     write /dev/cpuctl/foreground/cpu.uclamp.colocate 0
     write /dev/cpuctl/top-app/cpu.uclamp.colocate 1
