@@ -131,7 +131,6 @@ debug.sf.earlyGl.sf.duration=15666666
 debug.sf.enable_gl_backpressure=1
 debug.sf.frame_rate_multiple_threshold=120
 debug.sf.hw=1
-debug.sf.latch_unsignaled=1
 debug.sf.late.app.duration=13666666
 debug.sf.late.sf.duration=15666666
 debug.sf.predict_hwc_composition_strategy=0
