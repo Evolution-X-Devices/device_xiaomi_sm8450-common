@@ -252,6 +252,20 @@
       ]
     },
     {
+      "Name": "CameraServicePerformance",
+      "Actions" : [
+        {
+          "Name" : "JoinCgroup",
+          "Params" :
+          {
+            "Controller": "cpu",
+            "Path": "camera-daemon"
+          }
+        }
+      ]
+    },
+
+    {
       "Name": "NNApiHALPerformance",
       "Actions": [
         {
@@ -299,6 +313,20 @@
           {
             "Name": "UClampLatencySensitive",
             "Value": "0"
+          }
+        }
+      ]
+    },
+
+    {
+      "Name": "TopAppBoost",
+      "Actions": [
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "UClampMin",
+            "Value": "40"
           }
         }
       ]
@@ -728,7 +756,7 @@
     },
     {
       "Name": "SCHED_SP_SYSTEM",
-      "Profiles": [ "ServicePerformance", "LowIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "ServicePerformance", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_COMPUTE",
@@ -744,7 +772,7 @@
     },
     {
       "Name": "CPUSET_SP_BACKGROUND",
-      "Profiles": [ "HighEnergySaving", "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh" ]
+      "Profiles": [ "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
       "Name": "CPUSET_SP_FOREGROUND",
@@ -756,7 +784,7 @@
     },
     {
       "Name": "CPUSET_SP_TOP_APP",
-      "Profiles": [ "MaxPerformance", "ProcessCapacityMax", "MaxIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "MaxPerformance", "ProcessCapacityMax", "TopAppBoost", "MaxIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "CPUSET_SP_SYSTEM",
@@ -780,7 +808,7 @@
     },
     {
       "Name": "InputPolicy",
-      "Profiles": [ "RealTimeInputScheduling", "MaxPerformance", "ProcessCapacityMax", "TimerSlackNormal" ]
+      "Profiles": [ "RealTimeInputScheduling", "HighPerformanceWI", "ProcessCapacityMax", "TimerSlackNormal" ]
     }
   ]
 }
