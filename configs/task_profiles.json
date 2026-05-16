@@ -26,48 +26,6 @@
       "File": "audio-app/cpus"
     },
     {
-      "Name": "MemStats",
-      "Controller": "memory",
-      "File": "memory.stat"
-    },
-    {
-      "Name": "MemLimit",
-      "Controller": "memory",
-      "File": "memory.limit_in_bytes",
-      "FileV2": "memory.max"
-    },
-    {
-      "Name": "MemSoftLimit",
-      "Controller": "memory",
-      "File": "memory.soft_limit_in_bytes",
-      "FileV2": "memory.low"
-    },
-    {
-      "Name": "MemSwappiness",
-      "Controller": "memory",
-      "File": "memory.swappiness"
-    },
-    {
-      "Name": "MemUsage",
-      "Controller": "memory",
-      "File": "memory.usage_in_bytes"
-    },
-    {
-      "Name": "MemAndSwapUsage",
-      "Controller": "memory",
-      "File": "memory.memsw.usage_in_bytes"
-    },
-    {
-      "Name": "MemPressureLevel",
-      "Controller": "memory",
-      "File": "memory.pressure_level"
-    },
-    {
-      "Name": "MemCgroupEventControl",
-      "Controller": "memory",
-      "File": "cgroup.event_control"
-    },
-    {
       "Name": "UClampMin",
       "Controller": "cpu",
       "File": "cpu.uclamp.min"
@@ -239,33 +197,6 @@
       ]
     },
     {
-      "Name": "AudioAppPerformance",
-      "Actions" : [
-        {
-          "Name" : "JoinCgroup",
-          "Params" :
-          {
-            "Controller": "schedtune",
-            "Path": "audio-app"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "CameraServicePerformance",
-      "Actions" : [
-        {
-          "Name" : "JoinCgroup",
-          "Params" :
-          {
-            "Controller": "cpu",
-            "Path": "camera-daemon"
-          }
-        }
-      ]
-    },
-
-    {
       "Name": "NNApiHALPerformance",
       "Actions": [
         {
@@ -313,112 +244,6 @@
           {
             "Name": "UClampLatencySensitive",
             "Value": "0"
-          }
-        }
-      ]
-    },
-
-    {
-      "Name": "TopAppBoost",
-      "Actions": [
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "UClampMin",
-            "Value": "40"
-          }
-        }
-      ]
-    },
-
-    {
-      "Name": "VrKernelCapacity",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": ""
-          }
-        }
-      ]
-    },
-    {
-      "Name": "VrServiceCapacityLow",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "system/background"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "VrServiceCapacityNormal",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "system"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "VrServiceCapacityHigh",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "system/performance"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "VrProcessCapacityLow",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "application/background"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "VrProcessCapacityNormal",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "application"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "VrProcessCapacityHigh",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "cpuset",
-            "Path": "application/performance"
           }
         }
       ]
@@ -673,63 +498,6 @@
           }
         }
       ]
-    },
-
-    {
-      "Name": "LowMemoryUsage",
-      "Actions": [
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "MemSoftLimit",
-            "Value": "16M"
-          }
-        },
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "MemSwappiness",
-            "Value": "150"
-
-          }
-        }
-      ]
-    },
-    {
-      "Name": "HighMemoryUsage",
-      "Actions": [
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "MemSoftLimit",
-            "Value": "512M"
-          }
-        },
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "MemSwappiness",
-            "Value": "100"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "SystemMemoryProcess",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "memory",
-            "Path": "system"
-          }
-        }
-      ]
     }
   ],
 
@@ -784,7 +552,7 @@
     },
     {
       "Name": "CPUSET_SP_TOP_APP",
-      "Profiles": [ "MaxPerformance", "ProcessCapacityMax", "TopAppBoost", "MaxIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "ProcessCapacityMax", "MaxIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "CPUSET_SP_SYSTEM",
@@ -808,7 +576,7 @@
     },
     {
       "Name": "InputPolicy",
-      "Profiles": [ "RealTimeInputScheduling", "HighPerformanceWI", "ProcessCapacityMax", "TimerSlackNormal" ]
+      "Profiles": [ "RealTimeInputScheduling", "HighPerformanceWI", "ProcessCapacityHighWI", "TimerSlackNormal" ]
     }
   ]
 }
