@@ -434,19 +434,6 @@
         }
       ]
     },
-    {
-      "Name": "MaxIoPriority",
-      "Actions": [
-        {
-          "Name": "JoinCgroup",
-          "Params":
-          {
-            "Controller": "blkio",
-            "Path": ""
-          }
-        }
-      ]
-    },
 
     {
       "Name": "TimerSlackHigh",
@@ -481,7 +468,7 @@
           "Params":
           {
             "Controller": "cpuset",
-            "Path": "foreground"
+            "Path": "top-app"
           }
         }
       ]
@@ -494,7 +481,7 @@
           "Params":
           {
             "Controller": "cpuset",
-            "Path": "foreground"
+            "Path": "top-app"
           }
         }
       ]
@@ -512,7 +499,7 @@
     },
     {
       "Name": "SCHED_SP_FOREGROUND",
-      "Profiles": [ "HighPerformance", "HighIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "HighPerformance", "ProcessCapacityHigh", "CpuPolicySpread", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_FOREGROUND_WINDOW",
@@ -520,7 +507,7 @@
     },
     {
       "Name": "SCHED_SP_TOP_APP",
-      "Profiles": [ "MaxPerformance", "MaxIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "MaxPerformance", "ProcessCapacityMax", "CpuPolicySpread", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_SYSTEM",
@@ -532,7 +519,7 @@
     },
     {
       "Name": "SCHED_SP_RT_APP",
-      "Profiles": [ "RealtimePerformance", "MaxIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "RealtimePerformance", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "CPUSET_SP_DEFAULT",
@@ -552,7 +539,7 @@
     },
     {
       "Name": "CPUSET_SP_TOP_APP",
-      "Profiles": [ "ProcessCapacityMax", "MaxIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "ProcessCapacityMax", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "CPUSET_SP_SYSTEM",
@@ -576,7 +563,7 @@
     },
     {
       "Name": "InputPolicy",
-      "Profiles": [ "RealTimeInputScheduling", "HighPerformanceWI", "ProcessCapacityHighWI", "TimerSlackNormal" ]
+      "Profiles": [ "RealTimeInputScheduling", "HighPerformanceWI", "ProcessCapacityHighWI", "CpuPolicySpread", "TimerSlackNormal" ]
     }
   ]
 }
