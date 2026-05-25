@@ -442,7 +442,7 @@
           "Name": "SetTimerSlack",
           "Params":
           {
-            "Slack": "40000000"
+            "Slack": "50000000"
           }
         }
       ]
@@ -495,11 +495,11 @@
     },
     {
       "Name": "SCHED_SP_BACKGROUND",
-      "Profiles": [ "HighEnergySaving", "LowIoPriority", "TimerSlackHigh" ]
+      "Profiles": [ "HighEnergySaving", "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh", "CpuPolicyPack" ]
     },
     {
       "Name": "SCHED_SP_FOREGROUND",
-      "Profiles": [ "HighPerformance", "ProcessCapacityHigh", "CpuPolicySpread", "HighIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "HighPerformance", "ProcessCapacityHigh", "CpuPolicyPack", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_FOREGROUND_WINDOW",
@@ -507,11 +507,11 @@
     },
     {
       "Name": "SCHED_SP_TOP_APP",
-      "Profiles": [ "MaxPerformance", "ProcessCapacityMax", "CpuPolicySpread", "HighIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "MaxPerformance", "ProcessCapacityMax", "CpuPolicyPack", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_SYSTEM",
-      "Profiles": [ "ServicePerformance", "TimerSlackNormal" ]
+      "Profiles": [ "ServicePerformance", "CpuPolicyPack", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_COMPUTE",
@@ -527,7 +527,7 @@
     },
     {
       "Name": "CPUSET_SP_BACKGROUND",
-      "Profiles": [ "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh" ]
+      "Profiles": [ "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh", "CpuPolicyPack" ]
     },
     {
       "Name": "CPUSET_SP_FOREGROUND",
