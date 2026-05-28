@@ -36,11 +36,6 @@
       "File": "cpu.uclamp.max"
     },
     {
-      "Name": "UClampLatencySensitive",
-      "Controller": "cpu",
-      "File": "cpu.uclamp.latency_sensitive"
-    },
-    {
       "Name": "FreezerState",
       "Controller": "freezer",
       "File": "cgroup.freeze"
@@ -218,32 +213,6 @@
           {
             "Controller": "cpu",
             "Path": "dex2oat"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "CpuPolicySpread",
-      "Actions": [
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "UClampLatencySensitive",
-            "Value": "1"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "CpuPolicyPack",
-      "Actions": [
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "UClampLatencySensitive",
-            "Value": "0"
           }
         }
       ]
@@ -495,23 +464,23 @@
     },
     {
       "Name": "SCHED_SP_BACKGROUND",
-      "Profiles": [ "HighEnergySaving", "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh", "CpuPolicyPack" ]
+      "Profiles": [ "HighEnergySaving", "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
       "Name": "SCHED_SP_FOREGROUND",
-      "Profiles": [ "HighPerformance", "ProcessCapacityHigh", "CpuPolicyPack", "HighIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "HighPerformance", "ProcessCapacityHigh", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_FOREGROUND_WINDOW",
-      "Profiles": [ "HighPerformanceWI", "ProcessCapacityHighWI", "CpuPolicySpread", "HighIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "HighPerformanceWI", "ProcessCapacityHighWI", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_TOP_APP",
-      "Profiles": [ "MaxPerformance", "ProcessCapacityMax", "CpuPolicyPack", "HighIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "MaxPerformance", "ProcessCapacityMax", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_SYSTEM",
-      "Profiles": [ "ServicePerformance", "CpuPolicyPack", "TimerSlackNormal" ]
+      "Profiles": [ "ServicePerformance", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_COMPUTE",
@@ -527,7 +496,7 @@
     },
     {
       "Name": "CPUSET_SP_BACKGROUND",
-      "Profiles": [ "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh", "CpuPolicyPack" ]
+      "Profiles": [ "ProcessCapacityLow", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
       "Name": "CPUSET_SP_FOREGROUND",
@@ -563,7 +532,7 @@
     },
     {
       "Name": "InputPolicy",
-      "Profiles": [ "RealTimeInputScheduling", "HighPerformanceWI", "ProcessCapacityHighWI", "CpuPolicySpread", "TimerSlackNormal" ]
+      "Profiles": [ "RealTimeInputScheduling", "HighPerformanceWI", "ProcessCapacityHighWI", "TimerSlackNormal" ]
     }
   ]
 }
