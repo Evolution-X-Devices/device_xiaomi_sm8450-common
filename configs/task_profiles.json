@@ -503,7 +503,7 @@
     },
     {
       "Name": "SCHED_SP_FOREGROUND_WINDOW",
-      "Profiles": [ "HighPerformanceWI", "HighIoPriority", "TimerSlackNormal" ]
+      "Profiles": [ "HighPerformanceWI", "ProcessCapacityHighWI", "CpuPolicySpread", "HighIoPriority", "TimerSlackNormal" ]
     },
     {
       "Name": "SCHED_SP_TOP_APP",
