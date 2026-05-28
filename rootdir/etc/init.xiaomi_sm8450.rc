@@ -123,6 +123,9 @@ on property:sys.boot_completed=1
 on property:persist.sys.xtra-daemon.enabled=*
     restart loc_launcher
 
+on property:persist.sys.aux_camera_control=*
+    setprop vendor.camera.aux.packageexcludelist ${persist.sys.aux_camera_control}
+
 service vendor.nv_mac /vendor/bin/nv_mac
     class late_start
     user system
