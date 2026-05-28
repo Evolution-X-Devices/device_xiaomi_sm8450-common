@@ -1,2 +1,5 @@
 # SettingsLib
 system_public_prop(settingslib_prop)
+
+# XiaomiParts
+system_public_prop(aux_camera_control_prop)

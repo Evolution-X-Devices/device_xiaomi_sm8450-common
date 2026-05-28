@@ -68,4 +68,10 @@
     <string name="custom_seekbar_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong
           tap to set</string>
     <string name="custom_seekbar_default_value_is_set">Default value is set</string>
+
+    <!-- Aux Camera -->
+    <string name="aux_camera_title">Restrict Auxiliary Cameras</string>
+    <string name="aux_camera_summary">Hide auxiliary camera lenses from selected apps</string>
+    <string name="aux_camera_enable">Enable restrictions</string>
+    <string name="aux_camera_empty">No apps found</string>
 </resources>
