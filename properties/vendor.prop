@@ -73,6 +73,7 @@ ro.camera.enableCamera1MaxZsl=1
 ro.hardware.camera=xiaomi
 persist.vendor.camera.logLevel=0
 persist.vendor.camera.sensor=0
+vendor.camera.aux.packageexcludelist=com.adobe.scan.android,com.tencent.mm,us.zoom.videomeetings,in.org.npci.upiapp
 
 # Chipset
 ro.soc.manufacturer=QTI
