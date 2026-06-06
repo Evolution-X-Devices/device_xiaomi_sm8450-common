@@ -31,6 +31,13 @@ class KeyHandler(
     private val fpDoubleTapHandler = if (hasSideFps) FpDoubleTapHandler(context) else null
 
     override fun handleKeyEvent(event: KeyEvent): KeyEvent? {
+        val deviceName = event.device?.name ?: return event
+
+        if (deviceName != "uinput-fpc"
+                && deviceName != "uinput-goodix") {
+            return event
+        }
+
         return when (event.scanCode) {
             KEYCODE_FP_DOUBLE_TAP_FPC,
             KEYCODE_FP_DOUBLE_TAP_GOODIX -> {
