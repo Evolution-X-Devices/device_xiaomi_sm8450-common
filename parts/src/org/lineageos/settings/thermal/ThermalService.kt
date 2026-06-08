@@ -88,7 +88,7 @@ class ThermalService : Service() {
         if (screenOn) {
             thermalUtils.setThermalProfile(currentApp)
         } else {
-            thermalUtils.setDefaultThermalProfile()
+            thermalUtils.setIdleProfile()
         }
     }
 
