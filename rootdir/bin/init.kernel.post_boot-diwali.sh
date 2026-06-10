@@ -73,6 +73,10 @@ echo 0 > /sys/devices/system/cpu/cpufreq/policy0/walt/pl
 echo 1094400 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
 echo 120 > /proc/sys/walt/input_boost/input_boost_ms
 
+# configure powerkey wakeup boost
+echo 1804800 0 0 0 2054400 0 0 2169600 > /proc/sys/walt/input_boost/powerkey_input_boost_freq
+echo 200 > /proc/sys/walt/input_boost/powerkey_input_boost_ms
+
 # configure governor settings for gold cluster
 echo "walt" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
 echo 0 > /sys/devices/system/cpu/cpufreq/policy4/walt/down_rate_limit_us
