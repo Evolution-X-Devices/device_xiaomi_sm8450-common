@@ -13,6 +13,7 @@ import android.os.Process
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -22,10 +23,11 @@ import kotlinx.coroutines.launch
 class AuxCameraViewModel(
     private val context: Context,
     private val launcherApps: LauncherApps,
-    private val utils: AuxCameraUtils
+    private val utils: AuxCameraUtils,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(AuxCameraUiState())
+
     val uiState: StateFlow<AuxCameraUiState> = _uiState.asStateFlow()
 
     init {
@@ -34,11 +36,18 @@ class AuxCameraViewModel(
 
     fun toggleEnabled(enabled: Boolean) {
         utils.setEnabled(context, enabled)
-        _uiState.update { it.copy(isEnabled = enabled) }
+
+        _uiState.update {
+            it.copy(isEnabled = enabled)
+        }
     }
 
     fun toggleApp(packageName: String, enabled: Boolean) {
-        utils.setAppEnabled(context, packageName, enabled)
+        utils.setAppEnabled(
+            context,
+            packageName,
+            enabled,
+        )
 
         _uiState.update { state ->
             state.copy(
@@ -48,34 +57,38 @@ class AuxCameraViewModel(
                     } else {
                         it
                     }
-                }
+                },
             )
         }
     }
 
     private fun loadApps() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
+            val enabledApps = utils.getApps(context)
+
             val apps = launcherApps
                 .getActivityList(null, Process.myUserHandle())
+                .asSequence()
                 .distinctBy { it.componentName.packageName }
-                .map {
+                .filterNot {
+                    it.componentName.packageName == context.packageName
+                }
+                .map { info ->
                     AuxCameraAppState(
-                        packageName = it.componentName.packageName,
-                        label = it.label.toString(),
-                        icon = it.getIcon(0),
-                        enabled = utils.isAppEnabled(
-                            context,
-                            it.componentName.packageName
-                        )
+                        packageName = info.componentName.packageName,
+                        label = info.label.toString(),
+                        icon = info.getIcon(0),
+                        enabled =
+                            info.componentName.packageName in enabledApps,
                     )
                 }
                 .sortedBy { it.label.lowercase() }
+                .toList()
 
             _uiState.update {
                 it.copy(
-                    isLoading = false,
                     isEnabled = utils.isEnabled(context),
-                    apps = apps
+                    apps = apps,
                 )
             }
         }
@@ -85,15 +98,14 @@ class AuxCameraViewModel(
 class AuxCameraViewModelFactory(
     private val context: Context,
     private val launcherApps: LauncherApps,
-    private val utils: AuxCameraUtils
+    private val utils: AuxCameraUtils,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return AuxCameraViewModel(
+    override fun <T : ViewModel> create(modelClass: Class<T>): T =
+        AuxCameraViewModel(
             context,
             launcherApps,
-            utils
+            utils,
         ) as T
-    }
 }
