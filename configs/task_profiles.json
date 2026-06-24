@@ -1,0 +1,30 @@
+{
+  "Profiles": [
+    {
+      "Name": "SFMainPolicy",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "cpuset",
+            "Path": "surfaceflinger"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "SFRenderEnginePolicy",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "cpuset",
+            "Path": "surfaceflinger"
+          }
+        }
+      ]
+    }
+  ]
+}
