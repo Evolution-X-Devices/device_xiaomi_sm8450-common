@@ -325,9 +325,6 @@ PRODUCT_COPY_FILES += \
 $(call soong_config_set,lineage_powershare,powershare_path,/sys/class/qcom-battery/reverse_chg_mode)
 
 # Recovery
-PRODUCT_PACKAGES += \
-    fastbootd
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.recovery.qcom.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.qcom.rc
 
