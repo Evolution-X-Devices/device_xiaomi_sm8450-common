@@ -5,3 +5,6 @@ allow rild vendor_modem_data_file:file create_file_perms;
 
 set_prop(rild, vendor_deviceid_prop)
 set_prop(rild, vendor_sno_prop)
+
+# Allow rild to read PD locater debug prop
+get_prop(rild, vendor_pd_locater_dbg_prop)

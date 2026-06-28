@@ -1,3 +1,10 @@
 dontaudit {
   rild
 } default_prop:file r_file_perms;
+
+# vendor_pd_locater_dbg_prop is a debug prop not needed at runtime
+dontaudit vendor_hal_gnss_qti vendor_pd_locater_dbg_prop:file r_file_perms;
+
+# servicemanager binder call denials - handled upstream
+dontaudit servicemanager hal_power_default:binder call;
+dontaudit servicemanager usbd:binder call;
