@@ -6,4 +6,8 @@
 (typeattributeset new_objects
   ( new_objects
     devicesettings_app
-    settingslib_prop))
+    settingslib_prop
+    vendor_latency_device
+    vendor_pd_locater_dbg_prop
+    vendor_persist_debug_wifi_prop
+    vendor_nfc_prop))
