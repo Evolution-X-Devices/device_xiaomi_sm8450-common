@@ -1,0 +1,2 @@
+# Allow power HAL to set CPU DMA latency hints (Android 17)
+allow hal_power_default vendor_latency_device:chr_file { open write };
