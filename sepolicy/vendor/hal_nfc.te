@@ -1,0 +1,2 @@
+# Allow NFC HAL to set NFC debug props
+set_prop(hal_nfc_default, vendor_nfc_prop)

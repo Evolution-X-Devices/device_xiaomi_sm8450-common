@@ -23,3 +23,6 @@ set_prop(hal_camera_default, vendor_camera_sensor_prop)
 
 dontaudit hal_camera graphics_device:dir search;
 dontaudit hal_camera_default default_prop:file read;
+
+# Allow camera HAL to read serial number (Android 17)
+get_prop(hal_camera_default, serialno_prop)

@@ -94,9 +94,14 @@ on post-fs-data
     # Enable WLAN cold boot calibration
     write /sys/kernel/cnss/fs_ready 1
 
+    # Marble has no MHI/PCIe peripheral device
+    stop qti_rmnet_peripherald
+
 on early-boot
     start vendor.sensors
     verity_update_state
+    # Wait for ADSP FastRPC device before dependent services
+    wait /dev/fastrpc-adsp 2
 
 on boot
     write /dev/cpuset/audio-app/cpus 1-2

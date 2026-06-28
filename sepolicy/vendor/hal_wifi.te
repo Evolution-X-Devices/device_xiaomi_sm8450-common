@@ -1,0 +1,2 @@
+# Allow WiFi HAL to read its debug prop
+get_prop(hal_wifi_default, vendor_persist_debug_wifi_prop)
