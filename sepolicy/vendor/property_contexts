@@ -35,3 +35,13 @@ vendor.sys.rpmb_state u:object_r:vendor_payment_security_prop:s0
 
 # Thermal
 vendor.sys.thermal.data.path u:object_r:vendor_thermal_normal_prop:s0
+
+# PD Locater
+persist.vendor.sys.pd_locater_dbg  u:object_r:vendor_pd_locater_dbg_prop:s0
+vendor.pd_locater_dbg              u:object_r:vendor_pd_locater_dbg_prop:s0
+
+# WiFi debug
+persist.vendor.debug.wlan.  u:object_r:vendor_persist_debug_wifi_prop:s0
+
+# NFC debug
+persist.vendor.nfc.   u:object_r:vendor_nfc_prop:s0

@@ -19,3 +19,5 @@ vendor_public_prop(vendor_panel_info_prop)
 
 # Thermal
 vendor_public_prop(vendor_thermal_normal_prop)
+
+vendor_restricted_prop(vendor_persist_debug_wifi_prop)

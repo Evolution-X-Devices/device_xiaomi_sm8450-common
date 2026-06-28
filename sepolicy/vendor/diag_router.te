@@ -1,0 +1,2 @@
+# Allow diag-router to search modem data directory
+allow vendor_diag-router vendor_modem_data_file:dir search;

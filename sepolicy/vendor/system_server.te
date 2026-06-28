@@ -1,0 +1,2 @@
+# Allow system_server to write uid allowlist policy on securityfs (Android 17)
+allow system_server securityfs:file write;
