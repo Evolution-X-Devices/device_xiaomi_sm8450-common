@@ -33,6 +33,7 @@ import android.view.Display;
 import android.view.Display.HdrCapabilities;
 
 import org.lineageos.settings.auxcamera.AuxCameraUtils;
+import org.lineageos.settings.perfmon.PerfMonUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -79,6 +80,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Restore aux camera restrictions
         AuxCameraUtils.INSTANCE.restore(context);
+
+        // Start Performance Monitor Services
+        PerfMonUtils.getInstance(context).startServiceIfEnabled();
     }
 
     private void overrideHdrTypes(Context context) {
