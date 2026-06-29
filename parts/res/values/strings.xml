@@ -76,4 +76,23 @@
     <string name="aux_camera_enable">Enable restrictions</string>
     <string name="aux_camera_empty">No apps found</string>
     <string name="aux_camera_limit_reached">Too many apps selected, turn another one off first</string>
+
+    <!-- Performance Monitor -->
+    <string name="perfmon_title">Performance Monitor</string>
+    <string name="perfmon_summary">Display real-time hardware metrics on screen</string>
+    <string name="perfmon_enable">Enable Performance Monitor</string>
+    <string name="perfmon_appearance">Appearance</string>
+    <string name="perfmon_metrics">Metrics Display</string>
+    <string name="perfmon_show_fps">Show FPS</string>
+    <string name="perfmon_show_cpu">Show CPU Usage</string>
+    <string name="perfmon_show_cpu_temp">Show CPU Temp</string>
+    <string name="perfmon_show_cpu_clusters">Expand CPU Clusters (Freqs)</string>
+    <string name="perfmon_show_gpu">Show GPU Usage</string>
+    <string name="perfmon_show_gpu_temp">Show GPU Temp</string>
+    <string name="perfmon_show_gpu_speed">Show GPU Speed</string>
+    <string name="perfmon_show_ram">Show RAM Usage</string>
+    <string name="perfmon_compact_mode">Compact Mode</string>
+    <string name="perfmon_bg_transparency">Background Transparency</string>
+    <string name="perfmon_text_size">Text Size</string>
+    <string name="perfmon_touch_passthrough">Touch Passthrough</string>
 </resources>
