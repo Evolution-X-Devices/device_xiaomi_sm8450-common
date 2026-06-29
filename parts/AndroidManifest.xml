@@ -30,6 +30,8 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
@@ -121,6 +123,43 @@
                 android:name="com.android.settings.summary_uri"
                 android:value="content://org.lineageos.settings.summary/auxCameraSummary" />
         </activity>
+
+        <!-- Performance Monitor -->
+        <activity
+            android:name=".perfmon.PerfMonComposeActivity"
+            android:label="@string/perfmon_title"
+            android:icon="@drawable/ic_perfmon_settings"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.system" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/perfmon_summary" />
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_perfmon_settings" />
+        </activity>
+
+        <service
+            android:name=".perfmon.PerfMonService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+
+        <service
+            android:name=".perfmon.PerfMonTileService"
+            android:icon="@drawable/ic_perfmon_settings"
+            android:label="@string/perfmon_title"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
 
         <!-- Clear Speaker -->
         <activity

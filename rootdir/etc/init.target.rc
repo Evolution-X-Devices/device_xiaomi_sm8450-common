@@ -138,6 +138,26 @@ on boot
     chmod 0664 /sys/class/thermal/thermal_message/flash_state
     chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
 
+    # FPS measurements
+    chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
+    chmod 0660 /sys/class/drm/sde-crtc-0/measured_fps
+
+    # Battery temperature
+    chown system system /sys/class/power_supply/battery/temp
+    chmod 0660 /sys/class/power_supply/battery/temp
+
+    # GPU paths
+    chown system system /sys/class/kgsl/kgsl-3d0/gpu_busy_percentage
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/gpu_busy_percentage
+    chown system system /sys/class/kgsl/kgsl-3d0/gpuclk
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/gpuclk
+    chown system system /sys/class/kgsl/kgsl-3d0/temp
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/temp
+
+    # RAM frequency
+    chown system system /sys/devices/system/cpu/bus_dcvs/DDR/cur_freq
+    chmod 0660 /sys/devices/system/cpu/bus_dcvs/DDR/cur_freq
+
 on property:vendor.display.lcd_density=560
    setprop dalvik.vm.heapgrowthlimit 256m
 
