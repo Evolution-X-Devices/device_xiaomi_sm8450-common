@@ -664,7 +664,7 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "UclampTAMin",
       "Duration": 0,
-      "Value": "50"
+      "Value": "20"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
