@@ -190,7 +190,8 @@
       "Values": [
         "0",
         "30",
-        "40"
+        "40",
+        "50"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -532,13 +533,13 @@
       "PowerHint": "LAUNCH",
       "Node": "UclampTAMin",
       "Duration": 2000,
-      "Value": "50"
+      "Value": "40"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "UclampFGMin",
       "Duration": 2000,
-      "Value": "30"
+      "Value": "50"
     },
     {
       "PowerHint": "LAUNCH",
@@ -593,6 +594,18 @@
       "Node": "LLCCBWMinFreq",
       "Duration": 2000,
       "Value": "1066000"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "GPUMaxFreq",
+      "Duration": 2000,
+      "Value": "515000000"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "GPUMinFreq",
+      "Duration": 2000,
+      "Value": "364000000"
     },
     {
       "PowerHint": "LAUNCH",
