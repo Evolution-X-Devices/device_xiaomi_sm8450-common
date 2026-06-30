@@ -230,6 +230,7 @@
       "Path": "/sys/class/kgsl/kgsl-3d0/idle_timer",
       "Values": [
         "5000",
+        "2000",
         "500",
         "80"
       ],
@@ -492,6 +493,18 @@
       "Node": "L3MinFreq",
       "Duration": 0,
       "Value": "1267200"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "GPUMinFreq",
+      "Duration": 0,
+      "Value": "324000000"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "GPUIdleTimer",
+      "Duration": 0,
+      "Value": "2000"
     },
     {
       "PowerHint": "INTERACTIVE",
