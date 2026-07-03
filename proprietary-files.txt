@@ -926,10 +926,6 @@ vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 # Trusted User Interface
 vendor/lib64/libminksocket_vendor.so
 
-# VM mem
-vendor/lib/libvmmem.so
-vendor/lib64/libvmmem.so
-
 # VM mgr
 vendor/bin/vmmgr
 vendor/etc/init/vmmgr.rc
