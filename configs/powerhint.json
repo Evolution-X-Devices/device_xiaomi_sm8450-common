@@ -646,9 +646,27 @@
     },
     {
       "PowerHint": "TOUCH_DOWN",
+      "Node": "GPUMinFreq",
+      "Duration": 80,
+      "Value": "364000000"
+    },
+    {
+      "PowerHint": "TOUCH_DOWN",
       "Node": "CPUBWMinFreq",
       "Duration": 80,
       "Value": "1555000"
+    },
+    {
+      "PowerHint": "TOUCH_DOWN",
+      "Node": "UclampTAMin",
+      "Duration": 80,
+      "Value": "20"
+    },
+    {
+      "PowerHint": "TOUCH_DOWN",
+      "Node": "UclampFGMin",
+      "Duration": 80,
+      "Value": "30"
     },
     {
       "PowerHint": "TOUCH_DOWN",
@@ -740,7 +758,13 @@
       "Duration": 80,
       "Value": "1555000"
     },
-	{
+    {
+      "PowerHint": "DISPLAY_UPDATE_IMMINENT",
+      "Node": "GPUMinFreq",
+      "Duration": 80,
+      "Value": "364000000"
+    },
+    {
       "PowerHint": "DEVICE_IDLE",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 0,
