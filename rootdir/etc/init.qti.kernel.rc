@@ -32,6 +32,7 @@
 import /vendor/etc/init/hw/init.qti.kernel.test.rc
 
 on early-init
+    exec_start gki.modprobe
     start vendor.modprobe
 
     # Mount tracefs in /sys/kernel/tracing as CONFIG_DEBUG_FS might be
@@ -175,6 +176,14 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/m
     user root
     group root
     disabled
+
+service gki.modprobe /vendor/bin/modprobe -b -s -p --all=/system_dlkm/lib/modules/modules.load
+    class main
+    user root
+    group root system
+    disabled
+    seclabel u:r:vendor_modprobe:s0
+    oneshot
 
 service vendor.modprobe /vendor/bin/vendor_modprobe.sh
     class main
