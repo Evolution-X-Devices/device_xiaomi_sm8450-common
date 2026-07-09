@@ -123,7 +123,7 @@ vendor.gatekeeper.disable_spu=true
 # Graphics
 debug.egl.hw=1
 debug.sf.auto_latch_unsignaled=1
-debug.sf.disable_client_composition_cache=1
+debug.sf.disable_client_composition_cache=0
 debug.sf.enable_transaction_tracing=false
 debug.sf.early.app.duration=13666666
 debug.sf.early.sf.duration=15666666
