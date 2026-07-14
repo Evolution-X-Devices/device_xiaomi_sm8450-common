@@ -311,7 +311,7 @@ system_ext/etc/init/dpmd.rc
 system_ext/etc/init/tcmd.rc
 system_ext/etc/permissions/com.qti.dpmframework.xml
 system_ext/etc/permissions/dpmapi.xml
-system_ext/etc/seccomp_policy/tcmd.policy
+system_ext/etc/seccomp_policy/tcmd.policy|0737b1836c3f97a9d5ff43bdcb714f9db604e311|dddb7aad8526c5c403268be92d5e81a3ebb0efa9
 system_ext/framework/com.qti.dpmframework.jar
 system_ext/framework/dpmapi.jar
 system_ext/lib64/com.qualcomm.qti.dpm.api@1.0.so
