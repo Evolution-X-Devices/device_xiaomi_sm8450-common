@@ -183,7 +183,6 @@ vendor/lib64/vendor.qti.hardware.dpmservice@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.hardware.dpmservice@1.1.so;MODULE_SUFFIX=_vendor
 
 # DRM
-vendor/lib64/libminkdescriptor.so
 vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service
 vendor/bin/qseecom_sample_client
 vendor/bin/qseecomd
@@ -1070,3 +1069,6 @@ vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so|ec6a5b4e52d
 vendor/lib64/camx.device-impl.so|69596cb9d17b19d702f10f5f221c3c4fc12bd8bf
 vendor/lib64/camx.provider-impl.so|3cbbb02ad6beb46bf43652efdae3801075d8b0f3
 vendor/lib64/libcamximageformatutils.so|1748a050feb507842325d954be3a64fee28cb0a0|c39823bc128cc0db1c66dee8a568bd530872ed2a
+
+# DRM - from PDX257 ELBE-1.1.0-REL-260522-1202
+vendor/lib64/libminkdescriptor.so|29051d50c80caa4e97184a6a9b4beecbfec2d5a2
