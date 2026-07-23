@@ -49,6 +49,9 @@
     <!-- Bytes that the PinnerService will pin for WebView -->
     <integer name="config_pinnerWebviewPinBytes">20971520</integer>
 
+    <!-- Bytes that the PinnerService will pin for Home app -->
+    <integer name="config_pinnerHomePinBytes">6291456</integer>
+
     <!-- Auto brightness lightsensor rate -->
     <integer name="config_autoBrightnessLightSensorRate">500</integer>
 
