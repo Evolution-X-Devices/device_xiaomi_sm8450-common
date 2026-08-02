@@ -455,8 +455,6 @@ vendor/lib64/libqmiservices.so
 vendor/lib/vendor.qti.qspmhal@1.0.so
 
 # RIL
-vendor/bin/shsusrd
-vendor/lib64/libshsc.so
 product/app/uimgbaservice/uimgbaservice.apk
 product/etc/permissions/UimGba.xml
 product/etc/permissions/UimGbaManager.xml
@@ -629,7 +627,6 @@ vendor/lib64/libril-legacy.so
 vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/librilqmimiscservices.so
-vendor/lib64/libshsusr_verinfo.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxiaomi_qcril.so
 vendor/lib64/qcrilInterfaces.so
@@ -1072,3 +1069,8 @@ vendor/lib64/libcamximageformatutils.so|1748a050feb507842325d954be3a64fee28cb0a0
 
 # DRM - from PDX257 ELBE-1.1.0-REL-260522-1202
 vendor/lib64/libminkdescriptor.so|29051d50c80caa4e97184a6a9b4beecbfec2d5a2
+
+# Data - from PDX257 ELBE-1.1.0-REL-260522-1202
+vendor/bin/shsusrd|ab22c3e3c0c0155064e1cb23df5c24952ce9b70a
+vendor/etc/init/shsusrd.rc|22ff980a8daaf62fd091485541a4c8c10fdeb4a9
+vendor/lib64/libshsc.so|4ab216b4ed1473da5e9f767adebdede85e01814e
