@@ -19,7 +19,7 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/xiaomi/sm8450-common',
-    'hardware/qcom-caf/sm8450',
+    'hardware/qcom-caf/sm8450-6.6',
     'hardware/qcom-caf/wlan',
     'hardware/xiaomi',
     'vendor/qcom/opensource/commonsys/display',
@@ -42,7 +42,7 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.hardware.qccvndhal@1.0',
         'vendor.qti.imsrtpservice@3.0',
         'vendor.qti.diaghal@1.0',
-        'vendor.qti.hardware.wifidisplaysession@1.0',
+        'vendor.qti.hardware.wifidisplaysession_aidl-V1-ndk',
         'com.qualcomm.qti.dpm.api@1.0',
     ): lib_fixup_vendor_suffix,
 }
@@ -77,6 +77,12 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed(
             'libgrpc++_unsecure.so', 'libgrpc++_unsecure_prebuilt.so'
         ),
+    'vendor/etc/display/DPU8__.xml': blob_fixup()
+        .regex_replace('.*<Param62>.*\n', '')
+        .regex_replace('Param63', 'Param70')
+        .regex_replace('Param64', 'Param71')
+        .regex_replace('Param65', 'Param72')
+        .regex_replace('Param66', 'Param73'),
     (
        'vendor/etc/media_codecs_cape.xml',
        'vendor/etc/media_codecs_diwali_v0.xml',
@@ -86,6 +92,18 @@ blob_fixups: blob_fixups_user_type = {
        'vendor/etc/media_codecs_ukee.xml',
     ): blob_fixup()
         .regex_replace('.+media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).+\n', ''),
+    (
+        'vendor/etc/media_cape/video_system_specs.json',
+        'vendor/etc/media_diwali_v0/video_system_specs.json',
+        'vendor/etc/media_diwali_v1/video_system_specs.json',
+        'vendor/etc/media_diwali_v2/video_system_specs.json',
+        'vendor/etc/media_taro/video_system_specs.json',
+        'vendor/etc/media_ukee/video_system_specs.json',
+    ): blob_fixup().regex_replace('.*"libqc2vppfilter.so"\n', ''),
+    'vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy': blob_fixup()
+        .add_line_if_missing('getppid: 1')
+        .add_line_if_missing('setsockopt: 1')
+        .add_line_if_missing('uname: 1'),
     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
         .regex_replace('.+dolby.+\n', ''),
     (
@@ -93,6 +111,21 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libsnapdragoncolor-manager.so',
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    'vendor/lib64/libcamximageformatutils.so': blob_fixup()
+        .replace_needed('android.hardware.graphics.allocator-V1-ndk.so', 'android.hardware.graphics.allocator-V2-ndk.so'),
+    'vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so': blob_fixup()
+        .replace_needed('android.hardware.camera.common-V2-ndk.so', 'android.hardware.camera.common-V1-ndk.so')
+        .replace_needed('android.hardware.graphics.allocator-V1-ndk.so', 'android.hardware.graphics.allocator-V2-ndk.so'),
+    'vendor/lib64/libdisplayqos.so': blob_fixup()
+        .sig_replace('68 00 b0 52', 'a8 00 b0 52')
+        .sig_replace(
+            '44 50 55 38 33 30 2e 78 6d 6c',
+            '44 50 55 38 5f 5f 2e 78 6d 6c',
+        ),
+    'vendor/lib64/libqcodec2_core.so': blob_fixup()
+        .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
+    'vendor/lib64/libwfdmmsrc_proprietary.so': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V2-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
 }  # fmt: skip

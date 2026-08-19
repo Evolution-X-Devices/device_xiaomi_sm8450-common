@@ -29,17 +29,14 @@ ro.vendor.audio.stereo_master_volume=1
 ro.vendor.audio.support.sound.id=true
 vendor.audio.adm.buffering.ms=2
 vendor.audio.feature.a2dp_offload.enable=true
-vendor.audio.feature.afe_proxy.enable=true
 vendor.audio.feature.battery_listener.enable=true
 vendor.audio.feature.dmabuf.cma.memory.enable=true
 vendor.audio.feature.hfp.enable=false
-vendor.audio.feature.kpi_optimize.enable=true
 vendor.audio.hal.boot.timeout.ms=20000
 vendor.audio.hdr.record.enable=false
 vendor.audio.hw.aac.encoder=false
 vendor.audio.offload.buffer.size.kb=32
 vendor.audio.safx.pbe.enabled=false
-vendor.audio.ull_record_period_multiplier=2
 vendor.audio.ultrasound.stoplatency=60
 vendor.audio.ultrasound.usync=1000
 vendor.audio.volume.headset.gain.depcal=true
@@ -116,6 +113,7 @@ persist.sys.fuse.passthrough.enable=true
 vendor.gatekeeper.disable_spu=true
 
 # Graphics
+graphics.gpu.profiler.support=true
 debug.egl.hw=0
 debug.sf.auto_latch_unsignaled=0
 debug.sf.disable_client_composition_cache=1
@@ -188,6 +186,7 @@ ro.hardware.keystore_desede=true
 # Media
 debug.c2.use_dmabufheaps=1
 debug.stagefright.c2inputsurface=-1
+media.c2.hal.selection=aidl
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so

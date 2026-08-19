@@ -1,3 +1,6 @@
+# Audio
+ro.audio.ihaladaptervendorextension_enabled=true
+
 # Bluetooth
 bluetooth.ble.iso_max_connection_interval=40
 bluetooth.ble.iso_min_connection_interval=24
