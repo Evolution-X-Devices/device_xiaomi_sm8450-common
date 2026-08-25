@@ -21,9 +21,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 # Enable virtual AB with vendor ramdisk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
-# Setup dalvik vm configs
-$(call inherit-product, frameworks/native/build/phone-xhdpi-12288-dalvik-heap.mk)
-
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/sm8450-common/sm8450-common-vendor.mk)
 
@@ -111,6 +108,32 @@ PRODUCT_COPY_FILES += \
 # Device-specific settings
 PRODUCT_PACKAGES += \
     DSPVolumeSynchronizer
+
+# Dalvik
+PRODUCT_PRODUCT_PROPERTIES += \
+    dalvik.vm.heapstartsize?=16m \
+    dalvik.vm.heapgrowthlimit?=384m \
+    dalvik.vm.heapsize?=512m \
+    dalvik.vm.heaptargetutilization?=0.75 \
+    dalvik.vm.heapminfree?=8m \
+    dalvik.vm.heapmaxfree?=32m \
+    dalvik.vm.foreground-heap-growth-multiplier?=1.0 \
+    dalvik.vm.enable_time_based_gc_trigger?=true \
+    dalvik.vm.usejit?=true \
+    dalvik.vm.jitmaxsize?=128m \
+    dalvik.vm.jitinitialsize?=16m \
+    dalvik.vm.jitthreshold?=5000 \
+    dalvik.vm.jitwarmupthreshold?=2500 \
+    dalvik.vm.jitpthreadpriority?=8 \
+    dalvik.vm.parallel-image-loading?=true \
+    dalvik.vm.madvise.vdexfile.size?=104857600 \
+    dalvik.vm.madvise.odexfile.size?=104857600 \
+    dalvik.vm.madvise.artfile.size?=0 \
+    dalvik.vm.usap_pool_enabled?=true \
+    dalvik.vm.usap_pool_size_min?=1 \
+    dalvik.vm.usap_pool_size_max?=4 \
+    dalvik.vm.usap_refill_threshold?=1 \
+    dalvik.vm.usap_pool_refill_delay_ms?=3000
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
