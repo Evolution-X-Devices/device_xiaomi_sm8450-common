@@ -189,6 +189,7 @@
       "Path": "/dev/cpuctl/foreground/cpu.uclamp.min",
       "Values": [
         "0",
+        "20",
         "30",
         "40",
         "50"
@@ -372,7 +373,7 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "2227200"
+      "Value": "2496000"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
@@ -384,7 +385,7 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPUBigPlusClusterMaxFreq",
       "Duration": 0,
-      "Value": "2592000"
+      "Value": "2918400"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
@@ -408,7 +409,7 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "439000000"
+      "Value": "515000000"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
@@ -444,7 +445,7 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "1324800"
+      "Value": "1209600"
     },
     {
       "PowerHint": "INTERACTION",
@@ -456,19 +457,19 @@
       "PowerHint": "INTERACTION",
       "Node": "UclampFGMin",
       "Duration": 0,
-      "Value": "30"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "UclampTALatency",
-      "Duration": 0,
-      "Value": "1"
+      "Value": "20"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "L3MinFreq",
       "Duration": 0,
       "Value": "1267200"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "PMQoSCpuDmaLatency",
+      "Duration": 0,
+      "Value": "100"
     },
     {
       "PowerHint": "INTERACTION",
@@ -522,13 +523,13 @@
       "PowerHint": "INTERACTION",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "364000000"
+      "Value": "285000000"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "GPUIdleTimer",
       "Duration": 0,
-      "Value": "500"
+      "Value": "2000"
     },
     {
       "PowerHint": "FIXED_PERFORMANCE",
@@ -587,19 +588,19 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "UclampTAMin",
-      "Duration": 2000,
+      "Duration": 3000,
       "Value": "40"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "UclampFGMin",
-      "Duration": 2000,
+      "Duration": 3000,
       "Value": "50"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "UclampTALatency",
-      "Duration": 2000,
+      "Duration": 3000,
       "Value": "1"
     },
     {
@@ -672,13 +673,13 @@
       "PowerHint": "LAUNCH",
       "Node": "GPUMinFreq",
       "Duration": 2000,
-      "Value": "364000000"
+      "Value": "324000000"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "GPUIdleTimer",
       "Duration": 2000,
-      "Value": "2000"
+      "Value": "5000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -690,19 +691,19 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "1132800"
+      "Value": "1324800"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "1440000"
+      "Value": "1324800"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
-      "Node": "GPUMaxFreq",
+      "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 0,
-      "Value": "580000000"
+      "Value": "1286400"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -714,19 +715,37 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUIdleTimer",
       "Duration": 0,
-      "Value": "5000"
+      "Value": "2000"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "UclampFGMin",
+      "Duration": 0,
+      "Value": "30"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "UclampTAMin",
       "Duration": 0,
-      "Value": "20"
+      "Value": "40"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
-      "Node": "UclampTALatency",
+      "Node": "CPUBWMinFreq",
       "Duration": 0,
-      "Value": "1"
+      "Value": "1555000"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "LLCCBWMinFreq",
+      "Duration": 0,
+      "Value": "600000"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "L3MinFreq",
+      "Duration": 0,
+      "Value": "1267200"
     },
     {
       "PowerHint": "Flipendo",
