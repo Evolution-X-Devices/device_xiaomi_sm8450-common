@@ -191,7 +191,9 @@
 
   <!-- Tx current for wifi radio in mA. 0 by default-->
     <item name="wifi.controller.tx">210</item>
-    <array name="wifi.controller.tx_levels">1 </array>
+    <array name="wifi.controller.tx_levels">
+        <value>1</value>
+    </array>
 
   <!-- Operating volatage for wifi radio in mV. 0 by default-->
     <item name="wifi.controller.voltage">4000</item>
