@@ -67,6 +67,12 @@ AodNotifier::~AodNotifier() {
 
 void AodNotifier::notify() {
 
+    if (mQueue == nullptr) {
+        LOG(ERROR) << "failed to initialize sensor queue";
+        mActive = false;
+        return;
+    }
+
     android::base::unique_fd disp_fd_ =
             android::base::unique_fd(open(kDispFeatureDevice.c_str(), O_RDWR));
     if (disp_fd_.get() == -1) {
