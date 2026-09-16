@@ -68,9 +68,6 @@ void SensorNotifier::activate() {
     if (mActive) {
         return;
     }
-    if (mQueue == nullptr) {
-        return;
-    }
     mActive = true;
     mThread = std::thread(&SensorNotifier::notify, this);
 }
