@@ -60,6 +60,12 @@ NonUiNotifier::~NonUiNotifier() {
 void NonUiNotifier::notify() {
     Result res;
 
+    if (mQueue == nullptr) {
+        LOG(ERROR) << "failed to initialize sensor queue";
+        mActive = false;
+        return;
+    }
+
     // Enable states of touchscreen sensors
     const std::vector<const char*> paths = {
             "/sys/class/touch/touch_dev/fod_longpress_gesture_enabled",
