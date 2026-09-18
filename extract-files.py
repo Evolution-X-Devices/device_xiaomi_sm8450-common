@@ -156,6 +156,11 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V7-ndk.so'),
     'vendor/lib64/libwfdmmsrc_proprietary.so': blob_fixup()
         .replace_needed('android.media.audio.common.types-V2-ndk.so', 'android.media.audio.common.types-V3-ndk.so'),
+    'vendor/lib64/libssc.so': blob_fixup()
+        .sig_replace('C2 09 00 94', '1F 20 03 D5')
+        .sig_replace('F4 05 00 94', '1F 20 03 D5')
+        .sig_replace('63 05 00 94', '1F 20 03 D5')
+        .sig_replace('51 05 00 94', '1F 20 03 D5'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
 }  # fmt: skip
