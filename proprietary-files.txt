@@ -947,7 +947,7 @@ vendor/lib64/libsns_direct_channel_stub.so
 vendor/lib64/libsns_registry_skel.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsnsdiaglog.so
-vendor/lib64/libssc.so
+vendor/lib64/libssc.so|64df1654bed6c2821d91f382458e3ba821ef6b60|a08f04037c7c14ca5d60fcd6d95957f8de52b3da
 vendor/lib64/libssc_default_listener.so
 vendor/lib64/sensors.ssc.so
 vendor/lib64/sensors.touch.detect.so
