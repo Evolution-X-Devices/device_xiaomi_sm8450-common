@@ -78,9 +78,6 @@ vendor.camera.aux.packageexcludelist=com.adobe.scan.android,com.tencent.mm,us.zo
 # Chipset
 ro.soc.manufacturer=QTI
 
-# Dex2oat
-dalvik.vm.dex2oat64.enabled=true
-
 # Display
 vendor.display.comp_mask=0
 vendor.display.disable_3d_adaptive_tm=0
@@ -122,13 +119,11 @@ vendor.gatekeeper.disable_spu=true
 
 # Graphics
 debug.egl.hw=0
-debug.sf.auto_latch_unsignaled=0
 debug.sf.disable_client_composition_cache=0
 debug.sf.enable_gl_backpressure=1
 debug.sf.enable_hwc_vds=0
 debug.sf.frame_rate_multiple_threshold=120
 debug.sf.hw=0
-debug.sf.latch_unsignaled=1
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.set_idle_timer_ms=80
 debug.sf.treat_170m_as_sRGB=1
@@ -144,7 +139,7 @@ ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.taro.api31
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 ro.opengles.version=196610
-ro.surface_flinger.enable_frame_rate_override=false
+ro.surface_flinger.enable_frame_rate_override=true
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
 ro.surface_flinger.has_HDR_display=true
 ro.surface_flinger.has_wide_color_display=true
@@ -165,6 +160,7 @@ debug.sf.high_fps_late_app_phase_offset_ns=1000000
 debug.sf.high_fps_late_sf_phase_offset_ns=-2000000
 graphics.gpu.profiler.support=true
 ro.surface_flinger.set_display_power_timer_ms=1000
+renderthread.skia.reduceopstasksplitting=true
 
 # Incremental
 ro.incremental.enable=yes
