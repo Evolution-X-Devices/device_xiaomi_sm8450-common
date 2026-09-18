@@ -103,6 +103,11 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libsnapdragoncolor-manager.so',
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    'vendor/lib64/libssc.so': blob_fixup()
+        .sig_replace('C2 09 00 94', '1F 20 03 D5')
+        .sig_replace('F4 05 00 94', '1F 20 03 D5')
+        .sig_replace('63 05 00 94', '1F 20 03 D5')
+        .sig_replace('51 05 00 94', '1F 20 03 D5'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
     (
