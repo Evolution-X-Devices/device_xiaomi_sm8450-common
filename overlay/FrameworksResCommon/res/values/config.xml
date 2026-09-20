@@ -151,10 +151,6 @@
     <!-- Flag specifying whether WFC over IMS is available on device -->
     <bool name="config_device_wfc_ims_available">true</bool>
 
-    <!--Support decoding the user data payload as pack GSM 8-bit (a GSM alphabet
-        string that's stored in 8-bit unpacked format) characters.-->
-    <bool name="config_sms_decode_gsm_8bit_data" translatable="false">true</bool>
-
     <!-- Config determines whether to update phone object when voice registration
          state changes. Voice radio tech change will always trigger an update of
          phone object irrespective of this config -->
