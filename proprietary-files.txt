@@ -512,8 +512,8 @@ vendor/lib64/libqtikeymint.so
 # Media
 system_ext/lib64/libmmosal.so
 system_ext/lib64/libmmparser_lite.so
-vendor/bin/hw/vendor.qti.media.c2@1.0-service
-vendor/bin/hw/vendor.qti.media.c2audio@1.0-service
+vendor/bin/hw/vendor.qti.media.c2@1.0-service|c274371d8d220ee101f61c4fa196c526b993c6df
+vendor/bin/hw/vendor.qti.media.c2audio@1.0-service|7ac041bb41901e0ed6649bf6410b0f018ce89e02
 vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
 vendor/etc/init/vendor.qti.media.c2audio@1.0-service.rc
 vendor/etc/media_cape/video_system_specs.json
