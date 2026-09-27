@@ -50,3 +50,14 @@ install_symlink {
     installed_location: "firmware/wlan/qca_cld/qca6750/wlan_mac.bin",
     symlink_target: "/mnt/vendor/persist/qca6750/wlan_mac.bin",
 }
+
+cc_library_shared {
+    name: "libqti_c2_store_abi_check",
+    vendor: true,
+    defaults: ["libcodec2-hidl-defaults@1.0"],
+    shared_libs: ["libcodec2_hidl@1.2"],
+    srcs: [
+        "c2_store_abi_check/abi_check_1_0.cpp",
+        "c2_store_abi_check/abi_check_1_2.cpp",
+    ],
+}
