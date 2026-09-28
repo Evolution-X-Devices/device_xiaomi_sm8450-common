@@ -7361,4 +7361,103 @@
     <carrier_config mcc="510" mnc="89">
         <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
+    <carrier_config mcc="460" mnc="00">
+        <int-array name="carrier_nr_availabilities_int_array" num="2">
+            <item value="1" />
+            <item value="2" />
+        </int-array>
+        <boolean name="carrier_sa_mode_available_bool" value="true" />
+        <boolean name="carrier_disable_sa_mode_bool" value="false" />
+        <boolean name="carrier_disable_vice_sa_mode_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="01">
+        <int-array name="carrier_nr_availabilities_int_array" num="2">
+            <item value="1" />
+            <item value="2" />
+        </int-array>
+        <boolean name="carrier_sa_mode_available_bool" value="true" />
+        <boolean name="carrier_disable_sa_mode_bool" value="false" />
+        <boolean name="carrier_disable_vice_sa_mode_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="02">
+        <int-array name="carrier_nr_availabilities_int_array" num="2">
+            <item value="1" />
+            <item value="2" />
+        </int-array>
+        <boolean name="carrier_sa_mode_available_bool" value="true" />
+        <boolean name="carrier_disable_sa_mode_bool" value="false" />
+        <boolean name="carrier_disable_vice_sa_mode_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="03">
+        <int-array name="carrier_nr_availabilities_int_array" num="2">
+            <item value="1" />
+            <item value="2" />
+        </int-array>
+        <boolean name="carrier_sa_mode_available_bool" value="true" />
+        <boolean name="carrier_disable_sa_mode_bool" value="false" />
+        <boolean name="carrier_disable_vice_sa_mode_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="04">
+        <int-array name="carrier_nr_availabilities_int_array" num="2">
+            <item value="1" />
+            <item value="2" />
+        </int-array>
+        <boolean name="carrier_sa_mode_available_bool" value="true" />
+        <boolean name="carrier_disable_sa_mode_bool" value="false" />
+        <boolean name="carrier_disable_vice_sa_mode_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="07">
+        <int-array name="carrier_nr_availabilities_int_array" num="2">
+            <item value="1" />
+            <item value="2" />
+        </int-array>
+        <boolean name="carrier_sa_mode_available_bool" value="true" />
+        <boolean name="carrier_disable_sa_mode_bool" value="false" />
+        <boolean name="carrier_disable_vice_sa_mode_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="08">
+        <int-array name="carrier_nr_availabilities_int_array" num="2">
+            <item value="1" />
+            <item value="2" />
+        </int-array>
+        <boolean name="carrier_sa_mode_available_bool" value="true" />
+        <boolean name="carrier_disable_sa_mode_bool" value="false" />
+        <boolean name="carrier_disable_vice_sa_mode_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="09">
+        <int-array name="carrier_nr_availabilities_int_array" num="2">
+            <item value="1" />
+            <item value="2" />
+        </int-array>
+        <boolean name="carrier_sa_mode_available_bool" value="true" />
+        <boolean name="carrier_disable_sa_mode_bool" value="false" />
+        <boolean name="carrier_disable_vice_sa_mode_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="11">
+        <int-array name="carrier_nr_availabilities_int_array" num="2">
+            <item value="1" />
+            <item value="2" />
+        </int-array>
+        <boolean name="carrier_sa_mode_available_bool" value="true" />
+        <boolean name="carrier_disable_sa_mode_bool" value="false" />
+        <boolean name="carrier_disable_vice_sa_mode_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="13">
+        <int-array name="carrier_nr_availabilities_int_array" num="2">
+            <item value="1" />
+            <item value="2" />
+        </int-array>
+        <boolean name="carrier_sa_mode_available_bool" value="true" />
+        <boolean name="carrier_disable_sa_mode_bool" value="false" />
+        <boolean name="carrier_disable_vice_sa_mode_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="15">
+        <int-array name="carrier_nr_availabilities_int_array" num="2">
+            <item value="1" />
+            <item value="2" />
+        </int-array>
+        <boolean name="carrier_sa_mode_available_bool" value="true" />
+        <boolean name="carrier_disable_sa_mode_bool" value="false" />
+        <boolean name="carrier_disable_vice_sa_mode_bool" value="false" />
+    </carrier_config>
 </carrier_config_list>
