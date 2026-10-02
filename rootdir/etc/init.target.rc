@@ -161,7 +161,7 @@ on property:vendor.display.lcd_density=640
    setprop dalvik.vm.heapgrowthlimit 512m
 
 on init && property:ro.boot.mode=charger
-    wait_for_prop vendor.all.modules.ready 1
+    wait_for_prop init.svc.vendor.modprobe stopped
     mount_all /vendor/etc/charger_fw_fstab.qti --early
     wait /sys/kernel/boot_adsp/boot
     write /sys/kernel/boot_adsp/boot 1
