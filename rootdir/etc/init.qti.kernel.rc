@@ -31,6 +31,10 @@
 #=============================================================================
 
 on early-init
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    mount_all /vendor/etc/charger_fw_fstab.qti --early
+
     exec_start gki.modprobe
     start vendor.modprobe
 

@@ -69,8 +69,6 @@ on early-init
     export MEMTAG_OPTIONS off
 
 on init
-    wait /dev/block/platform/soc/${ro.boot.bootdevice}
-    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
     chown system system /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     start logd
@@ -178,7 +176,6 @@ on property:vendor.display.lcd_density=640
 
 on init && property:ro.boot.mode=charger
     wait_for_prop init.svc.vendor.modprobe stopped
-    mount_all /vendor/etc/charger_fw_fstab.qti --early
     wait /sys/kernel/boot_adsp/boot
     write /sys/kernel/boot_adsp/boot 1
 
