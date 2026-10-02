@@ -46,7 +46,7 @@ on early-init
     write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
 
 on init
-    wait_for_prop vendor.all.modules.ready 1
+    wait_for_prop init.svc.vendor.modprobe stopped
     exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor_dlkm/lib/modules block2mtd
 
     # Create cgroup mount point for memory
@@ -180,11 +180,10 @@ service gki.modprobe /vendor/bin/modprobe -b -s -p --all=/system_dlkm/lib/module
     seclabel u:r:vendor_modprobe:s0
     oneshot
 
-service vendor.modprobe /vendor/bin/vendor_modprobe.sh
+service vendor.modprobe /vendor/bin/modprobe -b -s -p --all=/vendor_dlkm/lib/modules/modules.load
     class main
     user root
     group root system
     disabled
-    stdio_to_kmsg
     seclabel u:r:vendor_modprobe:s0
     oneshot
