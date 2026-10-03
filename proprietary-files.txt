@@ -654,7 +654,6 @@ vendor/bin/ks
 vendor/bin/mdm_helper
 vendor/bin/mdm_helper_proxy
 vendor/bin/netmgrd
-vendor/bin/pd-mapper
 vendor/bin/port-bridge
 vendor/bin/qti
 vendor/bin/qtigetprop

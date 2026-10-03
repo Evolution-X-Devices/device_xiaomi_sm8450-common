@@ -133,6 +133,8 @@ qcom_glink_spss.ko
 qcom_ipc_lite.ko
 qcom_logbuf_vendor_hooks.ko
 qcom_lpm.ko
+qcom_pd_mapper.ko
+qcom_pdr_msg.ko
 qcom_pil_info.ko
 qcom_pm8008-regulator.ko
 qcom_q6v5.ko

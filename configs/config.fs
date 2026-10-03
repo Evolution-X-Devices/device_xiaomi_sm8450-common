@@ -85,24 +85,6 @@ user: AID_SYSTEM
 group: AID_SYSTEM
 caps: NET_BIND_SERVICE
 
-[vendor/bin/pd-mapper]
-mode: 0755
-user: AID_SYSTEM
-group: AID_SYSTEM
-caps: NET_BIND_SERVICE
-
-[system/vendor/bin/pd-mapper]
-mode: 0755
-user: AID_SYSTEM
-group: AID_SYSTEM
-caps: NET_BIND_SERVICE
-
-[system/bin/pd-mapper]
-mode: 0755
-user: AID_SYSTEM
-group: AID_SYSTEM
-caps: NET_BIND_SERVICE
-
 [vendor/bin/imsdatadaemon]
 mode: 0755
 user: AID_RADIO
