@@ -3,7 +3,6 @@ audio.offload.min.duration.secs=30
 media.stagefright.audio.deep=false
 
 # Bluetooth
-bluetooth.auto_connect_profiles.enabled=true
 bluetooth.device_id.vendor_id=0x001D
 bluetooth.profile.a2dp.source.enabled=true
 bluetooth.profile.avrcp.controller.enabled=true
