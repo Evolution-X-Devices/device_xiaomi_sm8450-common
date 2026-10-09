@@ -104,7 +104,7 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/bin/hw/vendor.qti.media.c2@1.0-service',
         'vendor/bin/hw/vendor.qti.media.c2audio@1.0-service',
     ): blob_fixup().binary_regex_replace(
-        b'\x00\x21\x80\x52', b'\x00\x24\x80\x52',
+        b'\x00\x21\x80\x52', b'\x00\x22\x80\x52',
     ),
     'vendor/lib64/libssc.so': blob_fixup()
         .sig_replace('C2 09 00 94', '1F 20 03 D5')
