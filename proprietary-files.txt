@@ -961,8 +961,8 @@ vendor/lib64/hw/vulkan.adreno.so|45a1ca85d825f2ca559b4dfdf068f2125459d199
 # Media - from PDX257 ELBE-1.1.0-REL-260522-1202
 system_ext/lib64/libmmosal.so|d084d8dd2c1727f3c528949ac8cdc4520b39f437
 system_ext/lib64/libmmparser_lite.so|ef94ae07ad3a8484540a55d6aad9dd7b3bd4b060
-vendor/bin/hw/vendor.qti.media.c2@1.0-service|9cf67c2848ab982513e37bf2921f2427a34a8b43
-vendor/bin/hw/vendor.qti.media.c2audio@1.0-service|246304734c5d93f3310e16a3a278145fc3d70d4d
+vendor/bin/hw/vendor.qti.media.c2@1.0-service|9cf67c2848ab982513e37bf2921f2427a34a8b43|7fedba0e96eaf76bbdcf4cd94e06d64d645f7851
+vendor/bin/hw/vendor.qti.media.c2audio@1.0-service|246304734c5d93f3310e16a3a278145fc3d70d4d|ecb25ef67ebc12a7fa40a973513de02324833969
 vendor/bin/init.qti.media.sh|8e767210158979827c324beefda184f76615eb9b
 vendor/etc/init/init.qti.media.rc|ef1332dce782443ffbd36b28c8349611535c6d5a
 vendor/etc/init/vendor.qti.media.c2@1.0-service.rc|542d2ae2a92ee21dbb63716ff49392e8e6e433f4
