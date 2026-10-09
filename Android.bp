@@ -54,6 +54,7 @@ install_symlink {
 cc_library_shared {
     name: "libqti_c2_store_abi_check",
     vendor: true,
+    compile_multilib: "64",
     defaults: ["libcodec2-hidl-defaults@1.0"],
     shared_libs: ["libcodec2_hidl@1.2"],
     srcs: [
