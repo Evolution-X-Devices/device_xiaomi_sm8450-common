@@ -1,0 +1,21 @@
+hal_client_domain(hal_face_default, hal_graphics_allocator)
+
+binder_call(cameraserver, hal_face_default)
+binder_call(hal_face_default, cameraserver)
+
+allow hal_face_default fwk_camera_service:service_manager find;
+
+allow hal_face_default self:process execmem;
+
+allow hal_face_default gpu_device:chr_file rw_file_perms;
+allow hal_face_default ion_device:chr_file rw_file_perms;
+
+allow hal_face_default vendor_face_data_file:dir rw_dir_perms;
+allow hal_face_default vendor_face_data_file:file create_file_perms;
+
+allow hal_face_default vendor_face_resources_file:dir r_dir_perms;
+allow hal_face_default vendor_face_resources_file:file { r_file_perms map execute };
+
+r_dir_file(hal_face_default, vendor_sysfs_kgsl)
+
+get_prop(hal_face_default, camera_config_prop)
