@@ -956,7 +956,7 @@ vendor/firmware/a730_sqe.fw|920d6db39c8852be3a898d782b58378a39629ec6
 vendor/firmware/gmu_gen70000.bin|1ac8d9dd3d405f84c915a4562ff72d244e10bcbd
 
 # Graphics (Vulkan) - from PDX257 ELBE-1.1.0-REL-260522-1202
-vendor/lib64/hw/vulkan.adreno.so|45a1ca85d825f2ca559b4dfdf068f2125459d199
+vendor/lib64/hw/vulkan.adreno.so|45a1ca85d825f2ca559b4dfdf068f2125459d199|c338b642bec1f3f8cde50246231d155c7a7a51ac
 
 # Media - from PDX257 ELBE-1.1.0-REL-260522-1202
 system_ext/lib64/libmmosal.so|d084d8dd2c1727f3c528949ac8cdc4520b39f437
