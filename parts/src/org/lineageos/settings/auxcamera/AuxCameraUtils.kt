@@ -19,6 +19,10 @@ object AuxCameraUtils {
     private const val SETTINGS_KEY = "aux_camera_excluded_apps"
     private const val ENABLED_KEY = "aux_camera_enabled"
 
+    // Keep in sync with vendor.camera.aux.packageexcludelist in properties/vendor.prop
+    private const val DEFAULT_EXCLUDED_APPS =
+        "com.adobe.scan.android,com.tencent.mm,us.zoom.videomeetings,in.org.npci.upiapp"
+
     @Volatile
     private var cachedApps: Set<String>? = null
 
@@ -39,7 +43,7 @@ object AuxCameraUtils {
         if (enabled) {
             restore(context)
         } else {
-            applyProp("none")
+            applyProp(DEFAULT_EXCLUDED_APPS)
         }
     }
 
@@ -49,7 +53,7 @@ object AuxCameraUtils {
         val value = Settings.System.getString(
             context.contentResolver,
             SETTINGS_KEY,
-        ) ?: return emptySet()
+        ) ?: DEFAULT_EXCLUDED_APPS
 
         val validApps = buildSet {
             value.split(',')
