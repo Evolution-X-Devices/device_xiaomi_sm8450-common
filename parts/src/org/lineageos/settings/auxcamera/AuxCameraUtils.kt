@@ -19,6 +19,9 @@ object AuxCameraUtils {
     private const val SETTINGS_KEY = "aux_camera_excluded_apps"
     private const val ENABLED_KEY = "aux_camera_enabled"
 
+    // SystemProperties.set() rejects longer values for non read-only properties
+    private const val MAX_PROP_VALUE_BYTES = 91
+
     // Keep in sync with vendor.camera.aux.packageexcludelist in properties/vendor.prop
     private const val DEFAULT_EXCLUDED_APPS =
         "com.adobe.scan.android,com.tencent.mm,us.zoom.videomeetings,in.org.npci.upiapp"
@@ -93,7 +96,7 @@ object AuxCameraUtils {
         context: Context,
         packageName: String,
         enabled: Boolean,
-    ) {
+    ): Boolean {
         val apps = getApps(context).toMutableSet()
 
         if (enabled) {
@@ -102,9 +105,14 @@ object AuxCameraUtils {
             apps -= packageName
         }
 
-        cachedApps = apps
-
         val serialized = apps.joinToString(",")
+
+        if (enabled && serialized.toByteArray().size > MAX_PROP_VALUE_BYTES) {
+            Logging.w(TAG, "App list exceeds property limit, not adding $packageName")
+            return false
+        }
+
+        cachedApps = apps
 
         Settings.System.putString(
             context.contentResolver,
@@ -115,6 +123,8 @@ object AuxCameraUtils {
         if (isEnabled(context)) {
             applyProp(serialized.ifBlank { "none" })
         }
+
+        return true
     }
 
     fun restore(context: Context) {
@@ -128,17 +138,21 @@ object AuxCameraUtils {
     }
 
     private fun applyProp(value: String) {
-        val clazz = Class.forName("android.os.SystemProperties")
-        val method = clazz.getMethod(
-            "set",
-            String::class.java,
-            String::class.java,
-        )
+        try {
+            val clazz = Class.forName("android.os.SystemProperties")
+            val method = clazz.getMethod(
+                "set",
+                String::class.java,
+                String::class.java,
+            )
 
-        method.invoke(
-            null,
-            PROP,
-            value.ifBlank { "none" },
-        )
+            method.invoke(
+                null,
+                PROP,
+                value.ifBlank { "none" },
+            )
+        } catch (e: Exception) {
+            Logging.e(TAG, "Failed to set $PROP", e)
+        }
     }
 }
