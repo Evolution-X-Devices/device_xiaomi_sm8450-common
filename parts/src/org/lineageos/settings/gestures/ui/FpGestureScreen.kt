@@ -48,6 +48,10 @@ fun FpGestureScreen(onBackPressed: () -> Unit) {
 
     var isEnabled by remember { mutableStateOf(FpGestureUtils.isEnabled(context)) }
     var selectedAction by remember { mutableIntStateOf(FpGestureUtils.getAction(context)) }
+    var screenOffEnabled by remember { mutableStateOf(FpGestureUtils.isScreenOffEnabled(context)) }
+    var screenOffAction by remember {
+        mutableIntStateOf(FpGestureUtils.getScreenOffAction(context))
+    }
 
     ExpressiveScaffold(
         title = stringResource(R.string.fp_gestures_title),
@@ -87,6 +91,42 @@ fun FpGestureScreen(onBackPressed: () -> Unit) {
                     }
                 }
                 ExpressiveFooter(text = stringResource(R.string.fp_double_tap_footer))
+
+                ExpressiveGroup(title = stringResource(R.string.fp_double_tap_screen_off_title)) {
+                    item {
+                        ExpressiveSwitchRow(
+                            titleText = stringResource(R.string.fp_double_tap_screen_off_enable),
+                            summaryText = stringResource(R.string.fp_double_tap_screen_off_summary),
+                            isChecked = screenOffEnabled,
+                            onChange = {
+                                screenOffEnabled = it
+                                FpGestureUtils.setScreenOffEnabled(context, it)
+                            },
+                        )
+                    }
+                    if (screenOffEnabled) {
+                        FpGestureUtils.SCREEN_OFF_ACTIONS.forEach { id ->
+                            item {
+                                ExpressiveRow(
+                                    title = stringResource(FpGestureUtils.getActionLabel(id)),
+                                    onClick = {
+                                        view.performHapticFeedback(
+                                            HapticFeedbackConstants.CONTEXT_CLICK)
+                                        screenOffAction = id
+                                        FpGestureUtils.setScreenOffAction(context, id)
+                                    },
+                                    trailing = {
+                                        RadioButton(
+                                            selected = screenOffAction == id, onClick = null)
+                                    },
+                                )
+                            }
+                        }
+                    }
+                }
+                if (screenOffEnabled) {
+                    ExpressiveFooter(text = stringResource(R.string.fp_double_tap_screen_off_footer))
+                }
             }
         }
     }

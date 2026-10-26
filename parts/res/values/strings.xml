@@ -103,6 +103,10 @@
     <string name="fp_double_tap_footer">This gesture works only after the device is unlocked.</string>
     <string name="fp_double_tap_enable">Use double tap</string>
     <string name="fp_double_tap_action">Tap twice on the fingerprint sensor to</string>
+    <string name="fp_double_tap_screen_off_title">Screen off</string>
+    <string name="fp_double_tap_screen_off_enable">Also use with the screen off</string>
+    <string name="fp_double_tap_screen_off_summary">Tap twice on the fingerprint sensor with the screen off to</string>
+    <string name="fp_double_tap_screen_off_footer">The gesture is ignored while the phone is covered, for example in a pocket or bag.</string>
     <string name="action_screenshot">Take a screenshot</string>
     <string name="action_assistant">Access your digital assistant</string>
     <string name="action_play_pause">Play or pause media</string>
