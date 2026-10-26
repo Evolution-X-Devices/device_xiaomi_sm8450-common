@@ -10,6 +10,7 @@ package org.lineageos.settings.auxcamera
 import android.content.Context
 import android.content.pm.LauncherApps
 import android.os.Process
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -19,6 +20,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.lineageos.settings.R
 
 class AuxCameraViewModel(
     private val context: Context,
@@ -43,11 +45,20 @@ class AuxCameraViewModel(
     }
 
     fun toggleApp(packageName: String, enabled: Boolean) {
-        utils.setAppEnabled(
+        val applied = utils.setAppEnabled(
             context,
             packageName,
             enabled,
         )
+
+        if (!applied) {
+            Toast.makeText(
+                context,
+                R.string.aux_camera_limit_reached,
+                Toast.LENGTH_SHORT,
+            ).show()
+            return
+        }
 
         _uiState.update { state ->
             state.copy(
