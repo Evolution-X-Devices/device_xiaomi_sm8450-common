@@ -33,6 +33,7 @@ import android.view.Display;
 import android.view.Display.HdrCapabilities;
 
 import org.lineageos.settings.auxcamera.AuxCameraUtils;
+import org.lineageos.settings.gestures.FpGestureUtils;
 import org.lineageos.settings.perfmon.PerfMonUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 
@@ -80,6 +81,11 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Restore aux camera restrictions
         AuxCameraUtils.INSTANCE.restore(context);
+
+        // Restore fingerprint gesture driver state
+        if (FpGestureUtils.INSTANCE.isAvailable(context) && FpGestureUtils.INSTANCE.isEnabled(context)) {
+            FpGestureUtils.INSTANCE.updateDriver(true);
+        }
 
         // Start Performance Monitor Services
         PerfMonUtils.getInstance(context).startServiceIfEnabled();

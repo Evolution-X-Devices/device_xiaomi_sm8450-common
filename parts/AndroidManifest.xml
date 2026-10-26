@@ -124,6 +124,24 @@
                 android:value="content://org.lineageos.settings.summary/auxCameraSummary" />
         </activity>
 
+        <!-- Fingerprint gestures -->
+        <activity
+            android:name=".gestures.FpDoubleTapActivity"
+            android:label="@string/fp_double_tap_title"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+            android:enabled="@*android:bool/config_is_powerbutton_fps"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.gestures" />
+            <meta-data
+                android:name="com.android.settings.summary_uri"
+                android:value="content://org.lineageos.settings.summary/fpDoubleTapSummary" />
+        </activity>
+
         <!-- Performance Monitor -->
         <activity
             android:name=".perfmon.PerfMonComposeActivity"
