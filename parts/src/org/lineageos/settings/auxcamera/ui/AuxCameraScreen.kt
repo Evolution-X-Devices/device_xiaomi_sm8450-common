@@ -8,25 +8,31 @@
 package org.lineageos.settings.auxcamera.ui
 
 import android.widget.ImageView
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.*
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import com.android.settingslib.spa.framework.theme.SettingsSpace
 import org.lineageos.settings.R
 import org.lineageos.settings.auxcamera.AuxCameraViewModel
+import org.lineageos.settings.ui.CheckCloseSwitch
+import org.lineageos.settings.ui.ExpressiveGroup
+import org.lineageos.settings.ui.ExpressiveRow
+import org.lineageos.settings.ui.ExpressiveScaffold
+import org.lineageos.settings.ui.ExpressiveSegment
+import org.lineageos.settings.ui.ExpressiveSwitchRow
+import org.lineageos.settings.ui.expressiveInset
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AuxCameraScreen(
     viewModel: AuxCameraViewModel,
@@ -34,139 +40,56 @@ fun AuxCameraScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(stringResource(R.string.aux_camera_title))
-                },
-                navigationIcon = {
-                    IconButton(
-                        onClick = onBackPressed
-                    ) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = null
-                        )
-                    }
-                }
-            )
-        }
+    ExpressiveScaffold(
+        title = stringResource(R.string.aux_camera_title),
+        onBack = onBackPressed,
     ) { padding ->
-
-        Column(
+        LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding)
+                .padding(padding),
+            contentPadding = PaddingValues(
+                top = SettingsSpace.extraSmall4,
+                bottom = SettingsSpace.medium1,
+            ),
+            verticalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall1),
         ) {
-
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp)
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-
-                    Column(
-                        modifier = Modifier.weight(1f)
-                    ) {
-                        Text(
-                            text = stringResource(
-                                R.string.aux_camera_enable
-                            ),
-                            style = MaterialTheme.typography.titleMedium
-                        )
-
-                        Text(
-                            text = stringResource(
-                                R.string.aux_camera_summary
-                            ),
-                            style = MaterialTheme.typography.bodySmall
+            item {
+                ExpressiveGroup(title = "") {
+                    item {
+                        ExpressiveSwitchRow(
+                            titleText = stringResource(R.string.aux_camera_enable),
+                            summaryText = stringResource(R.string.aux_camera_summary),
+                            isChecked = uiState.isEnabled,
+                            onChange = { viewModel.toggleEnabled(it) },
                         )
                     }
-
-                    Switch(
-                        checked = uiState.isEnabled,
-                        onCheckedChange = {
-                            viewModel.toggleEnabled(it)
-                        }
-                    )
                 }
             }
 
-            LazyColumn(
-                modifier = Modifier.fillMaxSize()
-            ) {
-                items(uiState.apps) { app ->
-
-                    Card(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(
-                                horizontal = 16.dp,
-                                vertical = 4.dp
-                            )
-                            .clickable(
-                                enabled = uiState.isEnabled
-                            ) {
-                                viewModel.toggleApp(
-                                    app.packageName,
-                                    !app.enabled
-                                )
-                            }
-                    ) {
-
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(16.dp),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-
-                            Row(
-                                modifier = Modifier.weight(1f),
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-
-                                AndroidView(
-                                    factory = { context ->
-                                        ImageView(context).apply {
-                                            setImageDrawable(
-                                                app.icon
-                                            )
-                                        }
-                                    },
-                                    modifier = Modifier.size(40.dp)
-                                )
-
-                                Spacer(
-                                    modifier = Modifier.width(16.dp)
-                                )
-
-                                Text(
-                                    text = app.label
-                                )
-                            }
-
-                            Switch(
-                                checked = app.enabled,
-                                onCheckedChange = {
-                                    viewModel.toggleApp(
-                                        app.packageName,
-                                        it
-                                    )
+            itemsIndexed(uiState.apps, key = { _, app -> app.packageName }) { index, app ->
+                ExpressiveSegment(index = index, count = uiState.apps.size) {
+                    ExpressiveRow(
+                        title = app.label,
+                        modifier = Modifier.expressiveInset(),
+                        enabled = uiState.isEnabled,
+                        onClick = { viewModel.toggleApp(app.packageName, !app.enabled) },
+                        leading = {
+                            AndroidView(
+                                factory = { context ->
+                                    ImageView(context).apply { setImageDrawable(app.icon) }
                                 },
-                                enabled = uiState.isEnabled
+                                modifier = Modifier.size(40.dp),
                             )
-                        }
-                    }
+                        },
+                        trailing = {
+                            CheckCloseSwitch(
+                                checked = app.enabled,
+                                onCheckedChange = { viewModel.toggleApp(app.packageName, it) },
+                                enabled = uiState.isEnabled,
+                            )
+                        },
+                    )
                 }
             }
         }
