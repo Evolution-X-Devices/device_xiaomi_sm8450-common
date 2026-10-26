@@ -20,6 +20,12 @@ object FpGestureUtils {
     // Settings Keys
     const val KEY_ENABLE = "fp_double_tap_enable"
     const val KEY_ACTION = "fp_double_tap_action"
+    const val KEY_SCREEN_OFF_ENABLE = "fp_double_tap_screen_off_enable"
+    const val KEY_SCREEN_OFF_ACTION = "fp_double_tap_screen_off_action"
+
+    // Actions that make sense with the screen off, as ids shared with the key handler
+    val SCREEN_OFF_ACTIONS = listOf(6, 3, 5, 7, 8)
+    const val DEFAULT_SCREEN_OFF_ACTION = 6
     
     // Driver Commands
     private const val CMD_LOCKOUT_MODE = 12
@@ -51,6 +57,42 @@ object FpGestureUtils {
             context.contentResolver, 
             KEY_ACTION, 
             1, 
+            UserHandle.USER_CURRENT
+        )
+    }
+
+    fun isScreenOffEnabled(context: Context): Boolean {
+        return Settings.System.getIntForUser(
+            context.contentResolver,
+            KEY_SCREEN_OFF_ENABLE,
+            0,
+            UserHandle.USER_CURRENT
+        ) == 1
+    }
+
+    fun getScreenOffAction(context: Context): Int {
+        return Settings.System.getIntForUser(
+            context.contentResolver,
+            KEY_SCREEN_OFF_ACTION,
+            DEFAULT_SCREEN_OFF_ACTION,
+            UserHandle.USER_CURRENT
+        )
+    }
+
+    fun setScreenOffEnabled(context: Context, enable: Boolean) {
+        Settings.System.putIntForUser(
+            context.contentResolver,
+            KEY_SCREEN_OFF_ENABLE,
+            if (enable) 1 else 0,
+            UserHandle.USER_CURRENT
+        )
+    }
+
+    fun setScreenOffAction(context: Context, action: Int) {
+        Settings.System.putIntForUser(
+            context.contentResolver,
+            KEY_SCREEN_OFF_ACTION,
+            action,
             UserHandle.USER_CURRENT
         )
     }
