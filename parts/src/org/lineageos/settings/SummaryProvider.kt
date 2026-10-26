@@ -11,6 +11,7 @@ import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import org.lineageos.settings.auxcamera.AuxCameraUtils
+import org.lineageos.settings.gestures.FpGestureUtils
 import org.lineageos.settings.saturation.SaturationUtils
 import org.lineageos.settings.thermal.ThermalUtils
 
@@ -33,6 +34,14 @@ class SummaryProvider : ContentProvider() {
                 if (AuxCameraUtils.isEnabled(context)) R.string.tile_on else R.string.tile_off
             )
             METHOD_SATURATION -> "${SaturationUtils.get(context)}%"
+            METHOD_FP_DOUBLE_TAP -> if (FpGestureUtils.isEnabled(context)) {
+                context.getString(
+                    R.string.fp_double_tap_summary_on,
+                    context.getString(FpGestureUtils.getActionLabel(FpGestureUtils.getAction(context)))
+                )
+            } else {
+                context.getString(R.string.tile_off)
+            }
             else -> return null
         }
         return Bundle().apply { putString(KEY_SUMMARY, summary) }
@@ -58,5 +67,6 @@ class SummaryProvider : ContentProvider() {
         private const val METHOD_THERMAL = "thermalSummary"
         private const val METHOD_AUX_CAMERA = "auxCameraSummary"
         private const val METHOD_SATURATION = "saturationSummary"
+        private const val METHOD_FP_DOUBLE_TAP = "fpDoubleTapSummary"
     }
 }

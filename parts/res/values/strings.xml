@@ -95,4 +95,22 @@
     <string name="perfmon_bg_transparency">Background Transparency</string>
     <string name="perfmon_text_size">Text Size</string>
     <string name="perfmon_touch_passthrough">Touch Passthrough</string>
+
+    <!-- Gestures: double tap on fingerprint sensor -->
+    <string name="fp_double_tap_title">Double tap on fingerprint sensor</string>
+    <string name="fp_gestures_title">Fingerprint Gestures</string>
+    <string name="fp_double_tap_summary_on">On / <xliff:g id="action">%1$s</xliff:g></string>
+    <string name="fp_double_tap_footer">This gesture works only after the device is unlocked.</string>
+    <string name="fp_double_tap_enable">Use double tap</string>
+    <string name="fp_double_tap_action">Tap twice on the fingerprint sensor to</string>
+    <string name="action_screenshot">Take a screenshot</string>
+    <string name="action_assistant">Access your digital assistant</string>
+    <string name="action_play_pause">Play or pause media</string>
+    <string name="action_notifications">Show notifications</string>
+    <string name="action_camera">Open camera</string>
+    <string name="action_flashlight">Toggle flashlight</string>
+    <string name="action_mute">Switch ringer mode (mute)</string>
+    <string name="action_vibrate">Switch ringer mode (vibrate)</string>
+    <string name="action_volume">Show volume panel</string>
+    <string name="action_sleep">Turn off screen</string>
 </resources>
