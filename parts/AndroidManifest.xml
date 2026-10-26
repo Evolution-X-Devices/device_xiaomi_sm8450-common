@@ -60,6 +60,11 @@
             android:authorities="${applicationId}.androidx-startup"
             tools:replace="android:authorities" />
 
+        <provider
+            android:name=".SummaryProvider"
+            android:authorities="org.lineageos.settings.summary"
+            android:exported="true" />
+
         <receiver
             android:name=".Startup"
             android:exported="false">
@@ -86,6 +91,9 @@
                 android:name="com.android.settings.summary"
                 android:resource="@string/thermal_summary" />
             <meta-data
+                android:name="com.android.settings.summary_uri"
+                android:value="content://org.lineageos.settings.summary/thermalSummary" />
+            <meta-data
                 android:name="com.android.settings.icon"
                 android:resource="@drawable/ic_thermal_settings" />
         </activity>
@@ -109,12 +117,17 @@
             <meta-data
                 android:name="com.android.settings.summary"
                 android:resource="@string/aux_camera_summary" />
+            <meta-data
+                android:name="com.android.settings.summary_uri"
+                android:value="content://org.lineageos.settings.summary/auxCameraSummary" />
         </activity>
 
         <!-- Clear Speaker -->
         <activity
             android:name=".speaker.ClearSpeakerActivity"
-            android:label="@string/clear_speaker_title">
+            android:label="@string/clear_speaker_title"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -130,6 +143,7 @@
         <activity
             android:name=".saturation.SaturationActivity"
             android:label="@string/saturation_title"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
@@ -140,6 +154,9 @@
             <meta-data
                 android:name="com.android.settings.summary"
                 android:resource="@string/saturation_summary" />
+            <meta-data
+                android:name="com.android.settings.summary_uri"
+                android:value="content://org.lineageos.settings.summary/saturationSummary" />
         </activity>
 
         <!-- Display Saturation tile service -->
