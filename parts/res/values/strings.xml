@@ -74,4 +74,5 @@
     <string name="aux_camera_summary">Hide auxiliary camera lenses from selected apps</string>
     <string name="aux_camera_enable">Enable restrictions</string>
     <string name="aux_camera_empty">No apps found</string>
+    <string name="aux_camera_limit_reached">Too many apps selected, turn another one off first</string>
 </resources>
