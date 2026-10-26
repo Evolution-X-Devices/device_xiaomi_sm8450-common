@@ -22,10 +22,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.Close
@@ -33,7 +35,9 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ButtonShapes
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.ListItemShapes
 import androidx.compose.material3.LocalContentColor
@@ -41,6 +45,7 @@ import androidx.compose.material3.MaterialExpressiveTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MotionScheme
 import androidx.compose.material3.ProvideTextStyle
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SegmentedListItem
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
@@ -49,18 +54,22 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.layout
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.semantics
@@ -110,6 +119,63 @@ fun ExpressiveScreen(
 
 /** Horizontal screen inset for items that live outside a [ExpressiveGroup]. */
 fun Modifier.expressiveInset(): Modifier = padding(horizontal = SettingsSpace.small1)
+
+/** Top app bar with a back arrow over the page [content], on the theme background. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ExpressiveScaffold(
+    title: String,
+    onBack: () -> Unit,
+    content: @Composable (PaddingValues) -> Unit,
+) {
+    Scaffold(
+        containerColor = MaterialTheme.colorScheme.background,
+        topBar = {
+            TopAppBar(
+                title = { Text(title) },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
+                            contentDescription = null,
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.background,
+                ),
+            )
+        },
+        content = content,
+    )
+}
+
+/** Explanatory text below the last group of a screen. */
+@Composable
+fun ExpressiveFooter(text: String, modifier: Modifier = Modifier) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(
+                horizontal = SettingsSpace.small4,
+                vertical = SettingsSpace.small1,
+            ),
+    )
+}
+
+/** Row icon from a drawable resource, tinted and sized like the XML preference icons. */
+@Composable
+fun ExpressiveIcon(@DrawableRes id: Int) {
+    Icon(
+        painter = painterResource(id),
+        contentDescription = null,
+        modifier = Modifier.size(SettingsDimension.itemIconSize),
+        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+}
 
 /**
  * Theme for every Expressive screen: SettingsTheme (SPA colours, typography, shapes) re-themed with
@@ -196,6 +262,17 @@ fun expressiveRowShapes(index: Int, count: Int): ListItemShapes {
     )
 }
 
+/**
+ * Gives the rows inside [content] the segment shapes of row [index] of [count]. [ExpressiveGroup]
+ * does this itself; use it directly for rows laid out by a lazy list.
+ */
+@Composable
+fun ExpressiveSegment(index: Int, count: Int, content: @Composable () -> Unit) {
+    CompositionLocalProvider(
+        LocalExpressiveRowShapes provides expressiveRowShapes(index = index, count = count),
+    ) { content() }
+}
+
 /** Builder passed to [ExpressiveGroup]; every [item] becomes one segment of the group. */
 class ExpressiveGroupScope internal constructor() {
     internal val items = mutableListOf<@Composable () -> Unit>()
@@ -229,10 +306,7 @@ fun ExpressiveGroup(
             verticalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall1),
         ) {
             items.forEachIndexed { index, rowContent ->
-                CompositionLocalProvider(
-                    LocalExpressiveRowShapes provides
-                        expressiveRowShapes(index = index, count = items.size),
-                ) { rowContent() }
+                ExpressiveSegment(index = index, count = items.size, content = rowContent)
             }
         }
     }
@@ -488,6 +562,7 @@ fun ExpressiveSwitchRow(
     onChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
     icon: ImageVector? = null,
+    leading: (@Composable () -> Unit)? = null,
     isEnabled: Boolean = true,
 ) {
     ExpressiveRow(
@@ -495,6 +570,7 @@ fun ExpressiveSwitchRow(
         modifier = modifier,
         summary = summaryText,
         icon = icon,
+        leading = leading,
         enabled = isEnabled,
         onClick = { onChange(!isChecked) },
         trailing = {
@@ -522,7 +598,9 @@ fun ExpressiveSliderRow(
     enabled: Boolean = true,
     onValueChangeFinished: ((Int) -> Unit)? = null,
 ) {
-    var position by rememberSaveable(value) { mutableStateOf(value.toFloat()) }
+    var position by remember { mutableFloatStateOf(value.toFloat()) }
+    // Follow external changes (reset) without fighting an active drag, which reports whole values.
+    LaunchedEffect(value) { if (value != position.roundToInt()) position = value.toFloat() }
     val shapes = currentExpressiveRowShapes()
     Surface(
         modifier = modifier
