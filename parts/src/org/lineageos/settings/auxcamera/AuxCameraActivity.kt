@@ -18,7 +18,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import org.lineageos.settings.thermal.ui.theme.ThermalTheme
+import org.lineageos.settings.auxcamera.ui.AuxCameraScreen
+import org.lineageos.settings.ui.ExpressiveTheme
 
 class AuxCameraActivity : ComponentActivity() {
 
@@ -32,7 +33,7 @@ class AuxCameraActivity : ComponentActivity() {
         launcherApps = getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
 
         setContent {
-            ThermalTheme {
+            ExpressiveTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background

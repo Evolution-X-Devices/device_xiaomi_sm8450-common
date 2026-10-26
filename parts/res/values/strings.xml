@@ -53,6 +53,7 @@
 
     <!-- Saturation -->
     <string name="saturation_title">Display Saturation</string>
+    <string name="saturation_reset">Reset to default</string>
     <string name="saturation_summary">Control the saturation level of the display</string>
     <string name="saturation_footer_summary">Changing the color mode in display settings will
           override the saturation level, requiring it to be reapplied.</string>
