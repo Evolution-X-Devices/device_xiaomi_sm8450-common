@@ -3,10 +3,16 @@ genfscon sysfs /devices/platform/soc/soc:xm_battmngr/power_supply/battery u:obje
 genfscon sysfs /devices/platform/soc/soc:xm_battmngr/power_supply/usb u:object_r:vendor_sysfs_usb_supply:s0
 
 # Display
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/dbv u:object_r:vendor_sysfs_displayfeature:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/dynamic_fps u:object_r:vendor_sysfs_displayfeature:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui u:object_r:vendor_sysfs_displayfeature:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/local_hbm u:object_r:vendor_sysfs_displayfeature:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/panel_power_state u:object_r:vendor_sysfs_displayfeature:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-secondary/dbv u:object_r:vendor_sysfs_displayfeature:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-secondary/dynamic_fps u:object_r:vendor_sysfs_displayfeature:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-secondary/fod_ui u:object_r:vendor_sysfs_displayfeature:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-secondary/local_hbm u:object_r:vendor_sysfs_displayfeature:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-secondary/panel_power_state u:object_r:vendor_sysfs_displayfeature:s0
 
 # Fingerprint
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc u:object_r:vendor_sysfs_fingerprint:s0

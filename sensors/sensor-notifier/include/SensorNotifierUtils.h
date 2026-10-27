@@ -6,9 +6,5 @@
 
 #pragma once
 
-#include <memory>
-
-#include <display/drm/mi_disp.h>
-
 bool readBool(int fd);
-std::shared_ptr<disp_event_resp> parseDispEvent(int fd);
+bool readInt(int fd, int* value);
