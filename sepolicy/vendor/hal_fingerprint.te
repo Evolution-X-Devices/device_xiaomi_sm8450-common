@@ -28,7 +28,6 @@ allow hal_fingerprint_default vendor_sysfs_graphics:file rw_file_perms;
 allow hal_fingerprint_default vendor_xdsp_device:chr_file r_file_perms;
 allow hal_fingerprint_default vendor_xdsp_device:file r_file_perms;
 allow hal_fingerprint_default mnt_vendor_file:dir search;
-allow hal_fingerprint_default vendor_displayfeature_device:chr_file { ioctl open read write };
 
 get_prop(hal_fingerprint_default, vendor_adsprpc_prop)
 get_prop(hal_fingerprint_default, vendor_panel_info_prop)
