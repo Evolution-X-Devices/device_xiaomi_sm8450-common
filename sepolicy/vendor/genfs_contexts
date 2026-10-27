@@ -2,6 +2,12 @@
 genfscon sysfs /devices/platform/soc/soc:xm_battmngr/power_supply/battery u:object_r:vendor_sysfs_battery_supply:s0
 genfscon sysfs /devices/platform/soc/soc:xm_battmngr/power_supply/usb u:object_r:vendor_sysfs_usb_supply:s0
 
+# Display
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui u:object_r:vendor_sysfs_displayfeature:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/local_hbm u:object_r:vendor_sysfs_displayfeature:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-secondary/fod_ui u:object_r:vendor_sysfs_displayfeature:s0
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-secondary/local_hbm u:object_r:vendor_sysfs_displayfeature:s0
+
 # Fingerprint
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc u:object_r:vendor_sysfs_fingerprint:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/wakeup_enable u:object_r:vendor_sysfs_fingerprint:s0
