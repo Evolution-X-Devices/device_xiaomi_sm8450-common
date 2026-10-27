@@ -12,7 +12,6 @@ binder_call(system_server, vendor_sensor_notifier)
 
 allow vendor_sensor_notifier fwk_sensor_hwservice:hwservice_manager find;
 allow vendor_sensor_notifier touchfeature_device:chr_file rw_file_perms;
-allow vendor_sensor_notifier vendor_displayfeature_device:chr_file rw_file_perms;
 allow vendor_sensor_notifier vendor_sysfs_displayfeature:file r_file_perms;
 allow vendor_sensor_notifier vendor_sysfs_sensors:file r_file_perms;
 

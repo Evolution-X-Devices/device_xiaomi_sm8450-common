@@ -84,30 +84,6 @@ on post-fs-data
     chmod 0660 /dev/ir_spi
     chown system system /dev/ir_spi
 
-    # Display feature sysfs node
-    chown system system /sys/class/mi_display/disp-DSI-0/disp_param
-    chmod 0664 /sys/class/mi_display/disp-DSI-0/disp_param
-    chown system system /sys/class/mi_display/disp-DSI-0/mipi_rw
-    chmod 0664 /sys/class/mi_display/disp-DSI-0/mipi_rw
-    chown system system /sys/class/mi_display/disp-DSI-0/panel_info
-    chmod 0444 /sys/class/mi_display/disp-DSI-0/panel_info
-    chown system system /sys/class/mi_display/disp-DSI-0/wp_info
-    chmod 0444 /sys/class/mi_display/disp-DSI-0/wp_info
-    chown system system /sys/class/mi_display/disp-DSI-0/dynamic_fps
-    chmod 0444 /sys/class/mi_display/disp-DSI-0/dynamic_fps
-    chown system system /sys/class/mi_display/disp-DSI-0/doze_brightness
-    chmod 0664 /sys/class/mi_display/disp-DSI-0/doze_brightness
-    chown system system /sys/class/mi_display/disp-DSI-0/brightness_clone
-    chmod 0664 /sys/class/mi_display/disp-DSI-0/brightness_clone
-    chown system system /sys/class/mi_display/disp-DSI-0/max_brightness_clone
-    chmod 0664 /sys/class/mi_display/disp-DSI-0/max_brightness_clone
-
-    # Display feature sysfs node for penel1
-    chown system system /sys/class/mi_display/disp-DSI-1/brightness_clone
-    chmod 0664 /sys/class/mi_display/disp-DSI-1/brightness_clone
-    chown system system /sys/class/mi_display/disp-DSI-1/max_brightness_clone
-    chmod 0664 /sys/class/mi_display/disp-DSI-1/max_brightness_clone
-
     # Local HBM
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/local_hbm
 

@@ -45,11 +45,3 @@ external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000
 external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b07 system "/vendor/bin/vmmgr -r"
 external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b08 system "/vendor/bin/vmmgr -r"
 external_firmware_handler /devices/platform/soc/soc:qcom,guestvm_loader@e0b00000/firmware/trustedvm.b09 system "/vendor/bin/vmmgr -r"
-
-# xiaomi display feature
-subsystem mi_display
-    devname uevent_devpath
-    dirname /dev/mi_display
-
-# xiaomi display feature
-/dev/mi_display/*         0666   root       graphics
