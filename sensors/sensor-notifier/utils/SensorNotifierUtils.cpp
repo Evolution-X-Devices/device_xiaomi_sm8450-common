@@ -9,6 +9,9 @@
 #include "SensorNotifierUtils.h"
 
 #include <android-base/logging.h>
+#include <unistd.h>
+
+#include <cstdlib>
 
 bool readBool(int fd) {
     char c;
@@ -29,33 +32,21 @@ bool readBool(int fd) {
     return c != '0';
 }
 
-std::shared_ptr<disp_event_resp> parseDispEvent(int fd) {
-    disp_event header;
-    ssize_t headerSize = read(fd, &header, sizeof(header));
-    if (headerSize < sizeof(header)) {
-        LOG(ERROR) << "unexpected display event header size: " << headerSize;
-        return nullptr;
+bool readInt(int fd, int* value) {
+    char buf[16];
+
+    if (lseek(fd, 0, SEEK_SET) < 0) {
+        PLOG(ERROR) << "failed to seek fd";
+        return false;
     }
 
-    std::shared_ptr<disp_event_resp> response(static_cast<disp_event_resp*>(malloc(header.length)),
-                                              free);
-    if (!response) {
-        LOG(ERROR) << "failed to allocate memory for display event response";
-        return nullptr;
+    ssize_t rc = read(fd, buf, sizeof(buf) - 1);
+    if (rc <= 0) {
+        PLOG(ERROR) << "failed to read int from fd";
+        return false;
     }
-    response->base = header;
+    buf[rc] = '\0';
 
-    int dataLength = response->base.length - sizeof(response->base);
-    if (dataLength < 0) {
-        LOG(ERROR) << "invalid data length: " << response->base.length;
-        return nullptr;
-    }
-
-    ssize_t dataSize = read(fd, &response->data, dataLength);
-    if (dataSize < dataLength) {
-        LOG(ERROR) << "unexpected display event data size: " << dataSize;
-        return nullptr;
-    }
-
-    return response;
+    *value = atoi(buf);
+    return true;
 }
