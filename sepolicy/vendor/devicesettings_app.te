@@ -1,5 +1,8 @@
 allow devicesettings_app vendor_sysfs_battery_supply:dir search;
 allow devicesettings_app vendor_sysfs_battery_supply:file r_file_perms;
+# Charge Boost writes sport_mode and pd_verifed under /sys/class/qcom-battery,
+# which device/qcom/sepolicy_vndr labels vendor_sysfs_battery_supply
+allow devicesettings_app vendor_sysfs_battery_supply:file w_file_perms;
 allow devicesettings_app vendor_sysfs_kgsl_gpuclk:file r_file_perms;
 allow devicesettings_app vendor_sysfs_graphics:dir search;
 allow devicesettings_app vendor_sysfs_graphics:file rw_file_perms;
