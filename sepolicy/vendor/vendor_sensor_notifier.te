@@ -21,4 +21,4 @@ allowxperm vendor_sensor_notifier self:{ socket qipcrtr_socket} ioctl msm_sock_i
 
 get_prop(vendor_sensor_notifier, hwservicemanager_prop)
 get_prop(vendor_sensor_notifier, vendor_sensors_prop)
-userdebug_or_eng(`get_prop(vendor_sensor_notifier, vendor_sensors_debug_prop)');
+userdebug_or_eng(`get_prop(vendor_sensor_notifier, vendor_sensors_dbg_prop)');
