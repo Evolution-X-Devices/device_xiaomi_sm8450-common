@@ -117,4 +117,12 @@
     <string name="action_vibrate">Switch ringer mode (vibrate)</string>
     <string name="action_volume">Show volume panel</string>
     <string name="action_sleep">Turn off screen</string>
+
+    <string name="charge_boost_title">Charge Boost</string>
+    <string name="charge_boost_summary">Faster wired charging</string>
+    <string name="charge_boost_switch_summary">Use the same wired fast charge boost as HyperOS</string>
+    <string name="charge_boost_unsupported">Not supported on this device</string>
+    <string name="charge_boost_force_auth_title">Force charger authentication</string>
+    <string name="charge_boost_force_auth_summary">Experimental. Marks the charger as verified when a genuine Xiaomi charger never reaches its fast mode. Leave off unless charging stays slow.</string>
+    <string name="charge_boost_footer">The phone can get warmer while charging, so the boost pauses above 42°C and resumes below 40°C. The charger must support Xiaomi fast charging, and speed is capped at the phone\'s hardware limit.</string>
 </resources>
