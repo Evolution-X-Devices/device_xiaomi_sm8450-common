@@ -179,6 +179,30 @@
             </intent-filter>
         </service>
 
+        <!-- Charge Boost -->
+        <activity
+            android:name=".charge.ChargeBoostActivity"
+            android:label="@string/charge_boost_title"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.battery" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/charge_boost_summary" />
+            <meta-data
+                android:name="com.android.settings.summary_uri"
+                android:value="content://org.lineageos.settings.summary/chargeBoostSummary" />
+        </activity>
+
+        <service
+            android:name=".charge.ChargeBoostService"
+            android:exported="false" />
+
         <!-- Clear Speaker -->
         <activity
             android:name=".speaker.ClearSpeakerActivity"
