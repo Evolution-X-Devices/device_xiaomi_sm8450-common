@@ -25,8 +25,6 @@ allow hal_fingerprint_default vendor_sysfs_fingerprint:dir r_dir_perms;
 allow hal_fingerprint_default vendor_sysfs_fingerprint:file rw_file_perms;
 allow hal_fingerprint_default vendor_sysfs_graphics:dir r_dir_perms;
 allow hal_fingerprint_default vendor_sysfs_graphics:file rw_file_perms;
-allow hal_fingerprint_default vendor_xdsp_device:chr_file r_file_perms;
-allow hal_fingerprint_default vendor_xdsp_device:file r_file_perms;
 allow hal_fingerprint_default mnt_vendor_file:dir search;
 
 get_prop(hal_fingerprint_default, vendor_adsprpc_prop)
