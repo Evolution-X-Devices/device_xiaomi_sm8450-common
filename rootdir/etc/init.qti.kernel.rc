@@ -49,6 +49,7 @@ on early-init
 
 on init
     wait_for_prop vendor.all.modules.ready 1
+    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor_dlkm/lib/modules block2mtd
 
     # Create cgroup mount point for memory
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
