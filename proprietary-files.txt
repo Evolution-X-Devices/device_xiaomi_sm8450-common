@@ -884,6 +884,7 @@ vendor/bin/qdcmss|f2fdf88062d728dba6a8dd1555f5dc00d9fa5dac
 vendor/etc/init/qdcmss.rc|53d78d686678c4f923a9ec4ace7d4d3575b13788
 vendor/etc/init/vendor.qti.hardware.display.color-service.rc|3184edb3f185e2a9e42bf610200ebac1f4e87d8f
 vendor/etc/snapdragon_color_libs_config.xml|508763df60bde900bc83eb84933d7ba89e9726bb
+vendor/lib64/libbacklight-calib.so|a5990fa87932196f9e2c38b2ec85786daa6b3a9c
 vendor/lib64/libcolor-default.so|5711b658cfff79f7f46866bd2b85ef5b7dfca58e
 vendor/lib64/libdigital-dimming.so|b71804db676b9a35d07dd119caa2efb3715ae825
 vendor/lib64/libdisp-aba.so|43d989e8bc62d78180fcf37ee64b3d78fa11eb84
