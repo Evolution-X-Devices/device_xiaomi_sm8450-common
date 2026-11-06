@@ -1,0 +1,29 @@
+type duck_rkp, domain;
+type duck_rkp_worker, domain;
+type duck_rkp_exec, exec_type, vendor_file_type, file_type;
+type hal_duck_rkp_service, hal_service_type, protected_service, service_manager_type;
+
+hal_attribute(duck_rkp)
+hal_attribute_service(hal_duck_rkp, hal_duck_rkp_service)
+hal_client_domain(system_server, hal_duck_rkp)
+hal_server_domain(duck_rkp, hal_duck_rkp)
+binder_call(hal_duck_rkp_client, hal_duck_rkp_server)
+binder_use(duck_rkp)
+
+init_daemon_domain(duck_rkp)
+domain_auto_trans(duck_rkp, duck_rkp_exec, duck_rkp_worker)
+
+allow duck_rkp self:process fork;
+allow duck_rkp self:unix_stream_socket create_stream_socket_perms;
+allow duck_rkp duck_rkp_worker:process { signal sigkill };
+
+allow duck_rkp_worker duck_rkp:fd use;
+allow duck_rkp_worker duck_rkp:unix_stream_socket { read write getattr getopt setopt };
+# /dev/smcinvoke is labeled tee_device on this platform
+allow duck_rkp_worker tee_device:chr_file rw_file_perms;
+allow duck_rkp_worker vendor_dmabuf_qseecom_heap_device:chr_file r_file_perms;
+r_dir_file(duck_rkp_worker, vendor_file)
+
+# libQSEEComAPI waits for vendor.sys.listeners.registered before talking to the TEE
+get_prop(duck_rkp_worker, vendor_tee_listener_prop)
+get_prop(duck_rkp_worker, vendor_keymint_retry_timer_prop)

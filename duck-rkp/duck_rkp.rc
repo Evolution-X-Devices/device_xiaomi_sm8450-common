@@ -1,0 +1,5 @@
+service vendor.duck_rkp /vendor/bin/duck_rkp
+    class hal
+    user system
+    group system drmrpc
+    interface aidl vendor.evo.duckrkp.IDuckRkp/default

@@ -162,7 +162,8 @@ $(call inherit-product, hardware/dolby/dolby.mk)
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm-service.clearkey
+    android.hardware.drm-service.clearkey \
+    duck_rkp
 
 # Face unlock
 TARGET_PROVIDES_FACE_UNLOCK_HAL := true
