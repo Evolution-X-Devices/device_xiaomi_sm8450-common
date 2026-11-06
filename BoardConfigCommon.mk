@@ -63,6 +63,8 @@ BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_PLATFORM_TARGET := sm8450
 TARGET_KERNEL_SOURCE := vendor/xiaomi/sm8450-build
 TARGET_KERNEL_VERSION := 6.6
+TARGET_KERNEL_BAZEL_FLAGS := \
+    --//vendor/xiaomi/sm8450-modules/qcom/opensource/audio-kernel:target_product=$(PRODUCT_DEVICE)
 
 BOARD_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
