@@ -113,7 +113,10 @@ blob_fixups: blob_fixups_user_type = {
         .add_line_if_missing('setsockopt: 1')
         .add_line_if_missing('uname: 1'),
     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
-        .regex_replace('.+dolby.+\n', ''),
+        .regex_replace('.+dolby.+\n', '')
+        .regex_replace('format="hidl"', 'format="aidl"')
+        .regex_replace('.+<(transport|version)>.+\n', '')
+        .regex_replace('.+<instance>software</instance>\n', ''),
     (
         'vendor/lib64/libdpps.so',
         'vendor/lib64/libsnapdragoncolor-manager.so',
