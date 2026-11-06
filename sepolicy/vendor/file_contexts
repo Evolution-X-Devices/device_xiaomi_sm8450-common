@@ -79,3 +79,6 @@
 # Touchscreen
 /dev/xiaomi-touch u:object_r:touchfeature_device:s0
 /vendor/bin/hw/vendor\.lineage\.touch-service\.xiaomi u:object_r:hal_lineage_touch_default_exec:s0
+
+# Duck RKP
+/vendor/bin/duck_rkp u:object_r:duck_rkp_exec:s0

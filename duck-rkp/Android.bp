@@ -1,0 +1,24 @@
+cc_binary {
+    name: "duck_rkp",
+    vendor: true,
+    compile_multilib: "64",
+    srcs: ["duck_rkp.cpp"],
+    shared_libs: [
+        "libbase",
+        "libcrypto",
+        "libdl",
+        "libbinder_ndk",
+        "vendor.evo.duckrkp-V1-ndk",
+    ],
+    static_libs: ["libcppbor"],
+    cflags: ["-Wall", "-Wextra", "-Werror"],
+    init_rc: ["duck_rkp.rc"],
+    vintf_fragments: ["duck_rkp.xml"],
+    licenses: ["duck_rkp_license"],
+}
+
+license {
+    name: "duck_rkp_license",
+    license_kinds: ["SPDX-license-identifier-MIT"],
+    license_text: ["NOTICE"],
+}
