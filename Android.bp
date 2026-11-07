@@ -19,6 +19,13 @@ install_symlink {
 }
 
 install_symlink {
+    name: "firmware_qca6490_image_symlink",
+    vendor: true,
+    installed_location: "firmware/qca6490",
+    symlink_target: "/vendor/firmware_mnt/image",
+}
+
+install_symlink {
     name: "firmware_qca6490_WCNSS_qcom_cfg.ini_symlink",
     vendor: true,
     installed_location: "firmware/wlan/qca_cld/qca6490/WCNSS_qcom_cfg.ini",
