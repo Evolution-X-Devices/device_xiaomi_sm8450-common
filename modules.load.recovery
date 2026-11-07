@@ -3,6 +3,7 @@ adsp_sleepmon.ko
 altmode-glink.ko
 arm_smmu.ko
 atmel_mxt_ts.ko
+fts_touch_spi.ko
 bam_dma.ko
 bcl_pmic5.ko
 bcl_soc.ko
@@ -66,6 +67,7 @@ hvc_gunyah.ko
 hwmon.ko
 i2c-msm-geni.ko
 i3c-master-msm-geni.ko
+ir-spi.ko
 icc-bcm-voter.ko
 icc-debug.ko
 icc-rpmh.ko
@@ -81,7 +83,7 @@ lvstest.ko
 mac80211.ko
 mdt_loader.ko
 mem-hooks.ko
-mem-offline.ko
+hwid.ko
 mem_buf.ko
 mem_buf_dev.ko
 memlat.ko
@@ -120,7 +122,12 @@ pinctrl-msm.ko
 pinctrl-spmi-gpio.ko
 pinctrl-spmi-mpp.ko
 pinctrl-waipio.ko
+mtd.ko
+mtd_blkdevs.ko
+mtdblock.ko
+mtdoops.ko
 pm8941-pwrkey.ko
+aw8697-haptic.ko
 pmic-pon-log.ko
 policy_engine.ko
 proxy-consumer.ko
@@ -138,6 +145,7 @@ qcom-ipcc.ko
 qcom-pdc.ko
 qcom-pmu-lib.ko
 qcom-pon.ko
+qti_battery_charger_main.ko
 qcom-reboot-reason.ko
 qcom-scm.ko
 qcom-spmi-adc-tm5.ko
@@ -188,10 +196,10 @@ qseecom_dlkm.ko
 qti-fixed-regulator.ko
 qti-regmap-debugfs.ko
 qti_amoled_ecm.ko
-qti_battery_charger.ko
 qti_battery_debug.ko
 qti_cpufreq_cdev.ko
 qti_devfreq_cdev.ko
+mi_thermal_interface.ko
 qti_pmic_glink.ko
 qti_qmi_cdev.ko
 qti_qmi_sensor_v2.ko
@@ -247,3 +255,6 @@ usb_f_qdss.ko
 videocc-waipio.ko
 zram.ko
 zsmalloc.ko
+xiaomi_touch.ko
+qts.ko
+goodix_ts.ko
