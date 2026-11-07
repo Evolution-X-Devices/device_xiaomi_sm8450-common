@@ -143,7 +143,7 @@ vendor/lib64/libhdrdynamic.so
 vendor/lib64/libhdrdynamicootf.so
 
 # Display SDM - from ingot-user 14 UKQ1.240227.165 release-keys
-vendor/etc/display/DPU8__.xml|2360038d60e9dff36d7f14a59a25da74bac1abe4
+vendor/etc/display/DPU8__.xml|2360038d60e9dff36d7f14a59a25da74bac1abe4|959399651711302788debc5fbf2ac9ea814e6b68
 vendor/etc/display/advanced_sf_offsets.xml|29b6b0554d6393a8be90f52fce010946abd38d52
 vendor/etc/display/thermallevel_to_fps.xml|bc38035c8f41308fc25cc30969fbbf16ab86c43f
 
@@ -855,6 +855,10 @@ vendor/lib64/libcdsprpc.so|d5ae903f995aed8b87ba1f0e66ed823f81557f29
 vendor/lib64/libfastcvdsp_stub.so|18d5afc0b2b3f69ba122221b4a64b10b5f06fb0f
 vendor/lib64/libfastcvopt.so|6dee3ab1ed787a83200983354b860b512c799a88
 
+# Data - from PDX257 ELBE-1.1.0-REL-260522-1202
+vendor/bin/shsusrd|ab22c3e3c0c0155064e1cb23df5c24952ce9b70a
+vendor/etc/init/shsusrd.rc|22ff980a8daaf62fd091485541a4c8c10fdeb4a9
+vendor/lib64/libshsc.so|4ab216b4ed1473da5e9f767adebdede85e01814e
 
 # Display (HDR) - from PDX257 ELBE-1.1.0-REL-260522-1202
 vendor/lib64/libhdr_stub.so|abd6e114d700359075ed25bfd36ef5efb42f8e15
@@ -902,6 +906,8 @@ vendor/lib64/vendor.display.color@1.4.so|0351a4a4440de088393976a3b1ecaf944accb4d
 vendor/lib64/vendor.display.color@1.5.so|f0f3f8ee44f156379339fd068b573c6fa3e5df62
 vendor/lib64/vendor.display.postproc@1.0.so|32b701eaa002560c6f44dc439161d982a1e98bdc
 
+# DRM - from PDX257 ELBE-1.1.0-REL-260522-1202
+vendor/lib64/libminkdescriptor.so|29051d50c80caa4e97184a6a9b4beecbfec2d5a2
 
 # DSP service - from PDX257 ELBE-1.1.0-REL-260522-1202
 vendor/bin/dspservice|400c1e82a56552d60ec5cbc2f5f0950fcee516cf
@@ -954,7 +960,7 @@ vendor/etc/seccomp_policy/c2audio.vendor.ext-arm.policy|bb5454a7265bb9a17349c7e2
 vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy|bb5454a7265bb9a17349c7e254412916b774ea7a|70637d1a8128df291899e8eaf42b9cee25d5e1c9
 vendor/etc/seccomp_policy/codec2.vendor.base-arm64.policy|1bd2621778d771207bdb1ad5ae902966fe3de683
 vendor/etc/seccomp_policy/codec2.vendor.ext-arm64.policy|a134d3d5d74294ca8164056b42389b1c7dbb2b65
-vendor/etc/vintf/manifest/c2_manifest_vendor.xml|fb1e3a4b9ef810dfa7a35c0b4c1bcc5090c25b95
+vendor/etc/vintf/manifest/c2_manifest_vendor.xml|fb1e3a4b9ef810dfa7a35c0b4c1bcc5090c25b95|bddae2416671ae64769f2c76f19ed4db1d6c3eae
 vendor/etc/vintf/manifest/c2_manifest_vendor_audio.xml|abffb90162a6c67b02f98b079d8a29a8e5ad51e4
 vendor/lib64/libAlacSwDec.so|9bc988fc1e2b1458fa30181c7ae853cc06e11a5d
 vendor/lib64/libApeSwDec.so|1ee273a41809faf7b5c83d7cc36dcba4838cfab6
@@ -1034,6 +1040,7 @@ vendor/lib64/vendor.qti.hardware.wifidisplaysession_aidl-V1-ndk.so;MODULE_SUFFIX
 vendor/lib64/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so|6509aff6b7046ba1210e0b49d1ef144abac78873
 
 # Misc - from ingot-user 14 UKQ1.240227.165
+vendor/bin/ssgqmigd64|fd4d2b78484bdfdf579d3124798e3096539fc64a
 vendor/lib64/liblistensoundmodel2vendor.so|5da2dd0c654427c1ad347de2212e0d25bfb4cf32
 
 # Camera - from PDX257 ELBE-1.1.0-REL-260522-1202
@@ -1041,18 +1048,9 @@ vendor/bin/hw/vendor.qti.camera.provider-service_64|f2566187feed4d735b9350aeb729
 vendor/etc/init/vendor.qti.camera.provider-service_64.rc|a4cec1edb4312381e19f8d7246cd4727c5bbe935
 vendor/etc/vintf/manifest/vendor.qti.camera.postproc-impl.xml|c5bf529645adf309ee12eca0e8fa4a8306afcfbe
 vendor/etc/vintf/manifest/vendor.qti.camera.provider.xml|a9c4f3de3f7d8b0841d75e2d1940dd5503c36892
-vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so|ec6a5b4e52dceded09199458139217b3c60109c7|fa3b5cece33bd1bfa8cde742c4cc7b481b50723e
+vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so;DISABLE_CHECKELF|ec6a5b4e52dceded09199458139217b3c60109c7|fa3b5cece33bd1bfa8cde742c4cc7b481b50723e
 
 # Camera CamX - from PDX257 ELBE-1.1.0-REL-260522-1202
 vendor/lib64/camx.device-impl.so|69596cb9d17b19d702f10f5f221c3c4fc12bd8bf
 vendor/lib64/camx.provider-impl.so|3cbbb02ad6beb46bf43652efdae3801075d8b0f3
-vendor/lib64/libcamximageformatutils.so|1748a050feb507842325d954be3a64fee28cb0a0|c39823bc128cc0db1c66dee8a568bd530872ed2a
-
-# DRM - from PDX257 ELBE-1.1.0-REL-260522-1202
-vendor/lib64/libminkdescriptor.so|29051d50c80caa4e97184a6a9b4beecbfec2d5a2
-
-# Data - from PDX257 ELBE-1.1.0-REL-260522-1202
-vendor/bin/shsusrd|ab22c3e3c0c0155064e1cb23df5c24952ce9b70a
-vendor/etc/init/shsusrd.rc|22ff980a8daaf62fd091485541a4c8c10fdeb4a9
-vendor/lib64/libshsc.so|4ab216b4ed1473da5e9f767adebdede85e01814e
-vendor/bin/ssgqmigd64|fd4d2b78484bdfdf579d3124798e3096539fc64a
+vendor/lib64/libcamximageformatutils.so;DISABLE_CHECKELF|1748a050feb507842325d954be3a64fee28cb0a0|c39823bc128cc0db1c66dee8a568bd530872ed2a
