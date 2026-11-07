@@ -633,7 +633,7 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
     disabled
     oneshot
 
-service ssgqmigd /vendor/bin/ssgqmigd
+service ssgqmigd /vendor/bin/ssgqmigd64
     class late_start
     user radio
     group radio gps system
