@@ -208,6 +208,9 @@ on boot
 
 # msm specific files that need to be created on /data
 on post-fs-data
+    # MediaProfiles is cached during Zygote preloading.
+    setprop ro.media.xml_variant.profiles ${vendor.media.target_variant}
+
     mkdir /data/vendor/misc 01771 system system
 
     # Create directory used for dump collection
