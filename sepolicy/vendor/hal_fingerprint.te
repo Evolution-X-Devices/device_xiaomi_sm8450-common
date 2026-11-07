@@ -12,7 +12,6 @@ allow hal_fingerprint_default uhid_device:chr_file rw_file_perms;
 allow hal_fingerprint_default vendor_dmabuf_qseecom_heap_device:chr_file r_file_perms;
 allow hal_fingerprint_default vendor_dmabuf_qseecom_ta_heap_device:chr_file r_file_perms;
 allow hal_fingerprint_default vendor_dmabuf_secure_cdsp_heap_device:chr_file { ioctl open read };
-allow hal_fingerprint_default vendor_xdsp_device:chr_file r_file_perms;
 allow hal_fingerprint_default dmabuf_system_heap_device:chr_file r_file_perms;
 allow hal_fingerprint_default vendor_fingerprint_data_file:dir create_dir_perms;
 allow hal_fingerprint_default vendor_fingerprint_data_file:file create_file_perms;
