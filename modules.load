@@ -102,7 +102,6 @@ msm_video.ko
 nb7vpq904m.ko
 nvmem_qfprom.ko
 nxp-nci.ko
-block2mtd.ko
 mtd.ko
 mtd_blkdevs.ko
 mtdblock.ko
