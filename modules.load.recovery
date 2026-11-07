@@ -123,6 +123,7 @@ pinctrl-msm.ko
 pinctrl-spmi-gpio.ko
 pinctrl-spmi-mpp.ko
 pinctrl-waipio.ko
+block2mtd.ko
 mtd.ko
 mtd_blkdevs.ko
 mtdblock.ko
