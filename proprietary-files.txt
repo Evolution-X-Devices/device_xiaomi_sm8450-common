@@ -493,7 +493,6 @@ vendor/bin/qti
 vendor/bin/qtigetprop
 vendor/bin/qtisetprop
 vendor/bin/rmt_storage
-vendor/bin/ssgqmigd
 vendor/bin/ssgtzd
 vendor/bin/tftp_server
 vendor/etc/data/dsi_config.xml
@@ -1033,7 +1032,7 @@ vendor/lib64/libwfdutils_proprietary.so|23d36694f93d3cbf8c713b984aa128b25ba0aefc
 vendor/lib64/vendor.qti.hardware.wifidisplaysession_aidl-V1-ndk.so;MODULE_SUFFIX=_vendor|5947566944d3ba89dfcaafc276b2a07967456b9a
 vendor/lib64/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so|6509aff6b7046ba1210e0b49d1ef144abac78873
 
-# Listen - from ingot-user 14 UKQ1.240227.165
+# Misc - from ingot-user 14 UKQ1.240227.165
 vendor/lib64/liblistensoundmodel2vendor.so|5da2dd0c654427c1ad347de2212e0d25bfb4cf32
 
 # Camera - from PDX257 ELBE-1.1.0-REL-260522-1202
@@ -1055,3 +1054,4 @@ vendor/lib64/libminkdescriptor.so|29051d50c80caa4e97184a6a9b4beecbfec2d5a2
 vendor/bin/shsusrd|ab22c3e3c0c0155064e1cb23df5c24952ce9b70a
 vendor/etc/init/shsusrd.rc|22ff980a8daaf62fd091485541a4c8c10fdeb4a9
 vendor/lib64/libshsc.so|4ab216b4ed1473da5e9f767adebdede85e01814e
+vendor/bin/ssgqmigd64|fd4d2b78484bdfdf579d3124798e3096539fc64a
