@@ -39,6 +39,7 @@ msm_qmp.ko
 nvmem_qcom-spmi-sdam.ko
 phy-generic.ko
 phy-qcom-ufs-qmp-v4-cape.ko
+phy-qcom-ufs-qmp-v4-waipio.ko
 phy-qcom-ufs.ko
 pinctrl-msm.ko
 pinctrl-waipio.ko

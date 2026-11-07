@@ -117,6 +117,7 @@ phy-msm-snps-hs.ko
 phy-msm-ssusb-qmp.ko
 phy-qcom-emu.ko
 phy-qcom-ufs-qmp-v4-cape.ko
+phy-qcom-ufs-qmp-v4-waipio.ko
 phy-qcom-ufs.ko
 pinctrl-msm.ko
 pinctrl-spmi-gpio.ko
