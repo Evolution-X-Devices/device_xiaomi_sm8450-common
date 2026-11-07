@@ -26,6 +26,24 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <manifest version="1.0" type="device" target-level="7">
+    <hal format="hidl">
+        <name>android.hardware.graphics.mapper</name>
+        <transport arch="64">passthrough</transport>
+        <version>4.0</version>
+        <interface>
+            <name>IMapper</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.display.mapper</name>
+        <transport arch="64">passthrough</transport>
+        <version>4.0</version>
+        <interface>
+            <name>IQtiMapper</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <!-- CapabilityConfigStore HAL Service  -->
     <hal format="hidl">
         <name>vendor.qti.hardware.capabilityconfigstore</name>
