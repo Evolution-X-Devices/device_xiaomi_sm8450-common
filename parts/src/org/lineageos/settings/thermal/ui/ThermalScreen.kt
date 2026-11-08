@@ -26,6 +26,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.android.settingslib.spa.framework.theme.settingsBackground
 import org.lineageos.settings.R
 import org.lineageos.settings.thermal.ThermalViewModel
 
@@ -45,6 +46,7 @@ fun ThermalScreen(
     
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        containerColor = MaterialTheme.colorScheme.settingsBackground,
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.thermal_title)) },
@@ -67,6 +69,10 @@ fun ThermalScreen(
                         )
                     }
                 },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.settingsBackground,
+                    scrolledContainerColor = MaterialTheme.colorScheme.settingsBackground,
+                ),
                 scrollBehavior = scrollBehavior
             )
         }
