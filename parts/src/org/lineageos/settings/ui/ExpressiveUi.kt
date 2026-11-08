@@ -82,6 +82,7 @@ import com.android.settingslib.spa.framework.theme.SettingsShape
 import com.android.settingslib.spa.framework.theme.SettingsSpace
 import com.android.settingslib.spa.framework.theme.SettingsTheme
 import com.android.settingslib.spa.framework.theme.isSpaExpressiveEnabled
+import com.android.settingslib.spa.framework.theme.settingsBackground
 import com.android.settingslib.spa.framework.theme.surfaceTone
 import com.android.settingslib.spa.widget.dialog.getDialogWidth
 import com.android.settingslib.spa.widget.ui.CategoryTitle
@@ -129,7 +130,7 @@ fun ExpressiveScaffold(
     content: @Composable (PaddingValues) -> Unit,
 ) {
     Scaffold(
-        containerColor = MaterialTheme.colorScheme.background,
+        containerColor = MaterialTheme.colorScheme.settingsBackground,
         topBar = {
             TopAppBar(
                 title = { Text(title) },
@@ -142,7 +143,8 @@ fun ExpressiveScaffold(
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background,
+                    containerColor = MaterialTheme.colorScheme.settingsBackground,
+                    scrolledContainerColor = MaterialTheme.colorScheme.settingsBackground,
                 ),
             )
         },
