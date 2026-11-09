@@ -25,8 +25,6 @@ vendor/lib64/libsoc_helper.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
 
-# CDSP
-
 # CNE
 vendor/app/CACertService/CACertService.apk
 vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_vendor_symlink
@@ -490,7 +488,7 @@ vendor/bin/imsdaemon
 vendor/bin/ks
 vendor/bin/mdm_helper
 vendor/bin/mdm_helper_proxy
-vendor/bin/netmgrd
+vendor/bin/netmgrd|d1a34b6db04d4c548d29db216fe07e3652614acd|6a84905e3f889b822451b6523ab5f14d9942d0f7
 vendor/bin/port-bridge
 vendor/bin/qti
 vendor/bin/qtigetprop

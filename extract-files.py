@@ -91,6 +91,8 @@ blob_fixups: blob_fixups_user_type = {
             '00 2a 80 52',
             '00 2c 80 52',
         ),
+    'vendor/bin/netmgrd': blob_fixup()
+        .add_needed('libnetmgrportutils_shim.so'),
     'vendor/bin/qcc-trd': blob_fixup()
         .replace_needed(
             'libgrpc++_unsecure.so', 'libgrpc++_unsecure_prebuilt.so'

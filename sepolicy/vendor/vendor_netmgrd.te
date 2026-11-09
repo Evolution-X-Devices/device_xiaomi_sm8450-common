@@ -1,0 +1,4 @@
+binder_call(vendor_netmgrd, servicemanager)
+binder_call(vendor_netmgrd, system_server)
+
+allow vendor_netmgrd connectivity_native_service:service_manager find;
