@@ -92,9 +92,13 @@ void NonUiNotifier::notify() {
             continue;
         }
 
+        // Read every node, even once one is enabled: an unread sysfs node
+        // keeps its event pending and poll() returns at once forever.
         bool enabled = false;
         for (size_t i = 0; i < paths.size(); ++i) {
-            enabled = enabled || readBool(pollfds[i].fd);
+            if (readBool(pollfds[i].fd)) {
+                enabled = true;
+            }
         }
         if (enabled) {
             res = mQueue->enableSensor(mSensorHandle, 20000 /* sample period */, 0 /* latency */);
