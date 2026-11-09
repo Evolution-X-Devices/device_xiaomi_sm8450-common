@@ -210,10 +210,6 @@ service vendor.mdm_helper /vendor/bin/mdm_helper
     group system wakelock
     disabled
 
-service vendor.mdm_launcher /vendor/bin/sh /vendor/bin/init.mdm.sh
-    class core
-    oneshot
-
 on property:init.svc.vendor.per_mgr=running
     start vendor.per_proxy
 
