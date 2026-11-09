@@ -1,1 +1,4 @@
 allow vendor_location vendor_sysfs_soc_sensitive:file r_file_perms;
+
+# loc_launcher stops and restarts its daemons (as in sepolicy_vndr sm8650)
+allow vendor_location vendor_location_xtra_daemon:process { signal sigkill sigstop };
