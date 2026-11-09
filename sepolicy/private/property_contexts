@@ -8,3 +8,10 @@ settingsdebug.instant.packages u:object_r:settingslib_prop:s0
 # XiaomiParts
 sys.perf_mode_active                         u:object_r:exported_system_prop:s0
 persist.sys.aux_camera_control               u:object_r:aux_camera_control_prop:s0
+
+# Xiaomi properties read by vendor blobs (qcrild)
+ro.fota.oem                     u:object_r:build_prop:s0 exact string
+ro.mi.os.version.code           u:object_r:build_prop:s0 exact string
+ro.mi.os.version.incremental    u:object_r:build_prop:s0 exact string
+ro.product.marketname           u:object_r:build_prop:s0 exact string
+ro.product.mod_device           u:object_r:build_prop:s0 exact string
