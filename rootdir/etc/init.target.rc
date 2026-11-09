@@ -103,6 +103,10 @@ on early-boot
     # Wait for ADSP FastRPC device before dependent services
     wait /dev/fastrpc-adsp 2
 
+    # USB controller configuration. Set it before init.rc runs class_start hal
+    # on boot: the QTI gadget HAL exits when it is not defined yet.
+    setprop vendor.usb.controller a600000.dwc3
+
     # Let surfaceflinger and its RenderEngine use the big cluster
     mkdir /dev/cpuset/surfaceflinger
     write /dev/cpuset/surfaceflinger/cpus 4-7
@@ -127,8 +131,6 @@ on boot
     chmod 0660 /sys/devices/platform/soc/980000.i2c/i2c-0/0-0062/trusted_touch_event
     chown system /sys/devices/system/cpu/hyp_core_ctl/enable
     chown system /sys/devices/system/cpu/hyp_core_ctl/hcc_min_freq
-    #USB controller configuration
-    setprop vendor.usb.controller a600000.dwc3
 
     # Xiaomi Thermal Profiles permissions
     chmod 0664 /sys/class/thermal/thermal_message/sconfig
