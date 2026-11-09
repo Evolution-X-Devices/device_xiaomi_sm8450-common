@@ -18,6 +18,7 @@ allow hal_camera_default sys_thermal_flash_state:file rw_file_perms;
 r_dir_file(hal_camera_default, mnt_vendor_file)
 r_dir_file(hal_camera_default, camera_persist_file)
 r_dir_file(hal_camera_default, vendor_persist_sensors_file)
+r_dir_file(hal_camera_default, vendor_sysfs_battery_supply)
 
 set_prop(hal_camera_default, vendor_camera_p3enable_prop)
 set_prop(hal_camera_default, vendor_camera_sensor_prop)
