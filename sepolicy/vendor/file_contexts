@@ -11,6 +11,7 @@
 /vendor/lib(64)?/libQnnHtpV69Stub\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libQnnHtp\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libSNPE\.so u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libsnpe_cxxabi_shim\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libSnpeGpu\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libSnpeHtpPrepare\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libSnpeHtpV68Stub\.so u:object_r:same_process_hal_file:s0
