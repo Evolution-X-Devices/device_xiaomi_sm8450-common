@@ -491,10 +491,6 @@ on property:persist.debug.trace=1
 on property:vendor.media.target.version=*
     setprop vendor.sys.media.target.version ${vendor.media.target.version}
 
-on property:vendor.media.target_variant=*
-    setprop ro.media.xml_variant.codecs ${vendor.media.target_variant}
-    setprop ro.media.xml_variant.codecs_performance ${vendor.media.target_variant}
-
 service qcom-c_main-sh /vendor/bin/init.class_main.sh
     class main
     user root
