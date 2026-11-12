@@ -12,3 +12,4 @@ allow init proc:file write;
 # FPS info
 allow init vendor_sysfs_graphics:dir search;
 allow init vendor_sysfs_graphics:file rw_file_perms;
+allow vendor_init proc_sched:file w_file_perms;
