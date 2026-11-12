@@ -100,8 +100,10 @@ on post-fs-data
 on early-boot
     start vendor.sensors
     verity_update_state
-    # Wait for ADSP FastRPC device before dependent services
+    # Wait for the FastRPC devices before dependent services
     wait /dev/fastrpc-adsp 2
+    wait /dev/fastrpc-cdsp 2
+    wait /dev/fastrpc-sdsp 2
 
     # USB controller configuration. Set it before init.rc runs class_start hal
     # on boot: the QTI gadget HAL exits when it is not defined yet.
