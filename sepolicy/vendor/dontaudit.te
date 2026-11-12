@@ -8,3 +8,11 @@ dontaudit vendor_hal_gnss_qti vendor_pd_locater_dbg_prop:file r_file_perms;
 # servicemanager binder call denials - handled upstream
 dontaudit servicemanager hal_power_default:binder call;
 dontaudit servicemanager usbd:binder call;
+
+# The camera HAL probes /data/local/tmp and /data at start-up for debug
+# configuration that is not needed at runtime
+dontaudit hal_camera_default { shell_data_file system_data_file }:dir search;
+
+# The audio HAL reads the boot status property on init; vendor domains are
+# not allowed to read it and the value is not needed
+dontaudit hal_audio_default boot_status_prop:file r_file_perms;
