@@ -162,6 +162,8 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/test
 endif
 
 # VINTF
+# hardware/dolby installs its DMS, Codec2 and DVS manifests through PRODUCT_COPY_FILES
+BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 
 DEVICE_MANIFEST_SKUS := taro diwali cape ukee
