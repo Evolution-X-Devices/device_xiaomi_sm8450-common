@@ -86,9 +86,12 @@ void NonUiNotifier::notify() {
     }
 
     while (mActive) {
-        int rc = poll(pollfds, paths.size(), -1);
+        int rc = poll(pollfds, paths.size(), 500);
         if (rc < 0) {
             LOG(ERROR) << "failed to poll, err: " << rc;
+            continue;
+        }
+        if (rc == 0) {
             continue;
         }
 

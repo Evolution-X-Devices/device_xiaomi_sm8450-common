@@ -83,9 +83,6 @@ void SensorNotifier::activate() {
 }
 
 void SensorNotifier::deactivate() {
-    if (!mActive) {
-        return;
-    }
     mActive = false;
     if (mThread.joinable()) {
         mThread.join();

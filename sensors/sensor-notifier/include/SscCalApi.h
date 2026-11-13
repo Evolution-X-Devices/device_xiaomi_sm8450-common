@@ -7,6 +7,7 @@
 #pragma once
 
 #include <cstdint>
+#include <mutex>
 
 enum notify_t {
     BRIGHTNESS = 17,
@@ -45,4 +46,5 @@ class SscCalApiWrapper {
     void* mSscCalApiHandle;
     process_msg_t process_msg;
     init_current_sensors_t init_current_sensors;
+    std::mutex mMutex;
 };

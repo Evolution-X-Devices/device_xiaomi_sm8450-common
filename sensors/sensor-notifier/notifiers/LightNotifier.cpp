@@ -114,7 +114,7 @@ void LightNotifier::notify() {
             }
         }
 
-        int rc = poll(pollfds.data(), pollfds.size(), -1);
+        int rc = poll(pollfds.data(), pollfds.size(), 500);
         if (rc < 0) {
             PLOG(ERROR) << "failed to poll display nodes";
         }
