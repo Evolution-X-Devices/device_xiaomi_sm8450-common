@@ -47,12 +47,21 @@ int getXiaomiFormat(const XiaomiGrallocProperties& properties, std::uint32_t& fo
     constexpr std::uint32_t nv12 = 3;
     constexpr std::uint32_t nv21 = 4;
 
-    if (properties.forceNV12 == 1 &&
-        (properties.pixelFormat == implementationDefined ||
-         properties.pixelFormat == flexibleYuv420)) {
+    // Mirrors the stock GetFormat: for internal flexible YUV420 streams the default is NV12,
+    // forceNV12 wins, and NV21 is chosen by forceNV21 or when usage has all of bits 0, 1 and 17.
+    constexpr std::uint64_t nv21UsageMask = 0x20003;
+
+    if (properties.pixelFormat == flexibleYuv420) {
+        if (properties.forceNV12 == 1) {
+            format = nv12;
+        } else if (properties.forceNV21 == 1 ||
+                   (properties.usage & nv21UsageMask) == nv21UsageMask) {
+            format = nv21;
+        } else {
+            format = nv12;
+        }
+    } else if (properties.pixelFormat == implementationDefined && properties.forceNV12 == 1) {
         format = nv12;
-    } else if (properties.forceNV21 == 1 && properties.pixelFormat == flexibleYuv420) {
-        format = nv21;
     }
     return result;
 }
