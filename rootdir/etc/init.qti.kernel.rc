@@ -51,6 +51,7 @@ on early-init
 on init
     wait_for_prop init.svc.vendor.modprobe stopped
     exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor_dlkm/lib/modules block2mtd
+    exec_background u:r:vendor_qti_init_shell_bg:s0 -- /vendor/bin/init.qti.write.sh /sys/kernel/boot_adsp/boot 1
 
     # Create cgroup mount point for memory
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
@@ -67,7 +68,6 @@ on post-fs
 
 on early-boot
     # Allow subsystem (modem etc) debugging
-    exec_background u:r:vendor_qti_init_shell_bg:s0 -- /vendor/bin/init.qti.write.sh /sys/kernel/boot_adsp/boot 1
     exec_background u:r:vendor_qti_init_shell_bg:s0 -- /vendor/bin/init.qti.write.sh /sys/kernel/boot_cdsp/boot 1
     exec_background u:r:vendor_qti_init_shell_bg:s0 -- /vendor/bin/init.qti.write.sh /sys/devices/virtual/cvp/cvp/boot 1
 

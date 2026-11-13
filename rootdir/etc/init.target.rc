@@ -174,11 +174,6 @@ on property:vendor.display.lcd_density=560
 on property:vendor.display.lcd_density=640
    setprop dalvik.vm.heapgrowthlimit 512m
 
-on init && property:ro.boot.mode=charger
-    wait_for_prop init.svc.vendor.modprobe stopped
-    wait /sys/kernel/boot_adsp/boot
-    write /sys/kernel/boot_adsp/boot 1
-
 on charger
     restart vendor.charger
     start vendor.power_off_alarm
