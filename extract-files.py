@@ -117,7 +117,18 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/etc/media_diwali_v2/video_system_specs.json',
         'vendor/etc/media_taro/video_system_specs.json',
         'vendor/etc/media_ukee/video_system_specs.json',
-    ): blob_fixup().regex_replace('.*"libqc2vppfilter.so"\n', ''),
+    ): blob_fixup()
+        .regex_replace('.*"libqc2vppfilter.so"\n', '')
+        .regex_replace(
+            r'(\s*)// list of codec plugin libraries to be loaded into codec registry\n',
+            '''\\1"DolbyVision": {
+            "profiles": [5, 8],
+            "max_main_tier_level": 12,
+            "max_high_tier_level": 12
+        },
+        // list of codec plugin libraries to be loaded into codec registry
+''',
+        ),
     'vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy': blob_fixup()
         .add_line_if_missing('getppid: 1')
         .add_line_if_missing('setsockopt: 1')
