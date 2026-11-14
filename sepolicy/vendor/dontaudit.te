@@ -16,3 +16,7 @@ dontaudit hal_camera_default { shell_data_file system_data_file }:dir search;
 # The audio HAL reads the boot status property on init; vendor domains are
 # not allowed to read it and the value is not needed
 dontaudit hal_audio_default boot_status_prop:file r_file_perms;
+
+# The fingerprint HAL lists / and the audio HAL probes /sys/kernel/debug (an empty sysfs directory when debugfs is not mounted)
+dontaudit hal_fingerprint_default rootfs:dir read;
+dontaudit hal_audio_default sysfs:dir read;
