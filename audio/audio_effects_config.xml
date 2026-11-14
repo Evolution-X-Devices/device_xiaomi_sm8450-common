@@ -141,7 +141,7 @@
     </effects>
     <postprocess>
         <stream type="music">
-            <apply effect="dlb_music_listener"/>
+            <apply effect="music_helper"/>
         </stream>
         <stream type="ring">
             <apply effect="ring_helper"/>
