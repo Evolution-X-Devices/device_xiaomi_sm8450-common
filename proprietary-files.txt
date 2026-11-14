@@ -838,8 +838,10 @@ vendor/lib64/libaudio_log_utils.so|1d75484064a6d1afaa4bf5d435342d8a04c7d471
 vendor/lib64/liblistensoundmodelaidl.so|50503c39fc351f9ad66ba68c54de59a30642339c
 vendor/lib64/libmcs.so|a4b5525bdf3bc3edde7747ba11f6629043352eed
 vendor/lib64/libpal_net_if.so|68613cea56dc04aaf260b2c2f3489aec15fac214
-vendor/lib64/libqtigefar.so|c36c9aa952d6909d90bbbcc6df3493b9068c55fa
 vendor/lib64/vendor.qti.hardware.ListenSoundModelAidl-V1-ndk.so|fd33609cc0b001db44e0b0f21e310497e95e4e98
+
+# Dolby GEF - from onyx (exports gef_interface_init, needed by the AIDL audio HAL)
+vendor/lib64/libqtigefar.so|d399551808a87b48020f2d3823e8c25172243025
 
 # Audio misc - from PDX257 ELBE-1.1.0-REL-260522-1202
 vendor/etc/models/acd/event.eai|9bf278d152e0c722ab9bcb11c19568c5ae3212c5
