@@ -28,13 +28,17 @@ SensorNotifier::~SensorNotifier() {
 
 Result SensorNotifier::initializeSensorQueue(std::string typeAsString, bool wakeup,
                                              sp<IEventQueueCallback> callback) {
-    Result res;
+    Result res = Result::UNKNOWN_ERROR;
     std::vector<SensorInfo> sensorList;
 
-    mManager->getSensorList([&sensorList, &res](const auto& l, auto r) {
+    auto status = mManager->getSensorList([&sensorList, &res](const auto& l, auto r) {
         sensorList = l;
         res = r;
     });
+    if (!status.isOk()) {
+        LOG(ERROR) << "failed to get sensors list: " << status.description();
+        return Result::UNKNOWN_ERROR;
+    }
     if (res != Result::OK) {
         LOG(ERROR) << "failed to get sensors list";
         return res;
@@ -52,14 +56,20 @@ Result SensorNotifier::initializeSensorQueue(std::string typeAsString, bool wake
         return Result::NOT_EXIST;
     }
 
-    mManager->createEventQueue(callback, [this, &res](const auto& q, auto r) {
+    res = Result::UNKNOWN_ERROR;
+    status = mManager->createEventQueue(callback, [this, &res](const auto& q, auto r) {
         this->mQueue = q;
         res = r;
     });
+    if (!status.isOk()) {
+        LOG(ERROR) << "failed to create event queue: " << status.description();
+        return Result::UNKNOWN_ERROR;
+    }
     if (res != Result::OK) {
         LOG(ERROR) << "failed to create event queue";
         return res;
     }
+    if (mQueue == nullptr) return Result::NO_INIT;
 
     return Result::OK;
 }

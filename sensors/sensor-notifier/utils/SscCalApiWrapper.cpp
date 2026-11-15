@@ -10,8 +10,10 @@
 
 #include <android-base/logging.h>
 #include <dlfcn.h>
+#include <cerrno>
 
-SscCalApiWrapper::SscCalApiWrapper() {
+SscCalApiWrapper::SscCalApiWrapper()
+    : mSscCalApiHandle(nullptr), process_msg(nullptr), init_current_sensors(nullptr) {
     mSscCalApiHandle = dlopen("libssccalapi@2.0.so", RTLD_NOW);
     if (mSscCalApiHandle) {
         init_current_sensors =
@@ -30,7 +32,7 @@ SscCalApiWrapper::SscCalApiWrapper() {
 }
 
 SscCalApiWrapper::~SscCalApiWrapper() {
-    dlclose(mSscCalApiHandle);
+    if (mSscCalApiHandle) dlclose(mSscCalApiHandle);
 }
 
 SscCalApiWrapper& SscCalApiWrapper::getInstance() {
@@ -44,10 +46,11 @@ void SscCalApiWrapper::initCurrentSensors(bool debug) {
     }
 }
 
-void SscCalApiWrapper::processMsg(_oem_msg* msg) {
+int SscCalApiWrapper::processMsg(_oem_msg* msg) {
     if (process_msg != NULL) {
         LOG(DEBUG) << "sending oem_msg for sensor " << msg->sensorType
                    << " with type: " << msg->notifyType << " and value: " << msg->value;
-        process_msg(msg);
+        return process_msg(msg);
     }
+    return -ENODEV;
 }

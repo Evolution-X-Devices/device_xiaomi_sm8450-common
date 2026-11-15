@@ -84,7 +84,7 @@ void LightNotifier::notify() {
         return;
     }
 
-    _oem_msg msg;
+    _oem_msg msg{};
 
     // Read once so that the next poll only returns on changes
     for (size_t i = 0; i < pollfds.size(); i++) {
