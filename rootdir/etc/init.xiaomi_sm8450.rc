@@ -90,8 +90,8 @@ on post-fs-data
     mkdir /mnt/vendor/persist/goodix 0770 system system
 
 on property:sys.boot_completed=1
-    # Set thermal mode to mgame
-    write /sys/devices/virtual/thermal/thermal_message/sconfig 20
+    # Set thermal mode to normal
+    write /sys/devices/virtual/thermal/thermal_message/sconfig 0
 
     # Configure uclamp
     write /proc/sys/kernel/sched_util_clamp_min_rt_default 128
