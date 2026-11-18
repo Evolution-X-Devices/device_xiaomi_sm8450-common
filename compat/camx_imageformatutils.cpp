@@ -5,6 +5,7 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <dlfcn.h>
 
 // Xiaomi's camera HAL references this four-byte, zero-initialized legacy variable.
 std::uint32_t jpeg_mult_override __asm__("_ZN4CamX16ImageFormatUtils18s_jpegMultOverrideE") = 0;
@@ -27,17 +28,30 @@ static_assert(offsetof(XiaomiGrallocProperties, isInternal) == 0x1c);
 static_assert(offsetof(XiaomiGrallocProperties, forceNV12) == 0x30);
 static_assert(offsetof(XiaomiGrallocProperties, forceNV21) == 0x34);
 
+using GetFormatFn = int (*)(const XiaomiGrallocProperties&, std::uint32_t&);
+
+GetFormatFn realGetFormat() {
+    static const GetFormatFn fn = [] {
+        void* h = dlopen("libcamximageformatutils.so", RTLD_NOW | RTLD_NOLOAD);
+        void* p = h ? dlsym(h,
+            "_ZN4CamX16ImageFormatUtils9GetFormatERNS_17GrallocPropertiesERNS_6FormatE") : nullptr;
+        return reinterpret_cast<GetFormatFn>(p);
+    }();
+    return fn;
+}
+
 }  // namespace
 
-extern "C" int getFormat(const XiaomiGrallocProperties&, std::uint32_t&)
+// Intercepts the original CamX GetFormat symbol without modifying camera.qcom.so.
+extern "C" int shimGetFormat(const XiaomiGrallocProperties&, std::uint32_t&)
         __asm__("_ZN4CamX16ImageFormatUtils9GetFormatERNS_17GrallocPropertiesERNS_6FormatE");
 
-// Only camera.qcom.so's import is redirected; newer CamX callers use the original ABI.
-extern "C" int getXiaomiFormat(const XiaomiGrallocProperties&, std::uint32_t&)
-        __asm__("_ZN4CamX16ImageFormatUtils9GetXiaomiERNS_17GrallocPropertiesERNS_6FormatE");
-
-int getXiaomiFormat(const XiaomiGrallocProperties& properties, std::uint32_t& format) {
-    const int result = getFormat(properties, format);
+int shimGetFormat(const XiaomiGrallocProperties& properties, std::uint32_t& format) {
+    const auto real = realGetFormat();
+    if (!real) {
+        return -1;
+    }
+    const int result = real(properties, format);
     if (result != 0 || properties.isInternal != 1) {
         return result;
     }

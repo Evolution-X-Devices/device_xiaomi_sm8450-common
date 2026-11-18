@@ -6,7 +6,10 @@ cc_library_shared {
     vendor: true,
     compile_multilib: "64",
     srcs: ["camx_imageformatutils.cpp"],
-    shared_libs: ["//vendor/xiaomi/sm8450-common:libcamximageformatutils"],
+    shared_libs: [
+        "//vendor/xiaomi/sm8450-common:libcamximageformatutils",
+        "libdl",
+    ],
     cflags: ["-Wall", "-Wextra", "-Werror"],
 }
 
