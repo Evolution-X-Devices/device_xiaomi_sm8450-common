@@ -28,7 +28,7 @@ static_assert(offsetof(XiaomiGrallocProperties, isInternal) == 0x1c);
 static_assert(offsetof(XiaomiGrallocProperties, forceNV12) == 0x30);
 static_assert(offsetof(XiaomiGrallocProperties, forceNV21) == 0x34);
 
-using GetFormatFn = int (*)(const XiaomiGrallocProperties&, std::uint32_t&);
+using GetFormatFn = int (*)(XiaomiGrallocProperties&, std::uint32_t&);
 
 GetFormatFn realGetFormat() {
     static const GetFormatFn fn = [] {
@@ -43,10 +43,10 @@ GetFormatFn realGetFormat() {
 }  // namespace
 
 // Intercepts the original CamX GetFormat symbol without modifying camera.qcom.so.
-extern "C" int shimGetFormat(const XiaomiGrallocProperties&, std::uint32_t&)
+extern "C" int shimGetFormat(XiaomiGrallocProperties&, std::uint32_t&)
         __asm__("_ZN4CamX16ImageFormatUtils9GetFormatERNS_17GrallocPropertiesERNS_6FormatE");
 
-int shimGetFormat(const XiaomiGrallocProperties& properties, std::uint32_t& format) {
+int shimGetFormat(XiaomiGrallocProperties& properties, std::uint32_t& format) {
     const auto real = realGetFormat();
     if (!real) {
         return -1;
