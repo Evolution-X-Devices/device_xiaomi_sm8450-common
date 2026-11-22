@@ -516,6 +516,7 @@ subsystem mem_buf_vm
 /dev/power_state           0660   system      system
 
 # Battery
+/sys/class/qcom-battery                                 charging_enabled                0660    system  system
 /sys/class/qcom-battery                                 input_suspend                   0660    system  system
 /sys/class/qcom-battery                                 reverse_chg_mode                0644    system  system
 /sys/class/qcom-battery                                 sport_mode                      0664    system  system

@@ -306,7 +306,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
-$(call soong_config_set_bool,lineage_health,charging_control_supports_bypass,false)
+$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/qcom-battery/charging_enabled)
+$(call soong_config_set_bool,lineage_health,charging_control_supports_bypass,true)
 
 # Network
 PRODUCT_COPY_FILES += \
