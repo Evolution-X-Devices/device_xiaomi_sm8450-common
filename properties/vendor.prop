@@ -129,7 +129,6 @@ debug.sf.enable_gl_backpressure=1
 debug.sf.enable_hwc_vds=0
 debug.sf.frame_rate_multiple_threshold=120
 debug.sf.hw=0
-debug.sf.predict_hwc_composition_strategy=0
 debug.sf.set_idle_timer_ms=1000
 debug.sf.treat_170m_as_sRGB=1
 debug.sf.enable_advanced_sf_phase_offset=1
