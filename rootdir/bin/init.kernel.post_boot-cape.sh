@@ -37,8 +37,8 @@ echo 1 > /sys/devices/system/cpu/cpu7/core_ctl/nr_prev_assist_thresh
 echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
 
 # Setting b.L scheduler parameters
-echo 85 85 > /proc/sys/walt/sched_downmigrate
-echo 95 95 > /proc/sys/walt/sched_upmigrate
+echo 75 85 > /proc/sys/walt/sched_downmigrate
+echo 85 95 > /proc/sys/walt/sched_upmigrate
 echo 85 > /proc/sys/walt/sched_group_downmigrate
 echo 100 > /proc/sys/walt/sched_group_upmigrate
 echo 1 > /proc/sys/walt/sched_walt_rotate_big_tasks
@@ -74,8 +74,8 @@ echo 1804800 > /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
 echo 1 > /sys/devices/system/cpu/cpufreq/policy0/walt/pl
 
 # configure input boost settings
-echo 1132800 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
-echo 100 > /proc/sys/walt/input_boost/input_boost_ms
+echo 1132800 0 0 0 1113600 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
+echo 120 > /proc/sys/walt/input_boost/input_boost_ms
 
 # configure governor settings for gold cluster
 echo "walt" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
