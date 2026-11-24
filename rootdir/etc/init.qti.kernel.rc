@@ -87,27 +87,19 @@ on boot
     chown root system /sys/kernel/dload/dload_mode
     chmod 0660 /sys/kernel/dload/dload_mode
 
-    # set the io-scheduler to bfq on all mq support devices
-    write /sys/block/sda/queue/scheduler bfq
-    write /sys/block/sdb/queue/scheduler bfq
-    write /sys/block/sdc/queue/scheduler bfq
-    write /sys/block/sdd/queue/scheduler bfq
-    write /sys/block/sde/queue/scheduler bfq
-    write /sys/block/sdf/queue/scheduler bfq
-    write /sys/block/sdg/queue/scheduler bfq
-    write /sys/block/sdh/queue/scheduler bfq
+    # set the io-scheduler to mq-deadline on UFS devices and bfq on eMMC/SD
+    write /sys/block/sda/queue/scheduler mq-deadline
+    write /sys/block/sdb/queue/scheduler mq-deadline
+    write /sys/block/sdc/queue/scheduler mq-deadline
+    write /sys/block/sdd/queue/scheduler mq-deadline
+    write /sys/block/sde/queue/scheduler mq-deadline
+    write /sys/block/sdf/queue/scheduler mq-deadline
+    write /sys/block/sdg/queue/scheduler mq-deadline
+    write /sys/block/sdh/queue/scheduler mq-deadline
     write /sys/class/block/mmcblk0/queue/scheduler bfq
     write /sys/class/block/mmcblk1/queue/scheduler bfq
 
     # update io-scheduler tunables
-    write /sys/block/sda/queue/iosched/slice_idle 0
-    write /sys/block/sdb/queue/iosched/slice_idle 0
-    write /sys/block/sdc/queue/iosched/slice_idle 0
-    write /sys/block/sdd/queue/iosched/slice_idle 0
-    write /sys/block/sde/queue/iosched/slice_idle 0
-    write /sys/block/sdf/queue/iosched/slice_idle 0
-    write /sys/block/sdg/queue/iosched/slice_idle 0
-    write /sys/block/sdh/queue/iosched/slice_idle 0
     write /sys/class/block/mmcblk0/queue/iosched/slice_idle 0
     write /sys/class/block/mmcblk1/queue/iosched/slice_idle 0
 
@@ -155,10 +147,10 @@ service kernel-post-boot /vendor/bin/sh /vendor/bin/init.kernel.post_boot.sh
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
-    #Reset read ahead for dm-0, dm-1 and dm-2 to 512kb
-    write /sys/block/dm-0/queue/read_ahead_kb 512
-    write /sys/block/dm-1/queue/read_ahead_kb 512
-    write /sys/block/dm-2/queue/read_ahead_kb 512
+    #Reset read ahead for dm-0, dm-1 and dm-2 to 128kb
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+    write /sys/block/dm-1/queue/read_ahead_kb 128
+    write /sys/block/dm-2/queue/read_ahead_kb 128
     write /proc/sys/vm/page-cluster 0
     start kernel-boot
     start kernel-post-boot
