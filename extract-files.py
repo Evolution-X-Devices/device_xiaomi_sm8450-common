@@ -66,6 +66,25 @@ blob_fixups: blob_fixups_user_type = {
             r'(IGNORED_IRQ=27,23,38)$',
             r'\1,115,332'
         ),
+    'vendor/etc/perf/perfboostsconfig.xml': blob_fixup()
+        .regex_replace(
+            r'(Id="0x00001080" Type="2" Enable="true" )Target="cape"( Fps="(?:60|90|120|144)")',
+            r'\1Target="taro,cape,ukee"\2',
+        )
+        .regex_replace(
+            r'(Id="0x000010B0" Type="0" Enable="true" Timeout="0" )Target="taro,cape"',
+            r'\1Target="taro,cape,ukee"',
+        ),
+    'vendor/etc/perf/targetsysnodesconfigs.xml': blob_fixup()
+        .regex_replace(
+            r'(\s*<SysNode Idx="0x8" Node="/sys/kernel/msm_performance/parameters/evnt_gplaf_pid" />)',
+            r'\1\n'
+            r'        <SysNode Idx="0xB" Node="/sys/kernel/msm_performance/notify/aggr_big_nr" />\n'
+            r'        <SysNode Idx="0xC" Node="/sys/kernel/msm_performance/notify/aggr_top_load" />\n'
+            r'        <SysNode Idx="0xD" Node="/sys/kernel/msm_performance/parameters/core_ctl_register" />\n'
+            r'        <SysNode Idx="0xE" Node="/sys/kernel/msm_performance/notify/top_load_cluster" />\n'
+            r'        <SysNode Idx="0xF" Node="/sys/kernel/msm_performance/notify/curr_cap_cluster" />',
+        ),
     (
         'vendor/bin/hw/android.hardware.security.keymint-service-qti',
         'vendor/lib64/libqtikeymint.so',
