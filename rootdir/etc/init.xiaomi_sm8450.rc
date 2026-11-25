@@ -117,20 +117,6 @@ service vendor.nv_mac /vendor/bin/nv_mac
     group system inet net_admin wifi net_raw
     oneshot
 
-service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
-    override
-    class hal
-    user audioserver
-    # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
-    group audio camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct oem_2901 wakelock context_hub system
-    capabilities BLOCK_SUSPEND SYS_NICE
-    # setting RLIMIT_RTPRIO allows binder RT priority inheritance
-    rlimit rtprio 10 10
-    ioprio rt 4
-    task_profiles ProcessCapacityHigh HighPerformance
-    onrestart restart audioserver
-    socket audio_us_socket_0 seqpacket 0666 system system
-
 service vendor.sensors-hal-multihal /vendor/bin/hw/android.hardware.sensors-service.xiaomi-multihal
     override
     class hal

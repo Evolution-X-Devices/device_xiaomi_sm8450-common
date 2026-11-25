@@ -29,7 +29,6 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #=============================================================================
-import /vendor/etc/init/hw/init.qti.kernel.test.rc
 
 on early-init
     exec_start gki.modprobe
@@ -55,12 +54,6 @@ on init
     write /sys/fs/cgroup/memory/bg/memory.move_charge_at_immigrate 1
     chown root system /sys/fs/cgroup/memory/bg/tasks
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
-
-    # update scheduler tunables
-    write /dev/cpuctl/foreground/cpu.uclamp.sched_boost_no_override 1
-    write /dev/cpuctl/background/cpu.uclamp.colocate 0
-    write /dev/cpuctl/foreground/cpu.uclamp.colocate 0
-    write /dev/cpuctl/top-app/cpu.uclamp.colocate 1
 
 on post-fs
     # set aggressive read ahead for dm-0 and dm-1 during boot up
