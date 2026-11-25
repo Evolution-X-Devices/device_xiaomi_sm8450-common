@@ -21,17 +21,6 @@ cnss_plat_ipc_qmi_svc.ko
 cnss_prealloc.ko
 cnss_utils.ko
 core_hang_detect.ko
-coresight-csr.ko
-coresight-cti.ko
-coresight-dummy.ko
-coresight-funnel.ko
-coresight-remote-etm.ko
-coresight-replicator.ko
-coresight-stm.ko
-coresight-tgu.ko
-coresight-tmc.ko
-coresight-tpda.ko
-coresight-tpdm.ko
 coresight.ko
 cpu_voltage_cooling.ko
 dcc_v2.ko
@@ -40,7 +29,6 @@ debugcc-waipio.ko
 drm_display_helper.ko
 drm_dp_aux_bus.ko
 dwc3-msm.ko
-ehset.ko
 eud.ko
 frpc-adsprpc.ko
 fsa4480-i2c.ko
@@ -76,7 +64,6 @@ lpass_cdc_tx_macro_dlkm.ko
 lpass_cdc_va_macro_dlkm.ko
 lpass_cdc_wsa2_macro_dlkm.ko
 lpass_cdc_wsa_macro_dlkm.ko
-lvstest.ko
 aw882xx_dlkm.ko
 cs35l41_dlkm.ko
 machine_dlkm.ko
@@ -128,7 +115,6 @@ qca_cld3_qca6490.ko
 qce50_dlkm.ko
 qcedev-mod_dlkm.ko
 qcom-amoled-regulator.ko
-qcom-cpufreq-hw-debug.ko
 qcom-hv-haptics.ko
 qcom-i2c-pmic.ko
 qcom-pon.ko
@@ -164,7 +150,6 @@ qrtr-smd.ko
 qsee_ipc_irq_bridge.ko
 qseecom_dlkm.ko
 qti_amoled_ecm.ko
-qti_battery_debug.ko
 qti_cpufreq_cdev.ko
 qti_devfreq_cdev.ko
 mi_thermal_interface.ko
@@ -172,7 +157,6 @@ qti_pmic_glink.ko
 qti_qmi_cdev.ko
 qti_qmi_sensor_v2.ko
 qti_userspace_cdev.ko
-rdbg.ko
 redriver.ko
 repeater-i2c-eusb2.ko
 repeater.ko
@@ -205,11 +189,6 @@ spi-msm-geni.ko
 spmi-pmic-arb-debug.ko
 sps_drv.ko
 spss_utils.ko
-stm_console.ko
-stm_core.ko
-stm_ftrace.ko
-stm_p_basic.ko
-stm_p_ost.ko
 stub_dlkm.ko
 swr_ctrl_dlkm.ko
 swr_dlkm.ko

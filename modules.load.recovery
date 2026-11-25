@@ -17,17 +17,6 @@ clk-qcom.ko
 clk-rpmh.ko
 cmd-db.ko
 core_hang_detect.ko
-coresight-csr.ko
-coresight-cti.ko
-coresight-dummy.ko
-coresight-funnel.ko
-coresight-remote-etm.ko
-coresight-replicator.ko
-coresight-stm.ko
-coresight-tgu.ko
-coresight-tmc.ko
-coresight-tpda.ko
-coresight-tpdm.ko
 coresight.ko
 cpu_hotplug.ko
 cpu_voltage_cooling.ko
@@ -42,7 +31,6 @@ dispcc-waipio.ko
 drm_display_helper.ko
 drm_dp_aux_bus.ko
 dwc3-msm.ko
-ehset.ko
 eud.ko
 fsa4480-i2c.ko
 gcc-waipio.ko
@@ -79,7 +67,6 @@ libarc4.ko
 llcc-qcom.ko
 llcc_perfmon.ko
 lontium-lt9611uxc.ko
-lvstest.ko
 mac80211.ko
 mdt_loader.ko
 mem-hooks.ko
@@ -137,7 +124,6 @@ pwm-qti-lpg.ko
 q6_notifier_dlkm.ko
 q6_pdr_dlkm.ko
 qcom-amoled-regulator.ko
-qcom-cpufreq-hw-debug.ko
 qcom-cpufreq-hw.ko
 qcom-dcvs.ko
 qcom-dload-mode.ko
@@ -198,7 +184,6 @@ qseecom_dlkm.ko
 qti-fixed-regulator.ko
 qti-regmap-debugfs.ko
 qti_amoled_ecm.ko
-qti_battery_debug.ko
 qti_cpufreq_cdev.ko
 qti_devfreq_cdev.ko
 mi_thermal_interface.ko
@@ -206,7 +191,6 @@ qti_pmic_glink.ko
 qti_qmi_cdev.ko
 qti_qmi_sensor_v2.ko
 qti_userspace_cdev.ko
-rdbg.ko
 reboot-mode.ko
 redriver.ko
 repeater-i2c-eusb2.ko
@@ -235,11 +219,6 @@ spi-msm-geni.ko
 spmi-pmic-arb-debug.ko
 spmi-pmic-arb.ko
 sps_drv.ko
-stm_console.ko
-stm_core.ko
-stm_ftrace.ko
-stm_p_basic.ko
-stm_p_ost.ko
 stub-regulator.ko
 sync_fence.ko
 sys_pm_vx.ko
