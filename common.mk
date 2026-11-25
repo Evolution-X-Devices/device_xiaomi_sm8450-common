@@ -182,6 +182,7 @@ PRODUCT_COPY_FILES += \
     hardware/qcom-caf/sm8450-6.6/display/core/snapalloc/resources/formats.json:$(TARGET_COPY_OUT_VENDOR)/etc/display/formats.json
 
 # Dolby
+TARGET_INCLUDES_DolbyVision := true
 $(call inherit-product, hardware/dolby/dolby.mk)
 
 # DRM
