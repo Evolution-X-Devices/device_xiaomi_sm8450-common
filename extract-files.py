@@ -114,7 +114,7 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('.+media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).+\n', '')
         .regex_replace(
             r'(\s*)<Include href="media_codecs_c2_audio.xml" />',
-            r'\1<Include href="media_codecs_dolby_audio.xml" />\1<Include href="media_codecs_c2_audio.xml" />',
+            r'\1<Include href="media_codecs_dolby_audio.xml" />\1<Include href="media_codecs_dolby_vision.xml" />\1<Include href="media_codecs_c2_audio.xml" />',
         ),
     (
         'vendor/etc/media_cape/video_system_specs.json',
