@@ -72,7 +72,6 @@ BOARD_VENDOR_RAMDISK_FRAGMENTS := dlkm
 BOARD_VENDOR_RAMDISK_FRAGMENT.dlkm.KERNEL_MODULE_DIRS := top
 
 BOARD_KERNEL_CMDLINE := \
-    disable_dma32=on \
     log_buf_len=1M \
     printk.devkmsg=on \
     scsi_mod.scan=sync
